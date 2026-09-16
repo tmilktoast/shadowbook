@@ -1,0 +1,88 @@
+:root {
+  /* Backgrounds — nothing pure white or pure black */
+  --color-bg: #ece9e3; /* soft warm gray, main page background */
+  --color-bg-panel: #f2f0ea; /* sections/cards, close to bg but distinguishable */
+  --color-bg-input: #e4e1da; /* inputs — slightly darker than panel, not stark white */
+
+  /* Text — dark muted, not pure black */
+  --color-text: #2e3136;
+  --color-text-muted: #686d75;
+
+  /* Accents — deep teal/amber read as urban/Shadowrun-ish, and stay
+     legible on a light background (neon cyan would wash out here) */
+  --color-accent: #146c74; /* muted teal — headings, focus states */
+  --color-accent-alt: #b5730c; /* muted amber/rust — secondary highlights */
+
+  /* Borders */
+  --color-border: #cfccc4;
+
+  /* Status */
+  --color-danger: #b03a2e;
+  --color-success: #146c74; /* reusing accent teal instead of green */
+
+  /* Spacing scale */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+
+  /* Typography */
+  --font-body: "Segoe UI", system-ui, sans-serif;
+  --font-mono: "Consolas", "Courier New", monospace;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+.section-heading {
+  color: var(--color-accent);
+}
+select[data-field="metatype"] {
+  width: max-content;
+}
+
+input[data-field="name"] {
+  width: 30ch;
+}
+input[data-field="gender"] {
+  width: 20ch;
+}
+
+input[type="number"] {
+  width: 10ch;
+}
+
+input[data-field^="attributes."],
+input[data-field^="special."] {
+  width: 5ch;
+}
+
+/* COLORS for fields */
+input,
+select {
+  background: var(--color-bg-input);
+}
+
+/* CSS Grid for Attributes */
+.attribute-grid {
+  display: grid;
+  grid-template-columns: repeat(4, auto 1fr);
+  gap: 0.5rem 1rem;
+}
+
+/* CSS Grid for Personal Data */
+.personal-data-grid {
+  display: grid;
+  grid-template-columns: repeat(2, auto 1fr);
+  gap: 0.5rem 1rem;
+}
+
+.attribute-grid,
+.personal-data-grid {
+  align-items: center;
+}

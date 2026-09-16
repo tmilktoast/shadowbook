@@ -9,19 +9,97 @@
     <h1>Shadowbook</h1>
 
     <div id="character-sheet">
-      <p><span class="label">Name:</span> <span id="character-name"></span></p>
-      <p>
-        <span class="label">Metatype:</span>
-        <span id="character-metatype"></span>
-      </p>
-      <p>
-        <span class="label">Age:</span>
-        <span id="character-age"></span>
-      </p>
-      <p>
-        <span class="label">Gender:</span>
-        <span id="character-gender"></span>
-      </p>
+      <section id="personal-data">
+        <h2 class="section-heading">Personal Data</h2>
+        <div class="personal-data-grid">
+          <label for="character-name">Name:</label>
+          <input type="text" id="character-name" data-field="name" />
+
+          <label for="character-metatype">Metatype:</label>
+          <select id="character-metatype" data-field="metatype">
+            <option value="human" selected>Human</option>
+            <option value="elf">Elf</option>
+            <option value="dwarf">Dwarf</option>
+            <option value="ork">Ork</option>
+            <option value="troll">Troll</option>
+          </select>
+
+          <label for="character-age" class="label">Age:</label>
+          <input type="number" id="character-age" data-field="age" />
+
+          <label for="character-gender">Gender:</label>
+          <input type="text" id="character-gender" data-field="gender" />
+          <label for="character-height">Height:</label>
+          <input type="text" id="character-height" data-field="height" />
+          <label for="character-weight">Weight:</label>
+          <input type="text" id="character-weight" data-field="weight" />
+          <label for="character-reputation">Reputation:</label>
+          <input
+            type="text"
+            id="character-reputation"
+            data-field="reputation"
+          />
+          <label for="character-heat">Heat:</label>
+          <input type="text" id="character-heat" data-field="heat" />
+          <label for="character-karma">Karma:</label>
+          <input type="text" id="character-karma" data-field="karma" />
+        </div>
+      </section>
+      <section id="attributes">
+        <h2 class="section-heading">Attributes</h2>
+        <div class="attribute-grid">
+          <label for="attributes-body" class="label">Body:</label>
+          <input
+            type="number"
+            id="attributes-body"
+            data-field="attributes.body"
+          />
+          <label for="attributes-agility" class="label">Agility:</label>
+          <input
+            type="number"
+            id="attributes-agility"
+            data-field="attributes.agility"
+          />
+          <label for="attributes-reaction" class="label">Reaction:</label>
+          <input
+            type="number"
+            id="attributes-reaction"
+            data-field="attributes.reaction"
+          />
+          <label for="attributes-strength" class="label">Strength:</label>
+          <input
+            type="number"
+            id="attributes-strength"
+            data-field="attributes.strength"
+          />
+          <label for="attributes-willpower" class="label">Willpower:</label>
+          <input
+            type="number"
+            id="attributes-willpower"
+            data-field="attributes.willpower"
+          />
+          <label for="attributes-logic" class="label">Logic:</label>
+          <input
+            type="number"
+            id="attributes-logic"
+            data-field="attributes.logic"
+          />
+          <label for="attributes-intuition" class="label">Intuition:</label>
+          <input
+            type="number"
+            id="attributes-intuition"
+            data-field="attributes.intuition"
+          />
+          <label for="attributes-charisma" class="label">Charisma:</label>
+          <input
+            type="number"
+            id="attributes-charisma"
+            data-field="attributes.charisma"
+          />
+          <label for="special-edge" class="label">Edge:</label>
+          <input type="number" id="special-edge" data-field="special.edge" />
+        </div>
+      </section>
     </div>
 
     <script src="js/main.js"></script>
