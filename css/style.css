@@ -29,6 +29,7 @@
   /* Typography */
   --font-body: "Segoe UI", system-ui, sans-serif;
   --font-mono: "Consolas", "Courier New", monospace;
+  --text-sm: 0.75rem;
 }
 
 body {
@@ -39,6 +40,24 @@ body {
   margin: 0 auto;
   padding: 0 1rem;
 }
+
+.text-sm {
+  font-size: var(--text-sm);
+}
+
+/* PRIORITY TABLE */
+#priority-table {
+  table-layout: fixed;
+
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+#priority-table td:nth-child(2),
+#priority-table td:nth-child(5) {
+  font-size: var(--text-sm);
+}
+
 .section-heading {
   color: var(--color-accent);
 }
@@ -60,6 +79,10 @@ input[type="number"] {
 input[data-field^="attributes."],
 input[data-field^="special."] {
   width: 5ch;
+}
+
+input[data-field^="height"] {
+  width: 10ch;
 }
 
 /* COLORS for fields */

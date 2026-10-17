@@ -53,7 +53,128 @@ const character = {
     resonance: 0,
     essence: 6,
   },
+  priorities: {
+    // used for character creation only
+    metatype: null, // "A" through "E"
+    attributes: null,
+    skills: null,
+    magic: null,
+    resources: null,
+  },
 };
+
+const priorityTable = [
+  {
+    priority: "A",
+    metatype: { options: ["dwarf", "ork", "troll"], points: 13 },
+    attributePoints: 24,
+    skillPoints: 32,
+    magic:
+      "Full: 4 Magic, Aspected: 5 Magic, Mystic Adept: 4 Magic, Adept: 4 Magic, Technomancer: 4 Resonance",
+    nuyen: 450000,
+  },
+  {
+    priority: "B",
+    metatype: { options: ["dwarf", "elf", "ork", "troll"], points: 11 },
+    attributePoints: 16,
+    skillPoints: 24,
+    magic:
+      "Full: 3 Magic, Aspected: 4 Magic, Mystic Adept: 3 Magic, Adept: 3 Magic, Technomancer: 3 Resonance",
+    nuyen: 275000,
+  },
+  {
+    priority: "C",
+    metatype: {
+      options: ["dwarf", "elf", "human", "ork", "troll"],
+      points: 9,
+    },
+    attributePoints: 12,
+    skillPoints: 20,
+    magic:
+      "Full: 2 Magic, Aspected: 3 Magic, Mystic Adept: 2 Magic, Adept: 2 Magic, Technomancer: 2 Resonance",
+    nuyen: 150000,
+  },
+  {
+    priority: "D",
+    metatype: {
+      options: ["dwarf", "elf", "human", "ork", "troll"],
+      points: 4,
+    },
+    attributePoints: 8,
+    skillPoints: 16,
+    magic:
+      "Full: 1 Magic, Aspected: 2 Magic, Mystic Adept: 1 Magic, Adept: 1 Magic, Technomancer: 1 Resonance",
+    nuyen: 50000,
+  },
+  {
+    priority: "E",
+    metatype: {
+      options: ["dwarf", "elf", "human", "ork", "troll"],
+      points: 1,
+    },
+    attributePoints: 2,
+    skillPoints: 10,
+    magic: "Mundane",
+    nuyen: 8000,
+  },
+];
+
+// Create a container for the body of the Priority Table in the html file
+const priorityTableBody = document.querySelector("#priority-table tbody");
+
+// This builds a cell in the Priority Table html table
+// It is called from the priorityTable.forEach method below it
+function buildPriorityCell(groupName, priorityLetter, labelText) {
+  const td = document.createElement("td");
+  const label = document.createElement("label");
+  const input = document.createElement("input");
+  input.setAttribute("type", "radio");
+  input.setAttribute("name", groupName);
+  input.value = priorityLetter;
+  label.appendChild(input);
+  label.append(" " + labelText);
+  td.appendChild(label);
+  return td;
+}
+
+const numFormatter = new Intl.NumberFormat("en-US");
+
+// Populate the HTML Priority table with rows from the
+// priorityTable above
+priorityTable.forEach((row) => {
+  const th = document.createElement("th");
+  const tr = document.createElement("tr");
+  th.setAttribute("scope", "row");
+  th.textContent = row.priority;
+  tr.appendChild(th);
+  tr.appendChild(
+    buildPriorityCell(
+      "priority-metatype",
+      row.priority,
+      `${row.metatype.options.join(", ")} (${row.metatype.points})`,
+    ),
+  );
+  tr.appendChild(
+    buildPriorityCell("priority-attributes", row.priority, row.attributePoints),
+  );
+  tr.appendChild(
+    buildPriorityCell("priority-skills", row.priority, row.skillPoints),
+  );
+  tr.appendChild(buildPriorityCell("priority-magic", row.priority, row.magic));
+  tr.appendChild(
+    buildPriorityCell(
+      "priority-resources",
+      row.priority,
+      `${numFormatter.format(row.nuyen)}¥`,
+    ),
+  );
+
+  priorityTableBody.appendChild(tr);
+});
+
+priorityTableBody.addEventListener("change", (event) => {
+  // event.target
+});
 
 // This is the Adept archetype from the book
 // This is TEST data
@@ -62,7 +183,7 @@ character.metatype = "elf";
 character.ethnicity = "";
 character.age = 35;
 character.gender = "female";
-character.height = 72;
+character.height = "6'2\"";
 character.weight = 143;
 character.reputation = 5;
 character.heat = 3;

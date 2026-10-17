@@ -8,6 +8,36 @@
   <body>
     <h1>Shadowbook</h1>
 
+    <div id="character-creation">
+      <table id="priority-table">
+        <colgroup>
+          <col style="width: 4rem" />
+          <!-- Priority -->
+          <col style="width: 12rem" class="text-sm" />
+          <!-- Metatype -->
+          <col style="width: 5rem" />
+          <!-- Attributes -->
+          <col style="width: 5rem" />
+          <!-- Skills -->
+          <col style="width: 15rem" />
+          <!-- Magic or Resonance -->
+          <col style="width: 8rem" />
+          <!-- Resources -->
+        </colgroup>
+        <thead>
+          <tr>
+            <th scope="col">Priority</th>
+            <th scope="col">Metatype</th>
+            <th scope="col">Attributes</th>
+            <th scope="col">Skills</th>
+            <th scope="col">Magic or Resonance</th>
+            <th scope="col">Resources</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
     <div id="character-sheet">
       <section id="personal-data">
         <h2 class="section-heading">Personal Data</h2>
@@ -32,17 +62,17 @@
           <label for="character-height">Height:</label>
           <input type="text" id="character-height" data-field="height" />
           <label for="character-weight">Weight:</label>
-          <input type="text" id="character-weight" data-field="weight" />
+          <input type="number" id="character-weight" data-field="weight" />
           <label for="character-reputation">Reputation:</label>
           <input
-            type="text"
+            type="number"
             id="character-reputation"
             data-field="reputation"
           />
           <label for="character-heat">Heat:</label>
-          <input type="text" id="character-heat" data-field="heat" />
+          <input type="number" id="character-heat" data-field="heat" />
           <label for="character-karma">Karma:</label>
-          <input type="text" id="character-karma" data-field="karma" />
+          <input type="number" id="character-karma" data-field="karma" />
         </div>
       </section>
       <section id="attributes">
