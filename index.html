@@ -3,133 +3,31 @@
   <head>
     <meta charset="UTF-8" />
     <title>Shadowbook</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <h1>Shadowbook</h1>
+    <div id="app">
+      <nav id="sidebar">
+        <h1>Shadowbook</h1>
+        <p class="subtitle">Anarchy 2.0 Assistant</p>
+        <ul>
+          <li><a href="#die-roller">Die Roller</a></li>
+          <li><a href="#npc-database">NPC Database</a></li>
+          <li><a href="#npc-generator">NPC Generator</a></li>
+          <li><a href="#character-builder">Character Builder</a></li>
+          <li><a href="#job-generator">Job Generator</a></li>
+        </ul>
+      </nav>
 
-    <div id="character-creation">
-      <table id="priority-table">
-        <colgroup>
-          <col style="width: 4rem" />
-          <!-- Priority -->
-          <col style="width: 12rem" class="text-sm" />
-          <!-- Metatype -->
-          <col style="width: 5rem" />
-          <!-- Attributes -->
-          <col style="width: 5rem" />
-          <!-- Skills -->
-          <col style="width: 15rem" />
-          <!-- Magic or Resonance -->
-          <col style="width: 8rem" />
-          <!-- Resources -->
-        </colgroup>
-        <thead>
-          <tr>
-            <th scope="col">Priority</th>
-            <th scope="col">Metatype</th>
-            <th scope="col">Attributes</th>
-            <th scope="col">Skills</th>
-            <th scope="col">Magic or Resonance</th>
-            <th scope="col">Resources</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
-    </div>
-
-    <div id="character-sheet">
-      <section id="personal-data">
-        <h2 class="section-heading">Personal Data</h2>
-        <div class="personal-data-grid">
-          <label for="character-name">Name:</label>
-          <input type="text" id="character-name" data-field="name" />
-
-          <label for="character-metatype">Metatype:</label>
-          <select id="character-metatype" data-field="metatype">
-            <option value="human" selected>Human</option>
-            <option value="elf">Elf</option>
-            <option value="dwarf">Dwarf</option>
-            <option value="ork">Ork</option>
-            <option value="troll">Troll</option>
-          </select>
-
-          <label for="character-age" class="label">Age:</label>
-          <input type="number" id="character-age" data-field="age" />
-
-          <label for="character-gender">Gender:</label>
-          <input type="text" id="character-gender" data-field="gender" />
-          <label for="character-height">Height:</label>
-          <input type="text" id="character-height" data-field="height" />
-          <label for="character-weight">Weight:</label>
-          <input type="number" id="character-weight" data-field="weight" />
-          <label for="character-reputation">Reputation:</label>
-          <input
-            type="number"
-            id="character-reputation"
-            data-field="reputation"
-          />
-          <label for="character-heat">Heat:</label>
-          <input type="number" id="character-heat" data-field="heat" />
-          <label for="character-karma">Karma:</label>
-          <input type="number" id="character-karma" data-field="karma" />
-        </div>
-      </section>
-      <section id="attributes">
-        <h2 class="section-heading">Attributes</h2>
-        <div class="attribute-grid">
-          <label for="attributes-body" class="label">Body:</label>
-          <input
-            type="number"
-            id="attributes-body"
-            data-field="attributes.body"
-          />
-          <label for="attributes-agility" class="label">Agility:</label>
-          <input
-            type="number"
-            id="attributes-agility"
-            data-field="attributes.agility"
-          />
-          <label for="attributes-reaction" class="label">Reaction:</label>
-          <input
-            type="number"
-            id="attributes-reaction"
-            data-field="attributes.reaction"
-          />
-          <label for="attributes-strength" class="label">Strength:</label>
-          <input
-            type="number"
-            id="attributes-strength"
-            data-field="attributes.strength"
-          />
-          <label for="attributes-willpower" class="label">Willpower:</label>
-          <input
-            type="number"
-            id="attributes-willpower"
-            data-field="attributes.willpower"
-          />
-          <label for="attributes-logic" class="label">Logic:</label>
-          <input
-            type="number"
-            id="attributes-logic"
-            data-field="attributes.logic"
-          />
-          <label for="attributes-intuition" class="label">Intuition:</label>
-          <input
-            type="number"
-            id="attributes-intuition"
-            data-field="attributes.intuition"
-          />
-          <label for="attributes-charisma" class="label">Charisma:</label>
-          <input
-            type="number"
-            id="attributes-charisma"
-            data-field="attributes.charisma"
-          />
-          <label for="special-edge" class="label">Edge:</label>
-          <input type="number" id="special-edge" data-field="special.edge" />
-        </div>
-      </section>
+      <main id="content">
+        <!-- Whichever tool is active renders here -->
+      </main>
     </div>
 
     <script src="js/main.js"></script>

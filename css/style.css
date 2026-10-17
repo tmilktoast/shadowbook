@@ -7,11 +7,13 @@
   /* Text — dark muted, not pure black */
   --color-text: #2e3136;
   --color-text-muted: #686d75;
+  --color-text-inverse: #f7f3ea; /* light cream, for text on dark/saturated backgrounds like the sidebar */
 
   /* Accents — deep teal/amber read as urban/Shadowrun-ish, and stay
      legible on a light background (neon cyan would wash out here) */
   --color-accent: #146c74; /* muted teal — headings, focus states */
   --color-accent-alt: #b5730c; /* muted amber/rust — secondary highlights */
+  --color-sidebar-bg: #e2b45f; /* lighter gold, sized for a background with dark text on top */
 
   /* Borders */
   --color-border: #cfccc4;
@@ -29,60 +31,39 @@
   /* Typography */
   --font-body: "Segoe UI", system-ui, sans-serif;
   --font-mono: "Consolas", "Courier New", monospace;
+  --font-display: "Anton", var(--font-body); /* big, bold titles */
+  --font-heading: "Oswald", var(--font-body); /* section headings, nav */
   --text-sm: 0.75rem;
+
+  /* Subtle paper-grain texture, generated via an SVG noise filter rather
+     than an image file — layered on top of background-color wherever
+     --texture-paper is used as a background-image. */
+  --texture-paper: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyMDAnIGhlaWdodD0nMjAwJz48ZmlsdGVyIGlkPSduJz48ZmVUdXJidWxlbmNlIHR5cGU9J2ZyYWN0YWxOb2lzZScgYmFzZUZyZXF1ZW5jeT0nMC40NScgbnVtT2N0YXZlcz0nMycgc3RpdGNoVGlsZXM9J3N0aXRjaCcvPjxmZUNvbG9yTWF0cml4IHR5cGU9J3NhdHVyYXRlJyB2YWx1ZXM9JzAnLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0nMTAwJScgaGVpZ2h0PScxMDAlJyBmaWx0ZXI9J3VybCgjbiknIG9wYWNpdHk9JzAuMTUnLz48L3N2Zz4=");
 }
 
 body {
   background: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-body);
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 1rem;
+  margin: 0;
 }
 
 .text-sm {
   font-size: var(--text-sm);
 }
 
-/* PRIORITY TABLE */
-#priority-table {
-  table-layout: fixed;
-
-  text-align: center;
-  font-size: 0.9rem;
-}
-
-#priority-table td:nth-child(2),
-#priority-table td:nth-child(5) {
-  font-size: var(--text-sm);
+.section-heading,
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
 }
 
 .section-heading {
   color: var(--color-accent);
-}
-select[data-field="metatype"] {
-  width: max-content;
-}
-
-input[data-field="name"] {
-  width: 30ch;
-}
-input[data-field="gender"] {
-  width: 20ch;
-}
-
-input[type="number"] {
-  width: 10ch;
-}
-
-input[data-field^="attributes."],
-input[data-field^="special."] {
-  width: 5ch;
-}
-
-input[data-field^="height"] {
-  width: 10ch;
 }
 
 /* COLORS for fields */
@@ -91,21 +72,75 @@ select {
   background: var(--color-bg-input);
 }
 
-/* CSS Grid for Attributes */
-.attribute-grid {
+/* App shell: sidebar nav + main content area */
+#app {
   display: grid;
-  grid-template-columns: repeat(4, auto 1fr);
-  gap: 0.5rem 1rem;
+  grid-template-columns: 220px 1fr;
+  min-height: 100vh;
 }
 
-/* CSS Grid for Personal Data */
-.personal-data-grid {
-  display: grid;
-  grid-template-columns: repeat(2, auto 1fr);
-  gap: 0.5rem 1rem;
+#sidebar {
+  background-color: var(--color-sidebar-bg);
+  background-image: var(--texture-paper);
+  border-right: 1px solid var(--color-border);
+  padding: var(--spacing-md);
 }
 
-.attribute-grid,
-.personal-data-grid {
-  align-items: center;
+#sidebar h1 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: normal;
+  letter-spacing: 0.02em;
+  color: var(--color-text);
+  margin-bottom: 0;
+}
+
+#sidebar .subtitle {
+  font-family: var(--font-heading);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+#sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: var(--spacing-md) 0 0;
+}
+
+#sidebar li + li {
+  margin-top: var(--spacing-sm);
+}
+
+#sidebar a {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+#sidebar a:hover {
+  color: var(--color-accent);
+}
+
+#content {
+  background-color: var(--color-bg);
+  background-image: var(--texture-paper);
+  padding: var(--spacing-lg);
+}
+
+/* Stack sidebar above content on narrow screens */
+@media (max-width: 640px) {
+  #app {
+    grid-template-columns: 1fr;
+  }
+
+  #sidebar {
+    border-right: none;
+    border-bottom: 1px solid var(--color-border);
+  }
 }
