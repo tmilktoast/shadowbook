@@ -1,0 +1,47 @@
+{
+  "label": "Chinese",
+  "firstNames": {
+    "male": [
+      "Wei",
+      "Jun",
+      "Ming",
+      "Hao",
+      "Jian",
+      "Chen",
+      "Lei",
+      "Qiang",
+      "Feng",
+      "Yong",
+      "Bo",
+      "Tao"
+    ],
+    "female": [
+      "Mei",
+      "Li",
+      "Xia",
+      "Ying",
+      "Jing",
+      "Fang",
+      "Na",
+      "Lan",
+      "Yan",
+      "Hui",
+      "Qing",
+      "Xin"
+    ]
+  },
+  "lastNames": [
+    "Wang",
+    "Li",
+    "Zhang",
+    "Liu",
+    "Chen",
+    "Yang",
+    "Huang",
+    "Zhao",
+    "Wu",
+    "Zhou",
+    "Xu",
+    "Sun"
+  ]
+}

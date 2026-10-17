@@ -1,0 +1,47 @@
+{
+  "label": "Japanese",
+  "firstNames": {
+    "male": [
+      "Haruto",
+      "Yuto",
+      "Sota",
+      "Ren",
+      "Hiroshi",
+      "Takeshi",
+      "Kenji",
+      "Daisuke",
+      "Satoshi",
+      "Akira",
+      "Kazuki",
+      "Yusuke"
+    ],
+    "female": [
+      "Yui",
+      "Hina",
+      "Sakura",
+      "Aoi",
+      "Mei",
+      "Yuna",
+      "Akiko",
+      "Haruka",
+      "Naomi",
+      "Keiko",
+      "Yumi",
+      "Rina"
+    ]
+  },
+  "lastNames": [
+    "Sato",
+    "Suzuki",
+    "Takahashi",
+    "Tanaka",
+    "Watanabe",
+    "Ito",
+    "Yamamoto",
+    "Nakamura",
+    "Kobayashi",
+    "Kato",
+    "Yoshida",
+    "Yamada"
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "label": "Korean",
+  "firstNames": {
+    "male": [
+      "Minjun",
+      "Jiho",
+      "Doyoon",
+      "Siwoo",
+      "Junho",
+      "Hyun",
+      "Jinwoo",
+      "Seojun",
+      "Minho",
+      "Daehyun",
+      "Jihoon",
+      "Sungmin"
+    ],
+    "female": [
+      "Seoyeon",
+      "Jimin",
+      "Hana",
+      "Yuna",
+      "Soyeon",
+      "Minji",
+      "Jiwoo",
+      "Haeun",
+      "Eunji",
+      "Yejin",
+      "Seoyun",
+      "Nayeon"
+    ]
+  },
+  "lastNames": [
+    "Kim",
+    "Lee",
+    "Park",
+    "Choi",
+    "Jung",
+    "Kang",
+    "Cho",
+    "Yoon",
+    "Jang",
+    "Lim",
+    "Han",
+    "Oh"
+  ]
+}

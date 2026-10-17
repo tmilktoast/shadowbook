@@ -1,0 +1,27 @@
+{
+  "label": "Pueblo",
+  "_note": "Matches Shadowrun's Pueblo Corporate Council. Names here are a small subset of real, documented Hopi names (one of several distinct Pueblo peoples) from Henry Voth's 1905 ethnographic monograph 'Hopi Proper Names' (archive.org). That source organizes names by clan/totem, is OCR-scanned (spellings may have errors), and reflects one outside missionary's documentation from over a century ago — treat this as a small respectfully-sourced starting set, not a complete or definitive list. No lastNames: traditional Hopi naming doesn't use Western-style surnames.",
+  "firstNames": {
+    "male": [
+      "Hohu",
+      "Atoko",
+      "Lomahinma",
+      "Kihoya",
+      "Choroya",
+      "Hocawa",
+      "Lomaletstiwa",
+      "Macayaoma"
+    ],
+    "female": [
+      "Poliwainoma",
+      "Tubangyamsi",
+      "Lomayeshva",
+      "Cihongnoma",
+      "Manihoya",
+      "Civanka",
+      "Ciyaonoma",
+      "Hongci"
+    ]
+  },
+  "lastNames": []
+}

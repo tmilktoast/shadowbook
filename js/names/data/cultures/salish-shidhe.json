@@ -1,0 +1,9 @@
+{
+  "label": "Salish-Shidhe",
+  "_note": "Matches Shadowrun's Salish-Shidhe Council. Stub for now, and for a different reason than sioux.json/ute.json: what turned up for Coast Salish (Lushootseed) names describes specific names bestowed through formal ceremony and inherited within families across generations — not a generic pool of common given names the way English or Spanish ones are. Generating random Lushootseed-style names would mean using real families' inherited names as flavor text, which seemed worse than leaving this empty. Shadowrun's own in-fiction names (e.g. the 'Native American Nations Vol. 1' sourcebook) are a better source if available.",
+  "firstNames": {
+    "male": [],
+    "female": []
+  },
+  "lastNames": []
+}
