@@ -1,9 +1,8 @@
 # Paste into TrueNAS: Apps → Discover Apps → ⋮ → Install via YAML.
-# Replace YOUR_GITHUB_USER with your GitHub username (lowercase).
 # Then open http://<truenas-ip>:30080/
 services:
   shadowbook:
-    image: ghcr.io/YOUR_GITHUB_USER/shadowbook:latest
+    image: ghcr.io/tmilktoast/shadowbook:latest
     restart: unless-stopped
     ports:
       - "30080:8080"   # host:container — change 30080 if it's taken

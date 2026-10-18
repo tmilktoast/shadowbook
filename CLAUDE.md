@@ -10,7 +10,7 @@ from mainline Shadowrun editions).
 
 The project originally started as an SR6e character sheet (to learn JS and
 SR6e simultaneously) and pivoted to Anarchy 2.0. That SR6e work is fully
-preserved in git history at commit `9e4a0fd` if ever worth referencing, but
+preserved in git history at commit `e1cb89d` if ever worth referencing, but
 none of it exists in the current working tree — don't assume any SR6e
 concepts (priority tables, 8 core attributes, Essence-as-attribute) carry
 over; Anarchy 2.0 is a different, lighter ruleset.
@@ -198,7 +198,7 @@ content-related in real examples instead of guessing:
 - Only commit when explicitly asked. When pivoting away from a large
   chunk of working code (like the SR6e→Anarchy 2.0 switch), checkpoint it
   in a commit first rather than just deleting, even if it's about to be
-  replaced — see `9e4a0fd` for the pattern.
+  replaced — see `e1cb89d` for the pattern.
 - The user is doing their own rules reading in parallel — when a
   rules-dependent decision comes up (skills shape, Shadow Amps, wounds,
   gear), it's fine to propose a reasonable starting structure, but expect
