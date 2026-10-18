@@ -1,2 +1,9 @@
 node_modules/
 dist/
+
+# Official Catalyst PDFs — copyrighted, kept local only (repo is public)
+reference/
+
+# Syncthing
+.stfolder/
+*.sync-conflict-*

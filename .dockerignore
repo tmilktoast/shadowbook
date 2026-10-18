@@ -1,0 +1,11 @@
+node_modules
+dist
+.git
+.github
+.stfolder
+*.sync-conflict-*
+reference
+deploy
+CLAUDE.md
+Dockerfile
+.dockerignore

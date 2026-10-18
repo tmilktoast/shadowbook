@@ -24,6 +24,19 @@ block under CORS when loaded from the filesystem instead of a server.
 
 No test suite, no linter configured yet.
 
+## Deployment (TrueNAS)
+
+The goal is to run this as a TrueNAS SCALE app. `Dockerfile` is a
+multi-stage build (node → `vite build` → `nginxinc/nginx-unprivileged`
+serving `dist/` on port 8080, config in `nginx.conf`).
+`.github/workflows/docker.yml` pushes the image to
+`ghcr.io/<owner>/<repo>` on pushes to main; `deploy/truenas-compose.yaml`
+is the "Install via YAML" snippet for TrueNAS. A server-side database is
+planned (for the Character Database, so data is shared across devices
+instead of per-browser localStorage) — that will mean adding a backend
+service alongside the static nginx container, with its data on a TrueNAS
+dataset.
+
 ## Structure
 
 ```
