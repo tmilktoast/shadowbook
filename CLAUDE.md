@@ -43,7 +43,23 @@ dataset.
 index.html              App shell: #sidebar (nav) + #content (tab panels)
 css/style.css           Single stylesheet, CSS custom properties for theme
 js/main.js              Entry point: tab switching + wires up each tool
-js/character.js         Character data model (createCharacter() factory)
+js/character/
+  character.js           Character data model (createCharacter() factory)
+  metatypes.js           METATYPES/QUALITIES, getMetatype(), getRacialQualities()
+  data/metatypes.json    The 5 metatypes, keyed by id; racialQualities are ids
+  data/qualities.json    Quality definitions, referenced by id (labels only so far)
+  lifestyles.js          LIFESTYLES, getLifestyle()
+  data/lifestyles.json   The 4 lifestyles with nuyen-per-run modifiers
+  attributes.js          ATTRIBUTES, costs, getStartingEdge(), validateAttributes()
+  levelsOfPlay.js        LEVELS_OF_PLAY (Ganger/Runner/Prime), creation caps
+  essence.js             STARTING_ESSENCE, getEssenceEffects()
+  skills.js              SKILLS, costs, dicePool(), validateSkills()
+  amps.js                AMP_TYPES/AMP_EFFECTS/VEHICLE_TYPES, ratings, costs,
+                         vehicle/deck stats, Risk Reduction, validateAmps()
+  catalog.js             CATALOG of the book's ready-made Amps, createAmpFromCatalog()
+  data/catalog/*.json    Catalog entries, one file per section
+  data/*.json            attributes, levelsOfPlay, essence, skills, ampTypes,
+                         ampEffects, vehicleTypes data
 js/dice/
   roll.js               Generic dice engine: randInt(), rollBasic()
   diceSvg.js            Inline SVG dice faces (no image assets)
@@ -55,7 +71,7 @@ js/names/
   data/streetnames.json
   data/cultures/*.json   One file per culture (see "Name data" below)
 js/data.js               Empty placeholder, not yet used
-reference/                Official PDFs — see "Reference material" below
+reference/                Rulebook + reference PDFs (gitignored) — see "Reference material" below
 ```
 
 ## Architecture patterns established so far
@@ -102,34 +118,94 @@ reference/                Official PDFs — see "Reference material" below
   distressed/grunge fonts are paid licenses, not used). Headings are
   styled uppercase via CSS `text-transform`, not typed in caps in the
   HTML.
-- **Character attributes**: Strength, Agility, Willpower, Logic, Charisma,
-  **Edge** are the six core attributes (confirmed from the actual Anarchy
-  2.0 character sheet PDF). **Essence is separate**, not a seventh
-  attribute — it cancels magic/healing hits rather than being spent.
-  Someone will eventually mis-type this as Essence-instead-of-Edge again;
-  it already happened once.
+- **Character attributes** (core book p. 52): five *rated* Attributes —
+  Strength, Agility, Willpower, Logic, Charisma — range 1 to a
+  metatype-specific max (`attributeMax` in `metatypes.json`). Bought with
+  nuyen: 10,000¥/point, 20,000¥ for the point that reaches the max.
+  **Edge is not a rated attribute** even though the sheet lists it
+  alongside them: it's a per-adventure pool (start 4 for humans, 3 for
+  other metatypes — `startingEdge`), gained/spent in play, not bought.
+  **Essence is also separate**: starts at 6, only drops (implants), with
+  cumulative penalties (`essence.json`). Don't fold either back into
+  `attributes`, and don't mistype Essence for Edge (happened once).
+- **Skills** (core book pp. 53-57): 14 skills in `skills.json`, built
+  from the book's summary table (p. 54) — each with category, linked
+  Attribute(s), optional `requires` (awakened/cyberdeck), and
+  specializations each tagged with the Attribute(s) they use. Ratings
+  0-8 (capped lower by level of play at creation); 2,500¥/point to 5,
+  then 5,000¥/point; specializations +2 dice, 2,500¥ each, need rating
+  1+, and custom ones are allowed (stored as free text). Characters
+  store skills sparsely: `{ skillId: { rating, specializations: [] } }`.
+  Knowledge Skills are unrated strings, 2,500¥ each.
+- **Shadow Amps** (core book pp. 58-63) are a build system, not a
+  fixed list: Amp type (base rating, `ampTypes.json`) + effects (each
+  adds its cost, `ampEffects.json`) = rating; 5,000¥ per rating point.
+  The character's first non-racial Quality has base 0, later ones 3.
+  Racial qualities are free Quality Amps derived from the metatype, not
+  stored in `character.amps`. Each entry in an Amp's `effects` is one
+  purchase (repeat to buy again); Risk Reduction effects carry a
+  `target` (skill id, attribute id, or `"skillId/specId"`). Verified
+  against the book's worked example, Lightning (p. 85): Amp ratings
+  5/6/4/2. **Essence is derived** (`getEssence()` = 6 minus implant
+  Amps' Essence cost), not stored — don't add an `essence` field back.
+  `validateAmps()` also enforces Awakened/cyberdeck prerequisites for
+  Skills and adept powers, and RR caps from the level of play.
+  `character.js` has `getBuildCost()`/`validateCharacter()` tying
+  attributes + skills + Amps to the level-of-play budget.
+- **Amp catalog** (`js/character/catalog.js`, `data/catalog/*.json`):
+  172 ready-made Amps from the core book (cyberware, bioware, adept
+  powers, mentor spirits, contacts, foci, weapons, armor, gear, drugs,
+  cyberdecks, RCCs, vehicles/drones), each with the book's `rating`,
+  `nuyen`, and `page`, plus structured `effects` that **rebuild that
+  rating exactly** — keep that invariant when adding entries (every
+  entry was checked: effects sum to rating, rating × 5,000 + `itemCost`
+  = price). Where the book doesn't itemize (drugs, a few vehicles), the
+  breakdown is reconstructed to match and the entry has a `ratingNote`.
+  `createAmpFromCatalog(entry, choices)` builds a character Amp, filling
+  player choices (`target: null` effects, mentor spirits' `choose`).
+  Equipment Amps carry the base item's price as `itemCost`.
+- **Levels of play** (Ganger/Runner/Prime Runner, `levelsOfPlay.json`)
+  set the creation budget and caps (attributes at max, skill max, Risk
+  Reduction max). Runner is the default. Characters carry `levelOfPlay`
+  for now; it may belong to a campaign once campaigns exist.
+- **Metatypes** (Human, Elf, Dwarf, Ork, Troll) come straight from the
+  Anarchy 2.0 rulebook text the user pasted: scientific name, average
+  height/weight, and one racial quality each (none for humans; low-light
+  vision for elves/orks; thermographic vision for dwarfs/trolls). No
+  attribute modifiers or limits were listed — don't add any without a
+  book source. Qualities are defined once in `qualities.json` and
+  referenced by id, since metatypes share them. Quality descriptions
+  aren't filled in yet (book text not pasted) — don't invent them.
 - **`createCharacter()` is a factory function**, not a single shared
   object — the Character Database will hold many characters, so each one
   needs to be independent. Don't regress to a single global `character`
   object like the old SR6e version had.
-- **Keywords/Dispositions/Cues** on the character sheet are just flat
-  lists of short text (see the pregen examples) — no need to over-
-  structure them. Keywords loosely pattern as origin/location/archetype/
-  specialty/lifestyle in the one example checked (Noonchi), but that's
-  one data point, not a confirmed rule.
+- **Keywords** are five recommended slots (core book p. 51): metatype/
+  social status, origin (scoped to the campaign: a district when the
+  campaign is in one city), role/occupation, lifestyle, and an open one
+  (often a secondary/former job). The book allows swapping one out as an
+  exception. Official pregen sheets print lifestyle *last*, so
+  `getKeywords()` does too. Keyword 1 is free text, not derived from
+  `metatype` (official examples include "Teenager", "Boston
+  bourgeoisie"). Lifestyle is stored as an id into `lifestyles.json` —
+  Squatter, Low (the default, no rules), Middle, High, each with a
+  nuyen-per-run modifier and a paraphrased effect.
+- **Dispositions/Cues** (core book p. 51): four of each
+  (`DISPOSITION_COUNT`/`CUE_COUNT`), freeform text. Dispositions are
+  personality traits ("Idealist"), Cues are typical sayings; both are
+  how Edge is earned/spent. Not paired one-to-one — keep them as two
+  flat string lists, no need to over-structure.
 
 ## Name data — handle with care
 
-- **`js/names/data/streetnames.json` must never contain the name of an
-  actual Anarchy 2.0 pregen character** (Noonchi, Ty, Spectrum, Barry
-  Bullet, Kuz, Klee, Shayanne, Lipsync, Aponi, Ricky Lean, Pixel Glitch,
-  H4yn, Keran, Peace B, Neon Ivy — from `reference/..._Pregen_v1_0f.pdf`).
-  This happened once already (several pregen names were used as
-  "generic" streetname examples and had to be scrubbed) — check new
-  additions against that list, including partial overlaps that could
-  recombine into a pregen name via the adjective+noun pattern (e.g. an
-  adjective "Neon" plus a noun "Ivy" would regenerate "Neon Ivy" even
-  though neither word alone is a character name).
+- **Streetnames vs. pregen names**: don't copy pregen characters' names
+  wholesale into `streetnames.json` as "generic" examples (that happened
+  once with the fan-doc pregens and was scrubbed). But there is **no
+  word-level blacklist** — the user decided individual words that happen
+  to appear in a pregen name are fine ("Wild Bill", "Dark Trash"-style
+  combos are welcome), and a coincidental adjective+noun recombination
+  into a pregen name isn't worth guarding against. Applies to both the
+  official core-book pregens and the fan-doc ones.
 - **`js/names/data/cultures/*.json`**: one file per culture/nation, each
   with `label`, `firstNames: { male: [], female: [] }`, `lastNames: []`.
   Ready cultures: american, hispanic, french, japanese, chinese, korean,
@@ -162,20 +238,25 @@ reference/                Official PDFs — see "Reference material" below
 
 ## Reference material (`reference/`)
 
-Three official PDFs, useful for grounding anything rules- or
-content-related in real examples instead of guessing:
+Local only — `reference/` is gitignored because the repo is public and
+these are copyrighted. For the same reason, paraphrase rules into data
+files and comments rather than pasting book text verbatim.
 
-- `1203_..._charsheet_editable_web_v1.pdf` — blank Anarchy 2.0 character
+- `sranarchy-20.pdf` — **the Anarchy 2.0 core rulebook, the authority on
+  rules.** Text-extractable with `pdftotext` (use it without `-layout`;
+  the two-column layout scrambles otherwise). Key spots (book page
+  numbers): Keywords/Dispositions/Cues p. 51, Lifestyle p. 164 ("A Place
+  to Rest"), official pregens from p. 88 — **the best source for real
+  example data** (attribute spreads, Keywords format, Shadow Amps, gear).
+- `1203_..._charsheet_editable_web_v1.pdf` — official blank character
   sheet (field layout, the Risk Rating dice-pool table).
-- `1205_..._conversion_sr6_to_sra_web_v1.pdf` — SR6→Anarchy 2.0 attribute/
-  skill conversion rules; also where the four Native American Nations
-  were confirmed via web search cross-reference.
-- `1659004-SRA2_EN_Pregen_v1_0f.pdf` ("Deniable Assets") — 15 pregen
-  characters with filled-out sheets. **This is the best source for real
-  example data** (attribute spreads, Keywords/Dispositions/Cues format,
-  Shadow Amps, gear, nuyen formatting) — check it before inventing a data
-  shape from scratch. Also the source of the pregen names that must never
-  appear in the streetname generator (see above).
+- `1205_..._conversion_sr6_to_sra_web_v1.pdf` — official SR6→Anarchy 2.0
+  attribute/skill conversion rules.
+- `1659004-SRA2_EN_Pregen_v1_0f.pdf` ("Deniable Assets") — **a fan-made
+  document, not official.** 15 pregens; useful as extra examples but
+  defer to the core book where they differ (e.g. it formats origins as
+  "Tacoma, Seattle Metroplex" where the book uses "Seattle / Downtown").
+  Source of the pregen names barred from the streetname generator.
 
 ## Feature status
 
@@ -185,8 +266,10 @@ content-related in real examples instead of guessing:
 | Name Generator | Working — streetnames + 7 cultures (3 are stubs) |
 | Character Database | Nav link only, no content yet |
 | NPC Generator | Nav link only, no content yet — will reuse the Name Generator's functions |
-| Character Builder | Nav link only, no content yet — `js/character.js` has the data model started (streetname, metatype, attributes, essence, nuyen, skills[], specializations[], keywords[], dispositions[], cues[]) |
+| Character Builder | Nav link only, no content yet — `js/character/character.js` has the data model started (streetname, metatype, attributes, essence, nuyen, skills[], specializations[], keywords[], dispositions[], cues[]) |
 | Job Generator | Nav link only, no content yet |
+| Amp Catalog | Nav link only, no content yet — planned: browse/search the 172 book Amps (`catalog.js`) by section, showing rating, price, effects, page |
+| Amp Creator | Nav link only, no content yet — planned: build a custom Shadow Amp (pick type, add effects from `AMP_EFFECTS`, live rating/cost and `validateAmps()` feedback), or start from a catalog entry |
 | `js/dice/sra.js` | Empty stub for Anarchy 2.0 pool/hit-counting rules, once read |
 
 ## Working style notes
@@ -195,8 +278,9 @@ content-related in real examples instead of guessing:
   Claude reviews/explains" and "Claude writes it directly" depending on
   what's asked each session/feature — don't assume either is the fixed
   rule; ask or follow however the current request is phrased.
-- Only commit when explicitly asked. When pivoting away from a large
-  chunk of working code (like the SR6e→Anarchy 2.0 switch), checkpoint it
+- Commit after each new feature or addition, once it works (user
+  preference, 2026-10). Pushing is separate — it triggers the image
+  build. When pivoting away from a large chunk of working code (like the SR6e→Anarchy 2.0 switch), checkpoint it
   in a commit first rather than just deleting, even if it's about to be
   replaced — see `e1cb89d` for the pattern.
 - The user is doing their own rules reading in parallel — when a

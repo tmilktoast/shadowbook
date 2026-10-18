@@ -1,0 +1,148 @@
+{
+  "_note": "Core book, Vehicle or Drone Amp (p. 60). flyingSpeed is the Speed if the Flying effect is taken (double base). maxWeapon is the largest weapon the front mount takes; null means no size limit listed, false means no mount. Jet-ski and boat come from Base Vehicle Characteristics (p. 238). Helicopters, VTOLs and T-birds are listed there without an Amp rating (not normally runner-owned), so they're omitted.",
+  "microdrone": {
+    "label": "Microdrone",
+    "kind": "drone",
+    "pilot": 6,
+    "body": 0,
+    "handling": 10,
+    "speed": 0,
+    "flyingSpeed": 1,
+    "armor": 0,
+    "maxWeapon": false,
+    "notes": "Advantage on Stealth (physical sneaking) Tests."
+  },
+  "small-drone": {
+    "label": "Small drone",
+    "kind": "drone",
+    "pilot": 6,
+    "body": 1,
+    "handling": 9,
+    "speed": 2,
+    "flyingSpeed": 4,
+    "armor": 0,
+    "maxWeapon": "submachine guns"
+  },
+  "medium-drone": {
+    "label": "Medium drone",
+    "kind": "drone",
+    "pilot": 6,
+    "body": 2,
+    "handling": 7,
+    "speed": 3,
+    "flyingSpeed": 6,
+    "armor": 0,
+    "maxWeapon": "assault rifles"
+  },
+  "large-drone": {
+    "label": "Large drone",
+    "kind": "drone",
+    "pilot": 6,
+    "body": 4,
+    "handling": 4,
+    "speed": 4,
+    "flyingSpeed": 8,
+    "armor": 0,
+    "maxWeapon": null
+  },
+  "race-motorbike": {
+    "label": "Race motorbike",
+    "kind": "vehicle",
+    "pilot": 6,
+    "body": 4,
+    "handling": 2,
+    "speed": 6,
+    "armor": 0,
+    "maxWeapon": "assault rifles"
+  },
+  "all-terrain-motorbike": {
+    "label": "All-terrain motorbike",
+    "kind": "vehicle",
+    "pilot": 6,
+    "body": 4,
+    "handling": 3,
+    "speed": 5,
+    "armor": 0,
+    "maxWeapon": "assault rifles"
+  },
+  "chopper": {
+    "label": "Chopper",
+    "kind": "vehicle",
+    "pilot": 6,
+    "body": 5,
+    "handling": 2,
+    "speed": 5,
+    "armor": 0,
+    "maxWeapon": "assault rifles"
+  },
+  "sports-car": {
+    "label": "Sports car",
+    "kind": "vehicle",
+    "pilot": 6,
+    "body": 5,
+    "handling": 2,
+    "speed": 5,
+    "armor": 0,
+    "maxWeapon": null
+  },
+  "sedan": {
+    "label": "Sedan",
+    "kind": "vehicle",
+    "pilot": 6,
+    "body": 6,
+    "handling": 2,
+    "speed": 4,
+    "armor": 0,
+    "maxWeapon": null
+  },
+  "suv": {
+    "label": "SUV/pick-up",
+    "kind": "vehicle",
+    "pilot": 6,
+    "body": 7,
+    "handling": 1,
+    "speed": 4,
+    "armor": 0,
+    "maxWeapon": null
+  },
+  "van": {
+    "label": "Van",
+    "kind": "vehicle",
+    "pilot": 6,
+    "body": 8,
+    "handling": 1,
+    "speed": 3,
+    "armor": 0,
+    "maxWeapon": null
+  },
+  "bus": {
+    "label": "Bus/trailer",
+    "kind": "vehicle",
+    "pilot": 6,
+    "body": 10,
+    "handling": 0,
+    "speed": 2,
+    "armor": 0,
+    "maxWeapon": null
+  },
+  "jet-ski": {
+    "label": "Jet-ski",
+    "kind": "vehicle",
+    "pilot": 6,
+    "body": 5,
+    "handling": 5,
+    "speed": 2,
+    "armor": 0,
+    "maxWeapon": null
+  },
+  "rigid-inflatable-boat": {
+    "label": "Rigid inflatable boat",
+    "kind": "vehicle",
+    "pilot": 6,
+    "body": 5,
+    "handling": 4,
+    "speed": 3,
+    "armor": 0,
+    "maxWeapon": null
+  }
+}

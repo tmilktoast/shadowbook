@@ -1,0 +1,267 @@
+{
+  "_note": "Core book, Foci (p. 189). Equipment Amps usable only by Awakened characters; price includes the 2,500¥ item (weapon foci: the weapon).",
+  "entries": [
+    {
+      "id": "sorcery-focus",
+      "name": "Sorcery focus",
+      "type": "equipment",
+      "rating": 5,
+      "nuyen": 27500,
+      "page": 189,
+      "description": "RR 1 on Sorcery.",
+      "effects": [
+        {
+          "effect": "rr-skill",
+          "target": "sorcery"
+        }
+      ],
+      "itemCost": 2500
+    },
+    {
+      "id": "detection-focus-minor",
+      "name": "Detection focus, minor",
+      "type": "equipment",
+      "rating": 2,
+      "nuyen": 12500,
+      "page": 189,
+      "description": "RR 1 on Sorcery (detection spells).",
+      "effects": [
+        {
+          "effect": "rr-specialization",
+          "target": "sorcery/detection-spells"
+        }
+      ],
+      "itemCost": 2500
+    },
+    {
+      "id": "manipulation-focus",
+      "name": "Manipulation focus",
+      "type": "equipment",
+      "rating": 4,
+      "nuyen": 22500,
+      "page": 189,
+      "description": "RR 2 on Sorcery (manipulation spells).",
+      "effects": [
+        {
+          "effect": "rr-specialization",
+          "target": "sorcery/manipulation-spells"
+        },
+        {
+          "effect": "rr-specialization",
+          "target": "sorcery/manipulation-spells"
+        }
+      ],
+      "itemCost": 2500
+    },
+    {
+      "id": "illusion-focus-major",
+      "name": "Illusion focus, major",
+      "type": "equipment",
+      "rating": 6,
+      "nuyen": 32500,
+      "page": 189,
+      "description": "RR 3 on Sorcery (illusion spells).",
+      "effects": [
+        {
+          "effect": "rr-specialization",
+          "target": "sorcery/illusion-spells"
+        },
+        {
+          "effect": "rr-specialization",
+          "target": "sorcery/illusion-spells"
+        },
+        {
+          "effect": "rr-specialization",
+          "target": "sorcery/illusion-spells"
+        }
+      ],
+      "itemCost": 2500
+    },
+    {
+      "id": "counterspelling-focus",
+      "name": "Counterspelling focus",
+      "type": "equipment",
+      "rating": 4,
+      "nuyen": 22500,
+      "page": 189,
+      "description": "RR 2 on Sorcery (counterspelling).",
+      "effects": [
+        {
+          "effect": "rr-specialization",
+          "target": "sorcery/counterspelling"
+        },
+        {
+          "effect": "rr-specialization",
+          "target": "sorcery/counterspelling"
+        }
+      ],
+      "itemCost": 2500
+    },
+    {
+      "id": "sustaining-focus",
+      "name": "Sustaining focus",
+      "type": "equipment",
+      "rating": 2,
+      "nuyen": 12500,
+      "page": 189,
+      "description": "Sustain one more spell without penalty.",
+      "effects": [
+        {
+          "effect": "sustained-spell"
+        }
+      ],
+      "itemCost": 2500
+    },
+    {
+      "id": "conjuring-focus",
+      "name": "Conjuring focus",
+      "type": "equipment",
+      "rating": 5,
+      "nuyen": 27500,
+      "page": 189,
+      "description": "RR 1 on Conjuring.",
+      "effects": [
+        {
+          "effect": "rr-skill",
+          "target": "conjuring"
+        }
+      ],
+      "itemCost": 2500
+    },
+    {
+      "id": "air-focus-minor",
+      "name": "Air focus, minor",
+      "type": "equipment",
+      "rating": 2,
+      "nuyen": 12500,
+      "page": 189,
+      "description": "RR 1 on Conjuring (spirits of air).",
+      "effects": [
+        {
+          "effect": "rr-specialization",
+          "target": "conjuring/spirits-of-air"
+        }
+      ],
+      "itemCost": 2500
+    },
+    {
+      "id": "beast-focus",
+      "name": "Beast focus",
+      "type": "equipment",
+      "rating": 4,
+      "nuyen": 22500,
+      "page": 189,
+      "description": "RR 2 on Conjuring (spirits of beasts).",
+      "effects": [
+        {
+          "effect": "rr-specialization",
+          "target": "conjuring/spirits-of-beasts"
+        },
+        {
+          "effect": "rr-specialization",
+          "target": "conjuring/spirits-of-beasts"
+        }
+      ],
+      "itemCost": 2500
+    },
+    {
+      "id": "fire-focus-major",
+      "name": "Fire focus, major",
+      "type": "equipment",
+      "rating": 6,
+      "nuyen": 32500,
+      "page": 189,
+      "description": "RR 3 on Conjuring (spirits of fire).",
+      "effects": [
+        {
+          "effect": "rr-specialization",
+          "target": "conjuring/spirits-of-fire"
+        },
+        {
+          "effect": "rr-specialization",
+          "target": "conjuring/spirits-of-fire"
+        },
+        {
+          "effect": "rr-specialization",
+          "target": "conjuring/spirits-of-fire"
+        }
+      ],
+      "itemCost": 2500
+    },
+    {
+      "id": "banishing-focus",
+      "name": "Banishing focus",
+      "type": "equipment",
+      "rating": 4,
+      "nuyen": 22500,
+      "page": 189,
+      "description": "RR 2 on Conjuring (banishing).",
+      "effects": [
+        {
+          "effect": "rr-specialization",
+          "target": "conjuring/banishing"
+        },
+        {
+          "effect": "rr-specialization",
+          "target": "conjuring/banishing"
+        }
+      ],
+      "itemCost": 2500
+    },
+    {
+      "id": "control-focus",
+      "name": "Control focus",
+      "type": "equipment",
+      "rating": 3,
+      "nuyen": 17500,
+      "page": 189,
+      "description": "Control up to two spirits at once.",
+      "effects": [
+        {
+          "effect": "summoned-spirit"
+        }
+      ],
+      "itemCost": 2500
+    },
+    {
+      "id": "weapon-focus-knife",
+      "name": "Weapon focus (knife)",
+      "type": "equipment",
+      "rating": 1,
+      "nuyen": 7500,
+      "page": 189,
+      "description": "Short weapon, DV (STR+1 / CHA+1); range OK/–/–/–.",
+      "effects": [
+        {
+          "effect": "weapon-focus"
+        }
+      ],
+      "itemCost": 2500,
+      "item": "short weapon"
+    },
+    {
+      "id": "weapon-focus-sword",
+      "name": "Weapon focus (sword)",
+      "type": "equipment",
+      "rating": 5,
+      "nuyen": 27500,
+      "page": 189,
+      "description": "Long weapon, DV (STR+2 / CHA+2); range OK/–/–/–; RR 2 on Close Combat (blades).",
+      "effects": [
+        {
+          "effect": "weapon-focus"
+        },
+        {
+          "effect": "rr-specialization",
+          "target": "close-combat/blades"
+        },
+        {
+          "effect": "rr-specialization",
+          "target": "close-combat/blades"
+        }
+      ],
+      "itemCost": 2500,
+      "item": "long weapon"
+    }
+  ]
+}

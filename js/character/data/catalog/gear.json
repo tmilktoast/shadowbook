@@ -1,0 +1,181 @@
+{
+  "_note": "Core book, Infiltration Gear (p. 136) and Con Artist's Equipment (p. 139). Price includes the 2,500¥ item.",
+  "entries": [
+    {
+      "id": "thermal-binoculars",
+      "name": "Thermal binoculars",
+      "type": "equipment",
+      "rating": 1,
+      "nuyen": 7500,
+      "page": 136,
+      "description": "Zoom and thermographic vision.",
+      "effects": [
+        {
+          "effect": "narrative",
+          "note": "Thermographic vision"
+        }
+      ],
+      "itemCost": 2500
+    },
+    {
+      "id": "evo-night-hawk-500-binoculars",
+      "name": "Evo Night Hawk 500 binoculars",
+      "type": "equipment",
+      "rating": 3,
+      "nuyen": 17500,
+      "page": 136,
+      "description": "Zoom, night vision; RR 1 on Perception (physical).",
+      "effects": [
+        {
+          "effect": "narrative",
+          "note": "Night vision"
+        },
+        {
+          "effect": "rr-specialization",
+          "target": "perception/physical"
+        }
+      ],
+      "itemCost": 2500
+    },
+    {
+      "id": "climbing-gear",
+      "name": "Climbing gear",
+      "type": "equipment",
+      "rating": 4,
+      "nuyen": 22500,
+      "page": 136,
+      "description": "Adhesive gloves, grappling hook, degradable ropes; RR 2 on Athletics (climbing).",
+      "effects": [
+        {
+          "effect": "rr-specialization",
+          "target": "athletics/climbing"
+        },
+        {
+          "effect": "rr-specialization",
+          "target": "athletics/climbing"
+        }
+      ],
+      "itemCost": 2500
+    },
+    {
+      "id": "laser-microphone",
+      "name": "Laser microphone",
+      "type": "equipment",
+      "rating": 2,
+      "nuyen": 12500,
+      "page": 136,
+      "description": "Listen through glass; RR 1 on Perception (physical).",
+      "effects": [
+        {
+          "effect": "rr-specialization",
+          "target": "perception/physical"
+        }
+      ],
+      "itemCost": 2500
+    },
+    {
+      "id": "infiltration-kit",
+      "name": "Infiltration kit",
+      "type": "equipment",
+      "rating": 4,
+      "nuyen": 22500,
+      "page": 136,
+      "description": "Autopicker, maglock passkey, magnetic card copier; RR 2 on Stealth (lockpicking).",
+      "effects": [
+        {
+          "effect": "rr-specialization",
+          "target": "stealth/lockpicking"
+        },
+        {
+          "effect": "rr-specialization",
+          "target": "stealth/lockpicking"
+        }
+      ],
+      "itemCost": 2500
+    },
+    {
+      "id": "sensor-tags",
+      "name": "Sensor tags",
+      "type": "equipment",
+      "rating": 1,
+      "nuyen": 7500,
+      "page": 136,
+      "description": "Reports its position to the owner and transmits sound and video.",
+      "effects": [
+        {
+          "effect": "narrative",
+          "note": "Transmits sound and video"
+        }
+      ],
+      "itemCost": 2500
+    },
+    {
+      "id": "expert-linguasoft",
+      "name": "Expert linguasoft",
+      "type": "equipment",
+      "rating": 2,
+      "nuyen": 12500,
+      "page": 139,
+      "description": "Adjusts your speech to the audience; RR 1 on Influence (etiquette).",
+      "effects": [
+        {
+          "effect": "rr-specialization",
+          "target": "influence/etiquette"
+        }
+      ],
+      "itemCost": 2500
+    },
+    {
+      "id": "makeup-kit",
+      "name": "Makeup kit",
+      "type": "equipment",
+      "rating": 2,
+      "nuyen": 12500,
+      "page": 139,
+      "description": "RR 1 on Influence (impersonation).",
+      "effects": [
+        {
+          "effect": "rr-specialization",
+          "target": "influence/impersonation"
+        }
+      ],
+      "itemCost": 2500
+    },
+    {
+      "id": "nanopaste-makeup",
+      "name": "Nanopaste makeup",
+      "type": "equipment",
+      "rating": 4,
+      "nuyen": 22500,
+      "page": 139,
+      "description": "RR 2 on Influence (impersonation).",
+      "effects": [
+        {
+          "effect": "rr-specialization",
+          "target": "influence/impersonation"
+        },
+        {
+          "effect": "rr-specialization",
+          "target": "influence/impersonation"
+        }
+      ],
+      "itemCost": 2500
+    },
+    {
+      "id": "well-stocked-closet",
+      "name": "Well-stocked closet",
+      "type": "equipment",
+      "rating": 2,
+      "nuyen": 12500,
+      "page": 139,
+      "description": "Always the right outfit; RR 1 on Influence (etiquette).",
+      "effects": [
+        {
+          "effect": "rr-specialization",
+          "target": "influence/etiquette"
+        }
+      ],
+      "itemCost": 2500
+    }
+  ]
+}

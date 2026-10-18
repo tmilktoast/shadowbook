@@ -1,0 +1,643 @@
+{
+  "_note": "Core book, Augmentations (pp. 155-158). Base rating includes one narrative effect; Essence -1 each. Cyberlimb prices include the implanted weapon.",
+  "entries": [
+    {
+      "id": "datajack",
+      "name": "Datajack",
+      "type": "cyberware",
+      "rating": 2,
+      "nuyen": 10000,
+      "page": 155,
+      "description": "Direct neural interface; cold-sim VR.",
+      "effects": [
+        {
+          "effect": "cold-sim"
+        }
+      ]
+    },
+    {
+      "id": "unlocked-datajack",
+      "name": "Unlocked Datajack",
+      "type": "cyberware",
+      "rating": 4,
+      "nuyen": 20000,
+      "page": 155,
+      "description": "Direct neural interface; cold-sim and hot-sim VR.",
+      "effects": [
+        {
+          "effect": "cold-sim"
+        },
+        {
+          "effect": "hot-sim"
+        }
+      ]
+    },
+    {
+      "id": "mct-decker-pro-cyberjack",
+      "name": "MCT Decker-Pro Cyberjack",
+      "type": "cyberware",
+      "rating": 7,
+      "nuyen": 35000,
+      "page": 155,
+      "description": "Direct neural interface; cold- and hot-sim VR; +1 Edge per action scene, +1 action per narration and unlimited extra actions while in VR.",
+      "effects": [
+        {
+          "effect": "cold-sim"
+        },
+        {
+          "effect": "hot-sim"
+        },
+        {
+          "effect": "initiative-1"
+        },
+        {
+          "effect": "initiative-2"
+        },
+        {
+          "effect": "negative",
+          "cost": -2,
+          "note": "Initiative only while in VR"
+        }
+      ]
+    },
+    {
+      "id": "shiawase-neo-rigger-vehicle-control-rig",
+      "name": "Shiawase Neo-Rigger Vehicle Control Rig",
+      "type": "cyberware",
+      "rating": 4,
+      "nuyen": 20000,
+      "page": 155,
+      "description": "Direct neural interface; cold-sim VR; jump into vehicles and drones.",
+      "effects": [
+        {
+          "effect": "cold-sim"
+        },
+        {
+          "effect": "vcr"
+        }
+      ]
+    },
+    {
+      "id": "ares-feeltheride-vehicle-control-rig",
+      "name": "Ares FeelTheRide Vehicle Control Rig",
+      "type": "cyberware",
+      "rating": 6,
+      "nuyen": 30000,
+      "page": 155,
+      "description": "Direct neural interface; cold- and hot-sim VR; jump into vehicles and drones.",
+      "effects": [
+        {
+          "effect": "cold-sim"
+        },
+        {
+          "effect": "hot-sim"
+        },
+        {
+          "effect": "vcr"
+        }
+      ]
+    },
+    {
+      "id": "dassault-milrig-vehicle-control-rig",
+      "name": "Dassault MilRig+ Vehicle Control Rig",
+      "type": "cyberware",
+      "rating": 9,
+      "nuyen": 45000,
+      "page": 155,
+      "description": "Direct neural interface; cold- and hot-sim VR; jump in; +1 Edge per scene, +1 action per narration and unlimited extra actions while jumped in.",
+      "effects": [
+        {
+          "effect": "cold-sim"
+        },
+        {
+          "effect": "hot-sim"
+        },
+        {
+          "effect": "vcr"
+        },
+        {
+          "effect": "initiative-1"
+        },
+        {
+          "effect": "initiative-2"
+        },
+        {
+          "effect": "negative",
+          "cost": -2,
+          "note": "Initiative only while jumped in"
+        }
+      ]
+    },
+    {
+      "id": "implanted-commlink",
+      "name": "Implanted Commlink",
+      "type": "cyberware",
+      "rating": 3,
+      "nuyen": 17500,
+      "page": 155,
+      "description": "Direct neural interface; cold-sim VR; commlink.",
+      "effects": [
+        {
+          "effect": "cold-sim"
+        },
+        {
+          "effect": "narrative",
+          "note": "Implanted"
+        }
+      ],
+      "itemCost": 2500,
+      "item": "commlink"
+    },
+    {
+      "id": "encephalon",
+      "name": "Encephalon",
+      "type": "cyberware",
+      "rating": 11,
+      "nuyen": 55000,
+      "page": 155,
+      "description": "RR 1 on all Logic Tests.",
+      "effects": [
+        {
+          "effect": "rr-attribute",
+          "target": "logic"
+        }
+      ]
+    },
+    {
+      "id": "standard-cybernetic-eyes",
+      "name": "Standard Cybernetic Eyes",
+      "type": "cyberware",
+      "rating": 1,
+      "nuyen": 5000,
+      "page": 156,
+      "description": "Visual interface; camera.",
+      "effects": []
+    },
+    {
+      "id": "lor-al-fashion-top-cybernetic-eyes",
+      "name": "L'Oréal Fashion Top Cybernetic Eyes",
+      "type": "cyberware",
+      "rating": 2,
+      "nuyen": 10000,
+      "page": 156,
+      "description": "Visual interface; camera; customizable iris colors.",
+      "effects": [
+        {
+          "effect": "narrative",
+          "note": "Customizable iris colors"
+        }
+      ]
+    },
+    {
+      "id": "universal-omnitech-proview-cybernetic-eyes",
+      "name": "Universal Omnitech ProView Cybernetic Eyes",
+      "type": "cyberware",
+      "rating": 4,
+      "nuyen": 20000,
+      "page": 156,
+      "description": "Visual interface; camera; RR 1 on Perception (physical); low-light vision.",
+      "effects": [
+        {
+          "effect": "rr-specialization",
+          "target": "perception/physical"
+        },
+        {
+          "effect": "narrative",
+          "note": "Low-light vision"
+        }
+      ]
+    },
+    {
+      "id": "universal-omnitech-absoluteview-cybernetic-eyes",
+      "name": "Universal Omnitech AbsoluteView Cybernetic Eyes",
+      "type": "cyberware",
+      "rating": 6,
+      "nuyen": 30000,
+      "page": 156,
+      "description": "Visual interface; camera; RR 2 on Perception (physical); thermographic vision.",
+      "effects": [
+        {
+          "effect": "rr-specialization",
+          "target": "perception/physical"
+        },
+        {
+          "effect": "rr-specialization",
+          "target": "perception/physical"
+        },
+        {
+          "effect": "narrative",
+          "note": "Thermographic vision"
+        }
+      ]
+    },
+    {
+      "id": "ares-proshooter-cybernetic-eyes",
+      "name": "Ares ProShooter Cybernetic Eyes",
+      "type": "cyberware",
+      "rating": 5,
+      "nuyen": 25000,
+      "page": 156,
+      "description": "Visual interface; camera; RR 2 on Ranged Weapons (pistols).",
+      "effects": [
+        {
+          "effect": "rr-specialization",
+          "target": "ranged-weapons/pistols"
+        },
+        {
+          "effect": "rr-specialization",
+          "target": "ranged-weapons/pistols"
+        }
+      ]
+    },
+    {
+      "id": "ares-sharpshooter-cybernetic-eyes",
+      "name": "Ares SharpShooter Cybernetic Eyes",
+      "type": "cyberware",
+      "rating": 9,
+      "nuyen": 45000,
+      "page": 156,
+      "description": "Visual interface; camera; RR 1 on Ranged Weapons; RR 1 on Ranged Weapons (rifles); zoom.",
+      "effects": [
+        {
+          "effect": "rr-skill",
+          "target": "ranged-weapons"
+        },
+        {
+          "effect": "rr-specialization",
+          "target": "ranged-weapons/rifles"
+        },
+        {
+          "effect": "narrative",
+          "note": "Zoom"
+        }
+      ]
+    },
+    {
+      "id": "evo-eyedrone-cybernetic-eyes",
+      "name": "Evo EyeDrone Cybernetic Eyes",
+      "type": "cyberware",
+      "rating": 5,
+      "nuyen": 25000,
+      "page": 156,
+      "description": "Visual interface; camera; RR 1 on Perception (physical); ocular microdrone (Pilot 6, Body 0, Handling 10, Speed 0, Armor 0, Advantage on Stealth (physical), no mount).",
+      "effects": [
+        {
+          "effect": "rr-specialization",
+          "target": "perception/physical"
+        },
+        {
+          "effect": "narrative",
+          "note": "Ocular microdrone"
+        },
+        {
+          "effect": "narrative",
+          "note": "Microdrone implanted"
+        }
+      ],
+      "ratingNote": "Book doesn't itemize the microdrone's cost; counted as 2 narrative effects to match its rating."
+    },
+    {
+      "id": "standard-cybernetic-ears",
+      "name": "Standard Cybernetic Ears",
+      "type": "cyberware",
+      "rating": 1,
+      "nuyen": 5000,
+      "page": 157,
+      "description": "Auditory interface; microphone.",
+      "effects": []
+    },
+    {
+      "id": "universal-omnitech-prosound-cybernetic-ears",
+      "name": "Universal Omnitech ProSound Cybernetic Ears",
+      "type": "cyberware",
+      "rating": 3,
+      "nuyen": 15000,
+      "page": 157,
+      "description": "Auditory interface; microphone; RR 1 on Perception (physical).",
+      "effects": [
+        {
+          "effect": "rr-specialization",
+          "target": "perception/physical"
+        }
+      ]
+    },
+    {
+      "id": "universal-omnitech-ultrasound-cybernetic-ears",
+      "name": "Universal Omnitech UltraSound Cybernetic Ears",
+      "type": "cyberware",
+      "rating": 4,
+      "nuyen": 20000,
+      "page": 157,
+      "description": "Auditory interface; microphone; RR 1 on Perception (physical); broadened auditory spectrum.",
+      "effects": [
+        {
+          "effect": "rr-specialization",
+          "target": "perception/physical"
+        },
+        {
+          "effect": "narrative",
+          "note": "Broadened auditory spectrum"
+        }
+      ]
+    },
+    {
+      "id": "auto-injector",
+      "name": "Auto-injector",
+      "type": "cyberware",
+      "rating": 1,
+      "nuyen": 5000,
+      "page": 158,
+      "description": "Injects a chosen drug on a mental command. Drugs cost extra.",
+      "effects": []
+    },
+    {
+      "id": "auto-injector-and-biomonitor",
+      "name": "Auto-injector and biomonitor",
+      "type": "cyberware",
+      "rating": 3,
+      "nuyen": 20000,
+      "page": 158,
+      "description": "Biomonitor; auto-injects a stim patch on a serious wound and a trauma patch on an incapacitating wound.",
+      "effects": [
+        {
+          "effect": "narrative",
+          "note": "Auto stim patch on a serious wound"
+        },
+        {
+          "effect": "narrative",
+          "note": "Auto trauma patch on an incapacitating wound"
+        }
+      ],
+      "itemCost": 5000,
+      "ratingNote": "Price is 5,000¥ above rating × 5,000¥, presumably the patches."
+    },
+    {
+      "id": "dermal-plating",
+      "name": "Dermal plating",
+      "type": "cyberware",
+      "rating": 2,
+      "nuyen": 10000,
+      "page": 158,
+      "description": "Armor +1.",
+      "effects": [
+        {
+          "effect": "armor"
+        }
+      ]
+    },
+    {
+      "id": "muscle-replacement",
+      "name": "Muscle replacement",
+      "type": "cyberware",
+      "rating": 6,
+      "nuyen": 30000,
+      "page": 158,
+      "description": "RR 1 on Athletics.",
+      "effects": [
+        {
+          "effect": "rr-skill",
+          "target": "athletics"
+        }
+      ]
+    },
+    {
+      "id": "plastic-bone-lacing",
+      "name": "Plastic bone lacing",
+      "type": "cyberware",
+      "rating": 4,
+      "nuyen": 20000,
+      "page": 158,
+      "description": "+1 light wound box.",
+      "effects": [
+        {
+          "effect": "light-wound"
+        }
+      ]
+    },
+    {
+      "id": "aluminum-bone-lacing",
+      "name": "Aluminum bone lacing",
+      "type": "cyberware",
+      "rating": 5,
+      "nuyen": 25000,
+      "page": 158,
+      "description": "Unarmed DV +1; +1 light wound box.",
+      "effects": [
+        {
+          "effect": "damage"
+        },
+        {
+          "effect": "light-wound"
+        }
+      ]
+    },
+    {
+      "id": "titanium-bone-lacing",
+      "name": "Titanium bone lacing",
+      "type": "cyberware",
+      "rating": 8,
+      "nuyen": 40000,
+      "page": 158,
+      "description": "Unarmed DV +1; +1 serious wound box.",
+      "effects": [
+        {
+          "effect": "damage"
+        },
+        {
+          "effect": "serious-wound"
+        }
+      ]
+    },
+    {
+      "id": "reaction-enhancer",
+      "name": "Reaction enhancer",
+      "type": "cyberware",
+      "rating": 3,
+      "nuyen": 15000,
+      "page": 158,
+      "description": "+1 Edge per action scene; unlimited extra actions per turn.",
+      "effects": [
+        {
+          "effect": "initiative-1"
+        }
+      ]
+    },
+    {
+      "id": "ares-wired-reflexes",
+      "name": "Ares wired reflexes",
+      "type": "cyberware",
+      "rating": 6,
+      "nuyen": 30000,
+      "page": 158,
+      "description": "+1 Edge per action scene; +1 action per narration; unlimited extra actions.",
+      "effects": [
+        {
+          "effect": "initiative-1"
+        },
+        {
+          "effect": "initiative-2"
+        }
+      ]
+    },
+    {
+      "id": "evo-wired-reflexes",
+      "name": "Evo wired reflexes",
+      "type": "cyberware",
+      "rating": 8,
+      "nuyen": 40000,
+      "page": 158,
+      "description": "+2 Edge per action scene; +1 action per narration; unlimited extra actions.",
+      "effects": [
+        {
+          "effect": "initiative-1"
+        },
+        {
+          "effect": "initiative-2"
+        },
+        {
+          "effect": "initiative-3"
+        }
+      ]
+    },
+    {
+      "id": "move-by-wire",
+      "name": "Move-by-wire",
+      "type": "cyberware",
+      "rating": 15,
+      "nuyen": 75000,
+      "page": 158,
+      "description": "+2 Edge per action scene; +1 action per narration; unlimited extra actions; RR 1 on Athletics (ranged defense) and Close Combat.",
+      "effects": [
+        {
+          "effect": "initiative-1"
+        },
+        {
+          "effect": "initiative-2"
+        },
+        {
+          "effect": "initiative-3"
+        },
+        {
+          "effect": "rr-specialization",
+          "target": "athletics/ranged-defense"
+        },
+        {
+          "effect": "rr-skill",
+          "target": "close-combat"
+        }
+      ]
+    },
+    {
+      "id": "synthetic-cyberarm-with-cyberspur",
+      "name": "Synthetic cyberarm with cyberspur",
+      "type": "cyberware",
+      "rating": 4,
+      "nuyen": 22500,
+      "page": 158,
+      "description": "Short blade in the forearm; RR 1 on Close Combat (blades).",
+      "effects": [
+        {
+          "effect": "narrative",
+          "note": "Implanted short blade"
+        },
+        {
+          "effect": "rr-specialization",
+          "target": "close-combat/blades"
+        }
+      ],
+      "itemCost": 2500
+    },
+    {
+      "id": "synthetic-cyberarm-with-heavy-pistol",
+      "name": "Synthetic cyberarm with heavy pistol",
+      "type": "cyberware",
+      "rating": 4,
+      "nuyen": 22500,
+      "page": 158,
+      "description": "Heavy pistol in the forearm; RR 1 on Ranged Weapons (pistols).",
+      "effects": [
+        {
+          "effect": "narrative",
+          "note": "Implanted heavy pistol"
+        },
+        {
+          "effect": "rr-specialization",
+          "target": "ranged-weapons/pistols"
+        }
+      ],
+      "itemCost": 2500
+    },
+    {
+      "id": "climbing-arms",
+      "name": "Climbing arms",
+      "type": "cyberware",
+      "rating": 3,
+      "nuyen": 15000,
+      "page": 158,
+      "description": "Retractable climbing claws; RR 1 on Athletics (climbing).",
+      "effects": [
+        {
+          "effect": "rr-specialization",
+          "target": "athletics/climbing"
+        }
+      ]
+    },
+    {
+      "id": "climbing-arms-with-grapple-hand",
+      "name": "Climbing arms with grapple hand",
+      "type": "cyberware",
+      "rating": 6,
+      "nuyen": 30000,
+      "page": 158,
+      "description": "Retractable climbing claws and grapple launcher; RR 2 on Athletics (climbing).",
+      "effects": [
+        {
+          "effect": "rr-specialization",
+          "target": "athletics/climbing"
+        },
+        {
+          "effect": "rr-specialization",
+          "target": "athletics/climbing"
+        },
+        {
+          "effect": "narrative",
+          "note": "Grapple launcher"
+        }
+      ]
+    },
+    {
+      "id": "cyberlegs",
+      "name": "Cyberlegs",
+      "type": "cyberware",
+      "rating": 6,
+      "nuyen": 30000,
+      "page": 158,
+      "description": "RR 1 on Athletics.",
+      "effects": [
+        {
+          "effect": "rr-skill",
+          "target": "athletics"
+        }
+      ]
+    },
+    {
+      "id": "digitigrade-cyberlegs",
+      "name": "Digitigrade Cyberlegs",
+      "type": "cyberware",
+      "rating": 8,
+      "nuyen": 40000,
+      "page": 158,
+      "description": "RR 1 on Athletics; RR 1 on Athletics (running).",
+      "effects": [
+        {
+          "effect": "rr-skill",
+          "target": "athletics"
+        },
+        {
+          "effect": "rr-specialization",
+          "target": "athletics/running"
+        }
+      ]
+    }
+  ]
+}

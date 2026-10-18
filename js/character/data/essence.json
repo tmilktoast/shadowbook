@@ -1,0 +1,12 @@
+{
+  "_note": "Core book, Essence (p. 60). Starts at 6, lost Essence is never regained. Effects are cumulative: every threshold at or above the current Essence applies. 'Magic' covers astral activity, Sorcery and Conjuring Tests, and Tests boosted by adept powers.",
+  "start": 6,
+  "thresholds": [
+    { "atOrBelow": 5, "effect": "Cancel 1 hit on every magic-related Test." },
+    { "atOrBelow": 4, "effect": "Cancel 1 hit on every Test to heal the character." },
+    { "atOrBelow": 3, "effect": "Cancel 1 hit on every magic-related Test." },
+    { "atOrBelow": 2, "effect": "Cancel 1 hit on every Test to heal the character." },
+    { "atOrBelow": 1, "effect": "Disadvantage on most social Tests (GM's choice)." },
+    { "atOrBelow": 0, "effect": "The character dies." }
+  ]
+}

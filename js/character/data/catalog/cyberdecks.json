@@ -1,0 +1,244 @@
+{
+  "_note": "Core book, Cyberdecks (p. 210). Base rating 1 gives Firewall 1, Attack 0.",
+  "entries": [
+    {
+      "id": "erika-mcd-6",
+      "name": "Erika MCD-6",
+      "type": "cyberdeck",
+      "rating": 3,
+      "nuyen": 15000,
+      "page": 210,
+      "description": "Firewall 2; Attack 1.",
+      "effects": [
+        {
+          "effect": "firewall"
+        },
+        {
+          "effect": "attack"
+        }
+      ]
+    },
+    {
+      "id": "spinrad-falcon",
+      "name": "Spinrad Falcon",
+      "type": "cyberdeck",
+      "rating": 6,
+      "nuyen": 30000,
+      "page": 210,
+      "description": "Firewall 2; Attack 2; RR 1 on Cracking (brute force).",
+      "effects": [
+        {
+          "effect": "firewall"
+        },
+        {
+          "effect": "attack"
+        },
+        {
+          "effect": "attack"
+        },
+        {
+          "effect": "rr-specialization",
+          "target": "cracking/brute-force"
+        }
+      ]
+    },
+    {
+      "id": "mct-360",
+      "name": "MCT 360",
+      "type": "cyberdeck",
+      "rating": 11,
+      "nuyen": 55000,
+      "page": 210,
+      "description": "Firewall 3; Attack 3; RR 1 on Cracking.",
+      "effects": [
+        {
+          "effect": "firewall"
+        },
+        {
+          "effect": "firewall"
+        },
+        {
+          "effect": "attack"
+        },
+        {
+          "effect": "attack"
+        },
+        {
+          "effect": "attack"
+        },
+        {
+          "effect": "rr-skill",
+          "target": "cracking"
+        }
+      ]
+    },
+    {
+      "id": "renraku-kitsune",
+      "name": "Renraku Kitsune",
+      "type": "cyberdeck",
+      "rating": 14,
+      "nuyen": 70000,
+      "page": 210,
+      "description": "Firewall 4; Attack 4; biofeedback filter; RR 1 on Cracking.",
+      "effects": [
+        {
+          "effect": "firewall"
+        },
+        {
+          "effect": "firewall"
+        },
+        {
+          "effect": "firewall"
+        },
+        {
+          "effect": "attack"
+        },
+        {
+          "effect": "attack"
+        },
+        {
+          "effect": "attack"
+        },
+        {
+          "effect": "attack"
+        },
+        {
+          "effect": "narrative",
+          "note": "Biofeedback filter"
+        },
+        {
+          "effect": "rr-skill",
+          "target": "cracking"
+        }
+      ]
+    },
+    {
+      "id": "shiawase-cyber-6",
+      "name": "Shiawase Cyber-6",
+      "type": "cyberdeck",
+      "rating": 20,
+      "nuyen": 100000,
+      "page": 210,
+      "description": "Firewall 5; Attack 4; biofeedback; biofeedback filter; RR 1 on Cracking; RR 1 on Cracking (brute force and backdoor).",
+      "effects": [
+        {
+          "effect": "firewall"
+        },
+        {
+          "effect": "firewall"
+        },
+        {
+          "effect": "firewall"
+        },
+        {
+          "effect": "firewall"
+        },
+        {
+          "effect": "attack"
+        },
+        {
+          "effect": "attack"
+        },
+        {
+          "effect": "attack"
+        },
+        {
+          "effect": "attack"
+        },
+        {
+          "effect": "narrative",
+          "note": "Biofeedback"
+        },
+        {
+          "effect": "narrative",
+          "note": "Biofeedback filter"
+        },
+        {
+          "effect": "rr-skill",
+          "target": "cracking"
+        },
+        {
+          "effect": "rr-specialization",
+          "target": "cracking/brute-force"
+        },
+        {
+          "effect": "rr-specialization",
+          "target": "cracking/backdoor"
+        }
+      ]
+    },
+    {
+      "id": "fairlight-excalibur",
+      "name": "Fairlight Excalibur",
+      "type": "cyberdeck",
+      "rating": 30,
+      "nuyen": 150000,
+      "page": 210,
+      "description": "Firewall 5; Attack 5; +1 light damage box; biofeedback filter; biofeedback; RR 1 on Cracking; RR 2 on Cracking (brute force and backdoor); RR 1 on Cracking (cybercombat).",
+      "effects": [
+        {
+          "effect": "firewall"
+        },
+        {
+          "effect": "firewall"
+        },
+        {
+          "effect": "firewall"
+        },
+        {
+          "effect": "firewall"
+        },
+        {
+          "effect": "attack"
+        },
+        {
+          "effect": "attack"
+        },
+        {
+          "effect": "attack"
+        },
+        {
+          "effect": "attack"
+        },
+        {
+          "effect": "attack"
+        },
+        {
+          "effect": "light-wound"
+        },
+        {
+          "effect": "narrative",
+          "note": "Biofeedback filter"
+        },
+        {
+          "effect": "narrative",
+          "note": "Biofeedback"
+        },
+        {
+          "effect": "rr-skill",
+          "target": "cracking"
+        },
+        {
+          "effect": "rr-specialization",
+          "target": "cracking/brute-force"
+        },
+        {
+          "effect": "rr-specialization",
+          "target": "cracking/brute-force"
+        },
+        {
+          "effect": "rr-specialization",
+          "target": "cracking/backdoor"
+        },
+        {
+          "effect": "rr-specialization",
+          "target": "cracking/backdoor"
+        },
+        {
+          "effect": "rr-specialization",
+          "target": "cracking/cybercombat"
+        }
+      ]
+    }
+  ]
+}

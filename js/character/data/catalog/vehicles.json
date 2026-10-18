@@ -1,0 +1,357 @@
+{
+  "_note": "Core book, Vehicle Selection (pp. 234-238) and Drone Selection (pp. 239-241). Base types are rating 1; specific models add effects to a base type.",
+  "entries": [
+    {
+      "id": "horizon-doble-revolution-bike",
+      "name": "Horizon-Doble Revolution Bike",
+      "type": "vehicle",
+      "rating": 2,
+      "nuyen": 10000,
+      "page": 238,
+      "description": "Pilot 6, Body 5, Handling 2, Speed 6, Armor 0.",
+      "effects": [
+        {
+          "effect": "speed"
+        }
+      ],
+      "vehicleType": "chopper"
+    },
+    {
+      "id": "harley-davidson-centaur",
+      "name": "Harley-Davidson Centaur",
+      "type": "vehicle",
+      "rating": 4,
+      "nuyen": 20000,
+      "page": 238,
+      "description": "Pilot 6, Body 5, Handling 2, Speed 5, Armor 3.",
+      "effects": [
+        {
+          "effect": "vehicle-armor"
+        },
+        {
+          "effect": "vehicle-armor"
+        },
+        {
+          "effect": "vehicle-armor"
+        }
+      ],
+      "vehicleType": "chopper"
+    },
+    {
+      "id": "mitsubishi-nightsky",
+      "name": "Mitsubishi Nightsky",
+      "type": "vehicle",
+      "rating": 9,
+      "nuyen": 45000,
+      "page": 238,
+      "description": "Pilot 6, Body 7, Handling 2, Speed 4, Armor 5; RR 1 on Influence Tests when the vehicle is present.",
+      "effects": [
+        {
+          "effect": "handling"
+        },
+        {
+          "effect": "vehicle-armor"
+        },
+        {
+          "effect": "vehicle-armor"
+        },
+        {
+          "effect": "vehicle-armor"
+        },
+        {
+          "effect": "vehicle-armor"
+        },
+        {
+          "effect": "vehicle-armor"
+        },
+        {
+          "effect": "narrative",
+          "note": "RR 1 on Influence when the vehicle is present"
+        },
+        {
+          "effect": "narrative",
+          "note": "Luxury"
+        }
+      ],
+      "vehicleType": "suv",
+      "ratingNote": "Doesn't itemize cleanly: rebuilt as an SUV with +1 Handling and Armor 5; the Influence bonus is counted as 2 narrative effects to match the rating."
+    },
+    {
+      "id": "artemis-industries-nightwing",
+      "name": "Artemis Industries Nightwing",
+      "type": "vehicle",
+      "rating": 4,
+      "nuyen": 20000,
+      "page": 238,
+      "description": "Pilot 6, Body 3, Handling 7, Speed 4, Armor 0; flying; RR 1 on Stealth (physical).",
+      "effects": [
+        {
+          "effect": "flying"
+        },
+        {
+          "effect": "rr-specialization",
+          "target": "stealth/physical-sneaking"
+        }
+      ],
+      "vehicleType": "race-motorbike",
+      "ratingNote": "Its stats (Body 3, Handling 7) match no base type; rebuilt as a flying motorbike plus the RR to match the rating. Use the listed stats in play."
+    },
+    {
+      "id": "crashcart-essential-autonomous-medkit",
+      "name": "CrashCart Essential autonomous medkit",
+      "type": "vehicle",
+      "rating": 1,
+      "nuyen": 5000,
+      "page": 160,
+      "description": "Small drone, Pilot 6, stationary.",
+      "effects": [
+        {
+          "effect": "fixed"
+        },
+        {
+          "effect": "autonomous-medkit"
+        }
+      ],
+      "vehicleType": "small-drone"
+    },
+    {
+      "id": "docwagon-pro-autonomous-medkit",
+      "name": "DocWagon Pro+ autonomous medkit",
+      "type": "vehicle",
+      "rating": 4,
+      "nuyen": 20000,
+      "page": 160,
+      "description": "Small drone, Pilot 9, stationary.",
+      "effects": [
+        {
+          "effect": "pilot"
+        },
+        {
+          "effect": "pilot"
+        },
+        {
+          "effect": "pilot"
+        },
+        {
+          "effect": "fixed"
+        },
+        {
+          "effect": "autonomous-medkit"
+        }
+      ],
+      "vehicleType": "small-drone"
+    },
+    {
+      "id": "shiawase-kanmushi",
+      "name": "Shiawase Kanmushi",
+      "type": "vehicle",
+      "rating": 3,
+      "nuyen": 15000,
+      "page": 241,
+      "description": "Pilot 8, Body 0, Handling 10, Speed 0, Armor 0; Advantage on Stealth (physical); no mount.",
+      "effects": [
+        {
+          "effect": "pilot"
+        },
+        {
+          "effect": "pilot"
+        }
+      ],
+      "vehicleType": "microdrone"
+    },
+    {
+      "id": "mct-gnat",
+      "name": "MCT Gnat",
+      "type": "vehicle",
+      "rating": 4,
+      "nuyen": 20000,
+      "page": 241,
+      "description": "Pilot 6, Body 0, Handling 10, Speed 1, Armor 0; flying; RR 1 and Advantage on Stealth (physical); no mount.",
+      "effects": [
+        {
+          "effect": "flying"
+        },
+        {
+          "effect": "rr-specialization",
+          "target": "stealth/physical-sneaking"
+        }
+      ],
+      "vehicleType": "microdrone"
+    },
+    {
+      "id": "cyberspace-design-quadrotor",
+      "name": "Cyberspace Design Quadrotor",
+      "type": "vehicle",
+      "rating": 4,
+      "nuyen": 20000,
+      "page": 241,
+      "description": "Pilot 6, Body 1, Handling 9, Speed 4, Armor 0; flying; RR 1 on Perception (physical); SMG mount.",
+      "effects": [
+        {
+          "effect": "flying"
+        },
+        {
+          "effect": "rr-specialization",
+          "target": "perception/physical"
+        }
+      ],
+      "vehicleType": "small-drone"
+    },
+    {
+      "id": "lockheed-optic-x2",
+      "name": "Lockheed Optic-X2",
+      "type": "vehicle",
+      "rating": 6,
+      "nuyen": 30000,
+      "page": 241,
+      "description": "Pilot 6, Body 1, Handling 9, Speed 4, Armor 0; flying; SMG mount; RR 1 on Stealth (physical) and Perception (physical).",
+      "effects": [
+        {
+          "effect": "flying"
+        },
+        {
+          "effect": "rr-specialization",
+          "target": "stealth/physical-sneaking"
+        },
+        {
+          "effect": "rr-specialization",
+          "target": "perception/physical"
+        }
+      ],
+      "vehicleType": "small-drone"
+    },
+    {
+      "id": "chrysler-nissan-pursuit-v",
+      "name": "Chrysler-Nissan Pursuit V",
+      "type": "vehicle",
+      "rating": 4,
+      "nuyen": 20000,
+      "page": 241,
+      "description": "Pilot 6, Body 1, Handling 9, Speed 5, Armor 0; SMG mount.",
+      "effects": [
+        {
+          "effect": "speed"
+        },
+        {
+          "effect": "speed"
+        },
+        {
+          "effect": "speed"
+        }
+      ],
+      "vehicleType": "small-drone"
+    },
+    {
+      "id": "gm-nissan-doberman",
+      "name": "GM-Nissan Doberman",
+      "type": "vehicle",
+      "rating": 4,
+      "nuyen": 20000,
+      "page": 241,
+      "description": "Pilot 6, Body 2, Handling 7, Speed 3, Armor 2; turret for assault rifle or smaller.",
+      "effects": [
+        {
+          "effect": "vehicle-armor"
+        },
+        {
+          "effect": "vehicle-armor"
+        },
+        {
+          "effect": "weapon-mount"
+        }
+      ],
+      "vehicleType": "medium-drone"
+    },
+    {
+      "id": "mct-nissan-roto-drone",
+      "name": "MCT-Nissan Roto-drone",
+      "type": "vehicle",
+      "rating": 5,
+      "nuyen": 25000,
+      "page": 241,
+      "description": "Pilot 6, Body 2, Handling 7, Speed 6, Armor 2; flying; 2 front mounts for assault rifle or smaller.",
+      "effects": [
+        {
+          "effect": "flying"
+        },
+        {
+          "effect": "vehicle-armor"
+        },
+        {
+          "effect": "vehicle-armor"
+        },
+        {
+          "effect": "weapon-mount"
+        }
+      ],
+      "vehicleType": "medium-drone"
+    },
+    {
+      "id": "ares-docwagon-first-responder",
+      "name": "Ares-DocWagon First Responder",
+      "type": "vehicle",
+      "rating": 9,
+      "nuyen": 45000,
+      "page": 241,
+      "description": "Pilot 10, Body 2, Handling 7, Speed 3, Armor 2; articulated arm; Valkyrie module (autonomous medkit).",
+      "effects": [
+        {
+          "effect": "pilot"
+        },
+        {
+          "effect": "pilot"
+        },
+        {
+          "effect": "pilot"
+        },
+        {
+          "effect": "pilot"
+        },
+        {
+          "effect": "vehicle-armor"
+        },
+        {
+          "effect": "vehicle-armor"
+        },
+        {
+          "effect": "narrative",
+          "note": "Articulated arm"
+        },
+        {
+          "effect": "autonomous-medkit"
+        }
+      ],
+      "vehicleType": "medium-drone"
+    },
+    {
+      "id": "steel-lynx",
+      "name": "Steel Lynx",
+      "type": "vehicle",
+      "rating": 7,
+      "nuyen": 35000,
+      "page": 241,
+      "description": "Pilot 6, Body 4, Handling 4, Speed 4, Armor 4; turret with 2 mounts.",
+      "effects": [
+        {
+          "effect": "vehicle-armor"
+        },
+        {
+          "effect": "vehicle-armor"
+        },
+        {
+          "effect": "vehicle-armor"
+        },
+        {
+          "effect": "vehicle-armor"
+        },
+        {
+          "effect": "weapon-mount"
+        },
+        {
+          "effect": "weapon-mount"
+        }
+      ],
+      "vehicleType": "large-drone"
+    }
+  ]
+}

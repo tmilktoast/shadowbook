@@ -1,0 +1,646 @@
+{
+  "_note": "Core book pp. 53-57; summary table p. 54. linkedAttributes: the Skill's usual Attribute(s) — the GM can call for another pair. Each specialization lists the Attribute(s) it's used with. requires: who can use the Skill at all.",
+  "athletics": {
+    "label": "Athletics",
+    "category": "general",
+    "linkedAttributes": [
+      "strength",
+      "agility"
+    ],
+    "specializations": {
+      "climbing": {
+        "label": "climbing",
+        "attributes": [
+          "strength"
+        ]
+      },
+      "parkour": {
+        "label": "parkour",
+        "attributes": [
+          "agility"
+        ]
+      },
+      "ranged-defense": {
+        "label": "ranged defense",
+        "attributes": [
+          "agility"
+        ]
+      },
+      "running": {
+        "label": "running",
+        "attributes": [
+          "strength"
+        ]
+      },
+      "swimming": {
+        "label": "swimming",
+        "attributes": [
+          "strength"
+        ]
+      }
+    }
+  },
+  "perception": {
+    "label": "Perception",
+    "category": "general",
+    "linkedAttributes": [
+      "logic"
+    ],
+    "specializations": {
+      "astral": {
+        "label": "astral",
+        "attributes": [
+          "logic"
+        ]
+      },
+      "matrix": {
+        "label": "Matrix",
+        "attributes": [
+          "logic"
+        ]
+      },
+      "physical": {
+        "label": "physical",
+        "attributes": [
+          "logic"
+        ]
+      },
+      "social": {
+        "label": "social",
+        "attributes": [
+          "logic"
+        ]
+      }
+    }
+  },
+  "piloting": {
+    "label": "Piloting",
+    "category": "general",
+    "linkedAttributes": [
+      "agility"
+    ],
+    "specializations": {
+      "bikes": {
+        "label": "bikes",
+        "attributes": [
+          "agility"
+        ]
+      },
+      "cars": {
+        "label": "cars",
+        "attributes": [
+          "agility"
+        ]
+      },
+      "trucks": {
+        "label": "trucks",
+        "attributes": [
+          "agility"
+        ]
+      },
+      "water-vehicles": {
+        "label": "water vehicles",
+        "attributes": [
+          "agility"
+        ]
+      },
+      "flying-vehicles": {
+        "label": "flying vehicles",
+        "attributes": [
+          "agility"
+        ]
+      },
+      "ground-drones": {
+        "label": "ground drones",
+        "attributes": [
+          "agility"
+        ]
+      },
+      "water-drones": {
+        "label": "water drones",
+        "attributes": [
+          "agility"
+        ]
+      },
+      "flying-drones": {
+        "label": "flying drones",
+        "attributes": [
+          "agility"
+        ]
+      }
+    }
+  },
+  "stealth": {
+    "label": "Stealth",
+    "category": "general",
+    "linkedAttributes": [
+      "agility",
+      "logic"
+    ],
+    "specializations": {
+      "astral-sneaking": {
+        "label": "astral sneaking",
+        "attributes": [
+          "agility"
+        ]
+      },
+      "matrix-sneaking": {
+        "label": "Matrix sneaking",
+        "attributes": [
+          "logic"
+        ]
+      },
+      "physical-sneaking": {
+        "label": "physical sneaking",
+        "attributes": [
+          "agility"
+        ]
+      },
+      "palming": {
+        "label": "palming",
+        "attributes": [
+          "agility"
+        ]
+      },
+      "lockpicking": {
+        "label": "lockpicking",
+        "attributes": [
+          "agility",
+          "logic"
+        ]
+      }
+    }
+  },
+  "survival": {
+    "label": "Survival",
+    "category": "general",
+    "linkedAttributes": [
+      "logic",
+      "charisma",
+      "willpower"
+    ],
+    "specializations": {
+      "animals": {
+        "label": "animals",
+        "attributes": [
+          "charisma"
+        ]
+      },
+      "composure": {
+        "label": "composure",
+        "attributes": [
+          "willpower"
+        ]
+      },
+      "first-aid": {
+        "label": "first aid",
+        "attributes": [
+          "logic"
+        ]
+      },
+      "navigation": {
+        "label": "navigation",
+        "attributes": [
+          "logic"
+        ]
+      },
+      "wilderness": {
+        "label": "wilderness",
+        "attributes": [
+          "logic"
+        ]
+      }
+    }
+  },
+  "close-combat": {
+    "label": "Close Combat",
+    "category": "fighting",
+    "linkedAttributes": [
+      "agility",
+      "willpower"
+    ],
+    "specializations": {
+      "unarmed": {
+        "label": "unarmed",
+        "attributes": [
+          "agility"
+        ]
+      },
+      "blades": {
+        "label": "blades",
+        "attributes": [
+          "agility"
+        ]
+      },
+      "clubs": {
+        "label": "clubs",
+        "attributes": [
+          "agility"
+        ]
+      },
+      "defense": {
+        "label": "defense",
+        "attributes": [
+          "agility"
+        ]
+      },
+      "astral-combat": {
+        "label": "astral combat",
+        "attributes": [
+          "willpower"
+        ]
+      }
+    }
+  },
+  "ranged-weapons": {
+    "label": "Ranged Weapons",
+    "category": "fighting",
+    "linkedAttributes": [
+      "agility"
+    ],
+    "specializations": {
+      "throwing-weapons": {
+        "label": "throwing weapons",
+        "attributes": [
+          "agility"
+        ]
+      },
+      "archery": {
+        "label": "archery",
+        "attributes": [
+          "agility"
+        ]
+      },
+      "pistols": {
+        "label": "pistols",
+        "attributes": [
+          "agility"
+        ]
+      },
+      "submachine-guns": {
+        "label": "submachine guns",
+        "attributes": [
+          "agility"
+        ]
+      },
+      "rifles": {
+        "label": "rifles",
+        "attributes": [
+          "agility"
+        ]
+      },
+      "grenade-launchers": {
+        "label": "grenade launchers",
+        "attributes": [
+          "agility"
+        ]
+      },
+      "heavy-weapons": {
+        "label": "heavy weapons",
+        "attributes": [
+          "agility"
+        ]
+      },
+      "mounted-weapons": {
+        "label": "mounted weapons",
+        "attributes": [
+          "agility"
+        ]
+      }
+    }
+  },
+  "cracking": {
+    "label": "Cracking",
+    "category": "technical",
+    "linkedAttributes": [
+      "logic",
+      "willpower"
+    ],
+    "requires": "cyberdeck",
+    "specializations": {
+      "backdoor": {
+        "label": "backdoor",
+        "attributes": [
+          "logic"
+        ]
+      },
+      "brute-force": {
+        "label": "brute force",
+        "attributes": [
+          "logic"
+        ]
+      },
+      "cybercombat": {
+        "label": "cybercombat",
+        "attributes": [
+          "willpower"
+        ]
+      }
+    }
+  },
+  "electronics": {
+    "label": "Electronics",
+    "category": "technical",
+    "linkedAttributes": [
+      "logic"
+    ],
+    "specializations": {
+      "matrix-protection": {
+        "label": "Matrix protection",
+        "attributes": [
+          "logic"
+        ]
+      },
+      "matrix-search": {
+        "label": "Matrix search",
+        "attributes": [
+          "logic"
+        ]
+      },
+      "personal-electronics": {
+        "label": "personal electronics",
+        "attributes": [
+          "logic"
+        ]
+      }
+    }
+  },
+  "engineering": {
+    "label": "Engineering",
+    "category": "technical",
+    "linkedAttributes": [
+      "logic"
+    ],
+    "specializations": {
+      "cybernetics-br": {
+        "label": "cybernetics B&R",
+        "attributes": [
+          "logic"
+        ]
+      },
+      "drones-br": {
+        "label": "drones B&R",
+        "attributes": [
+          "logic"
+        ]
+      },
+      "electronics-br": {
+        "label": "electronics B&R",
+        "attributes": [
+          "logic"
+        ]
+      },
+      "mechanical-br": {
+        "label": "mechanical B&R",
+        "attributes": [
+          "logic"
+        ]
+      },
+      "vehicles-br": {
+        "label": "vehicles B&R",
+        "attributes": [
+          "logic"
+        ]
+      },
+      "electronic-warfare": {
+        "label": "electronic warfare",
+        "attributes": [
+          "logic"
+        ]
+      },
+      "demolitions": {
+        "label": "demolitions",
+        "attributes": [
+          "logic"
+        ]
+      },
+      "remote-controlled-weapons": {
+        "label": "remote-controlled weapons",
+        "attributes": [
+          "logic"
+        ]
+      }
+    }
+  },
+  "influence": {
+    "label": "Influence",
+    "category": "social",
+    "linkedAttributes": [
+      "charisma"
+    ],
+    "specializations": {
+      "bluff": {
+        "label": "bluff",
+        "attributes": [
+          "charisma"
+        ]
+      },
+      "etiquette": {
+        "label": "etiquette",
+        "attributes": [
+          "charisma"
+        ]
+      },
+      "impersonation": {
+        "label": "impersonation",
+        "attributes": [
+          "charisma"
+        ]
+      },
+      "intimidation": {
+        "label": "intimidation",
+        "attributes": [
+          "charisma"
+        ]
+      },
+      "negotiation": {
+        "label": "negotiation",
+        "attributes": [
+          "charisma"
+        ]
+      }
+    }
+  },
+  "network": {
+    "label": "Network",
+    "category": "social",
+    "linkedAttributes": [
+      "charisma"
+    ],
+    "specializations": {
+      "academic": {
+        "label": "academic",
+        "attributes": [
+          "charisma"
+        ]
+      },
+      "corporate": {
+        "label": "corporate",
+        "attributes": [
+          "charisma"
+        ]
+      },
+      "criminal": {
+        "label": "criminal",
+        "attributes": [
+          "charisma"
+        ]
+      },
+      "engineering": {
+        "label": "engineering",
+        "attributes": [
+          "charisma"
+        ]
+      },
+      "government": {
+        "label": "government",
+        "attributes": [
+          "charisma"
+        ]
+      },
+      "magic": {
+        "label": "magic",
+        "attributes": [
+          "charisma"
+        ]
+      },
+      "matrix": {
+        "label": "Matrix",
+        "attributes": [
+          "charisma"
+        ]
+      },
+      "media": {
+        "label": "media",
+        "attributes": [
+          "charisma"
+        ]
+      },
+      "medical": {
+        "label": "medical",
+        "attributes": [
+          "charisma"
+        ]
+      },
+      "street": {
+        "label": "street",
+        "attributes": [
+          "charisma"
+        ]
+      }
+    }
+  },
+  "conjuring": {
+    "label": "Conjuring",
+    "category": "magic",
+    "linkedAttributes": [
+      "logic",
+      "charisma"
+    ],
+    "requires": "awakened",
+    "specializations": {
+      "banishing": {
+        "label": "banishing",
+        "attributes": [
+          "logic",
+          "charisma"
+        ]
+      },
+      "spirits-of-air": {
+        "label": "spirits of air",
+        "attributes": [
+          "logic",
+          "charisma"
+        ]
+      },
+      "spirits-of-beasts": {
+        "label": "spirits of beasts",
+        "attributes": [
+          "logic",
+          "charisma"
+        ]
+      },
+      "spirits-of-earth": {
+        "label": "spirits of earth",
+        "attributes": [
+          "logic",
+          "charisma"
+        ]
+      },
+      "spirits-of-fire": {
+        "label": "spirits of fire",
+        "attributes": [
+          "logic",
+          "charisma"
+        ]
+      },
+      "spirits-of-kin": {
+        "label": "spirits of kin",
+        "attributes": [
+          "logic",
+          "charisma"
+        ]
+      },
+      "spirits-of-plants": {
+        "label": "spirits of plants",
+        "attributes": [
+          "logic",
+          "charisma"
+        ]
+      },
+      "spirits-of-water": {
+        "label": "spirits of water",
+        "attributes": [
+          "logic",
+          "charisma"
+        ]
+      }
+    }
+  },
+  "sorcery": {
+    "label": "Sorcery",
+    "category": "magic",
+    "linkedAttributes": [
+      "willpower"
+    ],
+    "requires": "awakened",
+    "specializations": {
+      "counterspelling": {
+        "label": "counterspelling",
+        "attributes": [
+          "willpower"
+        ]
+      },
+      "combat-spells": {
+        "label": "combat spells",
+        "attributes": [
+          "willpower"
+        ]
+      },
+      "detection-spells": {
+        "label": "detection spells",
+        "attributes": [
+          "willpower"
+        ]
+      },
+      "health-spells": {
+        "label": "health spells",
+        "attributes": [
+          "willpower"
+        ]
+      },
+      "illusion-spells": {
+        "label": "illusion spells",
+        "attributes": [
+          "willpower"
+        ]
+      },
+      "manipulation-spells": {
+        "label": "manipulation spells",
+        "attributes": [
+          "willpower"
+        ]
+      }
+    }
+  }
+}

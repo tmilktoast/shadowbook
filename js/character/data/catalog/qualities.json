@@ -1,0 +1,229 @@
+{
+  "_note": "Core book: mentor spirits (p. 174) and Jet Setter (p. 139). Ratings assume this is the character's first Quality (base 0); otherwise +3 rating / +15,000¥. Mentor spirits are for Awakened characters and come with a Disposition the follower must reflect.",
+  "entries": [
+    {
+      "id": "mentor-bear",
+      "name": "Bear",
+      "type": "quality",
+      "rating": 4,
+      "nuyen": 20000,
+      "page": 174,
+      "description": "RR 1 on 2 of: Survival (first aid), Close Combat (unarmed), Sorcery (health spells).",
+      "effects": [],
+      "category": "mentor-spirit",
+      "firstQuality": true,
+      "choose": {
+        "count": 2,
+        "effect": "rr-specialization",
+        "options": [
+          "survival/first-aid",
+          "close-combat/unarmed",
+          "sorcery/health-spells"
+        ]
+      },
+      "grantsDisposition": "Rage: when wounded, throws themself into combat with no thought for safety.",
+      "similarArchetypes": [
+        "Protection",
+        "Strength"
+      ]
+    },
+    {
+      "id": "mentor-cat",
+      "name": "Cat",
+      "type": "quality",
+      "rating": 4,
+      "nuyen": 20000,
+      "page": 174,
+      "description": "RR 1 on 2 of: Athletics (parkour), Stealth (physical sneaking), Sorcery (illusion spells).",
+      "effects": [],
+      "category": "mentor-spirit",
+      "firstQuality": true,
+      "choose": {
+        "count": 2,
+        "effect": "rr-specialization",
+        "options": [
+          "athletics/parkour",
+          "stealth/physical-sneaking",
+          "sorcery/illusion-spells"
+        ]
+      },
+      "grantsDisposition": "Cruel: prefers to weaken and toy with prey rather than kill outright, while unwounded.",
+      "similarArchetypes": [
+        "Mystery",
+        "Secret"
+      ]
+    },
+    {
+      "id": "mentor-coyote",
+      "name": "Coyote",
+      "type": "quality",
+      "rating": 4,
+      "nuyen": 20000,
+      "page": 174,
+      "description": "RR 1 on 2 of: Influence (impersonation), Influence (etiquette), Sorcery (manipulation spells).",
+      "effects": [],
+      "category": "mentor-spirit",
+      "firstQuality": true,
+      "choose": {
+        "count": 2,
+        "effect": "rr-specialization",
+        "options": [
+          "influence/impersonation",
+          "influence/etiquette",
+          "sorcery/manipulation-spells"
+        ]
+      },
+      "grantsDisposition": "Mischievous: never passes up a chance to trick someone, even to the team's detriment.",
+      "similarArchetypes": [
+        "Deceit",
+        "Mischief"
+      ]
+    },
+    {
+      "id": "mentor-dog",
+      "name": "Dog",
+      "type": "quality",
+      "rating": 4,
+      "nuyen": 20000,
+      "page": 174,
+      "description": "RR 1 on 2 of: Perception (physical), Survival (navigation), Sorcery (detection spells).",
+      "effects": [],
+      "category": "mentor-spirit",
+      "firstQuality": true,
+      "choose": {
+        "count": 2,
+        "effect": "rr-specialization",
+        "options": [
+          "perception/physical",
+          "survival/navigation",
+          "sorcery/detection-spells"
+        ]
+      },
+      "grantsDisposition": "Loyal: won't betray companions or let anyone sacrifice themselves for them.",
+      "similarArchetypes": [
+        "Friendship",
+        "Loyalty"
+      ]
+    },
+    {
+      "id": "mentor-dragonslayer",
+      "name": "Dragonslayer",
+      "type": "quality",
+      "rating": 4,
+      "nuyen": 20000,
+      "page": 174,
+      "description": "RR 1 on 2 of: Influence (intimidation), Close Combat (one specialization of your choice), Sorcery (combat spells).",
+      "effects": [],
+      "category": "mentor-spirit",
+      "firstQuality": true,
+      "choose": {
+        "count": 2,
+        "effect": "rr-specialization",
+        "options": [
+          "influence/intimidation",
+          "close-combat/*",
+          "sorcery/combat-spells"
+        ]
+      },
+      "grantsDisposition": "Honor: does everything to keep their promises.",
+      "similarArchetypes": [
+        "Adventure",
+        "Heroism"
+      ]
+    },
+    {
+      "id": "mentor-raccoon",
+      "name": "Raccoon",
+      "type": "quality",
+      "rating": 4,
+      "nuyen": 20000,
+      "page": 174,
+      "description": "RR 1 on 2 of: Stealth (palming), Influence (bluff), Sorcery (manipulation spells).",
+      "effects": [],
+      "category": "mentor-spirit",
+      "firstQuality": true,
+      "choose": {
+        "count": 2,
+        "effect": "rr-specialization",
+        "options": [
+          "stealth/palming",
+          "influence/bluff",
+          "sorcery/manipulation-spells"
+        ]
+      },
+      "grantsDisposition": "Curious: willing to ignore danger to uncover new secrets.",
+      "similarArchetypes": [
+        "Cat Burglar"
+      ]
+    },
+    {
+      "id": "mentor-thunderbird",
+      "name": "Thunderbird",
+      "type": "quality",
+      "rating": 4,
+      "nuyen": 20000,
+      "page": 174,
+      "description": "RR 1 on 2 of: Influence (intimidation), Close Combat (unarmed), Conjuring (spirits of air).",
+      "effects": [],
+      "category": "mentor-spirit",
+      "firstQuality": true,
+      "choose": {
+        "count": 2,
+        "effect": "rr-specialization",
+        "options": [
+          "influence/intimidation",
+          "close-combat/unarmed",
+          "conjuring/spirits-of-air"
+        ]
+      },
+      "grantsDisposition": "Uptight: can't let an insult go unanswered.",
+      "similarArchetypes": [
+        "Anger",
+        "War"
+      ]
+    },
+    {
+      "id": "mentor-wolf",
+      "name": "Wolf",
+      "type": "quality",
+      "rating": 4,
+      "nuyen": 20000,
+      "page": 174,
+      "description": "RR 1 on 2 of: Survival (navigation), Close Combat (unarmed), Close Combat (blades), Sorcery (combat spells).",
+      "effects": [],
+      "category": "mentor-spirit",
+      "firstQuality": true,
+      "choose": {
+        "count": 2,
+        "effect": "rr-specialization",
+        "options": [
+          "survival/navigation",
+          "close-combat/unarmed",
+          "close-combat/blades",
+          "sorcery/combat-spells"
+        ]
+      },
+      "grantsDisposition": "Fierce: never flees a fight once engaged.",
+      "similarArchetypes": [
+        "Community",
+        "Hunt"
+      ]
+    },
+    {
+      "id": "jet-setter",
+      "name": "Jet Setter",
+      "type": "quality",
+      "rating": 1,
+      "nuyen": 5000,
+      "page": 139,
+      "description": "Used to the sharpest banter; social armor 1.",
+      "effects": [
+        {
+          "effect": "armor"
+        }
+      ],
+      "firstQuality": true,
+      "category": "social"
+    }
+  ]
+}

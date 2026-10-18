@@ -1,0 +1,52 @@
+{
+  "_note": "Core book, Amp Types (pp. 58-60) and Shadow Amp Base Rating table (p. 61). An Amp's rating = baseRating + its effects' costs; each rating point costs 5,000¥.",
+  "quality": {
+    "label": "Quality",
+    "baseRating": 3,
+    "firstBaseRating": 0,
+    "description": "Integral capability, always available. The character's first Quality (racial ones aside) has base rating 0; later ones 3. Bought only at creation or after a major event, but can be upgraded later."
+  },
+  "awakened": {
+    "label": "Awakened",
+    "baseRating": 0,
+    "description": "Grants magical capabilities; its rating is the sum of the abilities taken (astral perception, sorcery, conjuring, adept...). Gives no other enhancements."
+  },
+  "cyberware": {
+    "label": "Cyberware",
+    "baseRating": 1,
+    "essenceCost": 1,
+    "description": "One cybernetic implant. Readily available, but can be hacked or restrained."
+  },
+  "bioware": {
+    "label": "Bioware",
+    "baseRating": 2,
+    "essenceCost": 0.5,
+    "description": "One biological implant. Less Essence loss and can't be hacked, but more limited and pricier than cyberware."
+  },
+  "adept-power": {
+    "label": "Adept Power",
+    "baseRating": 1,
+    "description": "Magic channeled into the body. Requires the Awakened Amp with the Adept ability; affected by background count."
+  },
+  "equipment": {
+    "label": "Equipment",
+    "baseRating": 0,
+    "description": "Turns an item the character already bought into an Amp so it can take effects. Cheap and no Essence loss, but the most likely to be lost or jammed."
+  },
+  "cyberdeck": {
+    "label": "Cyberdeck",
+    "baseRating": 1,
+    "stats": { "firewall": 1, "attack": 0 },
+    "description": "Required to hack the Matrix (the Cracking Skill)."
+  },
+  "vehicle": {
+    "label": "Vehicle or Drone",
+    "baseRating": 1,
+    "description": "A vehicle or drone built from one of the base types in vehicleTypes.json."
+  },
+  "contact": {
+    "label": "Contact",
+    "baseRating": 0,
+    "description": "A named individual in the character's network."
+  }
+}

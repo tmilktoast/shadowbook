@@ -1,0 +1,273 @@
+{
+  "_note": "Core book, Contacts (p. 164). Base rating 0. Each is a named NPC in play; these are archetypes.",
+  "entries": [
+    {
+      "id": "bar-owner",
+      "name": "Bar Owner",
+      "type": "contact",
+      "rating": 2,
+      "nuyen": 10000,
+      "page": 164,
+      "description": "RR 1 on Network (street).",
+      "effects": [
+        {
+          "effect": "rr-specialization",
+          "target": "network/street"
+        }
+      ]
+    },
+    {
+      "id": "corporate-executive",
+      "name": "Corporate executive",
+      "type": "contact",
+      "rating": 2,
+      "nuyen": 10000,
+      "page": 164,
+      "description": "RR 1 on Network (corporate).",
+      "effects": [
+        {
+          "effect": "rr-specialization",
+          "target": "network/corporate"
+        }
+      ]
+    },
+    {
+      "id": "data-haven",
+      "name": "Data Haven",
+      "type": "contact",
+      "rating": 4,
+      "nuyen": 20000,
+      "page": 164,
+      "description": "RR 1 on Network (Matrix); RR 1 on Electronics (Matrix search).",
+      "effects": [
+        {
+          "effect": "rr-specialization",
+          "target": "network/matrix"
+        },
+        {
+          "effect": "rr-specialization",
+          "target": "electronics/matrix-search"
+        }
+      ]
+    },
+    {
+      "id": "fixer",
+      "name": "Fixer",
+      "type": "contact",
+      "rating": 5,
+      "nuyen": 25000,
+      "page": 164,
+      "description": "RR 1 on Network.",
+      "effects": [
+        {
+          "effect": "rr-skill",
+          "target": "network"
+        }
+      ]
+    },
+    {
+      "id": "ganger",
+      "name": "Ganger",
+      "type": "contact",
+      "rating": 2,
+      "nuyen": 10000,
+      "page": 164,
+      "description": "RR 1 on Network (criminal).",
+      "effects": [
+        {
+          "effect": "rr-specialization",
+          "target": "network/criminal"
+        }
+      ]
+    },
+    {
+      "id": "gunsmith",
+      "name": "Gunsmith",
+      "type": "contact",
+      "rating": 4,
+      "nuyen": 20000,
+      "page": 164,
+      "description": "RR 1 on Network (street and engineering).",
+      "effects": [
+        {
+          "effect": "rr-specialization",
+          "target": "network/street"
+        },
+        {
+          "effect": "rr-specialization",
+          "target": "network/engineering"
+        }
+      ]
+    },
+    {
+      "id": "journalist",
+      "name": "Journalist",
+      "type": "contact",
+      "rating": 2,
+      "nuyen": 10000,
+      "page": 164,
+      "description": "RR 1 on Network (media).",
+      "effects": [
+        {
+          "effect": "rr-specialization",
+          "target": "network/media"
+        }
+      ]
+    },
+    {
+      "id": "lawyer",
+      "name": "Lawyer",
+      "type": "contact",
+      "rating": 4,
+      "nuyen": 20000,
+      "page": 164,
+      "description": "RR 2 on Network (government).",
+      "effects": [
+        {
+          "effect": "rr-specialization",
+          "target": "network/government"
+        },
+        {
+          "effect": "rr-specialization",
+          "target": "network/government"
+        }
+      ]
+    },
+    {
+      "id": "mafia-consigliere",
+      "name": "Mafia Consigliere",
+      "type": "contact",
+      "rating": 4,
+      "nuyen": 20000,
+      "page": 164,
+      "description": "RR 2 on Network (criminal).",
+      "effects": [
+        {
+          "effect": "rr-specialization",
+          "target": "network/criminal"
+        },
+        {
+          "effect": "rr-specialization",
+          "target": "network/criminal"
+        }
+      ]
+    },
+    {
+      "id": "mechanic",
+      "name": "Mechanic",
+      "type": "contact",
+      "rating": 2,
+      "nuyen": 10000,
+      "page": 164,
+      "description": "RR 1 on Network (engineering).",
+      "effects": [
+        {
+          "effect": "rr-specialization",
+          "target": "network/engineering"
+        }
+      ]
+    },
+    {
+      "id": "mr-johnson",
+      "name": "Mr. Johnson",
+      "type": "contact",
+      "rating": 6,
+      "nuyen": 30000,
+      "page": 164,
+      "description": "RR 1 on Network (street, criminal and corporate).",
+      "effects": [
+        {
+          "effect": "rr-specialization",
+          "target": "network/street"
+        },
+        {
+          "effect": "rr-specialization",
+          "target": "network/criminal"
+        },
+        {
+          "effect": "rr-specialization",
+          "target": "network/corporate"
+        }
+      ]
+    },
+    {
+      "id": "smuggler",
+      "name": "Smuggler",
+      "type": "contact",
+      "rating": 4,
+      "nuyen": 20000,
+      "page": 164,
+      "description": "RR 1 on Network (street and engineering).",
+      "effects": [
+        {
+          "effect": "rr-specialization",
+          "target": "network/street"
+        },
+        {
+          "effect": "rr-specialization",
+          "target": "network/engineering"
+        }
+      ]
+    },
+    {
+      "id": "street-doc",
+      "name": "Street Doc",
+      "type": "contact",
+      "rating": 2,
+      "nuyen": 10000,
+      "page": 164,
+      "description": "RR 1 on Network (medical).",
+      "effects": [
+        {
+          "effect": "rr-specialization",
+          "target": "network/medical"
+        }
+      ]
+    },
+    {
+      "id": "talismonger",
+      "name": "Talismonger",
+      "type": "contact",
+      "rating": 2,
+      "nuyen": 10000,
+      "page": 164,
+      "description": "RR 1 on Network (magic).",
+      "effects": [
+        {
+          "effect": "rr-specialization",
+          "target": "network/magic"
+        }
+      ]
+    },
+    {
+      "id": "undercover-cop",
+      "name": "Undercover cop",
+      "type": "contact",
+      "rating": 2,
+      "nuyen": 10000,
+      "page": 164,
+      "description": "RR 1 on Network (government).",
+      "effects": [
+        {
+          "effect": "rr-specialization",
+          "target": "network/government"
+        }
+      ]
+    },
+    {
+      "id": "university-professor",
+      "name": "University Professor",
+      "type": "contact",
+      "rating": 2,
+      "nuyen": 10000,
+      "page": 164,
+      "description": "RR 1 on Network (academic).",
+      "effects": [
+        {
+          "effect": "rr-specialization",
+          "target": "network/academic"
+        }
+      ]
+    }
+  ]
+}

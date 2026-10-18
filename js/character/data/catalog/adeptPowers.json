@@ -1,0 +1,326 @@
+{
+  "_note": "Core book, Adept Powers (pp. 190-191). Require the Awakened Amp with the Adept ability. Base rating 1 includes one narrative effect.",
+  "entries": [
+    {
+      "id": "empathic-sense",
+      "name": "Empathic Sense",
+      "type": "adept-power",
+      "rating": 7,
+      "nuyen": 35000,
+      "page": 191,
+      "description": "RR 3 on Perception (social).",
+      "effects": [
+        {
+          "effect": "rr-specialization",
+          "target": "perception/social"
+        },
+        {
+          "effect": "rr-specialization",
+          "target": "perception/social"
+        },
+        {
+          "effect": "rr-specialization",
+          "target": "perception/social"
+        }
+      ]
+    },
+    {
+      "id": "enhanced-perception",
+      "name": "Enhanced Perception",
+      "type": "adept-power",
+      "rating": 3,
+      "nuyen": 15000,
+      "page": 191,
+      "description": "RR 1 on Perception (physical); each extra rating adds a sense (low-light, thermographic, wide-range hearing, canine smell, echolocation...).",
+      "effects": [
+        {
+          "effect": "rr-specialization",
+          "target": "perception/physical"
+        }
+      ],
+      "variableRating": true
+    },
+    {
+      "id": "improved-ability",
+      "name": "Improved Ability",
+      "type": "adept-power",
+      "rating": 6,
+      "nuyen": 30000,
+      "page": 191,
+      "description": "RR 1 on one Skill, chosen when gaining the Amp.",
+      "effects": [
+        {
+          "effect": "rr-skill",
+          "target": null,
+          "choice": "Any Skill"
+        }
+      ]
+    },
+    {
+      "id": "improved-attribute",
+      "name": "Improved Attribute",
+      "type": "adept-power",
+      "rating": 11,
+      "nuyen": 55000,
+      "page": 191,
+      "description": "RR 1 on one Attribute, chosen when gaining the Amp.",
+      "effects": [
+        {
+          "effect": "rr-attribute",
+          "target": null,
+          "choice": "Any Attribute"
+        }
+      ]
+    },
+    {
+      "id": "improved-reflexes",
+      "name": "Improved Reflexes",
+      "type": "adept-power",
+      "rating": 6,
+      "nuyen": 30000,
+      "page": 191,
+      "description": "+1 Edge per action scene; +1 action per narration; unlimited extra actions.",
+      "effects": [
+        {
+          "effect": "initiative-1"
+        },
+        {
+          "effect": "initiative-2"
+        }
+      ]
+    },
+    {
+      "id": "killing-hands",
+      "name": "Killing Hands",
+      "type": "adept-power",
+      "rating": 3,
+      "nuyen": 15000,
+      "page": 191,
+      "description": "DV +2 on unarmed attacks.",
+      "effects": [
+        {
+          "effect": "damage"
+        },
+        {
+          "effect": "damage"
+        }
+      ]
+    },
+    {
+      "id": "light-footed",
+      "name": "Light-footed",
+      "type": "adept-power",
+      "rating": 5,
+      "nuyen": 25000,
+      "page": 191,
+      "description": "RR 2 on Stealth (physical sneaking).",
+      "effects": [
+        {
+          "effect": "rr-specialization",
+          "target": "stealth/physical-sneaking"
+        },
+        {
+          "effect": "rr-specialization",
+          "target": "stealth/physical-sneaking"
+        }
+      ]
+    },
+    {
+      "id": "morphological-and-vocal-control",
+      "name": "Morphological and Vocal Control",
+      "type": "adept-power",
+      "rating": 10,
+      "nuyen": 50000,
+      "page": 191,
+      "description": "RR 1 on Influence; RR 2 on Influence (impersonation).",
+      "effects": [
+        {
+          "effect": "rr-skill",
+          "target": "influence"
+        },
+        {
+          "effect": "rr-specialization",
+          "target": "influence/impersonation"
+        },
+        {
+          "effect": "rr-specialization",
+          "target": "influence/impersonation"
+        }
+      ]
+    },
+    {
+      "id": "mystic-armor",
+      "name": "Mystic Armor",
+      "type": "adept-power",
+      "rating": 3,
+      "nuyen": 15000,
+      "page": 191,
+      "description": "+1 armor against astral and physical damage.",
+      "effects": [
+        {
+          "effect": "armor"
+        },
+        {
+          "effect": "narrative",
+          "note": "Also protects against astral damage"
+        }
+      ]
+    },
+    {
+      "id": "pain-resistance",
+      "name": "Pain resistance",
+      "type": "adept-power",
+      "rating": 7,
+      "nuyen": 35000,
+      "page": 191,
+      "description": "+1 serious wound box.",
+      "effects": [
+        {
+          "effect": "serious-wound"
+        }
+      ]
+    },
+    {
+      "id": "reflexes-boost",
+      "name": "Reflexes Boost",
+      "type": "adept-power",
+      "rating": 3,
+      "nuyen": 15000,
+      "page": 191,
+      "description": "+1 Edge per action scene; unlimited extra actions.",
+      "effects": [
+        {
+          "effect": "initiative-1"
+        }
+      ]
+    },
+    {
+      "id": "vocal-control",
+      "name": "Vocal Control",
+      "type": "adept-power",
+      "rating": 8,
+      "nuyen": 40000,
+      "page": 191,
+      "description": "RR 1 on Influence; RR 1 on Influence (impersonation).",
+      "effects": [
+        {
+          "effect": "rr-skill",
+          "target": "influence"
+        },
+        {
+          "effect": "rr-specialization",
+          "target": "influence/impersonation"
+        }
+      ]
+    },
+    {
+      "id": "wall-running",
+      "name": "Wall Running",
+      "type": "adept-power",
+      "rating": 1,
+      "nuyen": 5000,
+      "page": 191,
+      "description": "Move a short distance along a vertical surface.",
+      "effects": []
+    },
+    {
+      "id": "astral-armor",
+      "name": "Astral Armor",
+      "type": "adept-power",
+      "rating": 2,
+      "nuyen": 10000,
+      "page": 191,
+      "description": "+1 armor against spells and in the astral plane.",
+      "effects": [
+        {
+          "effect": "armor"
+        }
+      ]
+    },
+    {
+      "id": "adept-armor",
+      "name": "Armor",
+      "type": "adept-power",
+      "rating": 2,
+      "nuyen": 10000,
+      "page": 191,
+      "description": "+1 physical armor.",
+      "effects": [
+        {
+          "effect": "armor"
+        }
+      ]
+    },
+    {
+      "id": "combat-sense",
+      "name": "Combat Sense",
+      "type": "adept-power",
+      "rating": 8,
+      "nuyen": 40000,
+      "page": 191,
+      "description": "RR 1 on Close Combat and Athletics (ranged defense).",
+      "effects": [
+        {
+          "effect": "rr-skill",
+          "target": "close-combat"
+        },
+        {
+          "effect": "rr-specialization",
+          "target": "athletics/ranged-defense"
+        }
+      ]
+    },
+    {
+      "id": "danger-sense",
+      "name": "Danger Sense",
+      "type": "adept-power",
+      "rating": 1,
+      "nuyen": 5000,
+      "page": 191,
+      "description": "Sense an imminent threat without a Perception Test, but no details.",
+      "effects": []
+    },
+    {
+      "id": "distance-strike",
+      "name": "Distance Strike",
+      "type": "adept-power",
+      "rating": 3,
+      "nuyen": 15000,
+      "page": 191,
+      "description": "Unarmed attacks at short range, with a Disadvantage.",
+      "effects": [
+        {
+          "effect": "range"
+        }
+      ]
+    },
+    {
+      "id": "elemental-strike",
+      "name": "Elemental Strike",
+      "type": "adept-power",
+      "rating": 2,
+      "nuyen": 10000,
+      "page": 191,
+      "description": "DV +1 on unarmed attacks plus an elemental effect (fire, ice, acid...) chosen when gaining the Amp.",
+      "effects": [
+        {
+          "effect": "damage"
+        }
+      ]
+    },
+    {
+      "id": "elemental-weapon",
+      "name": "Elemental Weapon",
+      "type": "adept-power",
+      "rating": 2,
+      "nuyen": 10000,
+      "page": 191,
+      "description": "DV +1 on melee weapon attacks plus an elemental effect chosen when gaining the Amp.",
+      "effects": [
+        {
+          "effect": "damage"
+        }
+      ]
+    }
+  ]
+}

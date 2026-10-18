@@ -1,0 +1,24 @@
+{
+  "_note": "Core book, Levels of Play (character creation). Limits apply at creation only; advancement can exceed them. riskReductionMax includes stacking.",
+  "ganger": {
+    "label": "Ganger",
+    "nuyen": 300000,
+    "attributesAtMax": 0,
+    "skillMax": 4,
+    "riskReductionMax": { "general": 1, "specializations": 1 }
+  },
+  "runner": {
+    "label": "Runner",
+    "nuyen": 375000,
+    "attributesAtMax": 1,
+    "skillMax": 5,
+    "riskReductionMax": { "general": 1, "specializations": 2 }
+  },
+  "prime": {
+    "label": "Prime Runner",
+    "nuyen": 450000,
+    "attributesAtMax": 2,
+    "skillMax": 6,
+    "riskReductionMax": { "general": 2, "specializations": 2 }
+  }
+}

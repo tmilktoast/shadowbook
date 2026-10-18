@@ -1,0 +1,292 @@
+{
+  "_note": "Core book, Drugs (p. 150). One-dose Equipment Amps; price includes 2,500¥. Berserker and Casanova are BTLs that need hot-sim VR.",
+  "entries": [
+    {
+      "id": "berserker",
+      "name": "Berserker",
+      "type": "equipment",
+      "rating": 4,
+      "nuyen": 22500,
+      "page": 150,
+      "description": "Melee DV +1; RR 1 on Close Combat; must take a High or Extreme Risk on every action. BTL (needs hot-sim).",
+      "effects": [
+        {
+          "effect": "damage"
+        },
+        {
+          "effect": "rr-skill",
+          "target": "close-combat"
+        },
+        {
+          "effect": "negative",
+          "cost": -2,
+          "note": "Must take a High or Extreme Risk on every action"
+        }
+      ],
+      "itemCost": 2500,
+      "duration": "One combat scene",
+      "ratingNote": "The book doesn't itemize drug ratings; drawbacks (crashes, Disadvantages) are encoded as negative effects chosen to match each rating."
+    },
+    {
+      "id": "bliss",
+      "name": "Bliss",
+      "type": "equipment",
+      "rating": 1,
+      "nuyen": 7500,
+      "page": 150,
+      "description": "Ignore wound modifiers; Disadvantage on Willpower-based Tests.",
+      "effects": [
+        {
+          "effect": "narrative",
+          "note": "Ignore wound modifiers"
+        }
+      ],
+      "itemCost": 2500,
+      "duration": "One scene",
+      "ratingNote": "The book doesn't itemize drug ratings; drawbacks (crashes, Disadvantages) are encoded as negative effects chosen to match each rating."
+    },
+    {
+      "id": "casanova",
+      "name": "Casanova",
+      "type": "equipment",
+      "rating": 10,
+      "nuyen": 52500,
+      "page": 150,
+      "description": "RR 1 on Charisma-based Tests. BTL (needs hot-sim).",
+      "effects": [
+        {
+          "effect": "rr-attribute",
+          "target": "charisma"
+        }
+      ],
+      "itemCost": 2500,
+      "duration": "Your choice",
+      "ratingNote": "The book doesn't itemize drug ratings; drawbacks (crashes, Disadvantages) are encoded as negative effects chosen to match each rating."
+    },
+    {
+      "id": "cereprax",
+      "name": "Cereprax",
+      "type": "equipment",
+      "rating": 7,
+      "nuyen": 37500,
+      "page": 150,
+      "description": "RR 1 on Logic-based Tests. Crash: Disadvantage on Logic Tests for a scene and a serious wound.",
+      "effects": [
+        {
+          "effect": "rr-attribute",
+          "target": "logic"
+        },
+        {
+          "effect": "negative",
+          "cost": -3,
+          "note": "Crash: Disadvantage on Logic Tests for a scene and a serious wound"
+        }
+      ],
+      "itemCost": 2500,
+      "duration": "One scene",
+      "ratingNote": "The book doesn't itemize drug ratings; drawbacks (crashes, Disadvantages) are encoded as negative effects chosen to match each rating."
+    },
+    {
+      "id": "cram",
+      "name": "Cram",
+      "type": "equipment",
+      "rating": 1,
+      "nuyen": 7500,
+      "page": 150,
+      "description": "+1 Edge per action scene; unlimited extra actions. Crash: a serious wound.",
+      "effects": [
+        {
+          "effect": "initiative-1"
+        },
+        {
+          "effect": "negative",
+          "cost": -1,
+          "note": "Crash: a serious wound"
+        }
+      ],
+      "itemCost": 2500,
+      "duration": "One combat scene",
+      "ratingNote": "The book doesn't itemize drug ratings; drawbacks (crashes, Disadvantages) are encoded as negative effects chosen to match each rating."
+    },
+    {
+      "id": "deepweed",
+      "name": "Deepweed",
+      "type": "equipment",
+      "rating": 7,
+      "nuyen": 37500,
+      "page": 150,
+      "description": "RR 1 on Willpower Tests; forces Awakened into astral perception. Crash: Disadvantage on all Tests next scene.",
+      "effects": [
+        {
+          "effect": "rr-attribute",
+          "target": "willpower"
+        },
+        {
+          "effect": "negative",
+          "cost": -3,
+          "note": "Forces Awakened into astral perception; crash: Disadvantage on all Tests next scene"
+        }
+      ],
+      "itemCost": 2500,
+      "duration": "One scene",
+      "ratingNote": "The book doesn't itemize drug ratings; drawbacks (crashes, Disadvantages) are encoded as negative effects chosen to match each rating."
+    },
+    {
+      "id": "jazz",
+      "name": "Jazz",
+      "type": "equipment",
+      "rating": 3,
+      "nuyen": 17500,
+      "page": 150,
+      "description": "+1 Edge per action scene; +1 action per narration; unlimited extra actions. Crash: Disadvantage on all Tests next scene.",
+      "effects": [
+        {
+          "effect": "initiative-1"
+        },
+        {
+          "effect": "initiative-2"
+        },
+        {
+          "effect": "negative",
+          "cost": -2,
+          "note": "Crash: Disadvantage on all Tests next scene"
+        }
+      ],
+      "itemCost": 2500,
+      "duration": "One scene",
+      "ratingNote": "The book doesn't itemize drug ratings; drawbacks (crashes, Disadvantages) are encoded as negative effects chosen to match each rating."
+    },
+    {
+      "id": "kamikaze",
+      "name": "Kamikaze",
+      "type": "equipment",
+      "rating": 14,
+      "nuyen": 72500,
+      "page": 150,
+      "description": "RR 1 on Agility Tests; melee DV +1; +1 Edge per action scene; +1 action per narration; unlimited extra actions. Crash: a serious wound.",
+      "effects": [
+        {
+          "effect": "rr-attribute",
+          "target": "agility"
+        },
+        {
+          "effect": "damage"
+        },
+        {
+          "effect": "initiative-1"
+        },
+        {
+          "effect": "initiative-2"
+        },
+        {
+          "effect": "negative",
+          "cost": -2,
+          "note": "Crash: a serious wound"
+        }
+      ],
+      "itemCost": 2500,
+      "duration": "One combat scene",
+      "ratingNote": "The book doesn't itemize drug ratings; drawbacks (crashes, Disadvantages) are encoded as negative effects chosen to match each rating."
+    },
+    {
+      "id": "nitro",
+      "name": "Nitro",
+      "type": "equipment",
+      "rating": 2,
+      "nuyen": 12500,
+      "page": 150,
+      "description": "Melee DV +1; +1 Edge per action scene; unlimited extra actions; ignore wound modifiers. Crash: a serious wound.",
+      "effects": [
+        {
+          "effect": "damage"
+        },
+        {
+          "effect": "initiative-1"
+        },
+        {
+          "effect": "narrative",
+          "note": "Ignore wound modifiers"
+        },
+        {
+          "effect": "negative",
+          "cost": -2,
+          "note": "Crash: a serious wound"
+        }
+      ],
+      "itemCost": 2500,
+      "duration": "One combat scene",
+      "ratingNote": "The book doesn't itemize drug ratings; drawbacks (crashes, Disadvantages) are encoded as negative effects chosen to match each rating."
+    },
+    {
+      "id": "novacoke",
+      "name": "Novacoke",
+      "type": "equipment",
+      "rating": 10,
+      "nuyen": 52500,
+      "page": 150,
+      "description": "RR 1 on Charisma Tests; RR 1 on Perception (social). Crash: Disadvantage on Charisma- and Willpower-based Tests for a scene.",
+      "effects": [
+        {
+          "effect": "rr-attribute",
+          "target": "charisma"
+        },
+        {
+          "effect": "rr-specialization",
+          "target": "perception/social"
+        },
+        {
+          "effect": "negative",
+          "cost": -2,
+          "note": "Crash: Disadvantage on Charisma and Willpower Tests for a scene"
+        }
+      ],
+      "itemCost": 2500,
+      "duration": "One scene",
+      "ratingNote": "The book doesn't itemize drug ratings; drawbacks (crashes, Disadvantages) are encoded as negative effects chosen to match each rating."
+    },
+    {
+      "id": "psyche",
+      "name": "Psyche",
+      "type": "equipment",
+      "rating": 12,
+      "nuyen": 62500,
+      "page": 150,
+      "description": "RR 1 on Willpower-based Tests; sustain one more spell. Rating 10 (52,500¥) for characters who can't cast spells.",
+      "effects": [
+        {
+          "effect": "rr-attribute",
+          "target": "willpower"
+        },
+        {
+          "effect": "sustained-spell"
+        }
+      ],
+      "itemCost": 2500,
+      "duration": "One scene",
+      "ratingNote": "The book doesn't itemize drug ratings; drawbacks (crashes, Disadvantages) are encoded as negative effects chosen to match each rating."
+    },
+    {
+      "id": "zen",
+      "name": "Zen",
+      "type": "equipment",
+      "rating": 8,
+      "nuyen": 42500,
+      "page": 150,
+      "description": "RR 1 on Willpower-based Tests; Disadvantage on Strength- and Agility-based Tests.",
+      "effects": [
+        {
+          "effect": "rr-attribute",
+          "target": "willpower"
+        },
+        {
+          "effect": "negative",
+          "cost": -2,
+          "note": "Disadvantage on Strength and Agility Tests"
+        }
+      ],
+      "itemCost": 2500,
+      "duration": "One scene",
+      "ratingNote": "The book doesn't itemize drug ratings; drawbacks (crashes, Disadvantages) are encoded as negative effects chosen to match each rating."
+    }
+  ]
+}

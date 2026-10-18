@@ -1,0 +1,437 @@
+{
+  "_note": "Core book, Shadow Amp Effects table (pp. 61-63) plus the Awakened abilities (p. 59). cost: rating added per purchase. types: Amp types that can take it. max: purchases allowed per Amp. requires: effect that must already be on the same Amp. target: what the effect must name (a skill, specialization, or attribute). vehicleKinds: limits vehicle effects to drones or vehicles. Unless noted, effects stack up to their max.",
+  "astral-perception": {
+    "label": "Astral perception",
+    "group": "awakened",
+    "cost": 1,
+    "types": [
+      "awakened"
+    ],
+    "max": 1,
+    "excludes": [
+      "astral-projection"
+    ]
+  },
+  "astral-projection": {
+    "label": "Astral perception and projection",
+    "group": "awakened",
+    "cost": 2,
+    "types": [
+      "awakened"
+    ],
+    "max": 1,
+    "excludes": [
+      "astral-perception"
+    ]
+  },
+  "sorcery": {
+    "label": "Sorcery",
+    "group": "awakened",
+    "cost": 1,
+    "types": [
+      "awakened"
+    ],
+    "max": 1,
+    "notes": "Allows the Sorcery Skill."
+  },
+  "conjuring": {
+    "label": "Conjuring",
+    "group": "awakened",
+    "cost": 2,
+    "types": [
+      "awakened"
+    ],
+    "max": 1,
+    "notes": "Allows the Conjuring Skill."
+  },
+  "adept": {
+    "label": "Adept",
+    "group": "awakened",
+    "cost": 1,
+    "types": [
+      "awakened"
+    ],
+    "max": 1,
+    "notes": "Allows Adept Power Amps."
+  },
+  "rr-specialization": {
+    "label": "Risk Reduction 1 (specialization)",
+    "group": "risk",
+    "cost": 2,
+    "types": [
+      "quality",
+      "cyberware",
+      "bioware",
+      "adept-power",
+      "equipment",
+      "cyberdeck",
+      "vehicle",
+      "contact"
+    ],
+    "target": "specialization"
+  },
+  "rr-skill": {
+    "label": "Risk Reduction 1 (Skill)",
+    "group": "risk",
+    "cost": 5,
+    "types": [
+      "quality",
+      "cyberware",
+      "bioware",
+      "adept-power",
+      "equipment",
+      "cyberdeck",
+      "vehicle",
+      "contact"
+    ],
+    "max": 1,
+    "target": "skill"
+  },
+  "rr-attribute": {
+    "label": "Risk Reduction 1 (Attribute)",
+    "group": "risk",
+    "cost": 10,
+    "types": [
+      "quality",
+      "cyberware",
+      "bioware",
+      "adept-power",
+      "equipment",
+      "cyberdeck",
+      "vehicle",
+      "contact"
+    ],
+    "max": 1,
+    "target": "attribute"
+  },
+  "initiative-1": {
+    "label": "Initiative: +1 Edge per action scene, extra actions for 1 Edge each",
+    "group": "initiative",
+    "cost": 2,
+    "types": [
+      "quality",
+      "cyberware",
+      "bioware",
+      "adept-power",
+      "equipment"
+    ],
+    "max": 1,
+    "notes": "Initiative enhancements from different sources don't stack; only the best applies. Limiting to one realm (astral, physical, VR) reduces the rating by 1 per level — use a negative effect. The effects table lists only Qualities, cyber/bioware and adept powers, but the book's drugs (Equipment Amps, p. 150) also grant these."
+  },
+  "initiative-2": {
+    "label": "Initiative: +1 action per narration",
+    "group": "initiative",
+    "cost": 3,
+    "types": [
+      "quality",
+      "cyberware",
+      "bioware",
+      "adept-power",
+      "equipment"
+    ],
+    "max": 1,
+    "requires": "initiative-1",
+    "notes": "Initiative enhancements from different sources don't stack; only the best applies. Limiting to one realm (astral, physical, VR) reduces the rating by 1 per level — use a negative effect."
+  },
+  "initiative-3": {
+    "label": "Initiative: +1 more Edge per action scene",
+    "group": "initiative",
+    "cost": 2,
+    "types": [
+      "quality",
+      "cyberware",
+      "bioware",
+      "adept-power",
+      "equipment"
+    ],
+    "max": 1,
+    "requires": "initiative-2",
+    "notes": "Initiative enhancements from different sources don't stack; only the best applies. Limiting to one realm (astral, physical, VR) reduces the rating by 1 per level — use a negative effect."
+  },
+  "damage": {
+    "label": "Damage Value +1",
+    "group": "physical",
+    "cost": 1,
+    "types": [
+      "cyberware",
+      "bioware",
+      "adept-power",
+      "equipment"
+    ],
+    "max": 2
+  },
+  "range": {
+    "label": "Range improvement (— to Dis., or Dis. to OK)",
+    "group": "physical",
+    "cost": 2,
+    "types": [
+      "adept-power",
+      "equipment"
+    ]
+  },
+  "armor": {
+    "label": "Armor +1",
+    "group": "physical",
+    "cost": 1,
+    "types": [
+      "quality",
+      "cyberware",
+      "bioware",
+      "adept-power",
+      "equipment"
+    ],
+    "max": 1
+  },
+  "light-wound": {
+    "label": "Additional light wound box",
+    "group": "physical",
+    "cost": 3,
+    "types": [
+      "quality",
+      "cyberware",
+      "bioware",
+      "adept-power",
+      "cyberdeck",
+      "vehicle"
+    ],
+    "max": 1
+  },
+  "serious-wound": {
+    "label": "Additional serious wound box",
+    "group": "physical",
+    "cost": 6,
+    "types": [
+      "quality",
+      "cyberware",
+      "bioware",
+      "adept-power",
+      "cyberdeck",
+      "vehicle"
+    ],
+    "max": 1
+  },
+  "sustained-spell": {
+    "label": "Additional sustained spell",
+    "group": "magical",
+    "cost": 2,
+    "types": [
+      "quality",
+      "equipment"
+    ],
+    "max": 2
+  },
+  "summoned-spirit": {
+    "label": "Additional summoned spirit",
+    "group": "magical",
+    "cost": 3,
+    "types": [
+      "quality",
+      "equipment"
+    ],
+    "max": 1
+  },
+  "weapon-focus": {
+    "label": "Weapon focus",
+    "group": "magical",
+    "cost": 1,
+    "types": [
+      "equipment"
+    ],
+    "max": 1,
+    "notes": "Weapons only."
+  },
+  "cold-sim": {
+    "label": "Cold-sim virtual reality",
+    "group": "vr",
+    "cost": 1,
+    "types": [
+      "cyberware"
+    ],
+    "max": 1
+  },
+  "hot-sim": {
+    "label": "Hot-sim virtual reality",
+    "group": "vr",
+    "cost": 2,
+    "types": [
+      "cyberware"
+    ],
+    "max": 1,
+    "requires": "cold-sim"
+  },
+  "firewall": {
+    "label": "Firewall +1",
+    "group": "matrix",
+    "cost": 1,
+    "types": [
+      "cyberdeck",
+      "equipment",
+      "cyberware"
+    ],
+    "statMax": 5,
+    "notes": "Firewall can't exceed 5."
+  },
+  "attack": {
+    "label": "Attack +1",
+    "group": "matrix",
+    "cost": 1,
+    "types": [
+      "cyberdeck"
+    ],
+    "statMax": 5,
+    "notes": "Attack can't exceed 5."
+  },
+  "rcc": {
+    "label": "Rigger command console (1 drone/vehicle per level)",
+    "group": "rigging",
+    "cost": 1,
+    "types": [
+      "cyberware",
+      "equipment"
+    ],
+    "notes": "Requires VR access from cyberware."
+  },
+  "vcr": {
+    "label": "Vehicle control rig",
+    "group": "rigging",
+    "cost": 2,
+    "types": [
+      "cyberware"
+    ],
+    "max": 1,
+    "notes": "Requires VR access from cyberware (usually added to the VCR)."
+  },
+  "pilot": {
+    "label": "Pilot +1",
+    "group": "vehicles",
+    "cost": 1,
+    "types": [
+      "vehicle"
+    ],
+    "max": 6
+  },
+  "speed": {
+    "label": "Speed +1",
+    "group": "vehicles",
+    "cost": 1,
+    "types": [
+      "vehicle"
+    ],
+    "max": 3
+  },
+  "handling": {
+    "label": "Handling +1",
+    "group": "vehicles",
+    "cost": 1,
+    "types": [
+      "vehicle"
+    ],
+    "max": 3
+  },
+  "vehicle-armor": {
+    "label": "Armor +1",
+    "group": "vehicles",
+    "cost": 1,
+    "types": [
+      "vehicle"
+    ],
+    "notes": "Armor can't exceed the vehicle's Body."
+  },
+  "fixed": {
+    "label": "Fixed (can't move)",
+    "group": "vehicles",
+    "cost": -1,
+    "types": [
+      "vehicle"
+    ],
+    "max": 1
+  },
+  "flying": {
+    "label": "Flying (double base Speed)",
+    "group": "vehicles",
+    "cost": 1,
+    "types": [
+      "vehicle"
+    ],
+    "max": 1
+  },
+  "weapon-mount": {
+    "label": "Enhanced weapon mount (extra, concealed, turret...)",
+    "group": "vehicles",
+    "cost": 1,
+    "types": [
+      "vehicle"
+    ],
+    "notes": "Max at the GM's discretion, by size."
+  },
+  "safety-override": {
+    "label": "Pilot safety override",
+    "group": "vehicles",
+    "cost": 3,
+    "types": [
+      "vehicle"
+    ],
+    "max": 1
+  },
+  "extra-drone": {
+    "label": "Identical additional drone",
+    "group": "vehicles",
+    "cost": 2,
+    "types": [
+      "vehicle"
+    ],
+    "max": 2,
+    "vehicleKinds": [
+      "drone"
+    ],
+    "notes": "Max 3 drones total."
+  },
+  "autonomous-medkit": {
+    "label": "Autonomous medkit",
+    "group": "vehicles",
+    "cost": 1,
+    "types": [
+      "vehicle"
+    ],
+    "max": 1,
+    "vehicleKinds": [
+      "drone"
+    ]
+  },
+  "narrative": {
+    "label": "Additional narrative effect",
+    "group": "misc",
+    "cost": 1,
+    "types": [
+      "quality",
+      "cyberware",
+      "bioware",
+      "adept-power",
+      "equipment",
+      "cyberdeck",
+      "vehicle",
+      "contact"
+    ]
+  },
+  "negative": {
+    "label": "Negative effect",
+    "group": "misc",
+    "cost": null,
+    "types": [
+      "quality",
+      "awakened",
+      "cyberware",
+      "bioware",
+      "adept-power",
+      "equipment",
+      "cyberdeck",
+      "vehicle",
+      "contact"
+    ],
+    "costRange": [
+      -5,
+      -1
+    ],
+    "notes": "Cost chosen per use (-1 to -5) at the GM's discretion; less than the matching bonus's cost."
+  }
+}

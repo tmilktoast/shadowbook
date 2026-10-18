@@ -1,0 +1,7 @@
+{
+  "strength": { "label": "Strength", "abbr": "STR" },
+  "agility": { "label": "Agility", "abbr": "AGI" },
+  "willpower": { "label": "Willpower", "abbr": "WIL" },
+  "logic": { "label": "Logic", "abbr": "LOG" },
+  "charisma": { "label": "Charisma", "abbr": "CHA" }
+}

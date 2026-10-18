@@ -1,0 +1,124 @@
+{
+  "_note": "Core book, Rigger Command Consoles (p. 232). Equipment Amps; devices come with Firewall 1, so only Firewall above 1 costs. Price includes the 2,500¥ device.",
+  "entries": [
+    {
+      "id": "essy-motors-dronemaster",
+      "name": "Essy Motors DroneMaster",
+      "type": "equipment",
+      "rating": 3,
+      "nuyen": 17500,
+      "page": 232,
+      "description": "FW 1; control 3 drones in captain's chair mode.",
+      "effects": [
+        {
+          "effect": "rcc"
+        },
+        {
+          "effect": "rcc"
+        },
+        {
+          "effect": "rcc"
+        }
+      ],
+      "itemCost": 2500
+    },
+    {
+      "id": "horizon-overseer",
+      "name": "Horizon Overseer",
+      "type": "equipment",
+      "rating": 5,
+      "nuyen": 27500,
+      "page": 232,
+      "description": "FW 1; control 3 vehicles in captain's chair mode; RR 1 on one Piloting specialization.",
+      "effects": [
+        {
+          "effect": "rcc"
+        },
+        {
+          "effect": "rcc"
+        },
+        {
+          "effect": "rcc"
+        },
+        {
+          "effect": "rr-specialization",
+          "target": null,
+          "choice": "A Piloting specialization"
+        }
+      ],
+      "itemCost": 2500
+    },
+    {
+      "id": "proteus-poseidon",
+      "name": "Proteus Poseidon",
+      "type": "equipment",
+      "rating": 8,
+      "nuyen": 42500,
+      "page": 232,
+      "description": "FW 2; control 5 vehicles in captain's chair mode; RR 1 on one Piloting specialization.",
+      "effects": [
+        {
+          "effect": "firewall"
+        },
+        {
+          "effect": "rcc"
+        },
+        {
+          "effect": "rcc"
+        },
+        {
+          "effect": "rcc"
+        },
+        {
+          "effect": "rcc"
+        },
+        {
+          "effect": "rcc"
+        },
+        {
+          "effect": "rr-specialization",
+          "target": null,
+          "choice": "A Piloting specialization"
+        }
+      ],
+      "itemCost": 2500
+    },
+    {
+      "id": "ares-red-dog-series",
+      "name": "Ares Red Dog Series",
+      "type": "equipment",
+      "rating": 12,
+      "nuyen": 62500,
+      "page": 232,
+      "description": "FW 3; control 5 vehicles in captain's chair mode; RR 1 on Piloting.",
+      "effects": [
+        {
+          "effect": "firewall"
+        },
+        {
+          "effect": "firewall"
+        },
+        {
+          "effect": "rcc"
+        },
+        {
+          "effect": "rcc"
+        },
+        {
+          "effect": "rcc"
+        },
+        {
+          "effect": "rcc"
+        },
+        {
+          "effect": "rcc"
+        },
+        {
+          "effect": "rr-skill",
+          "target": "piloting"
+        }
+      ],
+      "itemCost": 2500
+    }
+  ]
+}

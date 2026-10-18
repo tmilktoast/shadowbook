@@ -1,0 +1,80 @@
+{
+  "_note": "Core book, Armor Amps (p. 149). Armor itself costs 2,500¥ per point and is included in the price.",
+  "entries": [
+    {
+      "id": "actioneer-business-suit",
+      "name": "Actioneer Business Suit",
+      "type": "equipment",
+      "rating": 2,
+      "nuyen": 12500,
+      "page": 149,
+      "description": "Armor 1; RR 1 on Influence (etiquette).",
+      "effects": [
+        {
+          "effect": "rr-specialization",
+          "target": "influence/etiquette"
+        }
+      ],
+      "item": "armor 1",
+      "itemCost": 2500
+    },
+    {
+      "id": "armant-suit-or-dress",
+      "name": "Armanté suit or dress",
+      "type": "equipment",
+      "rating": 7,
+      "nuyen": 37500,
+      "page": 149,
+      "description": "Armor 1; RR 1 on Influence; RR 1 on Influence (etiquette).",
+      "effects": [
+        {
+          "effect": "rr-skill",
+          "target": "influence"
+        },
+        {
+          "effect": "rr-specialization",
+          "target": "influence/etiquette"
+        }
+      ],
+      "item": "armor 1",
+      "itemCost": 2500
+    },
+    {
+      "id": "chameleon-suit",
+      "name": "Chameleon Suit",
+      "type": "equipment",
+      "rating": 4,
+      "nuyen": 27500,
+      "page": 149,
+      "description": "Armor 3; RR 2 on Stealth (physical).",
+      "effects": [
+        {
+          "effect": "rr-specialization",
+          "target": "stealth/physical-sneaking"
+        },
+        {
+          "effect": "rr-specialization",
+          "target": "stealth/physical-sneaking"
+        }
+      ],
+      "item": "armor 3",
+      "itemCost": 7500
+    },
+    {
+      "id": "securetech-invisi-shield",
+      "name": "SecureTech Invisi-shield",
+      "type": "equipment",
+      "rating": 1,
+      "nuyen": 7500,
+      "page": 149,
+      "description": "Armor +1.",
+      "effects": [
+        {
+          "effect": "armor"
+        }
+      ],
+      "item": "",
+      "itemCost": 2500
+    }
+  ]
+}

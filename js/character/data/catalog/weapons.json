@@ -1,0 +1,291 @@
+{
+  "_note": "Core book, Weapon Amps (p. 144) and toxin weapons (p. 152). Price includes the base weapon (2,500¥, or 5,000¥ for specialist weapons). Base stats come from the Weapons table (p. 142). 'Assault rifle' and 'sniper rifle' RR map to the rifles specialization.",
+  "entries": [
+    {
+      "id": "monofilament-whip",
+      "name": "Monofilament whip",
+      "type": "equipment",
+      "rating": 1,
+      "nuyen": 7500,
+      "page": 144,
+      "description": "DV 7; range OK/–/–/–; at least 6 risk dice on attack Tests.",
+      "effects": [
+        {
+          "effect": "damage"
+        },
+        {
+          "effect": "damage"
+        },
+        {
+          "effect": "negative",
+          "cost": -1,
+          "note": "At least 6 risk dice on attack Tests (or the whole pool if smaller)"
+        }
+      ],
+      "item": "advanced close-quarter weapon",
+      "itemCost": 2500
+    },
+    {
+      "id": "yamaha-pulsar",
+      "name": "Yamaha Pulsar",
+      "type": "equipment",
+      "rating": 2,
+      "nuyen": 12500,
+      "page": 144,
+      "description": "DV 5; range OK/OK/Dis./–.",
+      "effects": [
+        {
+          "effect": "range"
+        }
+      ],
+      "item": "taser",
+      "itemCost": 2500
+    },
+    {
+      "id": "tiffani-needler",
+      "name": "Tiffani Needler",
+      "type": "equipment",
+      "rating": 2,
+      "nuyen": 12500,
+      "page": 144,
+      "description": "DV 3; range OK/OK/Dis./–; RR 1 on Stealth (physical).",
+      "effects": [
+        {
+          "effect": "rr-specialization",
+          "target": "stealth/physical-sneaking"
+        }
+      ],
+      "item": "hold-out pistol",
+      "itemCost": 2500
+    },
+    {
+      "id": "shiawase-arms-puzzler",
+      "name": "Shiawase Arms Puzzler",
+      "type": "equipment",
+      "rating": 4,
+      "nuyen": 22500,
+      "page": 144,
+      "description": "DV 4; range OK/OK/Dis./–; RR 2 on Stealth (physical).",
+      "effects": [
+        {
+          "effect": "rr-specialization",
+          "target": "stealth/physical-sneaking"
+        },
+        {
+          "effect": "rr-specialization",
+          "target": "stealth/physical-sneaking"
+        }
+      ],
+      "item": "light pistol",
+      "itemCost": 2500
+    },
+    {
+      "id": "ares-predator-iv",
+      "name": "Ares Predator IV",
+      "type": "equipment",
+      "rating": 2,
+      "nuyen": 12500,
+      "page": 144,
+      "description": "DV 5; range OK/OK/Dis./–; smartgun: RR 1 on Ranged Weapons (pistols).",
+      "effects": [
+        {
+          "effect": "rr-specialization",
+          "target": "ranged-weapons/pistols"
+        }
+      ],
+      "item": "heavy pistol",
+      "itemCost": 2500
+    },
+    {
+      "id": "ares-predator-v",
+      "name": "Ares Predator V",
+      "type": "equipment",
+      "rating": 3,
+      "nuyen": 17500,
+      "page": 144,
+      "description": "DV 5; range OK/OK/Dis./–; smartgun: RR 1 on Ranged Weapons (pistols); burst fire.",
+      "effects": [
+        {
+          "effect": "rr-specialization",
+          "target": "ranged-weapons/pistols"
+        },
+        {
+          "effect": "narrative",
+          "note": "Burst fire"
+        }
+      ],
+      "item": "heavy pistol",
+      "itemCost": 2500
+    },
+    {
+      "id": "ares-predator-vi",
+      "name": "Ares Predator VI",
+      "type": "equipment",
+      "rating": 5,
+      "nuyen": 27500,
+      "page": 144,
+      "description": "DV 5 (gel) / 6 (explosive); range OK/OK/Dis./–; smartgun: RR 1 on Ranged Weapons (pistols); burst fire; ammo selector.",
+      "effects": [
+        {
+          "effect": "rr-specialization",
+          "target": "ranged-weapons/pistols"
+        },
+        {
+          "effect": "narrative",
+          "note": "Burst fire"
+        },
+        {
+          "effect": "damage"
+        },
+        {
+          "effect": "narrative",
+          "note": "Ammunition selector: gel (stun) or explosive"
+        }
+      ],
+      "item": "heavy pistol",
+      "itemCost": 2500
+    },
+    {
+      "id": "ruger-super-warhawk",
+      "name": "Ruger Super Warhawk",
+      "type": "equipment",
+      "rating": 1,
+      "nuyen": 7500,
+      "page": 144,
+      "description": "DV 6; range OK/OK/Dis./–.",
+      "effects": [
+        {
+          "effect": "damage"
+        }
+      ],
+      "item": "heavy pistol",
+      "itemCost": 2500
+    },
+    {
+      "id": "ingram-smartgun",
+      "name": "Ingram Smartgun",
+      "type": "equipment",
+      "rating": 3,
+      "nuyen": 17500,
+      "page": 144,
+      "description": "DV 5; range Dis./OK/OK/–; smartgun: RR 1 on Ranged Weapons (submachine guns); silencer.",
+      "effects": [
+        {
+          "effect": "rr-specialization",
+          "target": "ranged-weapons/submachine-guns"
+        },
+        {
+          "effect": "narrative",
+          "note": "Silencer"
+        }
+      ],
+      "item": "submachine gun",
+      "itemCost": 2500
+    },
+    {
+      "id": "ares-alpha-mk-ii",
+      "name": "Ares Alpha Mk II",
+      "type": "equipment",
+      "rating": 5,
+      "nuyen": 32500,
+      "page": 144,
+      "description": "DV 7; range Dis./OK/OK/Dis.; RR 1 on Ranged Weapons (assault rifle and grenade launcher); underbarrel grenade launcher DV 7, range –/Dis./OK/OK.",
+      "effects": [
+        {
+          "effect": "rr-specialization",
+          "target": "ranged-weapons/rifles"
+        },
+        {
+          "effect": "rr-specialization",
+          "target": "ranged-weapons/grenade-launchers"
+        },
+        {
+          "effect": "narrative",
+          "note": "Underbarrel grenade launcher"
+        }
+      ],
+      "item": "assault rifle + grenade launcher",
+      "itemCost": 7500
+    },
+    {
+      "id": "barrett-model-122",
+      "name": "Barrett Model 122",
+      "type": "equipment",
+      "rating": 2,
+      "nuyen": 15000,
+      "page": 144,
+      "description": "DV 12; range –/Dis./Dis./OK.",
+      "effects": [
+        {
+          "effect": "damage"
+        },
+        {
+          "effect": "damage"
+        }
+      ],
+      "item": "sniper rifle",
+      "itemCost": 5000
+    },
+    {
+      "id": "ranger-arms-sm-6",
+      "name": "Ranger Arms SM-6",
+      "type": "equipment",
+      "rating": 4,
+      "nuyen": 25000,
+      "page": 144,
+      "description": "DV 10; range –/Dis./Dis./OK; smartgun: RR 1 on Ranged Weapons (sniper rifles); silencer; easily disassembled.",
+      "effects": [
+        {
+          "effect": "rr-specialization",
+          "target": "ranged-weapons/rifles"
+        },
+        {
+          "effect": "narrative",
+          "note": "Silencer"
+        },
+        {
+          "effect": "narrative",
+          "note": "Easily disassembled"
+        }
+      ],
+      "item": "sniper rifle",
+      "itemCost": 5000
+    },
+    {
+      "id": "combat-knife-coated-with-a-lethal-toxin",
+      "name": "Combat knife coated with a lethal toxin",
+      "type": "equipment",
+      "rating": 2,
+      "nuyen": 12500,
+      "page": 152,
+      "description": "DV (STR+3); range OK/–/–/–.",
+      "effects": [
+        {
+          "effect": "damage"
+        },
+        {
+          "effect": "damage"
+        }
+      ],
+      "item": "short weapon",
+      "itemCost": 2500
+    },
+    {
+      "id": "combat-knife-coated-with-a-debilitating-toxin",
+      "name": "Combat knife coated with a debilitating toxin",
+      "type": "equipment",
+      "rating": 1,
+      "nuyen": 7500,
+      "page": 152,
+      "description": "DV (STR+1); range OK/–/–/–; spend 1 Edge to give the target a Disadvantage until the end of their next narration.",
+      "effects": [
+        {
+          "effect": "narrative",
+          "note": "1 Edge: target suffers a Disadvantage until the end of their next narration"
+        }
+      ],
+      "item": "short weapon",
+      "itemCost": 2500
+    }
+  ]
+}

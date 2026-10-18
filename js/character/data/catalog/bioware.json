@@ -1,0 +1,215 @@
+{
+  "_note": "Core book, Bioware (p. 159). Base rating 2 includes one narrative effect; Essence -0.5 each.",
+  "entries": [
+    {
+      "id": "bone-density-augmentation",
+      "name": "Bone density augmentation",
+      "type": "bioware",
+      "rating": 6,
+      "nuyen": 30000,
+      "page": 159,
+      "description": "Unarmed DV +1; +1 light wound box.",
+      "effects": [
+        {
+          "effect": "damage"
+        },
+        {
+          "effect": "light-wound"
+        }
+      ]
+    },
+    {
+      "id": "cerebral-booster",
+      "name": "Cerebral booster",
+      "type": "bioware",
+      "rating": 12,
+      "nuyen": 60000,
+      "page": 159,
+      "description": "RR 1 on Logic-based Tests.",
+      "effects": [
+        {
+          "effect": "rr-attribute",
+          "target": "logic"
+        }
+      ]
+    },
+    {
+      "id": "muscle-augmentation",
+      "name": "Muscle augmentation",
+      "type": "bioware",
+      "rating": 12,
+      "nuyen": 60000,
+      "page": 159,
+      "description": "RR 1 on Strength-based Tests.",
+      "effects": [
+        {
+          "effect": "rr-attribute",
+          "target": "strength"
+        }
+      ]
+    },
+    {
+      "id": "muscle-toner",
+      "name": "Muscle toner",
+      "type": "bioware",
+      "rating": 12,
+      "nuyen": 60000,
+      "page": 159,
+      "description": "RR 1 on Agility-based Tests.",
+      "effects": [
+        {
+          "effect": "rr-attribute",
+          "target": "agility"
+        }
+      ]
+    },
+    {
+      "id": "orthoskin",
+      "name": "Orthoskin",
+      "type": "bioware",
+      "rating": 3,
+      "nuyen": 15000,
+      "page": 159,
+      "description": "Armor +1.",
+      "effects": [
+        {
+          "effect": "armor"
+        }
+      ]
+    },
+    {
+      "id": "platelet-factories",
+      "name": "Platelet factories",
+      "type": "bioware",
+      "rating": 8,
+      "nuyen": 40000,
+      "page": 159,
+      "description": "+1 serious wound box.",
+      "effects": [
+        {
+          "effect": "serious-wound"
+        }
+      ]
+    },
+    {
+      "id": "synaptic-booster",
+      "name": "Synaptic booster",
+      "type": "bioware",
+      "rating": 7,
+      "nuyen": 35000,
+      "page": 159,
+      "description": "+1 Edge per action scene; +1 action per narration; unlimited extra actions.",
+      "effects": [
+        {
+          "effect": "initiative-1"
+        },
+        {
+          "effect": "initiative-2"
+        }
+      ]
+    },
+    {
+      "id": "tailored-pheromones",
+      "name": "Tailored pheromones",
+      "type": "bioware",
+      "rating": 7,
+      "nuyen": 35000,
+      "page": 159,
+      "description": "RR 1 on Influence.",
+      "effects": [
+        {
+          "effect": "rr-skill",
+          "target": "influence"
+        }
+      ]
+    },
+    {
+      "id": "wide-spectrum-pheromones",
+      "name": "Wide-spectrum pheromones",
+      "type": "bioware",
+      "rating": 12,
+      "nuyen": 60000,
+      "page": 159,
+      "description": "RR 1 on Charisma-based Tests.",
+      "effects": [
+        {
+          "effect": "rr-attribute",
+          "target": "charisma"
+        }
+      ]
+    },
+    {
+      "id": "tracheal-filter-and-toxin-extractor",
+      "name": "Tracheal filter and toxin extractor",
+      "type": "bioware",
+      "rating": 2,
+      "nuyen": 10000,
+      "page": 159,
+      "description": "Immunity to injected or inhaled toxins.",
+      "effects": []
+    },
+    {
+      "id": "reflex-recorder",
+      "name": "Reflex recorder",
+      "type": "bioware",
+      "rating": 4,
+      "nuyen": 20000,
+      "page": 159,
+      "description": "RR 1 on one physical Skill specialization, chosen at purchase.",
+      "effects": [
+        {
+          "effect": "rr-specialization",
+          "target": null,
+          "choice": "A specialization of a physical Skill"
+        }
+      ]
+    },
+    {
+      "id": "universal-omnitech-primeskill-reflex-recorder",
+      "name": "Universal Omnitech PrimeSkill reflex recorder",
+      "type": "bioware",
+      "rating": 6,
+      "nuyen": 30000,
+      "page": 159,
+      "description": "RR 2 on one physical Skill specialization, chosen at purchase.",
+      "effects": [
+        {
+          "effect": "rr-specialization",
+          "target": null,
+          "choice": "A specialization of a physical Skill"
+        },
+        {
+          "effect": "rr-specialization",
+          "target": null,
+          "choice": "A specialization of a physical Skill"
+        }
+      ]
+    },
+    {
+      "id": "evo-reflexultra-reflex-recorders",
+      "name": "Evo ReflexUltra reflex recorders",
+      "type": "bioware",
+      "rating": 8,
+      "nuyen": 40000,
+      "page": 159,
+      "description": "RR 3 on one physical Skill specialization, chosen at purchase.",
+      "effects": [
+        {
+          "effect": "rr-specialization",
+          "target": null,
+          "choice": "A specialization of a physical Skill"
+        },
+        {
+          "effect": "rr-specialization",
+          "target": null,
+          "choice": "A specialization of a physical Skill"
+        },
+        {
+          "effect": "rr-specialization",
+          "target": null,
+          "choice": "A specialization of a physical Skill"
+        }
+      ]
+    }
+  ]
+}

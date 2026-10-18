@@ -1,0 +1,23 @@
+{
+  "_note": "From the core book, Lifestyle (A Place to Rest, p. 164). Effects are paraphrased, not quoted. nuyenPerRun is added to each run's pay.",
+  "squatter": {
+    "label": "Squatter",
+    "nuyenPerRun": 1000,
+    "effect": "Disadvantage on most Influence Tests (GM's discretion)."
+  },
+  "low": {
+    "label": "Low",
+    "nuyenPerRun": 0,
+    "effect": "Default lifestyle; no special rules."
+  },
+  "middle": {
+    "label": "Middle",
+    "nuyenPerRun": -1000,
+    "effect": "Advantage on most Influence Tests (GM's discretion)."
+  },
+  "high": {
+    "label": "High",
+    "nuyenPerRun": -2500,
+    "effect": "Advantage on most Influence and Network Tests (GM's discretion). Temporary items cost no Edge outside of action; a temporary weapon or vehicle costs 1 Edge."
+  }
+}

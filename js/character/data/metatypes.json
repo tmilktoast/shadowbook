@@ -1,0 +1,85 @@
+{
+  "human": {
+    "label": "Human",
+    "scientificName": "Homo sapiens sapiens",
+    "averageHeightM": 1.75,
+    "averageWeightKg": 78,
+    "attributeMax": {
+      "strength": 4,
+      "agility": 4,
+      "willpower": 4,
+      "logic": 4,
+      "charisma": 4
+    },
+    "startingEdge": 4,
+    "racialQualities": []
+  },
+  "elf": {
+    "label": "Elf",
+    "scientificName": "Homo sapiens nobilis",
+    "averageHeightM": 1.9,
+    "averageWeightKg": 80,
+    "attributeMax": {
+      "strength": 4,
+      "agility": 4,
+      "willpower": 4,
+      "logic": 4,
+      "charisma": 5
+    },
+    "startingEdge": 3,
+    "racialQualities": [
+      "low-light-vision"
+    ]
+  },
+  "dwarf": {
+    "label": "Dwarf",
+    "scientificName": "Homo sapiens pumilionis",
+    "averageHeightM": 1.2,
+    "averageWeightKg": 54,
+    "attributeMax": {
+      "strength": 4,
+      "agility": 4,
+      "willpower": 5,
+      "logic": 4,
+      "charisma": 4
+    },
+    "startingEdge": 3,
+    "racialQualities": [
+      "thermographic-vision"
+    ]
+  },
+  "ork": {
+    "label": "Ork",
+    "scientificName": "Homo sapiens robustus",
+    "averageHeightM": 1.9,
+    "averageWeightKg": 128,
+    "attributeMax": {
+      "strength": 5,
+      "agility": 4,
+      "willpower": 4,
+      "logic": 4,
+      "charisma": 4
+    },
+    "startingEdge": 3,
+    "racialQualities": [
+      "low-light-vision"
+    ]
+  },
+  "troll": {
+    "label": "Troll",
+    "scientificName": "Homo sapiens ingentis",
+    "averageHeightM": 2.5,
+    "averageWeightKg": 300,
+    "attributeMax": {
+      "strength": 6,
+      "agility": 4,
+      "willpower": 4,
+      "logic": 4,
+      "charisma": 4
+    },
+    "startingEdge": 3,
+    "racialQualities": [
+      "thermographic-vision"
+    ]
+  }
+}
