@@ -6,4 +6,5 @@ reference/
 
 # Syncthing
 .stfolder/
+.stignore
 *.sync-conflict-*
