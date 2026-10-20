@@ -278,11 +278,13 @@ files and comments rather than pasting book text verbatim.
   Claude reviews/explains" and "Claude writes it directly" depending on
   what's asked each session/feature — don't assume either is the fixed
   rule; ask or follow however the current request is phrased.
-- Commit after each new feature or addition, once it works (user
-  preference, 2026-10). Pushing is separate — it triggers the image
-  build. When pivoting away from a large chunk of working code (like the SR6e→Anarchy 2.0 switch), checkpoint it
-  in a commit first rather than just deleting, even if it's about to be
-  replaced — see `e1cb89d` for the pattern.
+- Commit after every change, not just at the end of a feature (user
+  preference, 2026-10 — tightened from an earlier "after each feature"
+  version of this same rule). Pushing is separate — it triggers the
+  image build. When pivoting away from a large chunk of working code
+  (like the SR6e→Anarchy 2.0 switch), checkpoint it in a commit first
+  rather than just deleting, even if it's about to be replaced — see
+  `e1cb89d` for the pattern.
 - The user is doing their own rules reading in parallel — when a
   rules-dependent decision comes up (skills shape, Shadow Amps, wounds,
   gear), it's fine to propose a reasonable starting structure, but expect
