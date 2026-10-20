@@ -1,0 +1,180 @@
+{
+  "id": "decker-ganger",
+  "label": "Decker Ganger",
+  "source": { "book": "SRA2", "page": 246 },
+  "attributes": {
+    "strength": { "base": 2, "variants": { "ork": 3, "troll": 4 } },
+    "agility": { "base": 2 },
+    "willpower": { "base": 2, "variants": { "dwarf": 3 } },
+    "logic": { "base": 3 },
+    "charisma": { "base": 2, "variants": { "elf": 3 } }
+  },
+  "skills": [
+    {
+      "id": "athletics",
+      "label": "Athletics",
+      "rank": { "base": 2 },
+      "attribute": "strength",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 2, "variants": { "ork": 3, "troll": 3 } },
+      "specializations": [
+        {
+          "id": "ranged-defense",
+          "label": "ranged defense",
+          "rank": { "base": 2 },
+          "attribute": "agility",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 2 }
+        }
+      ]
+    },
+    {
+      "id": "ranged-weapons",
+      "label": "Ranged Weapons",
+      "rank": { "base": 2 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 2 },
+      "specializations": []
+    },
+    {
+      "id": "close-combat",
+      "label": "Close Combat",
+      "rank": { "base": 2 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 2 },
+      "specializations": []
+    },
+    {
+      "id": "stealth",
+      "label": "Stealth",
+      "rank": { "base": 3 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": []
+    },
+    {
+      "id": "perception",
+      "label": "Perception",
+      "rank": { "base": 3 },
+      "attribute": "logic",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": []
+    },
+    {
+      "id": "electronics",
+      "label": "Electronics",
+      "rank": { "base": 4 },
+      "attribute": "logic",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": [
+        {
+          "id": "matrix-search",
+          "label": "Matrix search",
+          "rank": { "base": 4 },
+          "attribute": "logic",
+          "rr": { "base": 0, "ampVariant": { "amp": "Browse", "base": 1 } },
+          "averageHits": { "base": 3, "ampVariant": { "amp": "Browse", "base": 4 } }
+        }
+      ]
+    },
+    {
+      "id": "cracking",
+      "label": "Cracking",
+      "rank": { "base": 4 },
+      "attribute": "logic",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": [
+        {
+          "id": "brute-force",
+          "label": "brute force",
+          "rank": { "base": 6 },
+          "attribute": "logic",
+          "rr": { "base": 0, "ampVariant": { "amp": "Exploit", "base": 1 } },
+          "averageHits": { "base": 4, "ampVariant": { "amp": "Exploit", "base": 5 } }
+        },
+        {
+          "id": "cybercombat",
+          "label": "cybercombat",
+          "rank": { "base": 4 },
+          "attribute": "willpower",
+          "rr": { "base": 0, "ampVariant": { "amp": "Aggressor", "base": 1 } },
+          "averageHits": { "base": 3, "ampVariant": { "amp": "Aggressor", "base": 4 } }
+        }
+      ]
+    }
+  ],
+  "spells": [],
+  "weapons": [
+    {
+      "name": "Unarmed",
+      "dv": { "base": 2, "variants": { "ork": 3, "troll": 4 } },
+      "range": "OK/–/–/–"
+    },
+    {
+      "name": "Knife",
+      "dv": { "base": 3, "variants": { "ork": 4, "troll": 5 } },
+      "range": "OK/–/–/–"
+    },
+    {
+      "name": "Light pistol",
+      "dv": { "base": 4 },
+      "range": "OK/OK/Dis./–"
+    },
+    {
+      "name": "Cybercombat",
+      "dv": { "base": 1 },
+      "range": "–",
+      "note": "Matrix attack value, not a physical weapon — the book prints no range bracket for it."
+    }
+  ],
+  "equipment": ["Commlink", "Gang leathers (Armor 1)"],
+  "woundThresholds": {
+    "physical": {
+      "base": [3, 6, 9],
+      "variants": { "ork": [4, 7, 10], "troll": [5, 8, 11] }
+    },
+    "mental": {
+      "base": [2, 5, 8],
+      "variants": { "dwarf": [3, 6, 9] }
+    },
+    "matrix": {
+      "base": [2, 5, 8],
+      "note": "Extra field beyond the standard schema's physical/mental pair — the book gives this Decker's cyberdeck its own Matrix condition monitor (from the granted Erika MCD-6-equivalent Cyberdeck's Firewall 2)."
+    }
+  },
+  "requiredAmps": [
+    { "name": "Cyberdeck", "kind": "cyberdeck", "summary": "Attack 1, Firewall 2." },
+    {
+      "name": "Datajack",
+      "kind": "cyberware",
+      "summary": "DNI, cold-sim VR.",
+      "catalogId": "datajack"
+    }
+  ],
+  "chooseAmps": {
+    "count": 1,
+    "options": [
+      {
+        "name": "Exploit",
+        "kind": "cyberdeck program",
+        "summary": "RR 1 on Cracking (brute force) Tests."
+      },
+      {
+        "name": "Aggressor",
+        "kind": "cyberdeck program",
+        "summary": "RR 1 on Cracking (cybercombat) Tests."
+      },
+      {
+        "name": "Browse",
+        "kind": "cyberdeck program",
+        "summary": "RR 1 on Electronics (Matrix search) Tests."
+      }
+    ]
+  }
+}

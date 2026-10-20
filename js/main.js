@@ -10,7 +10,7 @@ Planned features:
 Starting with the die roller.
 */
 
-import { rollBasic } from "./dice/roll.js";
+import { rollBasic, randInt } from "./dice/roll.js";
 import { dieSvg, diceRow } from "./dice/diceSvg.js";
 import { loadHistory, addHistoryEntry, clearHistory } from "./dice/history.js";
 import { rollRiskPool, isHit, SPECIALIZATION_BONUS } from "./dice/sra.js";
@@ -42,11 +42,19 @@ import {
   deleteCustomAmp,
   getCustomAmp,
 } from "./character/customAmps.js";
-import { getMetatype } from "./character/metatypes.js";
+import { METATYPES, getMetatype } from "./character/metatypes.js";
 import { getEssence } from "./character/essence.js";
 import { getKeywords } from "./character/character.js";
 import { getWoundTable } from "./character/wounds.js";
-import { PREGENS } from "./character/pregens.js";
+import { PREGENS, getPregen } from "./character/pregens.js";
+import { setKindOverride } from "./character/characterKindOverrides.js";
+import { resolveVariant } from "./character/template.js";
+import { TEMPLATES, getTemplate } from "./character/templates.js";
+import {
+  loadMinorCharacters,
+  saveMinorCharacter,
+  deleteMinorCharacter,
+} from "./character/minorCharacters.js";
 
 // --- Generic tab switching: clicking a trigger shows the panel whose id
 // matches that trigger's target, hides the rest. Used for the main
@@ -78,7 +86,24 @@ const toolSections = document.querySelectorAll("#content > section");
 const showTool = setupTabs(navLinks, toolSections, (link) =>
   link.getAttribute("href").slice(1),
 );
-showTool("die-roller");
+// Honor a direct link's target tab: a character sheet link
+// ("?character=<id>") always means the Character Database; otherwise a
+// "#section-id" hash (e.g. the Character Database's own "back to list"
+// link) picks that section, falling back to the usual default. Needed
+// because clicking a character list row is a full page navigation, not
+// client-side routing — this is what picks the right tab back up on
+// that fresh load. (Templates don't navigate at all — they expand in
+// place, see the Templates wiring further down.)
+const linkedSectionId = location.hash.slice(1);
+const hasLinkedSection = [...toolSections].some((s) => s.id === linkedSectionId);
+const linkedParams = new URLSearchParams(location.search);
+showTool(
+  linkedParams.has("character")
+    ? "character-database"
+    : hasLinkedSection
+      ? linkedSectionId
+      : "die-roller",
+);
 
 const ampSubtabLinks = document.querySelectorAll("#shadow-amps .subtab-link");
 const ampSubtabPanels = document.querySelectorAll("#shadow-amps .subtab-panel");
@@ -88,6 +113,28 @@ const showAmpSubtab = setupTabs(
   (btn) => btn.dataset.subtab,
 );
 showAmpSubtab("amp-catalog");
+
+const characterDbSubtabLinks = document.querySelectorAll(
+  "#character-database .subtab-link",
+);
+const characterDbSubtabPanels = document.querySelectorAll(
+  "#character-database .subtab-panel",
+);
+const showCharacterDbSubtab = setupTabs(
+  characterDbSubtabLinks,
+  characterDbSubtabPanels,
+  (btn) => btn.dataset.subtab,
+);
+// "?view=<pcs|npcs|templates|critters>" is how a detail view's own "back
+// to list" link gets back to the right subtab specifically (plain
+// "#character-database" alone defaults to the PC subtab).
+const characterDbSubtabKeys = ["major", "minor", "templates", "critters"];
+const linkedDbView = linkedParams.get("view");
+showCharacterDbSubtab(
+  characterDbSubtabKeys.includes(linkedDbView)
+    ? `character-database-${linkedDbView}`
+    : "character-database-major",
+);
 
 // --- Die Roller ---
 const rollModeSelect = document.getElementById("roll-mode");
@@ -235,14 +282,27 @@ const conventionalOptions = document.getElementById("conventional-options");
 // retyped in the HTML, so there's one place that knows what cultures exist.
 // Stub cultures with no name data yet (see their _note) show up but can't
 // be picked, so the roadmap is visible without being functionally broken.
-Object.entries(CULTURES).forEach(([key, data]) => {
-  const option = document.createElement("option");
-  option.value = key;
-  const ready = isCultureReady(key);
-  option.textContent = ready ? data.label : `${data.label} (coming soon)`;
-  option.disabled = !ready;
-  nameCultureSelect.appendChild(option);
-});
+// Shared with the NPC Generator's own culture select further down, which
+// also wants a leading "Random" option (picked among ready cultures at
+// generation time) that this tool's plain culture select doesn't need.
+function populateCultureSelect(select, { includeRandom = false } = {}) {
+  if (includeRandom) {
+    const option = document.createElement("option");
+    option.value = "";
+    option.textContent = "Random";
+    select.appendChild(option);
+  }
+  Object.entries(CULTURES).forEach(([key, data]) => {
+    const option = document.createElement("option");
+    option.value = key;
+    const ready = isCultureReady(key);
+    option.textContent = ready ? data.label : `${data.label} (coming soon)`;
+    option.disabled = !ready;
+    select.appendChild(option);
+  });
+}
+
+populateCultureSelect(nameCultureSelect);
 
 function updateNameTypeVisibility() {
   conventionalOptions.hidden = nameTypeSelect.value !== "conventional";
@@ -817,20 +877,32 @@ renderAmpCatalog();
 
 // --- Character Database ---
 // Short column header for an Attribute, e.g. "Strength" -> "STR" (matches
-// the abbreviations the printed sheets use in the skill table's +Att. column).
+// the abbreviations the printed sheets use in the skill table's +Att.
+// column). A Template skill can list two linked Attributes instead of one
+// (the book prints "4+L/C" for e.g. Conjuring, tradition-dependent) —
+// `id` is then an array, abbreviated and joined the same way.
 function attributeAbbrev(id) {
+  if (Array.isArray(id)) return id.map(attributeAbbrev).join("/");
   return (ATTRIBUTES[id]?.label ?? id).slice(0, 3).toUpperCase();
 }
 
-// One <tr> per Skill, plus one indented sub-row per specialization. A
-// specialization row only gets the +2 dice bonus (and "+2" in its label)
-// when it's a formally bought specialization (character.skills[id].
-// specializations); a specialization that only has RR from an Amp still
-// gets a row (to show where that RR applies) but no bonus — the printed
-// sheets draw both the same way, so this distinction is easy to lose.
+// RR shown as filled dots, one per point, like the printed sheets —
+// easier to read at a glance than a bare number.
+function rrDots(n) {
+  return n ? `<span class="rr-dots" title="RR ${n}">${"●".repeat(n)}</span>` : "";
+}
+
+// One <tbody> per Skill (its own row plus one indented sub-row per
+// specialization), so CSS can zebra-stripe by Skill group the way the
+// book does rather than by raw row. A specialization row only gets the
+// +2 dice bonus (and "+2" in its label) when it's a formally bought
+// specialization (character.skills[id].specializations); a
+// specialization that only has RR from an Amp still gets a row (to show
+// where that RR applies) but no bonus — the printed sheets draw both the
+// same way, so this distinction is easy to lose.
 function renderSkillTable(character) {
   const rr = getRiskReduction(character);
-  const rows = Object.entries(character.skills)
+  const groups = Object.entries(character.skills)
     .map(([id, { rating, specializations }]) => {
       const skill = SKILLS[id];
       if (!skill) return "";
@@ -856,21 +928,23 @@ function renderSkillTable(character) {
               <td></td>
               <td>${attributeAbbrev(specAttr)}</td>
               <td>${specDice}</td>
-              <td>${specRR || ""}</td>
+              <td>${rrDots(specRR)}</td>
             </tr>
           `;
         })
         .join("");
 
       return `
-        <tr>
-          <td>${skill.label}</td>
-          <td>${rating}</td>
-          <td>${attributeAbbrev(skillAttr)}</td>
-          <td>${skillDice}</td>
-          <td>${skillRR || ""}</td>
-        </tr>
-        ${specRows}
+        <tbody>
+          <tr>
+            <td>${skill.label}</td>
+            <td>${rating}</td>
+            <td>${attributeAbbrev(skillAttr)}</td>
+            <td>${skillDice}</td>
+            <td>${rrDots(skillRR)}</td>
+          </tr>
+          ${specRows}
+        </tbody>
       `;
     })
     .join("");
@@ -880,7 +954,7 @@ function renderSkillTable(character) {
       <thead>
         <tr><th>Skill</th><th>Rtg.</th><th>+Att.</th><th>=DP</th><th>RR</th></tr>
       </thead>
-      <tbody>${rows}</tbody>
+      ${groups}
     </table>
   `;
 }
@@ -963,6 +1037,57 @@ function renderPortrait(character) {
   `;
 }
 
+// A small round thumbnail for the list row — same idea as renderPortrait()
+// but sized down, and decorative (alt="") since the streetname next to it
+// already says who this is.
+function renderPortraitThumb(character) {
+  if (character.portrait) {
+    return `<img class="character-thumb" src="${character.portrait}" alt="" />`;
+  }
+  return `
+    <div class="character-thumb character-thumb-placeholder">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="12" cy="8" r="4" />
+        <path d="M4 20c0-4 3.5-7 8-7s8 3 8 7" />
+      </svg>
+    </div>
+  `;
+}
+
+// One row per character in the database list: thumbnail, name, metatype,
+// role, and a compact attribute summary, clickable through to the full
+// sheet.
+function renderCharacterListRow(character) {
+  const metatype = getMetatype(character.metatype);
+  const attrSummary = Object.entries(character.attributes)
+    .map(([id, rating]) => `${attributeAbbrev(id)} ${rating}`)
+    .join(" · ");
+  const href = `?character=${encodeURIComponent(character.id)}#character-database`;
+
+  return `
+    <a class="catalog-entry character-row" href="${href}">
+      <div class="character-row-main">
+        ${renderPortraitThumb(character)}
+        <div>
+          <div class="catalog-entry-header">
+            <span class="catalog-entry-name">${character.streetname}</span>
+            ${character.pregen ? `<span class="pregen-badge">Pregen</span>` : ""}
+          </div>
+          <div class="catalog-entry-meta">
+            ${[
+              metatype ? `<span>${metatype.label}</span>` : "",
+              character.keywords.role ? `<span>${character.keywords.role}</span>` : "",
+              `<span>${attrSummary}</span>`,
+            ]
+              .filter(Boolean)
+              .join("")}
+          </div>
+        </div>
+      </div>
+    </a>
+  `;
+}
+
 function renderCharacterCard(character) {
   const metatype = getMetatype(character.metatype);
   const edge = getStartingEdge(character.metatype);
@@ -984,28 +1109,33 @@ function renderCharacterCard(character) {
       )
       .join("") +
     `
-      <div class="attr-box attr-box-edge">
+      <div class="attr-box">
         <span class="attr-label">Edge</span>
         <span class="attr-value">${edge}</span>
+      </div>
+      <div class="attr-essence">
+        <span class="attr-label">Essence</span>
+        <span class="attr-value">${essence}</span>
       </div>
     `;
 
   return `
     <div class="catalog-entry character-card">
       <div class="character-header">
-        ${renderPortrait(character)}
-        <div class="character-header-text">
+        <div class="character-name-row">
           <h3 class="character-name">${character.streetname}</h3>
-          ${subtitle ? `<div class="character-subtitle">${subtitle}</div>` : ""}
-          <div class="catalog-entry-meta">
-            <span>Essence ${essence}</span>
-            ${
-              character.official
-                ? `<span>Source: <span class="source-badge">${character.source.book}</span> ${character.source.page}</span>`
-                : ""
-            }
-          </div>
+          ${character.pregen ? `<span class="pregen-badge">Pregen</span>` : ""}
+          <select class="kind-select" data-character-id="${character.id}" aria-label="PC or NPC">
+            <option value="pc" ${character.kind === "pc" ? "selected" : ""}>PC</option>
+            <option value="npc" ${character.kind === "npc" ? "selected" : ""}>NPC</option>
+          </select>
         </div>
+        ${subtitle ? `<div class="character-subtitle">${subtitle}</div>` : ""}
+        ${
+          character.official
+            ? `<div class="catalog-entry-meta"><span>Source: <span class="source-badge">${character.source.book}</span> ${character.source.page}</span></div>`
+            : ""
+        }
       </div>
 
       <div class="character-attributes">${attributeBoxes}</div>
@@ -1029,14 +1159,20 @@ function renderCharacterCard(character) {
         </div>
 
         <div class="character-sidebar">
-          <h4>Keywords</h4>
-          <p>${keywords.join(" • ")}</p>
+          ${renderPortrait(character)}
 
-          ${character.dispositions.length ? `<h4>Dispositions</h4><p>${character.dispositions.join(" • ")}</p>` : ""}
+          <h4>Keywords</h4>
+          <ul class="character-tagged-list">${keywords.map((k) => `<li>${k}</li>`).join("")}</ul>
+
+          ${
+            character.dispositions.length
+              ? `<h4>Dispositions</h4><ul class="character-tagged-list">${character.dispositions.map((d) => `<li>${d}</li>`).join("")}</ul>`
+              : ""
+          }
 
           ${
             character.cues.length
-              ? `<h4>Cues</h4><ul class="character-list">${character.cues.map((c) => `<li>"${c}"</li>`).join("")}</ul>`
+              ? `<h4>Cues</h4><ul class="character-tagged-list">${character.cues.map((c) => `<li>"${c}"</li>`).join("")}</ul>`
               : ""
           }
         </div>
@@ -1045,8 +1181,301 @@ function renderCharacterCard(character) {
   `;
 }
 
-const characterDatabaseList = document.getElementById("character-database-list");
-characterDatabaseList.innerHTML = PREGENS.map(renderCharacterCard).join("");
+// --- Templates (Character Database) ---
+// Stock NPC templates (template.js) are resolved against a chosen
+// metatype rather than built for one, so the detail view gets a
+// metatype picker instead of a fixed attribute row. A field with an
+// optional Shadow Amp shows both numbers inline ("book style") rather
+// than needing its own toggle.
+const TEMPLATE_DEFAULT_METATYPE = "human";
+
+// One skill/specialization line in the book's own notation:
+// "<b>average hits</b> (rank+ATTR, RR n) [with Amp: hits (rank+ATTR, RR n)]".
+function templateSkillLine(entry, metatype) {
+  const attr = attributeAbbrev(entry.attribute);
+  const hits = resolveVariant(entry.averageHits, { metatype });
+  const rank = resolveVariant(entry.rank, { metatype });
+  const rr = resolveVariant(entry.rr, { metatype });
+  let line = `<strong>${hits}</strong> (${rank}+${attr}, RR ${rr})`;
+
+  const amp =
+    entry.averageHits.ampVariant?.amp ??
+    entry.rank.ampVariant?.amp ??
+    entry.rr.ampVariant?.amp;
+  if (amp) {
+    const ampHits = resolveVariant(entry.averageHits, { metatype, amp });
+    const ampRank = resolveVariant(entry.rank, { metatype, amp });
+    const ampRR = resolveVariant(entry.rr, { metatype, amp });
+    line += ` <span class="template-amp-variant">[with ${amp}: ${ampHits} (${ampRank}+${attr}, RR ${ampRR})]</span>`;
+  }
+  return line;
+}
+
+// `note` is an optional free-text annotation (template.js) for a rule a
+// skill/specialization's fixed fields have no room for — e.g. one of the
+// book's "CHOOSE 1 SKILL AND SPECIALIZATION" alternatives. Shown as a
+// small muted aside under the line, same treatment as a weapon's note.
+function templateNoteLine(note) {
+  return note ? `<div class="template-note">${note}</div>` : "";
+}
+
+// Bulleted like the book's own SKILLS block, "◊" sub-bullets for
+// specializations, rather than a table.
+function renderTemplateSkillList(template, metatype) {
+  const items = template.skills
+    .map((skill) => {
+      const specItems = skill.specializations
+        .map(
+          (spec) => `
+            <li class="template-spec">
+              ◊ ${spec.label} ${templateSkillLine(spec, metatype)}
+              ${templateNoteLine(spec.note)}
+            </li>
+          `,
+        )
+        .join("");
+      return `
+        <li>
+          ${skill.label} ${templateSkillLine(skill, metatype)}
+          ${templateNoteLine(skill.note)}
+          ${specItems ? `<ul class="template-spec-list">${specItems}</ul>` : ""}
+        </li>
+      `;
+    })
+    .join("");
+  return `<ul class="template-stat-list">${items}</ul>`;
+}
+
+// Shared by the fixed `weapons` list and an optional `chooseWeapons.options`
+// list (same {name, dv, range, note} shape) — see renderTemplateBody().
+function renderWeaponLine(w, metatype) {
+  const dv = resolveVariant(w.dv, { metatype });
+  let ampLine = "";
+  if (w.dv.ampVariant) {
+    const ampDv = resolveVariant(w.dv, { metatype, amp: w.dv.ampVariant.amp });
+    ampLine = `<br><span class="template-amp-variant">[with ${w.dv.ampVariant.amp}: DV ${ampDv}]</span>`;
+  }
+  return `<li>${w.name} DV ${dv} [${w.range}]${ampLine}${templateNoteLine(w.note)}</li>`;
+}
+
+function renderTemplateWeaponList(weapons, metatype) {
+  const items = weapons.map((w) => renderWeaponLine(w, metatype)).join("");
+  return `<ul class="template-stat-list">${items}</ul>`;
+}
+
+// Thresholds get a "◊ with Amp ..." sub-bullet for the Amp variant (all
+// three numbers move together) rather than cramming it into one line.
+function renderTemplateWoundList(template, metatype) {
+  const item = (label, field) => {
+    if (!field) return "";
+    const [light, serious, incap] = resolveVariant(field, { metatype });
+    let sub = "";
+    if (field.ampVariant) {
+      const [aLight, aSerious, aIncap] = resolveVariant(field, {
+        metatype,
+        amp: field.ampVariant.amp,
+      });
+      sub = `<ul class="template-spec-list"><li class="template-spec">◊ with ${field.ampVariant.amp} ${aLight}/${aSerious}/${aIncap}</li></ul>`;
+    }
+    return `<li>${label} ${light}/${serious}/${incap}${sub}</li>`;
+  };
+  return `
+    <ul class="template-stat-list">
+      ${item("Physical", template.woundThresholds.physical)}
+      ${item("Mental", template.woundThresholds.mental)}
+    </ul>
+  `;
+}
+
+function renderTemplateAmpOption(option) {
+  return `<li><strong>${option.name}</strong>${option.kind ? ` (${option.kind})` : ""}: ${option.summary}</li>`;
+}
+
+function renderTemplateBody(template, metatype) {
+  const attrSummary = Object.entries(template.attributes)
+    .map(
+      ([id, field]) =>
+        `${attributeAbbrev(id)} <strong>${resolveVariant(field, { metatype })}</strong>`,
+    )
+    .join(" · ");
+
+  // Skills (usually the longest section) in its own column; everything
+  // else stacked in a second column — same idea as the book's own
+  // multi-column page layout, not a single long vertical list.
+  const leftColumn = `
+    <h4>Skills</h4>
+    ${renderTemplateSkillList(template, metatype)}
+
+    ${template.spells.length ? `<h4>Spells</h4><ul class="template-stat-list">${template.spells.map((s) => `<li>${s}</li>`).join("")}</ul>` : ""}
+  `;
+
+  const rightColumn = `
+    <h4>Weapons</h4>
+    ${renderTemplateWeaponList(template.weapons, metatype)}
+
+    ${
+      template.chooseWeapons.count
+        ? `<h4>Choose ${template.chooseWeapons.count} Weapon${template.chooseWeapons.count > 1 ? "s" : ""}</h4>${renderTemplateWeaponList(template.chooseWeapons.options, metatype)}`
+        : ""
+    }
+
+    ${template.equipment.length ? `<h4>Equipment</h4><ul class="template-stat-list">${template.equipment.map((e) => `<li>${e}</li>`).join("")}</ul>` : ""}
+
+    <h4>Wound Thresholds</h4>
+    ${renderTemplateWoundList(template, metatype)}
+
+    ${
+      template.requiredAmps.length
+        ? `<h4>Shadow Amps</h4><ul class="template-stat-list">${template.requiredAmps.map(renderTemplateAmpOption).join("")}</ul>`
+        : ""
+    }
+
+    ${
+      template.chooseAmps.count
+        ? `<h4>Choose ${template.chooseAmps.count} Shadow Amp${template.chooseAmps.count > 1 ? "s" : ""}</h4>${templateNoteLine(template.chooseAmps.note)}<ul class="template-stat-list">${template.chooseAmps.options.map(renderTemplateAmpOption).join("")}</ul>`
+        : ""
+    }
+  `;
+
+  return `
+    <p class="template-attributes">${attrSummary}</p>
+
+    <div class="template-columns">
+      <div class="template-col">${leftColumn}</div>
+      <div class="template-col">${rightColumn}</div>
+    </div>
+  `;
+}
+
+// A toggle button (not a link — clicking it expands the template in
+// place, see the click handler below) plus an initially-empty/hidden
+// panel right after it for the expanded content.
+function renderTemplateListRow(template) {
+  const attrSummary = Object.entries(template.attributes)
+    .map(([id, field]) => `${attributeAbbrev(id)} ${resolveVariant(field)}`)
+    .join(" · ");
+
+  return `
+    <div class="template-row-wrap">
+      <button
+        type="button"
+        class="catalog-entry character-row template-toggle"
+        data-template-id="${template.id}"
+        aria-expanded="false"
+      >
+        <div class="catalog-entry-header">
+          <span class="catalog-entry-name">${template.label}</span>
+        </div>
+        <div class="catalog-entry-meta">
+          <span>${attrSummary}</span>
+        </div>
+      </button>
+      <div class="template-expand" hidden></div>
+    </div>
+  `;
+}
+
+// The expanded panel's contents: source line, metatype picker, and the
+// resolved stat block body (wired up by the click handler below).
+function renderTemplateExpandedContent(template) {
+  const metatypeOptions = Object.entries(METATYPES)
+    .map(([id, mt]) => `<option value="${id}">${mt.label}</option>`)
+    .join("");
+
+  return `
+    <div class="template-card">
+      ${
+        template.official
+          ? `<div class="catalog-entry-meta"><span>Source: <span class="source-badge">${template.source.book}</span> ${template.source.page}</span></div>`
+          : ""
+      }
+
+      <div class="tool-controls">
+        <label for="template-metatype-select-${template.id}">Metatype:</label>
+        <select id="template-metatype-select-${template.id}" class="template-metatype-select">${metatypeOptions}</select>
+      </div>
+
+      <div class="template-detail-body"></div>
+    </div>
+  `;
+}
+
+// Default view is a clickable list (like the Amp Catalog); a link's
+// "?character=<id>" query param switches this to a single full
+// character sheet instead. Currently sharing #content's usual 900px
+// width with every other section — see the .character-database-detail
+// note in style.css if that turns out too cramped for the two-column
+// sheet.
+const majorDatabaseList = document.getElementById("major-database-list");
+const requestedCharacterId = new URLSearchParams(location.search).get("character");
+const requestedCharacter = requestedCharacterId ? getPregen(requestedCharacterId) : null;
+
+if (requestedCharacter) {
+  majorDatabaseList.innerHTML = `
+    <a class="back-to-list" href="?#character-database">&larr; All Characters</a>
+    ${renderCharacterCard(requestedCharacter)}
+  `;
+} else {
+  majorDatabaseList.innerHTML = PREGENS.map(renderCharacterListRow).join("");
+}
+
+// Unlike the Major Characters list above, Templates always show as a
+// list — a click expands that row's stat block in place (accordion-
+// style, one open at a time) instead of navigating to a detail page.
+// The Critters tab has no data yet (see index.html) — it just shows its
+// empty-list placeholder text, no JS needed until there's something to
+// build/generate for it. Minor Characters is wired up further down,
+// alongside the NPC Generator that feeds it.
+// Shared accordion bookkeeping for the Templates and Minor Characters
+// lists (both: a row of .template-toggle + sibling .template-expand):
+// collapses whichever other row was open, toggles the clicked one, and
+// returns the now-open panel to fill in, or null if the click just closed
+// a row (nothing more for the caller to do).
+function toggleAccordion(list, toggle) {
+  const expand = toggle.nextElementSibling;
+  const wasOpen = !expand.hidden;
+
+  list.querySelectorAll(".template-expand").forEach((panel) => {
+    if (panel === expand) return;
+    panel.hidden = true;
+    panel.innerHTML = "";
+    panel.previousElementSibling.setAttribute("aria-expanded", "false");
+  });
+
+  if (wasOpen) {
+    expand.hidden = true;
+    expand.innerHTML = "";
+    toggle.setAttribute("aria-expanded", "false");
+    return null;
+  }
+
+  expand.hidden = false;
+  toggle.setAttribute("aria-expanded", "true");
+  return expand;
+}
+
+const templateDatabaseList = document.getElementById("template-database-list");
+templateDatabaseList.innerHTML = TEMPLATES.map(renderTemplateListRow).join("");
+
+templateDatabaseList.addEventListener("click", (event) => {
+  const toggle = event.target.closest(".template-toggle");
+  if (!toggle) return;
+
+  const expand = toggleAccordion(templateDatabaseList, toggle);
+  if (!expand) return;
+
+  const template = getTemplate(toggle.dataset.templateId);
+  expand.innerHTML = renderTemplateExpandedContent(template);
+
+  const metatypeSelect = expand.querySelector(".template-metatype-select");
+  const detailBody = expand.querySelector(".template-detail-body");
+  const updateExpanded = () => {
+    detailBody.innerHTML = renderTemplateBody(template, metatypeSelect.value);
+  };
+  metatypeSelect.value = TEMPLATE_DEFAULT_METATYPE;
+  metatypeSelect.addEventListener("change", updateExpanded);
+  updateExpanded();
+});
 
 // Click a portrait to see it full-size. Only real <img> portraits are
 // clickable (the placeholder is a plain div), so this naturally no-ops
@@ -1066,9 +1495,16 @@ function closePortraitLightbox() {
   portraitLightboxImg.src = "";
 }
 
-characterDatabaseList.addEventListener("click", (event) => {
+majorDatabaseList.addEventListener("click", (event) => {
   const portrait = event.target.closest("img.character-portrait");
   if (portrait) openPortraitLightbox(portrait);
+});
+
+// PC/NPC isn't rendered from anywhere else on the card, so this just
+// needs to persist — no re-render necessary.
+majorDatabaseList.addEventListener("change", (event) => {
+  const select = event.target.closest(".kind-select");
+  if (select) setKindOverride(select.dataset.characterId, select.value);
 });
 
 portraitLightboxClose.addEventListener("click", closePortraitLightbox);
@@ -1078,3 +1514,219 @@ portraitLightbox.addEventListener("click", (event) => {
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && !portraitLightbox.hidden) closePortraitLightbox();
 });
+
+// --- Minor Characters (Character Database) ---
+// Saved NPC Generator output: a thin { name, gender, metatype, templateId }
+// pointer, not a baked stat block — resolved live through the same
+// getTemplate()/renderTemplateBody() the Templates tab uses, so these stay
+// accurate if a Template's numbers change later. Same accordion-list
+// presentation as Templates, plus a Delete button since these (unlike
+// Templates/pregens) are the user's own data.
+const minorDatabaseList = document.getElementById("minor-database-list");
+
+function renderMinorCharacterRow(npc) {
+  const metatype = getMetatype(npc.metatype);
+  const template = getTemplate(npc.templateId);
+  return `
+    <div class="template-row-wrap">
+      <button
+        type="button"
+        class="catalog-entry character-row template-toggle"
+        data-npc-id="${npc.id}"
+        aria-expanded="false"
+      >
+        <div class="catalog-entry-header">
+          <span class="catalog-entry-name">${npc.name}</span>
+        </div>
+        <div class="catalog-entry-meta">
+          <span>${metatype?.label ?? npc.metatype}</span>
+          <span>${npc.gender === "female" ? "Female" : "Male"}</span>
+          <span>${template?.label ?? npc.templateId}</span>
+        </div>
+      </button>
+      <div class="template-expand" hidden></div>
+    </div>
+  `;
+}
+
+function renderMinorCharacterExpandedContent(npc, template) {
+  return `
+    <div class="template-card">
+      <div class="tool-controls">
+        <button
+          type="button"
+          class="btn-secondary delete-minor-character-btn"
+          data-npc-id="${npc.id}"
+        >
+          Delete
+        </button>
+      </div>
+      <div class="template-detail-body">${renderTemplateBody(template, npc.metatype)}</div>
+    </div>
+  `;
+}
+
+function renderMinorList() {
+  minorDatabaseList.innerHTML = loadMinorCharacters()
+    .map(renderMinorCharacterRow)
+    .join("");
+}
+
+renderMinorList();
+
+minorDatabaseList.addEventListener("click", (event) => {
+  const deleteButton = event.target.closest(".delete-minor-character-btn");
+  if (deleteButton) {
+    deleteMinorCharacter(deleteButton.dataset.npcId);
+    renderMinorList();
+    return;
+  }
+
+  const toggle = event.target.closest(".template-toggle");
+  if (!toggle) return;
+
+  const expand = toggleAccordion(minorDatabaseList, toggle);
+  if (!expand) return;
+
+  const npc = loadMinorCharacters().find((n) => n.id === toggle.dataset.npcId);
+  const template = getTemplate(npc.templateId);
+  expand.innerHTML = renderMinorCharacterExpandedContent(npc, template);
+});
+
+// --- NPC Generator ---
+// Every field (Template, Metatype, Gender, Name) can be picked explicitly
+// or left on "Random" — see index.html's own comment on the section.
+// Name generation reuses names/streetname.js and names/conventionalName.js
+// rather than reimplementing anything here.
+const npcgenTemplateSelect = document.getElementById("npcgen-template");
+const npcgenMetatypeSelect = document.getElementById("npcgen-metatype");
+const npcgenGenderSelect = document.getElementById("npcgen-gender");
+const npcgenNameTypeSelect = document.getElementById("npcgen-name-type");
+const npcgenCultureWrap = document.getElementById("npcgen-culture-wrap");
+const npcgenCultureSelect = document.getElementById("npcgen-culture");
+const npcgenNameInput = document.getElementById("npcgen-name");
+const npcgenRandomizeNameButton = document.getElementById(
+  "npcgen-randomize-name",
+);
+const npcgenGenerateButton = document.getElementById("npcgen-generate");
+const npcgenSaveButton = document.getElementById("npcgen-save");
+const npcgenPreview = document.getElementById("npcgen-preview");
+
+const randomOption = (label) => `<option value="">${label}</option>`;
+
+npcgenTemplateSelect.innerHTML =
+  randomOption("Random") +
+  TEMPLATES.map((t) => `<option value="${t.id}">${t.label}</option>`).join("");
+
+npcgenMetatypeSelect.innerHTML =
+  randomOption("Random") +
+  Object.entries(METATYPES)
+    .map(([id, mt]) => `<option value="${id}">${mt.label}</option>`)
+    .join("");
+
+populateCultureSelect(npcgenCultureSelect, { includeRandom: true });
+
+function updateNpcgenNameTypeVisibility() {
+  npcgenCultureWrap.hidden = npcgenNameTypeSelect.value === "streetname";
+}
+npcgenNameTypeSelect.addEventListener("change", updateNpcgenNameTypeVisibility);
+updateNpcgenNameTypeVisibility();
+
+function pickRandom(list) {
+  return list[randInt(0, list.length - 1)];
+}
+
+function pickRandomReadyCulture() {
+  return pickRandom(Object.keys(CULTURES).filter(isCultureReady));
+}
+
+// Resolves a name and a gender together — and, since both Name Type and
+// Culture can also be left on "Random", reports back whatever got picked
+// for those too, so the caller can reflect it into the controls.
+// generateConventionalName() hands back whichever gender it used even
+// when one wasn't requested, so a "Random" Gender and a generated
+// conventional name always agree — a streetname is gender-agnostic
+// (streetname.js), so a random gender is just picked here for the
+// record, to store/display alongside it.
+function resolveNameAndGender() {
+  const gender = npcgenGenderSelect.value || undefined;
+  const nameType =
+    npcgenNameTypeSelect.value || pickRandom(["streetname", "conventional"]);
+
+  if (nameType === "conventional") {
+    const culture = npcgenCultureSelect.value || pickRandomReadyCulture();
+    const result = generateConventionalName({ culture, gender });
+    return { name: result.fullName, gender: result.gender, nameType, culture };
+  }
+  return {
+    name: generateStreetname(),
+    gender: gender ?? (Math.random() < 0.5 ? "female" : "male"),
+    nameType,
+    culture: npcgenCultureSelect.value,
+  };
+}
+
+// Only fills the Name field itself — Gender/Name Type/Culture may get
+// resolved internally to produce a sensible name, but aren't written back
+// to their own controls. Every field stays exactly as the user left it
+// (on "Random" or otherwise) until they change it themselves.
+npcgenRandomizeNameButton.addEventListener("click", () => {
+  npcgenNameInput.value = resolveNameAndGender().name;
+});
+
+// The last generated-but-not-yet-saved NPC, enabling the Save button.
+let currentNpc = null;
+
+// Resets only the generator's result state, not the field controls —
+// Template/Metatype/Gender/Name Type/Culture/Name stay exactly as the
+// user left them (on "Random"/blank or otherwise) across Generates and
+// Saves; only an explicit change to a control itself moves it off Random.
+function resetNpcgenForm() {
+  currentNpc = null;
+  npcgenSaveButton.disabled = true;
+  npcgenPreview.innerHTML = "";
+}
+
+npcgenGenerateButton.addEventListener("click", () => {
+  const templateId = npcgenTemplateSelect.value || pickRandom(TEMPLATES).id;
+  const metatype =
+    npcgenMetatypeSelect.value || pickRandom(Object.keys(METATYPES));
+
+  let name = npcgenNameInput.value.trim();
+  let gender = npcgenGenderSelect.value;
+  if (!name) {
+    const resolved = resolveNameAndGender();
+    name = resolved.name;
+    gender = resolved.gender;
+  } else if (!gender) {
+    gender = Math.random() < 0.5 ? "female" : "male";
+  }
+
+  currentNpc = { name, gender, metatype, templateId };
+  npcgenSaveButton.disabled = false;
+
+  const template = getTemplate(templateId);
+  const metatypeLabel = getMetatype(metatype)?.label ?? metatype;
+  npcgenPreview.innerHTML = `
+    <div class="catalog-entry template-card">
+      <div class="catalog-entry-header">
+        <span class="catalog-entry-name">${name}</span>
+      </div>
+      <div class="catalog-entry-meta">
+        <span>${metatypeLabel}</span>
+        <span>${gender === "female" ? "Female" : "Male"}</span>
+        <span>${template.label}</span>
+      </div>
+      ${renderTemplateBody(template, metatype)}
+    </div>
+  `;
+});
+
+npcgenSaveButton.addEventListener("click", () => {
+  if (!currentNpc) return;
+  saveMinorCharacter(currentNpc);
+  renderMinorList();
+  resetNpcgenForm();
+});
+
+resetNpcgenForm();

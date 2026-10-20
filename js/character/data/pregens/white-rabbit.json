@@ -1,0 +1,90 @@
+{
+  "id": "white-rabbit",
+  "streetname": "White_Rabbit",
+  "portrait": null,
+  "metatype": "human",
+  "source": { "book": "SRA2", "page": 107 },
+  "attributes": {
+    "strength": 2,
+    "agility": 3,
+    "willpower": 1,
+    "logic": 4,
+    "charisma": 2
+  },
+  "skills": {
+    "athletics": { "rating": 2, "specializations": ["ranged-defense"] },
+    "cracking": { "rating": 5, "specializations": ["brute-force", "cybercombat"] },
+    "electronics": { "rating": 4, "specializations": ["matrix-search"] },
+    "engineering": { "rating": 2, "specializations": [] },
+    "network": { "rating": 2, "specializations": ["criminal"] },
+    "perception": { "rating": 1, "specializations": ["matrix"] },
+    "ranged-weapons": { "rating": 5, "specializations": [] },
+    "stealth": { "rating": 2, "specializations": [] }
+  },
+  "knowledgeSkills": [],
+  "amps": [
+    {
+      "catalogId": "mct-decker-pro-cyberjack",
+      "nameOverride": "Cyberjack MCT Decker-Pro"
+    },
+    { "catalogId": "ares-proshooter-cybernetic-eyes" },
+    {
+      "catalogId": "aluminum-bone-lacing",
+      "nameOverride": "Aluminum Bone Lacings"
+    },
+    {
+      "type": "cyberdeck",
+      "name": "MCT 360",
+      "description": "Firewall 3; Attack 3; RR 1 on Cracking; biofeedback program (can inflict biofeedback damage in cybercombat, resisted with WIL).",
+      "effects": [
+        { "effect": "firewall" },
+        { "effect": "firewall" },
+        { "effect": "attack" },
+        { "effect": "attack" },
+        { "effect": "attack" },
+        { "effect": "rr-skill", "target": "cracking" },
+        {
+          "effect": "narrative",
+          "note": "Biofeedback program (can inflict biofeedback damage in cybercombat, resisted with WIL)"
+        }
+      ]
+    },
+    { "catalogId": "ganger", "nameOverride": "Duke, ganger" }
+  ],
+  "weapons": [
+    { "name": "Unarmed", "type": "Weapon", "dv": 3, "range": "OK/–/–/–" },
+    {
+      "name": "Browning Ultra Power",
+      "subtype": "heavy pistol",
+      "type": "Weapon",
+      "dv": 5,
+      "range": "OK/OK/Dis./–"
+    },
+    {
+      "name": "Defiance T-250",
+      "subtype": "shotgun",
+      "type": "Weapon",
+      "dv": 8,
+      "range": "Dis./OK/Dis./–"
+    }
+  ],
+  "armor": {
+    "main": { "name": "Kevlar Vest", "rating": 3 },
+    "secondary": null
+  },
+  "equipment": ["Fake SIN", "Commlink", "Stim Patches", "Satellite Relay"],
+  "keywords": {
+    "socialStatus": "Human",
+    "origin": "Seattle / Underground",
+    "role": "Combat Decker",
+    "extra": "Ork Poser"
+  },
+  "lifestyle": "high",
+  "dispositions": ["Loyal", "Unstable Identity", "Reckless", "Rejecting His Past"],
+  "cues": [
+    "I've gained admin access on my own life.",
+    "If you touch them, I'll reformat you.",
+    "Orks, like myself, can …",
+    "What do you want? A decker or a miracle?"
+  ]
+}

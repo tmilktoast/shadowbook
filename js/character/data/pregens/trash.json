@@ -1,0 +1,97 @@
+{
+  "id": "trash",
+  "streetname": "Trash",
+  "portrait": null,
+  "metatype": "elf",
+  "source": { "book": "SRA2", "page": 93 },
+  "attributes": {
+    "strength": 2,
+    "agility": 3,
+    "willpower": 4,
+    "logic": 2,
+    "charisma": 4
+  },
+  "skills": {
+    "athletics": { "rating": 3, "specializations": ["ranged-defense"] },
+    "close-combat": { "rating": 0, "specializations": [] },
+    "conjuring": { "rating": 5, "specializations": ["spirits-of-beasts"] },
+    "influence": {
+      "rating": 4,
+      "specializations": ["impersonation", "etiquette"]
+    },
+    "network": { "rating": 2, "specializations": [] },
+    "perception": { "rating": 3, "specializations": ["astral"] },
+    "ranged-weapons": { "rating": 2, "specializations": [] },
+    "stealth": { "rating": 3, "specializations": ["palming"] },
+    "sorcery": { "rating": 5, "specializations": ["manipulation-spells"] },
+    "survival": { "rating": 3, "specializations": [] }
+  },
+  "knowledgeSkills": [],
+  "spells": [
+    "Lightning (indirect combat spell, physical damage, DV = WIL + Hits)",
+    "Detect Life (enhancement detection spell, hits determine the range)",
+    "Phantasm (indirect illusion spell, S)",
+    "Control Thoughts (mental manipulation spell, S)",
+    "Shaping (physical manipulation spell, S)",
+    "Magic Fingers (physical manipulation spell, S)"
+  ],
+  "amps": [
+    {
+      "type": "awakened",
+      "name": "Awakened",
+      "description": "Astral perception and projection, sorcery, conjuring.",
+      "effects": [
+        { "effect": "astral-projection" },
+        { "effect": "sorcery" },
+        { "effect": "conjuring" }
+      ]
+    },
+    {
+      "catalogId": "mentor-raccoon",
+      "choices": ["stealth/palming", "sorcery/manipulation-spells"]
+    },
+    {
+      "type": "equipment",
+      "name": "Infiltration Kit",
+      "description": "Autopicker, maglock passkey and magnetic card copier. RR 1 on Stealth (lockpicking) Tests.",
+      "effects": [{ "effect": "rr-specialization", "target": "stealth/lockpicking" }]
+    },
+    { "catalogId": "sustaining-focus" },
+    { "catalogId": "street-doc", "nameOverride": "Sarah Carpenter, Street Doc" }
+  ],
+  "weapons": [
+    { "name": "Unarmed", "type": "Weapon", "dv": 2, "range": "OK/–/–/–" },
+    {
+      "name": "Unarmed (astral only)",
+      "type": "Weapon",
+      "dv": 4,
+      "range": "OK/–/–/–"
+    },
+    {
+      "name": "Defiance Super Shock",
+      "subtype": "taser",
+      "type": "Weapon",
+      "dv": 5,
+      "range": "OK/OK/–/–"
+    }
+  ],
+  "armor": {
+    "main": { "name": "Lined Coat", "rating": 3 },
+    "secondary": null
+  },
+  "equipment": ["Fake SIN", "Commlink", "Magic Lodge"],
+  "keywords": {
+    "socialStatus": "Elf",
+    "origin": "Seattle",
+    "role": "Shaman",
+    "extra": "Noble of Tír Tairngire"
+  },
+  "lifestyle": "low",
+  "dispositions": ["Dilettante", "Instinctive", "Curious", "Idealist"],
+  "cues": [
+    "You can lose everything but your refinement.",
+    "Raccoon says, 'If it's poorly protected, it's a gift.'",
+    "A plan doesn't go wrong; it's just an ongoing improvisation.",
+    "Why run when you can just disappear?"
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "id": "gambit",
+  "streetname": "Gambit",
+  "portrait": null,
+  "metatype": "human",
+  "source": { "book": "SRA2", "page": 95 },
+  "attributes": {
+    "strength": 2,
+    "agility": 3,
+    "willpower": 3,
+    "logic": 4,
+    "charisma": 2
+  },
+  "skills": {
+    "athletics": { "rating": 3, "specializations": ["ranged-defense"] },
+    "cracking": { "rating": 5, "specializations": ["brute-force"] },
+    "electronics": { "rating": 3, "specializations": ["matrix-search"] },
+    "network": { "rating": 3, "specializations": ["matrix"] },
+    "perception": { "rating": 3, "specializations": ["matrix"] },
+    "piloting": { "rating": 2, "specializations": ["bikes"] },
+    "ranged-weapons": { "rating": 2, "specializations": ["pistols"] },
+    "stealth": { "rating": 3, "specializations": ["matrix-sneaking"] }
+  },
+  "knowledgeSkills": [],
+  "amps": [
+    { "catalogId": "mct-decker-pro-cyberjack" },
+    {
+      "type": "cyberdeck",
+      "name": "MCT 260",
+      "description": "Firewall 3, Attack 2; RR 1 on Cracking; RR 1 on Cracking (brute force).",
+      "effects": [
+        { "effect": "firewall" },
+        { "effect": "firewall" },
+        { "effect": "attack" },
+        { "effect": "attack" },
+        { "effect": "rr-skill", "target": "cracking" },
+        { "effect": "rr-specialization", "target": "cracking/brute-force" }
+      ]
+    },
+    {
+      "type": "contact",
+      "name": "Markus \"The Finnish\" Laitinen, Matrix material supplier",
+      "description": "RR 1 on Network (Matrix).",
+      "effects": [{ "effect": "rr-specialization", "target": "network/matrix" }]
+    },
+    { "catalogId": "data-haven", "nameOverride": "ShadowSea, Seattle-based Data Haven" },
+    {
+      "type": "vehicle",
+      "name": "Suzuki Mirage",
+      "description": "Racing bike.",
+      "vehicleType": "race-motorbike",
+      "effects": []
+    }
+  ],
+  "weapons": [
+    { "name": "Unarmed", "type": "Weapon", "dv": 2, "range": "OK/–/–/–" },
+    {
+      "name": "Fichetti Security 600",
+      "subtype": "light pistol",
+      "type": "Weapon",
+      "dv": 4,
+      "range": "OK/OK/Dis./–"
+    }
+  ],
+  "armor": {
+    "main": { "name": "Lined Coat", "rating": 3 },
+    "secondary": null
+  },
+  "equipment": ["Fake SIN", "Commlink", "Signal Jammer", "Stealth Tags"],
+  "keywords": {
+    "socialStatus": "Human",
+    "origin": "London",
+    "role": "Decker",
+    "extra": "India"
+  },
+  "lifestyle": "low",
+  "dispositions": ["Ambitious", "Vindictive", "Spiteful", "Planner"],
+  "cues": [
+    "There are times when you have to lose a piece to win the game.",
+    "In chess as in the Matrix, I prefer to attack.",
+    "My name is Gambit, not Gandhi. Get that through your head.",
+    "A goal without a plan is just a fraggin' wish."
+  ]
+}

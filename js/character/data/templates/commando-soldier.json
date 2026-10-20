@@ -1,0 +1,195 @@
+{
+  "id": "commando-soldier",
+  "label": "Commando Soldier",
+  "source": { "book": "SRA2", "page": 253 },
+  "attributes": {
+    "strength": { "base": 4, "variants": { "ork": 5, "troll": 6 } },
+    "agility": { "base": 4 },
+    "willpower": { "base": 3, "variants": { "dwarf": 4 } },
+    "logic": { "base": 2 },
+    "charisma": { "base": 2, "variants": { "elf": 3 } }
+  },
+  "skills": [
+    {
+      "id": "athletics",
+      "label": "Athletics",
+      "rank": { "base": 6 },
+      "attribute": "strength",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 4, "variants": { "ork": 5, "troll": 5 } },
+      "specializations": [
+        {
+          "id": "ranged-defense",
+          "label": "ranged defense",
+          "rank": { "base": 8 },
+          "attribute": "agility",
+          "rr": { "base": 1 },
+          "averageHits": { "base": 6 }
+        }
+      ]
+    },
+    {
+      "id": "ranged-weapons",
+      "label": "Ranged Weapons",
+      "rank": { "base": 7 },
+      "attribute": "agility",
+      "rr": { "base": 1 },
+      "averageHits": { "base": 6 },
+      "specializations": [
+        {
+          "id": "rifles",
+          "label": "rifles",
+          "rank": { "base": 9 },
+          "attribute": "agility",
+          "rr": { "base": 3 },
+          "averageHits": { "base": 8 }
+        }
+      ]
+    },
+    {
+      "id": "close-combat",
+      "label": "Close Combat",
+      "rank": { "base": 5 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 4 },
+      "specializations": [
+        {
+          "id": "blades",
+          "label": "blades",
+          "rank": { "base": 7 },
+          "attribute": "agility",
+          "rr": { "base": 2 },
+          "averageHits": { "base": 7 }
+        }
+      ]
+    },
+    {
+      "id": "stealth",
+      "label": "Stealth",
+      "rank": { "base": 5 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 4 },
+      "specializations": [
+        {
+          "id": "physical-sneaking",
+          "label": "physical sneaking",
+          "rank": { "base": 7 },
+          "attribute": "agility",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 5 }
+        }
+      ]
+    },
+    {
+      "id": "perception",
+      "label": "Perception",
+      "rank": { "base": 5 },
+      "attribute": "logic",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": [
+        {
+          "id": "physical",
+          "label": "physical",
+          "rank": { "base": 7 },
+          "attribute": "logic",
+          "rr": { "base": 1 },
+          "averageHits": { "base": 5 }
+        }
+      ]
+    },
+    {
+      "id": "survival",
+      "label": "Survival",
+      "rank": { "base": 6 },
+      "attribute": "logic",
+      "rr": { "base": 1 },
+      "averageHits": { "base": 5 },
+      "specializations": []
+    },
+    {
+      "id": "influence",
+      "label": "Influence",
+      "rank": { "base": 3 },
+      "attribute": "charisma",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": []
+    }
+  ],
+  "spells": [],
+  "weapons": [
+    {
+      "name": "Unarmed",
+      "dv": { "base": 4, "variants": { "ork": 5, "troll": 6 } },
+      "range": "OK/–/–/–"
+    },
+    {
+      "name": "Combat knife",
+      "dv": { "base": 5, "variants": { "ork": 6, "troll": 7 } },
+      "range": "OK/–/–/–"
+    },
+    {
+      "name": "Heavy pistol",
+      "dv": { "base": 5 },
+      "range": "OK/OK/Dis./–"
+    },
+    {
+      "name": "Assault rifle",
+      "dv": { "base": 7 },
+      "range": "Dis./OK/OK/Dis."
+    },
+    {
+      "name": "Grenades",
+      "dv": { "base": 7 },
+      "range": "OK/OK/Dis./–"
+    }
+  ],
+  "equipment": ["Commlink", "Full body armor (Armor 4)"],
+  "woundThresholds": {
+    "physical": {
+      "base": [9, 12, 15],
+      "variants": { "ork": [10, 13, 16], "troll": [11, 14, 17] }
+    },
+    "mental": {
+      "base": [3, 6, 9],
+      "variants": { "dwarf": [4, 7, 10] }
+    }
+  },
+  "requiredAmps": [
+    {
+      "name": "Cybereyes with tactical network and target identification",
+      "kind": "cyberware",
+      "summary": "RR 1 on Ranged Weapons, Perception (physical) and Athletics (ranged defense) Tests, low-light vision."
+    },
+    {
+      "name": "Smartlink",
+      "kind": "cyberware",
+      "summary": "RR 2 on Ranged Weapons (rifles) Tests."
+    },
+    {
+      "name": "Skillwires",
+      "kind": "cyberware",
+      "summary": "RR 2 on Close Combat (blades) Tests."
+    },
+    {
+      "name": "Wired reflexes",
+      "kind": "cyberware",
+      "summary": "+1 action per narration."
+    },
+    {
+      "name": "Dermal plating",
+      "kind": "cyberware",
+      "summary": "+1 Armor.",
+      "catalogId": "dermal-plating"
+    },
+    {
+      "name": "Wilderness survival kit",
+      "kind": "gear",
+      "summary": "RR 1 on Survival Tests."
+    }
+  ],
+  "chooseAmps": { "count": 0, "options": [] }
+}

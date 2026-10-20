@@ -42,6 +42,7 @@
   --font-mono: "Consolas", "Courier New", monospace;
   --font-display: "Anton", var(--font-body); /* big, bold titles */
   --font-heading: "Oswald", var(--font-body); /* section headings, nav */
+  --font-hand: "Permanent Marker", var(--font-body); /* handwritten accents: attribute values, Keywords/Dispositions/Cues — approximates the book's marker-scrawl look */
   --text-sm: 0.75rem;
 
   /* Subtle paper-grain texture, generated via an SVG noise filter rather
@@ -156,7 +157,7 @@ textarea {
 }
 
 #content > * {
-  max-width: 700px;
+  max-width: 900px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -527,6 +528,50 @@ textarea {
   background: var(--color-text-muted);
 }
 
+/* Flags one of the book's own ready-made pregen characters (Hercules
+   and friends), as distinct from `official` — a major NPC can be
+   official (book-sourced) or custom and still not be a pregen. Teal
+   instead of source-badge's amber so the two read as different things
+   at a glance. */
+.pregen-badge {
+  display: inline-block;
+  background: var(--color-accent);
+  color: var(--color-text-inverse);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.65rem;
+  letter-spacing: 0.03em;
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+
+/* PC/NPC: the one part of the sheet that's editable so far (full sheet
+   editing is a much bigger project) — styled like the badges next to it
+   rather than a standard form control. */
+.kind-select {
+  display: inline-block;
+  appearance: none;
+  -webkit-appearance: none;
+  background: var(--color-bg-input);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.65rem;
+  letter-spacing: 0.03em;
+  padding: 1px 16px 1px 5px;
+  border-radius: 3px;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'><path d='M1 2.5 4 6 7 2.5' fill='none' stroke='%23686d75' stroke-width='1.2'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 5px center;
+}
+
+.kind-select:hover,
+.kind-select:focus-visible {
+  border-color: var(--color-accent-alt);
+}
+
 .validation-list {
   list-style: none;
   margin: var(--spacing-md) 0 0;
@@ -550,37 +595,39 @@ textarea {
 }
 
 /* Character Database */
+
+/* Section headers (Skills, Shadow Amps, Weapons...): bold rust-colored
+   small caps over a full-width rule, like the book's section dividers.
+   Inside the gold sidebar this would be too low-contrast, so it's
+   overridden there (see .character-sidebar h4 below). */
 .character-card h4 {
   font-family: var(--font-heading);
   font-size: var(--text-sm);
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.02em;
-  color: var(--color-accent);
+  color: var(--color-accent-alt);
+  border-bottom: 2px solid var(--color-accent-alt);
+  padding-bottom: 2px;
   margin: var(--spacing-md) 0 var(--spacing-xs);
 }
 
-/* Big name + archetype bar at the top, like the printed pregen sheets.
-   Portrait sits to the left, name/subtitle/meta stack to its right. */
+/* Big name + archetype bar at the top, like the printed pregen sheets. */
 .character-header {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--spacing-md);
   border-bottom: 2px solid var(--color-accent-alt);
   padding-bottom: var(--spacing-sm);
   margin-bottom: var(--spacing-sm);
 }
 
-.character-header-text {
-  flex: 1;
-  min-width: 0;
-}
-
+/* Circular portrait at the top of the sidebar, echoing the book's
+   portrait-in-the-gold-column placement. */
 .character-portrait {
-  width: 96px;
-  height: 96px;
-  flex-shrink: 0;
-  border: 2px solid var(--color-accent-alt);
-  border-radius: 4px;
+  display: block;
+  width: 140px;
+  height: 140px;
+  margin: 0 auto var(--spacing-md);
+  border: 3px solid var(--color-accent-alt);
+  border-radius: 50%;
   object-fit: cover;
   background: var(--color-bg-input);
 }
@@ -629,13 +676,22 @@ img.character-portrait {
   padding: 0 var(--spacing-xs);
 }
 
+.character-name-row {
+  display: flex;
+  align-items: baseline;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+}
+
 .character-name {
   font-family: var(--font-display);
-  font-size: 2.5rem;
+  font-size: 2.75rem;
   line-height: 1;
   text-transform: uppercase;
   color: var(--color-text);
   margin: 0;
+  transform: rotate(-1deg);
+  display: inline-block;
 }
 
 .character-subtitle {
@@ -647,48 +703,54 @@ img.character-portrait {
   margin-top: var(--spacing-xs);
 }
 
-/* Attributes as a row of large boxes rather than small inline text. */
+/* Attributes as an open row of columns divided by thin rules, the
+   numbers in a handwritten face — closer to how the sheet draws them
+   than a boxed/card look. */
 .character-attributes {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--spacing-sm);
-  margin-top: var(--spacing-sm);
+  align-items: flex-end;
+  margin-top: var(--spacing-md);
 }
 
-.attr-box {
+.attr-box,
+.attr-essence {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   gap: 2px;
-  min-width: 4.5rem;
-  padding: var(--spacing-xs) var(--spacing-sm);
-  background: var(--color-bg-input);
-  border: 1px solid var(--color-border);
-  border-radius: 4px;
+  padding-right: var(--spacing-md);
+  margin-right: var(--spacing-md);
+  border-right: 1px solid var(--color-border);
 }
 
-.attr-box-edge {
-  border-color: var(--color-accent-alt);
+.attr-box:has(+ .attr-essence) {
+  border-right: none;
+}
+
+.attr-essence {
+  border-right: none;
+  margin-right: 0;
+  padding-right: 0;
 }
 
 .attr-label {
   font-family: var(--font-heading);
   font-size: var(--text-sm);
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.02em;
-  color: var(--color-text-muted);
+  color: var(--color-accent-alt);
 }
 
 .attr-value {
-  font-family: var(--font-display);
-  font-size: 2rem;
+  font-family: var(--font-hand);
+  font-size: 2.25rem;
   line-height: 1;
-  color: var(--color-accent);
+  color: var(--color-text);
 }
 
-.attr-box-edge .attr-value {
-  color: var(--color-accent-alt);
+.attr-essence .attr-value {
+  font-size: 1.5rem;
 }
 
 /* Specialization sub-rows, indented and muted under their parent Skill. */
@@ -699,21 +761,130 @@ img.character-portrait {
   font-style: italic;
 }
 
-.character-list {
-  margin: 0;
-  padding-left: var(--spacing-md);
-}
-
-.character-list ul {
-  margin: 0;
-  padding-left: var(--spacing-md);
-  color: var(--color-text-muted);
+/* NPC Templates: small, dense reference cards, deliberately plain next
+   to the narrative PC sheet (.character-card) — no display font, no
+   handwritten accents, no big attribute boxes. These are "fodder" stats
+   a GM scans quickly, not a character someone plays. */
+.template-card {
   font-size: var(--text-sm);
 }
 
+.template-card .catalog-entry-name {
+  font-size: 1rem;
+}
+
+.template-card h4 {
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--color-text-muted);
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 2px;
+  margin: var(--spacing-sm) 0 var(--spacing-xs);
+}
+
+.template-attributes {
+  margin: var(--spacing-xs) 0 0;
+}
+
+/* Skills in one column, everything else (Weapons/Equipment/Wounds/Amps)
+   in the other — echoes the book's own multi-column page layout instead
+   of one long vertical list. */
+.template-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 var(--spacing-lg);
+  align-items: start;
+  margin-top: var(--spacing-xs);
+}
+
+.template-col h4:first-child {
+  margin-top: 0;
+}
+
+@media (max-width: 640px) {
+  .template-columns {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Skills/Weapons/Wounds/Amps as plain bulleted lines, like the book's
+   own stat blocks, instead of a grid table. */
+.template-stat-list {
+  list-style: disc;
+  margin: 0;
+  padding-left: var(--spacing-md);
+}
+
+.template-stat-list > li + li {
+  margin-top: 2px;
+}
+
+/* Specialization / "with Amp" sub-bullets, using the book's own "◊"
+   marker instead of a nested disc. */
+.template-spec-list {
+  list-style: none;
+  margin: 2px 0 0;
+  padding-left: var(--spacing-md);
+}
+
+.template-spec {
+  color: var(--color-text-muted);
+}
+
+/* A field's value "(with Cyberarm: 4)" annotation when an optional
+   Shadow Amp changes it — book-style, both numbers shown. */
+.template-amp-variant {
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+/* A free-text aside (template.js's optional `note` fields) for book rules
+   that don't fit a Skill/Weapon/chooseAmps entry's fixed shape — e.g. a
+   stun weapon's "one action lost if damage is dealt," or one of a
+   "CHOOSE 1 SKILL AND SPECIALIZATION" group's alternatives. */
+.template-note {
+  color: var(--color-text-muted);
+  font-size: 0.85em;
+  font-style: italic;
+}
+
+/* Risk Reduction shown as filled dots (one per point), like the book,
+   rather than a bare number. */
+.rr-dots {
+  color: var(--color-accent-alt);
+  letter-spacing: 2px;
+}
+
+/* Zebra-stripe the Skills table by Skill group (the base row plus its
+   specialization sub-rows share a tbody), matching the book's banding. */
+.skills-table tbody:nth-of-type(even) {
+  background: var(--color-bg-input);
+}
+
+/* Keywords/Dispositions/Cues: one per line, handwritten, centered —
+   matches the book's sidebar list style. */
+.character-tagged-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.character-tagged-list li {
+  font-family: var(--font-hand);
+  font-size: 1.1rem;
+  color: var(--color-text);
+  margin-bottom: var(--spacing-xs);
+}
+
 /* Two-column layout: skills/amps/wounds on the left, the sheet's
-   "narrative" fields (Keywords/Dispositions/Cues) on the right, same
-   placement as the official character sheet. */
+   "narrative" fields (portrait, Keywords/Dispositions/Cues) on the
+   right in a soft gold panel — the same sidebar-gold used elsewhere in
+   the app, not the book's full-saturation background (see CLAUDE.md on
+   the accessibility-driven palette). */
 .character-columns {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -722,31 +893,107 @@ img.character-portrait {
 }
 
 .character-sidebar {
-  border-left: 1px solid var(--color-border);
-  padding-left: var(--spacing-lg);
+  background: var(--color-sidebar-bg);
+  border-radius: 4px;
+  padding: var(--spacing-md);
 }
 
-.character-sidebar h4:first-child {
+.character-sidebar h4 {
+  color: var(--color-text);
+  border-bottom-color: var(--color-text);
+  text-align: center;
+}
+
+.character-sidebar h4:first-of-type {
   margin-top: 0;
 }
 
-/* Character sheets need more room than the usual 700px content column
-   to make two real columns worthwhile. */
-#content > #character-database-list {
-  max-width: 950px;
+/* Trying the PC sheet at the same 900px width as everything else for
+   now — it previously had its own wider override
+   (#character-database.character-database-detail, 1300px); bring that
+   back if the two-column layout feels cramped at 900px. */
+
+/* List rows reuse .catalog-entry's card look but as a plain link or
+   button (the PC list navigates away; the Template list expands in
+   place instead — see .template-toggle), with a small round thumbnail
+   next to the name. */
+.catalog-entry.character-row {
+  display: block;
+  width: 100%;
+  text-decoration: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    border-color 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.catalog-entry.character-row:hover,
+.catalog-entry.character-row:focus-visible {
+  border-color: var(--color-accent-alt);
+  background: var(--color-bg-input);
+}
+
+.character-row-main {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.character-thumb {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border: 2px solid var(--color-accent-alt);
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--color-bg-input);
+}
+
+.character-thumb-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+}
+
+/* Template list rows expand in place (accordion-style) instead of
+   navigating to a detail page. The toggle button and its expanded panel
+   are drawn as one joined block — square the shared edge, no gap. */
+.template-toggle[aria-expanded="true"] {
+  border-color: var(--color-accent-alt);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.template-expand {
+  border: 1px solid var(--color-accent-alt);
+  border-top: none;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  padding: var(--spacing-sm) var(--spacing-md) var(--spacing-md);
+  background: var(--color-bg-panel);
+}
+
+.back-to-list {
+  display: inline-block;
+  margin-bottom: var(--spacing-sm);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.back-to-list:hover {
+  text-decoration: underline;
 }
 
 /* Stack into one column on narrow screens */
 @media (max-width: 640px) {
   .character-columns {
     grid-template-columns: 1fr;
-  }
-
-  .character-sidebar {
-    border-left: none;
-    border-top: 1px solid var(--color-border);
-    padding-left: 0;
-    padding-top: var(--spacing-md);
   }
 }
 

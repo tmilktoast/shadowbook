@@ -1,0 +1,157 @@
+{
+  "id": "ganger",
+  "label": "Ganger",
+  "source": { "book": "SRA2", "page": 244 },
+  "attributes": {
+    "strength": { "base": 3, "variants": { "ork": 4, "troll": 5 } },
+    "agility": { "base": 2 },
+    "willpower": { "base": 2, "variants": { "dwarf": 3 } },
+    "logic": { "base": 2 },
+    "charisma": { "base": 2, "variants": { "elf": 3 } }
+  },
+  "skills": [
+    {
+      "id": "athletics",
+      "label": "Athletics",
+      "rank": { "base": 3 },
+      "attribute": "strength",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3, "variants": { "troll": 4 } },
+      "specializations": [
+        {
+          "id": "ranged-defense",
+          "label": "ranged defense",
+          "rank": { "base": 3 },
+          "attribute": "agility",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 3 }
+        }
+      ]
+    },
+    {
+      "id": "ranged-weapons",
+      "label": "Ranged Weapons",
+      "rank": { "base": 3 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": []
+    },
+    {
+      "id": "close-combat",
+      "label": "Close Combat",
+      "rank": { "base": 4 },
+      "attribute": "agility",
+      "rr": { "base": 0, "ampVariant": { "amp": "Cyberarm", "base": 1 } },
+      "averageHits": { "base": 3, "ampVariant": { "amp": "Cyberarm", "base": 4 } },
+      "specializations": [
+        {
+          "id": "blades",
+          "label": "blades",
+          "rank": { "base": 6 },
+          "attribute": "agility",
+          "rr": { "base": 0, "ampVariant": { "amp": "Cyberarm", "base": 1 } },
+          "averageHits": { "base": 4, "ampVariant": { "amp": "Cyberarm", "base": 5 } }
+        }
+      ]
+    },
+    {
+      "id": "stealth",
+      "label": "Stealth",
+      "rank": { "base": 3 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": []
+    },
+    {
+      "id": "perception",
+      "label": "Perception",
+      "rank": { "base": 3 },
+      "attribute": "logic",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": []
+    },
+    {
+      "id": "influence",
+      "label": "Influence",
+      "rank": { "base": 1 },
+      "attribute": "charisma",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 2 },
+      "specializations": [
+        {
+          "id": "intimidation",
+          "label": "intimidation",
+          "rank": { "base": 3 },
+          "attribute": "charisma",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 3 }
+        }
+      ]
+    }
+  ],
+  "spells": [],
+  "weapons": [
+    {
+      "name": "Unarmed",
+      "dv": {
+        "base": 3,
+        "variants": { "ork": 4, "troll": 5 },
+        "ampVariant": { "amp": "Muscle replacement", "base": 4, "variants": { "ork": 5, "troll": 6 } }
+      },
+      "range": "OK/–/–/–"
+    },
+    {
+      "name": "Knife",
+      "dv": {
+        "base": 4,
+        "variants": { "ork": 5, "troll": 6 },
+        "ampVariant": { "amp": "Muscle replacement", "base": 5, "variants": { "ork": 6, "troll": 7 } }
+      },
+      "range": "OK/–/–/–"
+    },
+    {
+      "name": "Light pistol",
+      "dv": { "base": 4 },
+      "range": "OK/OK/Dis./–"
+    }
+  ],
+  "equipment": ["Commlink", "Gang leathers (Armor 1)"],
+  "woundThresholds": {
+    "physical": {
+      "base": [4, 7, 10],
+      "variants": { "ork": [5, 8, 11], "troll": [6, 9, 12] },
+      "ampVariant": {
+        "amp": "Dermal plating",
+        "base": [5, 8, 11],
+        "variants": { "ork": [6, 9, 12], "troll": [7, 10, 13] }
+      }
+    },
+    "mental": {
+      "base": [2, 5, 8],
+      "variants": { "dwarf": [3, 6, 9] }
+    }
+  },
+  "requiredAmps": [],
+  "chooseAmps": {
+    "count": 1,
+    "options": [
+      { "name": "Muscle replacement", "kind": "cyberware", "summary": "Close combat DV +1." },
+      { "name": "Jazz", "kind": "drug", "summary": "+1 action per fight." },
+      { "name": "Cyberarm", "kind": "cyberware", "summary": "RR 1 on Close Combat Tests." },
+      {
+        "name": "Zealous",
+        "kind": "quality",
+        "summary": "Advantage when resisting intimidation or fear; high fighting spirit."
+      },
+      {
+        "name": "Dermal plating",
+        "kind": "cyberware",
+        "summary": "+1 Armor.",
+        "catalogId": "dermal-plating"
+      }
+    ]
+  }
+}

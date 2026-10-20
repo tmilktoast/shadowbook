@@ -6,7 +6,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@500;700&family=Permanent+Marker&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/style.css" />
@@ -331,13 +331,147 @@
           </div>
         </section>
 
+        <section id="npc-generator" hidden>
+          <h2 class="section-heading">NPC Generator</h2>
+
+          <!-- Picks from a Template (character/template.js) rather than
+               rolling stats from scratch; each field below can be set
+               explicitly or left on "Random". Saves a thin pointer
+               { name, gender, metatype, templateId } into the Character
+               Database's Minor Characters tab, not a baked-in copy, so
+               the NPC always reflects that Template's current stats. -->
+          <div class="tool-controls">
+            <label for="npcgen-template">Template:</label>
+            <select id="npcgen-template"></select>
+
+            <label for="npcgen-metatype">Metatype:</label>
+            <select id="npcgen-metatype"></select>
+
+            <label for="npcgen-gender">Gender:</label>
+            <select id="npcgen-gender">
+              <option value="">Random</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
+
+          <div class="tool-controls">
+            <label for="npcgen-name-type">Name:</label>
+            <select id="npcgen-name-type">
+              <option value="">Random</option>
+              <option value="streetname">Streetname</option>
+              <option value="conventional">Conventional</option>
+            </select>
+
+            <span id="npcgen-culture-wrap">
+              <label for="npcgen-culture">Culture:</label>
+              <select id="npcgen-culture"></select>
+            </span>
+
+            <input
+              type="text"
+              id="npcgen-name"
+              placeholder="Leave blank to generate"
+            />
+            <button
+              type="button"
+              id="npcgen-randomize-name"
+              class="btn-secondary"
+            >
+              Randomize Name
+            </button>
+          </div>
+
+          <div class="tool-controls">
+            <button type="button" id="npcgen-generate" class="btn-primary">
+              Generate NPC
+            </button>
+            <button
+              type="button"
+              id="npcgen-save"
+              class="btn-primary"
+              disabled
+            >
+              Save to Minor Characters
+            </button>
+          </div>
+
+          <div id="npcgen-preview"></div>
+        </section>
+
         <section id="character-database" hidden>
           <h2 class="section-heading">Character Database</h2>
-          <div
-            id="character-database-list"
-            class="history-list"
-            data-empty="No characters yet."
-          ></div>
+
+          <div class="subtab-nav">
+            <button
+              type="button"
+              class="subtab-link"
+              data-subtab="character-database-major"
+            >
+              Major Characters
+            </button>
+            <button
+              type="button"
+              class="subtab-link"
+              data-subtab="character-database-minor"
+            >
+              Minor Characters
+            </button>
+            <button
+              type="button"
+              class="subtab-link"
+              data-subtab="character-database-templates"
+            >
+              Templates
+            </button>
+            <button
+              type="button"
+              class="subtab-link"
+              data-subtab="character-database-critters"
+            >
+              Critters
+            </button>
+          </div>
+
+          <!-- Player Characters and major NPCs (a backstory, a real role
+               in the campaign) both live here, built on the full
+               Character model. Pregens (character.pregen) get their own
+               badge so they're easy to tell apart from the rest. -->
+          <div id="character-database-major" class="subtab-panel">
+            <div
+              id="major-database-list"
+              class="history-list"
+              data-empty="No characters yet."
+            ></div>
+          </div>
+
+          <!-- Minor/fodder NPCs: built by hand or with the NPC Generator
+               (both not built yet), not the book's own stock stats below. -->
+          <div id="character-database-minor" class="subtab-panel" hidden>
+            <div
+              id="minor-database-list"
+              class="history-list"
+              data-empty="No characters yet."
+            ></div>
+          </div>
+
+          <div id="character-database-templates" class="subtab-panel" hidden>
+            <div
+              id="template-database-list"
+              class="history-list"
+              data-empty="No templates yet."
+            ></div>
+          </div>
+
+          <!-- Animals, spirits, and other critters (core book p. 243's
+               "ignore for now" list) — not built yet. -->
+          <div id="character-database-critters" class="subtab-panel" hidden>
+            <div
+              id="critter-database-list"
+              class="history-list"
+              data-empty="No critters yet."
+            ></div>
+          </div>
         </section>
       </main>
     </div>

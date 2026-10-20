@@ -1,0 +1,186 @@
+{
+  "id": "security-adept",
+  "label": "Security / Police Adept",
+  "source": { "book": "SRA2", "page": 248 },
+  "attributes": {
+    "strength": { "base": 3, "variants": { "ork": 4, "troll": 5 } },
+    "agility": { "base": 3 },
+    "willpower": { "base": 2, "variants": { "dwarf": 3 } },
+    "logic": { "base": 2 },
+    "charisma": { "base": 2, "variants": { "elf": 3 } }
+  },
+  "skills": [
+    {
+      "id": "athletics",
+      "label": "Athletics",
+      "rank": { "base": 5 },
+      "attribute": "strength",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 4 },
+      "specializations": [
+        {
+          "id": "ranged-defense",
+          "label": "ranged defense",
+          "rank": { "base": 7 },
+          "attribute": "agility",
+          "rr": { "base": 0, "ampVariant": { "amp": "Combat sense", "base": 1 } },
+          "averageHits": { "base": 4, "ampVariant": { "amp": "Combat sense", "base": 5 } }
+        },
+        {
+          "id": "running",
+          "label": "running",
+          "rank": { "base": 7 },
+          "attribute": "strength",
+          "rr": { "base": 0, "ampVariant": { "amp": "Wall running", "base": 1 } },
+          "averageHits": {
+            "base": 4,
+            "variants": { "ork": 5, "troll": 5 },
+            "ampVariant": { "amp": "Wall running", "base": 5, "variants": { "ork": 6, "troll": 6 } }
+          }
+        }
+      ]
+    },
+    {
+      "id": "ranged-weapons",
+      "label": "Ranged Weapons",
+      "rank": { "base": 5 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 4 },
+      "specializations": []
+    },
+    {
+      "id": "close-combat",
+      "label": "Close Combat",
+      "rank": { "base": 5 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 4 },
+      "specializations": [
+        {
+          "id": "unarmed",
+          "label": "unarmed",
+          "rank": { "base": 7 },
+          "attribute": "agility",
+          "rr": { "base": 1, "ampVariant": { "amp": "Improved close combat", "base": 2 } },
+          "averageHits": { "base": 5, "ampVariant": { "amp": "Improved close combat", "base": 6 } }
+        },
+        {
+          "id": "defense",
+          "label": "defense",
+          "rank": { "base": 5 },
+          "attribute": "agility",
+          "rr": { "base": 0, "ampVariant": { "amp": "Combat sense", "base": 1 } },
+          "averageHits": { "base": 4, "ampVariant": { "amp": "Combat sense", "base": 5 } }
+        }
+      ]
+    },
+    {
+      "id": "stealth",
+      "label": "Stealth",
+      "rank": { "base": 4 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": [
+        {
+          "id": "physical-sneaking",
+          "label": "physical sneaking",
+          "rank": { "base": 6 },
+          "attribute": "agility",
+          "rr": { "base": 0, "ampVariant": { "amp": "Improved stealth", "base": 1 } },
+          "averageHits": { "base": 4, "ampVariant": { "amp": "Improved stealth", "base": 5 } }
+        }
+      ]
+    },
+    {
+      "id": "perception",
+      "label": "Perception",
+      "rank": { "base": 5 },
+      "attribute": "logic",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": []
+    },
+    {
+      "id": "influence",
+      "label": "Influence",
+      "rank": { "base": 3 },
+      "attribute": "charisma",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": []
+    }
+  ],
+  "spells": [],
+  "weapons": [
+    {
+      "name": "Unarmed",
+      "dv": {
+        "base": 3,
+        "variants": { "ork": 4, "troll": 5 },
+        "ampVariant": {
+          "amp": "Electricity elemental strike",
+          "base": 5,
+          "variants": { "ork": 6, "troll": 7 }
+        }
+      },
+      "range": "OK/–/–/–"
+    },
+    {
+      "name": "Heavy pistol",
+      "dv": { "base": 5 },
+      "range": "OK/OK/Dis./–"
+    }
+  ],
+  "equipment": ["Commlink", "Armor vest (Armor 3)"],
+  "woundThresholds": {
+    "physical": {
+      "base": [6, 9, 12],
+      "variants": { "ork": [7, 10, 13], "troll": [8, 11, 14] }
+    },
+    "mental": {
+      "base": [2, 5, 8],
+      "variants": { "dwarf": [3, 6, 9] }
+    }
+  },
+  "requiredAmps": [
+    { "name": "Awakened", "kind": "quality", "summary": "Adept." },
+    {
+      "name": "Improved close combat",
+      "kind": "adept-power",
+      "summary": "RR 1 on Close Combat (unarmed) Tests."
+    }
+  ],
+  "chooseAmps": {
+    "count": 1,
+    "options": [
+      {
+        "name": "Combat sense",
+        "kind": "adept-power",
+        "summary": "RR 1 on Athletics (ranged defense) and Close Combat (defense) Tests."
+      },
+      {
+        "name": "Electricity elemental strike",
+        "kind": "adept-power",
+        "summary": "Unarmed DV +2, one action lost if damage is dealt."
+      },
+      { "name": "Improved reflexes", "kind": "adept-power", "summary": "+1 action per fight." },
+      {
+        "name": "Improved stealth",
+        "kind": "adept-power",
+        "summary": "RR 1 on Stealth (physical sneaking) Tests."
+      },
+      {
+        "name": "Improved close combat",
+        "kind": "adept-power",
+        "summary": "RR 2 on Close Combat (unarmed) Tests (improvement of regular power)."
+      },
+      {
+        "name": "Wall running",
+        "kind": "adept-power",
+        "summary": "Run on walls for a short distance. RR 1 on Athletics (running) Tests."
+      }
+    ]
+  }
+}

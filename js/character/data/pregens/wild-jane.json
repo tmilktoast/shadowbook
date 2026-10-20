@@ -1,0 +1,101 @@
+{
+  "id": "wild-jane",
+  "streetname": "Wild Jane",
+  "portrait": null,
+  "metatype": "ork",
+  "source": { "book": "SRA2", "page": 91 },
+  "attributes": {
+    "strength": 3,
+    "agility": 4,
+    "willpower": 2,
+    "logic": 2,
+    "charisma": 3
+  },
+  "skills": {
+    "athletics": { "rating": 3, "specializations": ["ranged-defense"] },
+    "close-combat": { "rating": 3, "specializations": ["unarmed"] },
+    "influence": { "rating": 3, "specializations": ["intimidation"] },
+    "network": { "rating": 3, "specializations": ["government"] },
+    "perception": { "rating": 4, "specializations": ["physical"] },
+    "piloting": { "rating": 2, "specializations": ["cars"] },
+    "ranged-weapons": { "rating": 5, "specializations": ["rifles"] },
+    "stealth": { "rating": 2, "specializations": ["physical-sneaking"] }
+  },
+  "knowledgeSkills": [],
+  "amps": [
+    {
+      "type": "cyberware",
+      "name": "Cybernetic Eyes",
+      "description": "Visual interface, camera, low-light vision. Smartlink: RR 1 on Ranged Weapons. Vision enhancement: RR 1 on Perception (physical).",
+      "effects": [
+        { "effect": "rr-skill", "target": "ranged-weapons" },
+        { "effect": "rr-specialization", "target": "perception/physical" }
+      ]
+    },
+    { "catalogId": "ares-wired-reflexes", "nameOverride": "Wired Reflexes" },
+    {
+      "type": "bioware",
+      "name": "Reflex Recorders",
+      "description": "RR 1 on Close Combat (unarmed).",
+      "effects": [{ "effect": "rr-specialization", "target": "close-combat/unarmed" }]
+    },
+    { "catalogId": "undercover-cop", "nameOverride": "Casey Bernardini, Lone Star Inspector" },
+    {
+      "type": "equipment",
+      "name": "Defiance T-250 shotgun",
+      "description": "Customized stock: RR 1 on Ranged Weapons (rifles).",
+      "effects": [{ "effect": "rr-specialization", "target": "ranged-weapons/rifles" }]
+    },
+    {
+      "type": "vehicle",
+      "name": "Reinforced Ford Americar",
+      "vehicleType": "sedan",
+      "description": "Sedan: Pilot 6, Body 6, Handling 2, Speed 4, Armor 1. Front-facing weapon mount.",
+      "effects": [{ "effect": "vehicle-armor" }]
+    }
+  ],
+  "weapons": [
+    { "name": "Unarmed", "type": "Weapon", "dv": 3, "range": "OK/–/–/–" },
+    { "name": "Stun Gloves", "type": "Weapon", "dv": 5, "range": "OK/–/–/–" },
+    {
+      "name": "Colt Manhunter",
+      "subtype": "heavy pistol",
+      "type": "Weapon",
+      "dv": 5,
+      "range": "OK/OK/Dis./–"
+    },
+    {
+      "name": "Defiance T-250",
+      "subtype": "shotgun",
+      "type": "Weapon",
+      "dv": 8,
+      "range": "Dis./OK/Dis./–"
+    },
+    {
+      "name": "ArmTech MGL-12",
+      "subtype": "grenade launcher",
+      "type": "Spec. weapon",
+      "dv": 7,
+      "range": "–/Dis./OK/OK"
+    }
+  ],
+  "armor": {
+    "main": { "name": "Kevlar Vest", "rating": 3 },
+    "secondary": null
+  },
+  "equipment": ["Fake SIN", "Commlink", "Stim Patches"],
+  "keywords": {
+    "socialStatus": "Ork",
+    "origin": "Austin, CAS",
+    "role": "Street Samurai",
+    "extra": "Lone Star"
+  },
+  "lifestyle": "low",
+  "dispositions": ["Woman of Principle", "Polite", "Short Fuse", "Purposeful"],
+  "cues": [
+    "As long as I have somewhere to hang my hat, I'll be fine.",
+    "You're really starting to get on my nerves, boy.",
+    "Strangely, people are much more polite when I am armed.",
+    "Trust me, sir. I'll get to the bottom of this."
+  ]
+}

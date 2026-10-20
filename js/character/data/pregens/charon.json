@@ -1,0 +1,97 @@
+{
+  "id": "charon",
+  "streetname": "Charon",
+  "portrait": null,
+  "metatype": "troll",
+  "source": { "book": "SRA2", "page": 97 },
+  "attributes": {
+    "strength": 3,
+    "agility": 4,
+    "willpower": 2,
+    "logic": 3,
+    "charisma": 2
+  },
+  "skills": {
+    "athletics": { "rating": 2, "specializations": ["ranged-defense"] },
+    "close-combat": { "rating": 3, "specializations": [] },
+    "electronics": { "rating": 2, "specializations": [] },
+    "engineering": {
+      "rating": 3,
+      "specializations": ["remote-controlled-weapons"]
+    },
+    "influence": { "rating": 2, "specializations": ["etiquette"] },
+    "network": { "rating": 3, "specializations": ["corporate"] },
+    "perception": { "rating": 2, "specializations": ["physical"] },
+    "piloting": { "rating": 5, "specializations": ["cars"] },
+    "ranged-weapons": { "rating": 2, "specializations": ["pistols"] },
+    "stealth": { "rating": 2, "specializations": [] },
+    "survival": { "rating": 1, "specializations": ["navigation"] }
+  },
+  "knowledgeSkills": [],
+  "amps": [
+    { "catalogId": "plastic-bone-lacing" },
+    { "catalogId": "dassault-milrig-vehicle-control-rig" },
+    {
+      "type": "vehicle",
+      "name": "Eurocar Northstar 2.0",
+      "description": "SUV: Pilot 6, Body 7, Handling 1, Speed 4, Armor 1. RR 1 on Piloting (cars). Smuggling compartment; hidden front-facing weapon mount.",
+      "vehicleType": "suv",
+      "effects": [
+        { "effect": "vehicle-armor" },
+        { "effect": "rr-specialization", "target": "piloting/cars" },
+        { "effect": "narrative", "note": "Smuggling compartment" },
+        { "effect": "weapon-mount", "note": "Hidden front-facing weapon mount" }
+      ]
+    },
+    { "catalogId": "actioneer-business-suit" },
+    { "catalogId": "cyberspace-design-quadrotor" }
+  ],
+  "weapons": [
+    { "name": "Unarmed", "type": "Weapon", "dv": 3, "range": "OK/–/–/–" },
+    {
+      "name": "Krime Heater",
+      "subtype": "heavy pistol",
+      "type": "Weapon",
+      "dv": 5,
+      "range": "OK/OK/Dis./–"
+    },
+    {
+      "name": "FN P93 Praetor (Cyberspace Design Quadrotor)",
+      "subtype": "submachine gun",
+      "type": "Weapon",
+      "dv": 5,
+      "range": "Dis./OK/OK/–"
+    },
+    {
+      "name": "Colt M23 (Eurocar Northstar 2.0)",
+      "subtype": "assault rifle",
+      "type": "Weapon",
+      "dv": 7,
+      "range": "Dis./OK/OK/Dis."
+    }
+  ],
+  "armor": {
+    "main": { "name": "Actioneer Business Suit", "rating": 1 },
+    "secondary": null
+  },
+  "equipment": ["Fake SIN", "Commlink", "Vehicle Repair Workshop"],
+  "keywords": {
+    "socialStatus": "Troll",
+    "origin": "Seattle",
+    "role": "Rigger",
+    "extra": "Professional Driver"
+  },
+  "lifestyle": "low",
+  "dispositions": [
+    "Protective of his team and clients",
+    "Knows how to be discreet",
+    "Stays professional",
+    "Would rather avoid conflicts"
+  ],
+  "cues": [
+    "A smooth drive can make all the difference.",
+    "I know a shortcut and I'm sure they will let us through.",
+    "I am afraid I'll have to interrupt.",
+    "Please keep your head down. Lead is about to fly."
+  ]
+}

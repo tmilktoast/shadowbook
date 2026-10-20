@@ -1,0 +1,112 @@
+{
+  "id": "casper",
+  "streetname": "Casper",
+  "portrait": null,
+  "metatype": "human",
+  "source": { "book": "SRA2", "page": 101 },
+  "attributes": {
+    "strength": 2,
+    "agility": 4,
+    "willpower": 3,
+    "logic": 3,
+    "charisma": 2
+  },
+  "skills": {
+    "athletics": { "rating": 3, "specializations": ["ranged-defense"] },
+    "close-combat": { "rating": 1, "specializations": ["defense"] },
+    "engineering": { "rating": 5, "specializations": [] },
+    "influence": { "rating": 2, "specializations": ["impersonation"] },
+    "network": { "rating": 2, "specializations": ["engineering"] },
+    "perception": { "rating": 4, "specializations": ["physical"] },
+    "piloting": { "rating": 5, "specializations": [] },
+    "stealth": { "rating": 5, "specializations": ["physical-sneaking"] }
+  },
+  "knowledgeSkills": [],
+  "amps": [
+    { "catalogId": "unlocked-datajack" },
+    {
+      "type": "equipment",
+      "name": "Cobbled Together Rigger Command Console",
+      "description": "Control up to 3 vehicles or drones in captain's chair mode; hot-sim lets extra actions be applied identically to several vehicles/drones at once. RR 1 on Piloting (flying drones) and Engineering (remote-controlled weapons).",
+      "effects": [
+        { "effect": "rcc" },
+        { "effect": "rcc" },
+        { "effect": "rcc" },
+        { "effect": "rr-specialization", "target": "piloting/flying-drones" },
+        { "effect": "rr-specialization", "target": "engineering/remote-controlled-weapons" }
+      ]
+    },
+    {
+      "type": "vehicle",
+      "name": "Van",
+      "description": "Drones' loading bay; front-facing weapon mount.",
+      "vehicleType": "van",
+      "effects": [{ "effect": "weapon-mount" }]
+    },
+    {
+      "type": "vehicle",
+      "name": "2 Cyberspace Design Quadrotor",
+      "description": "Flying drones; front-facing mount for submachine gun or smaller; RR 1 on Perception (physical); a second identical drone.",
+      "vehicleType": "small-drone",
+      "effects": [
+        { "effect": "flying" },
+        { "effect": "rr-specialization", "target": "perception/physical" },
+        { "effect": "extra-drone" }
+      ]
+    },
+    {
+      "type": "vehicle",
+      "name": "Damaged MCT Gnat",
+      "description": "Flying microdrone; no weapon mount.",
+      "vehicleType": "microdrone",
+      "effects": [{ "effect": "flying" }]
+    },
+    {
+      "type": "vehicle",
+      "name": "Roto-drone",
+      "description": "Flying drone; front-facing weapon mount for assault rifle or smaller.",
+      "vehicleType": "medium-drone",
+      "effects": [{ "effect": "flying" }]
+    },
+    { "catalogId": "street-doc", "nameOverride": "Derek Prince, DocWagon officer" }
+  ],
+  "weapons": [
+    { "name": "Unarmed", "type": "Weapon", "dv": 2, "range": "OK/–/–/–" },
+    {
+      "name": "2 × Submachine Gun (Quadrotor)",
+      "type": "Weapon",
+      "dv": 5,
+      "range": "Dis./OK/OK/–"
+    },
+    {
+      "name": "Assault Rifle (Roto-drone)",
+      "type": "Weapon",
+      "dv": 7,
+      "range": "Dis./OK/OK/Dis."
+    }
+  ],
+  "armor": {
+    "main": { "name": "Lined Coat", "rating": 3 },
+    "secondary": null
+  },
+  "equipment": ["Fake SIN", "Commlink"],
+  "keywords": {
+    "socialStatus": "Teenager",
+    "origin": "Seattle / Renton",
+    "role": "Drone Rigger",
+    "extra": "Resourceful Orphan"
+  },
+  "lifestyle": "low",
+  "dispositions": [
+    "Introvert",
+    "Sweet tooth",
+    "Uses her drones to frighten people",
+    "Always leaves her signature"
+  ],
+  "cues": [
+    "Trick or threat!",
+    "When exactly did you realize you were a dead man?",
+    "I'm hungry.",
+    "Memento mori, puta."
+  ]
+}

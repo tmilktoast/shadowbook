@@ -1,0 +1,210 @@
+{
+  "id": "elite-security-officer",
+  "label": "Elite Security / Police Officer",
+  "source": { "book": "SRA2", "page": 250 },
+  "attributes": {
+    "strength": { "base": 3, "variants": { "ork": 4, "troll": 5 } },
+    "agility": { "base": 4 },
+    "willpower": { "base": 3, "variants": { "dwarf": 4 } },
+    "logic": { "base": 2 },
+    "charisma": { "base": 2, "variants": { "elf": 3 } }
+  },
+  "skills": [
+    {
+      "id": "athletics",
+      "label": "Athletics",
+      "rank": { "base": 6 },
+      "attribute": "strength",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 4, "variants": { "troll": 5 } },
+      "specializations": [
+        {
+          "id": "ranged-defense",
+          "label": "ranged defense",
+          "rank": { "base": 8 },
+          "attribute": "agility",
+          "rr": { "base": 0, "ampVariant": { "amp": "Advanced tactical network", "base": 1 } },
+          "averageHits": { "base": 5, "ampVariant": { "amp": "Advanced tactical network", "base": 6 } }
+        }
+      ]
+    },
+    {
+      "id": "ranged-weapons",
+      "label": "Ranged Weapons",
+      "rank": { "base": 6 },
+      "attribute": "agility",
+      "rr": { "base": 1 },
+      "averageHits": { "base": 5 },
+      "specializations": [
+        {
+          "id": null,
+          "label": "weapon of choice",
+          "rank": { "base": 8 },
+          "attribute": "agility",
+          "rr": { "base": 3 },
+          "averageHits": { "base": 8 }
+        }
+      ]
+    },
+    {
+      "id": "close-combat",
+      "label": "Close Combat",
+      "rank": { "base": 6 },
+      "attribute": "agility",
+      "rr": { "base": 1 },
+      "averageHits": { "base": 5 },
+      "specializations": [
+        {
+          "id": "clubs",
+          "label": "clubs",
+          "rank": { "base": 8 },
+          "attribute": "agility",
+          "rr": { "base": 1 },
+          "averageHits": { "base": 6 }
+        }
+      ]
+    },
+    {
+      "id": "stealth",
+      "label": "Stealth",
+      "rank": { "base": 5 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 4 },
+      "specializations": [
+        {
+          "id": "physical-sneaking",
+          "label": "physical sneaking",
+          "rank": { "base": 7 },
+          "attribute": "agility",
+          "rr": { "base": 0, "ampVariant": { "amp": "Chameleon suit", "base": 1 } },
+          "averageHits": { "base": 5, "ampVariant": { "amp": "Chameleon suit", "base": 6 } }
+        }
+      ]
+    },
+    {
+      "id": "perception",
+      "label": "Perception",
+      "rank": { "base": 6 },
+      "attribute": "logic",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 4 },
+      "specializations": [
+        {
+          "id": "physical",
+          "label": "physical",
+          "rank": { "base": 8 },
+          "attribute": "logic",
+          "rr": { "base": 1 },
+          "averageHits": { "base": 5 }
+        }
+      ]
+    },
+    {
+      "id": "influence",
+      "label": "Influence",
+      "rank": { "base": 3 },
+      "attribute": "charisma",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": []
+    }
+  ],
+  "spells": [],
+  "weapons": [
+    {
+      "name": "Unarmed",
+      "dv": { "base": 3, "variants": { "ork": 4, "troll": 5 } },
+      "range": "OK/–/–/–"
+    },
+    {
+      "name": "Stun baton",
+      "dv": { "base": 5 },
+      "range": "OK/–/–/–",
+      "note": "One action lost if damage is dealt."
+    },
+    {
+      "name": "Heavy pistol",
+      "dv": { "base": 5 },
+      "range": "OK/OK/Dis./–"
+    }
+  ],
+  "chooseWeapons": {
+    "count": 1,
+    "options": [
+      { "name": "Shotgun", "dv": { "base": 8 }, "range": "Dis./OK/Dis./–" },
+      { "name": "Assault rifle", "dv": { "base": 7 }, "range": "Dis./OK/OK/Dis." },
+      { "name": "Sniper rifle", "dv": { "base": 10 }, "range": "–/Dis./Dis./OK" },
+      { "name": "Machine gun", "dv": { "base": 9 }, "range": "–/OK/OK/OK" }
+    ]
+  },
+  "equipment": [
+    "Commlink",
+    "Full body armor & helmet (Armor 4)",
+    "Ballistic shield (+1 Armor, optional)"
+  ],
+  "woundThresholds": {
+    "physical": {
+      "base": [7, 10, 13],
+      "variants": { "ork": [8, 11, 14], "troll": [9, 12, 15] },
+      "ampVariant": {
+        "amp": "Dermal plating",
+        "base": [8, 11, 14],
+        "variants": { "ork": [9, 12, 15], "troll": [10, 13, 16] }
+      },
+      "note": "The optional ballistic shield gives the same bonus as Dermal plating (they don't stack with themselves, but do stack with each other): with both, 9/12/15 (orks 10/13/16, trolls 11/14/17)."
+    },
+    "mental": {
+      "base": [3, 6, 9],
+      "variants": { "dwarf": [4, 8, 12] }
+    }
+  },
+  "requiredAmps": [
+    {
+      "name": "Wired reflexes",
+      "kind": "cyberware",
+      "summary": "+1 action per narration."
+    },
+    {
+      "name": "Cybereyes with tactical network",
+      "kind": "cyberware",
+      "summary": "RR 1 on Ranged Weapons and Perception (physical) Tests, flare compensation, low-light vision."
+    },
+    {
+      "name": "Smartlink",
+      "kind": "cyberware",
+      "summary": "RR 2 on Ranged Weapons (main weapon) Tests."
+    },
+    {
+      "name": "Skillwires",
+      "kind": "cyberware",
+      "summary": "RR 1 on Close Combat Tests."
+    }
+  ],
+  "chooseAmps": {
+    "count": 1,
+    "options": [
+      {
+        "name": "Dermal plating",
+        "kind": "cyberware",
+        "summary": "+1 Armor.",
+        "catalogId": "dermal-plating"
+      },
+      {
+        "name": "Chameleon suit",
+        "kind": "equipment",
+        "summary": "RR 1 on Stealth (physical sneaking) Tests."
+      },
+      {
+        "name": "Platelet factories",
+        "kind": "bioware",
+        "summary": "+1 light wound."
+      },
+      {
+        "name": "Advanced tactical network",
+        "kind": "cyberware",
+        "summary": "RR 1 on Athletics (ranged defense) Tests."
+      }
+    ]
+  }
+}

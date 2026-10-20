@@ -1,0 +1,184 @@
+{
+  "id": "coyote-smuggler",
+  "label": "Coyote / Smuggler",
+  "source": { "book": "SRA2", "page": 255 },
+  "attributes": {
+    "strength": { "base": 2, "variants": { "ork": 3, "troll": 4 } },
+    "agility": { "base": 3 },
+    "willpower": { "base": 2, "variants": { "dwarf": 3 } },
+    "logic": { "base": 3 },
+    "charisma": { "base": 2, "variants": { "elf": 3 } }
+  },
+  "skills": [
+    {
+      "id": "athletics",
+      "label": "Athletics",
+      "rank": { "base": 3 },
+      "attribute": "strength",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": [
+        {
+          "id": "ranged-defense",
+          "label": "ranged defense",
+          "rank": { "base": 5 },
+          "attribute": "agility",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 4 }
+        }
+      ]
+    },
+    {
+      "id": "ranged-weapons",
+      "label": "Ranged Weapons",
+      "rank": { "base": 3 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": []
+    },
+    {
+      "id": "close-combat",
+      "label": "Close Combat",
+      "rank": { "base": 3 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": []
+    },
+    {
+      "id": "stealth",
+      "label": "Stealth",
+      "rank": { "base": 5 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 4 },
+      "specializations": [
+        {
+          "id": "physical-sneaking",
+          "label": "physical sneaking",
+          "rank": { "base": 5 },
+          "attribute": "agility",
+          "rr": { "base": 0, "ampVariant": { "amp": "Lockheed Optic-X2", "base": 1 } },
+          "averageHits": { "base": 4, "ampVariant": { "amp": "Lockheed Optic-X2", "base": 5 } }
+        }
+      ]
+    },
+    {
+      "id": "perception",
+      "label": "Perception",
+      "rank": { "base": 5 },
+      "attribute": "logic",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 4 },
+      "specializations": [
+        {
+          "id": "physical",
+          "label": "physical",
+          "rank": { "base": 5 },
+          "attribute": "logic",
+          "rr": { "base": 0, "ampVariant": { "amp": "Lockheed Optic-X2", "base": 1 } },
+          "averageHits": { "base": 4, "ampVariant": { "amp": "Lockheed Optic-X2", "base": 5 } }
+        }
+      ]
+    },
+    {
+      "id": "piloting",
+      "label": "Piloting",
+      "rank": { "base": 5 },
+      "attribute": "agility",
+      "rr": { "base": 1 },
+      "averageHits": { "base": 5 },
+      "specializations": [
+        {
+          "id": null,
+          "label": "selected vehicle",
+          "rank": { "base": 7 },
+          "attribute": "agility",
+          "rr": { "base": 2 },
+          "averageHits": { "base": 6 }
+        }
+      ]
+    },
+    {
+      "id": "engineering",
+      "label": "Engineering",
+      "rank": { "base": 5 },
+      "attribute": "logic",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 4 },
+      "specializations": [
+        {
+          "id": "remote-controlled-weapons",
+          "label": "remote-controlled weapons",
+          "rank": { "base": 7 },
+          "attribute": "logic",
+          "rr": { "base": 1 },
+          "averageHits": { "base": 5 }
+        }
+      ]
+    }
+  ],
+  "spells": [],
+  "weapons": [
+    {
+      "name": "Unarmed",
+      "dv": { "base": 2, "variants": { "ork": 3, "troll": 4 } },
+      "range": "OK/–/–/–"
+    },
+    {
+      "name": "Submachine gun",
+      "dv": { "base": 5 },
+      "range": "Dis./OK/OK/–"
+    },
+    {
+      "name": "Machine gun",
+      "dv": { "base": 9 },
+      "range": "–/OK/OK/OK"
+    }
+  ],
+  "equipment": ["Commlink", "Armor vest (Armor 3)"],
+  "woundThresholds": {
+    "physical": {
+      "base": [5, 8, 11],
+      "variants": { "ork": [6, 9, 12], "troll": [7, 10, 13] }
+    },
+    "mental": {
+      "base": [2, 5, 8],
+      "variants": { "dwarf": [3, 6, 9] }
+    }
+  },
+  "requiredAmps": [
+    {
+      "name": "Vehicle control rig",
+      "kind": "cyberware",
+      "summary": "DNI, cold or hot-sim VR; may jump into vehicles and drones; +1 action per fight while jumped-in; RR 1 on Piloting and Engineering (remote-controlled weapons) Tests."
+    },
+    {
+      "name": "Lockheed Optic-X2",
+      "kind": "vehicle",
+      "summary": "Small flying drone: Pilot 6, Body 1, Handling 9, Speed 4, Armor 0; RR 1 on Stealth (physical sneaking) and Perception (physical) Tests. Wound thresholds 1/2/3.",
+      "catalogId": "lockheed-optic-x2"
+    }
+  ],
+  "chooseAmps": {
+    "count": 1,
+    "options": [
+      {
+        "name": "Customized sports car",
+        "kind": "vehicle",
+        "summary": "Pilot 6, Body 5, Handling 2, Speed 6, Armor 3; RR 1 on Piloting (cars) Tests. Wound thresholds 8/13/18."
+      },
+      {
+        "name": "Van",
+        "kind": "vehicle",
+        "summary": "Pilot 6, Body 8, Handling 1, Speed 3, Armor 4; RR 1 on Piloting (cars) Tests, with turret-mounted machine gun. Wound thresholds 12/20/28."
+      },
+      {
+        "name": "Ares Venture t-bird",
+        "kind": "vehicle",
+        "summary": "Pilot 6, Body 9, Handling 3, Speed 10, Armor 4; RR 1 on Piloting (flying vehicles) Tests, with turret-mounted machine gun. Wound thresholds 13/22/31."
+      }
+    ]
+  }
+}

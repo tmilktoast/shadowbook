@@ -1,0 +1,173 @@
+{
+  "id": "soldier",
+  "label": "Soldier",
+  "source": { "book": "SRA2", "page": 252 },
+  "attributes": {
+    "strength": { "base": 3, "variants": { "ork": 4, "troll": 5 } },
+    "agility": { "base": 3 },
+    "willpower": { "base": 3, "variants": { "dwarf": 4 } },
+    "logic": { "base": 2 },
+    "charisma": { "base": 2, "variants": { "elf": 3 } }
+  },
+  "skills": [
+    {
+      "id": "athletics",
+      "label": "Athletics",
+      "rank": { "base": 5 },
+      "attribute": "strength",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 4 },
+      "specializations": [
+        {
+          "id": "ranged-defense",
+          "label": "ranged defense",
+          "rank": { "base": 7 },
+          "attribute": "agility",
+          "rr": { "base": 1 },
+          "averageHits": { "base": 5 }
+        }
+      ]
+    },
+    {
+      "id": "ranged-weapons",
+      "label": "Ranged Weapons",
+      "rank": { "base": 5 },
+      "attribute": "agility",
+      "rr": { "base": 1 },
+      "averageHits": { "base": 5 },
+      "specializations": [
+        {
+          "id": null,
+          "label": "weapon of choice",
+          "rank": { "base": 7 },
+          "attribute": "agility",
+          "rr": { "base": 2 },
+          "averageHits": { "base": 6 }
+        }
+      ]
+    },
+    {
+      "id": "close-combat",
+      "label": "Close Combat",
+      "rank": { "base": 5 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 4 },
+      "specializations": [
+        {
+          "id": "blades",
+          "label": "blades",
+          "rank": { "base": 7 },
+          "attribute": "agility",
+          "rr": { "base": 1 },
+          "averageHits": { "base": 5 }
+        }
+      ]
+    },
+    {
+      "id": "stealth",
+      "label": "Stealth",
+      "rank": { "base": 2 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": []
+    },
+    {
+      "id": "perception",
+      "label": "Perception",
+      "rank": { "base": 5 },
+      "attribute": "logic",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": [
+        {
+          "id": "physical",
+          "label": "physical",
+          "rank": { "base": 5 },
+          "attribute": "logic",
+          "rr": { "base": 1 },
+          "averageHits": { "base": 4 }
+        }
+      ]
+    },
+    {
+      "id": "survival",
+      "label": "Survival",
+      "rank": { "base": 3 },
+      "attribute": "logic",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": []
+    },
+    {
+      "id": "influence",
+      "label": "Influence",
+      "rank": { "base": 3 },
+      "attribute": "charisma",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": []
+    }
+  ],
+  "spells": [],
+  "weapons": [
+    {
+      "name": "Unarmed",
+      "dv": { "base": 3, "variants": { "ork": 4, "troll": 5 } },
+      "range": "OK/–/–/–"
+    },
+    {
+      "name": "Combat knife",
+      "dv": { "base": 4, "variants": { "ork": 5, "troll": 6 } },
+      "range": "OK/–/–/–"
+    },
+    {
+      "name": "Heavy pistol",
+      "dv": { "base": 5 },
+      "range": "OK/OK/Dis./–"
+    },
+    {
+      "name": "Grenades",
+      "dv": { "base": 7 },
+      "range": "OK/OK/Dis./–"
+    }
+  ],
+  "chooseWeapons": {
+    "count": 1,
+    "options": [
+      { "name": "Shotgun", "dv": { "base": 8 }, "range": "Dis./OK/Dis./–" },
+      { "name": "Assault rifle", "dv": { "base": 7 }, "range": "Dis./OK/OK/Dis." },
+      { "name": "Machine gun", "dv": { "base": 9 }, "range": "–/OK/OK/OK" }
+    ]
+  },
+  "equipment": ["Commlink", "Military armor (Armor 5)"],
+  "woundThresholds": {
+    "physical": {
+      "base": [8, 11, 14],
+      "variants": { "ork": [9, 12, 15], "troll": [10, 13, 16] }
+    },
+    "mental": {
+      "base": [3, 6, 9],
+      "variants": { "dwarf": [4, 7, 10] }
+    }
+  },
+  "requiredAmps": [
+    {
+      "name": "Cybereyes with tactical network and target identification",
+      "kind": "cyberware",
+      "summary": "RR 1 on Ranged Weapons, Perception (physical) and Athletics (ranged defense) Tests; low-light vision."
+    },
+    {
+      "name": "Smartlink",
+      "kind": "cyberware",
+      "summary": "RR 1 on Ranged Weapons (main weapon)."
+    },
+    {
+      "name": "Skillwires",
+      "kind": "cyberware",
+      "summary": "RR 1 on Close Combat (blades) Tests."
+    }
+  ],
+  "chooseAmps": { "count": 0, "options": [] }
+}

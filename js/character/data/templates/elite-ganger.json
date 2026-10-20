@@ -1,0 +1,176 @@
+{
+  "id": "elite-ganger",
+  "label": "Elite Ganger / Crime Syndicate Enforcer",
+  "source": { "book": "SRA2", "page": 244 },
+  "attributes": {
+    "strength": { "base": 3, "variants": { "ork": 4, "troll": 5 } },
+    "agility": { "base": 3 },
+    "willpower": { "base": 2, "variants": { "dwarf": 3 } },
+    "logic": { "base": 2 },
+    "charisma": { "base": 2, "variants": { "elf": 3 } }
+  },
+  "skills": [
+    {
+      "id": "athletics",
+      "label": "Athletics",
+      "rank": { "base": 3 },
+      "attribute": "strength",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3, "variants": { "troll": 4 } },
+      "specializations": [
+        {
+          "id": "ranged-defense",
+          "label": "ranged defense",
+          "rank": { "base": 5 },
+          "attribute": "agility",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 4 }
+        }
+      ]
+    },
+    {
+      "id": "ranged-weapons",
+      "label": "Ranged Weapons",
+      "rank": { "base": 3 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": [
+        {
+          "id": "submachine-guns",
+          "label": "submachine guns",
+          "rank": { "base": 5 },
+          "attribute": "agility",
+          "rr": { "base": 0, "ampVariant": { "amp": "Cybereyes with smartlink", "base": 1 } },
+          "averageHits": { "base": 4, "ampVariant": { "amp": "Cybereyes with smartlink", "base": 5 } }
+        }
+      ]
+    },
+    {
+      "id": "close-combat",
+      "label": "Close Combat",
+      "rank": { "base": 5 },
+      "attribute": "agility",
+      "rr": { "base": 0, "ampVariant": { "amp": "Cyberarm", "base": 1 } },
+      "averageHits": { "base": 4, "ampVariant": { "amp": "Cyberarm", "base": 5 } },
+      "specializations": [
+        {
+          "id": "blades",
+          "label": "blades",
+          "rank": { "base": 7 },
+          "attribute": "agility",
+          "rr": { "base": 0, "ampVariant": { "amp": "Cyberarm", "base": 1 } },
+          "averageHits": { "base": 4, "ampVariant": { "amp": "Cyberarm", "base": 5 } }
+        }
+      ]
+    },
+    {
+      "id": "stealth",
+      "label": "Stealth",
+      "rank": { "base": 3 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": []
+    },
+    {
+      "id": "perception",
+      "label": "Perception",
+      "rank": { "base": 3 },
+      "attribute": "logic",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": []
+    },
+    {
+      "id": "influence",
+      "label": "Influence",
+      "rank": { "base": 3 },
+      "attribute": "charisma",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": [
+        {
+          "id": "intimidation",
+          "label": "intimidation",
+          "rank": { "base": 5 },
+          "attribute": "charisma",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 3, "variants": { "elf": 4 } }
+        }
+      ]
+    }
+  ],
+  "spells": [],
+  "weapons": [
+    {
+      "name": "Unarmed",
+      "dv": {
+        "base": 3,
+        "variants": { "ork": 4, "troll": 5 },
+        "ampVariant": { "amp": "Muscle replacement", "base": 4, "variants": { "ork": 5, "troll": 6 } }
+      },
+      "range": "OK/–/–/–"
+    },
+    {
+      "name": "Long weapon (katana, axe, sword)",
+      "dv": {
+        "base": 5,
+        "variants": { "ork": 6, "troll": 7 },
+        "ampVariant": { "amp": "Muscle replacement", "base": 6, "variants": { "ork": 7, "troll": 8 } }
+      },
+      "range": "OK/–/–/–"
+    },
+    {
+      "name": "Heavy pistol",
+      "dv": { "base": 5 },
+      "range": "OK/OK/Dis./–"
+    },
+    {
+      "name": "Submachine gun",
+      "dv": { "base": 5 },
+      "range": "Dis./OK/OK/–"
+    }
+  ],
+  "equipment": ["Commlink", "Lined coat (Armor 2)"],
+  "woundThresholds": {
+    "physical": {
+      "base": [5, 8, 11],
+      "variants": { "ork": [6, 9, 12], "troll": [7, 10, 13] },
+      "ampVariant": {
+        "amp": "Dermal plating",
+        "base": [6, 9, 12],
+        "variants": { "ork": [7, 10, 13], "troll": [8, 11, 14] }
+      }
+    },
+    "mental": {
+      "base": [2, 5, 8],
+      "variants": { "dwarf": [3, 6, 9] }
+    }
+  },
+  "requiredAmps": [],
+  "chooseAmps": {
+    "count": 2,
+    "options": [
+      { "name": "Muscle replacement", "kind": "cyberware", "summary": "Close combat DV +1." },
+      { "name": "Jazz", "kind": "drug", "summary": "+1 action per fight." },
+      { "name": "Cyberarm", "kind": "cyberware", "summary": "RR 1 on Close Combat Tests." },
+      {
+        "name": "Zealous",
+        "kind": "quality",
+        "summary": "Advantage when resisting intimidation or fear; high fighting spirit."
+      },
+      {
+        "name": "Dermal plating",
+        "kind": "cyberware",
+        "summary": "+1 Armor.",
+        "catalogId": "dermal-plating"
+      },
+      {
+        "name": "Cybereyes with smartlink",
+        "kind": "cyberware",
+        "summary": "RR 1 on Ranged Weapons (submachine guns) Tests, low-light vision."
+      }
+    ]
+  }
+}

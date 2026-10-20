@@ -21,11 +21,35 @@ export const CUE_COUNT = 4;
 
 export function createCharacter() {
   return {
-    // Whether this is an official pregen (tagged via markOfficial(), see
-    // officialContent.js) vs. a character built in the app. source cites
-    // where it's from, e.g. { book: "SRA2", page: 88 }.
+    // Whether this is sourced from the book at all (tagged via
+    // markOfficial(), see officialContent.js) vs. a character built in
+    // the app. source cites where it's from, e.g. { book: "SRA2", page: 88 }.
     official: false,
     source: null,
+
+    // Narrower than `official`: specifically one of the book's own
+    // ready-made pregen characters (Hercules and friends, pregens.js),
+    // as opposed to a major NPC built from scratch — official or not —
+    // that just happens to share the Major Characters tab with pregens.
+    // Gets its own badge on the card/list row so the two don't blur
+    // together. Set by pregens.js, not per character.json file.
+    pregen: false,
+
+    // "pc" or "npc" — the Major Characters tab holds both (a Player
+    // Character, or a major NPC with a backstory and a real role in the
+    // campaign). The full sheet isn't editable yet (a much bigger
+    // undertaking), but this one tag is: it's a <select> on the card
+    // itself, persisted per character id via
+    // characterKindOverrides.js/localStorage rather than editing the
+    // source data, same spirit as dice/history.js. Pregens default "pc"
+    // since that's what they are in the book.
+    kind: "pc",
+
+    // Stable id for linking straight to this character's sheet (the
+    // Character Database list links to "?character=<id>"). Official
+    // pregens set this explicitly in their data file; a slug of
+    // streetname would work too but could collide between characters.
+    id: "",
 
     streetname: "",
     // A URL/path to an image (e.g. "/portraits/hercules.png" served from
@@ -53,6 +77,13 @@ export function createCharacter() {
     // Knowledge Skills have no rating — just a list of fields known:
     // "Firearms", "Japanese", "Corporate politics".
     knowledgeSkills: [],
+
+    // Awakened characters only. Free-text, one line per spell (name +
+    // paraphrased effect), same flavor-text-not-mechanics treatment as
+    // template.js's `spells` field — Sorcery/Conjuring (skills.js)
+    // already cover the dice side; this is just what the character
+    // actually knows. Empty for non-Awakened characters.
+    spells: [],
 
     // Shadow Amps (./amps.js) — cyberware, magic, decks, vehicles,
     // contacts... Racial qualities aren't stored here; they come from the

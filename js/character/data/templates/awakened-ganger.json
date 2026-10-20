@@ -1,0 +1,157 @@
+{
+  "id": "awakened-ganger",
+  "label": "Awakened Ganger",
+  "source": { "book": "SRA2", "page": 245 },
+  "attributes": {
+    "strength": { "base": 2, "variants": { "ork": 3, "troll": 4 } },
+    "agility": { "base": 2 },
+    "willpower": { "base": 3, "variants": { "dwarf": 4 } },
+    "logic": { "base": 2 },
+    "charisma": { "base": 2, "variants": { "elf": 3 } }
+  },
+  "skills": [
+    {
+      "id": "athletics",
+      "label": "Athletics",
+      "rank": { "base": 2 },
+      "attribute": "strength",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 2, "variants": { "ork": 3, "troll": 3 } },
+      "specializations": [
+        {
+          "id": "ranged-defense",
+          "label": "ranged defense",
+          "rank": { "base": 4 },
+          "attribute": "agility",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 3 }
+        }
+      ]
+    },
+    {
+      "id": "close-combat",
+      "label": "Close Combat",
+      "rank": { "base": 3 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": []
+    },
+    {
+      "id": "stealth",
+      "label": "Stealth",
+      "rank": { "base": 3 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": []
+    },
+    {
+      "id": "perception",
+      "label": "Perception",
+      "rank": { "base": 4 },
+      "attribute": "logic",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": []
+    },
+    {
+      "id": "sorcery",
+      "label": "Sorcery",
+      "rank": { "base": 4 },
+      "attribute": "willpower",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3, "variants": { "dwarf": 4 } },
+      "specializations": [
+        {
+          "id": "combat-spells",
+          "label": "combat spells",
+          "rank": { "base": 6 },
+          "attribute": "willpower",
+          "rr": { "base": 0, "ampVariant": { "amp": "Combat focus", "base": 1 } },
+          "averageHits": { "base": 4, "ampVariant": { "amp": "Combat focus", "base": 5 } }
+        }
+      ]
+    },
+    {
+      "id": "conjuring",
+      "label": "Conjuring",
+      "rank": { "base": 4 },
+      "attribute": ["logic", "charisma"],
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": [
+        {
+          "id": "spirits-of-fire",
+          "label": "spirits of fire",
+          "rank": { "base": 6 },
+          "attribute": ["logic", "charisma"],
+          "rr": { "base": 0, "ampVariant": { "amp": "Fire focus", "base": 1 } },
+          "averageHits": { "base": 4, "ampVariant": { "amp": "Fire focus", "base": 5 } }
+        }
+      ]
+    },
+    {
+      "id": "influence",
+      "label": "Influence",
+      "rank": { "base": 1 },
+      "attribute": "charisma",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 2 },
+      "specializations": [
+        {
+          "id": "intimidation",
+          "label": "intimidation",
+          "rank": { "base": 3 },
+          "attribute": "charisma",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 3 }
+        }
+      ]
+    }
+  ],
+  "spells": [
+    "Armor (manipulation spell, +1 Armor per 3 hits).",
+    "Firebolt (indirect combat spell, physical damage, DV = Willpower, can ignite the target).",
+    "Manabolt (direct combat spell, mental damage, DV = hits).",
+    "Invisibility (indirect illusion spell).",
+    "Heal (health spell, threshold set by the wound being healed)."
+  ],
+  "weapons": [
+    {
+      "name": "Unarmed",
+      "dv": { "base": 2, "variants": { "ork": 3, "troll": 4 } },
+      "range": "OK/–/–/–"
+    },
+    {
+      "name": "Knife",
+      "dv": { "base": 3, "variants": { "ork": 4, "troll": 5 } },
+      "range": "OK/–/–/–"
+    }
+  ],
+  "equipment": ["Commlink", "Gang leathers (Armor 1)"],
+  "woundThresholds": {
+    "physical": {
+      "base": [3, 6, 9],
+      "variants": { "ork": [4, 7, 10], "troll": [5, 8, 11] }
+    },
+    "mental": {
+      "base": [3, 6, 9],
+      "variants": { "dwarf": [4, 7, 10] }
+    }
+  },
+  "requiredAmps": [
+    {
+      "name": "Awakened",
+      "kind": "awakened",
+      "summary": "Choose a tradition; grants Astral perception & projection, Sorcery, and Conjuring."
+    }
+  ],
+  "chooseAmps": {
+    "count": 1,
+    "options": [
+      { "name": "Combat focus", "kind": "gear", "summary": "RR 1 on Sorcery (combat spells) Tests." },
+      { "name": "Fire focus", "kind": "gear", "summary": "RR 1 on Conjuring (spirits of fire) Tests." }
+    ]
+  }
+}

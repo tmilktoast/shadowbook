@@ -1,0 +1,180 @@
+{
+  "id": "security-officer",
+  "label": "Security / Police Officer",
+  "source": { "book": "SRA2", "page": 247 },
+  "attributes": {
+    "strength": { "base": 3, "variants": { "ork": 4, "troll": 5 } },
+    "agility": { "base": 3 },
+    "willpower": { "base": 2, "variants": { "dwarf": 3 } },
+    "logic": { "base": 2 },
+    "charisma": { "base": 2, "variants": { "elf": 3 } }
+  },
+  "skills": [
+    {
+      "id": "athletics",
+      "label": "Athletics",
+      "rank": { "base": 5 },
+      "attribute": "strength",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 4 },
+      "specializations": [
+        {
+          "id": "ranged-defense",
+          "label": "ranged defense",
+          "rank": { "base": 7 },
+          "attribute": "agility",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 4 }
+        }
+      ]
+    },
+    {
+      "id": "ranged-weapons",
+      "label": "Ranged Weapons",
+      "rank": { "base": 5 },
+      "attribute": "agility",
+      "rr": { "base": 1 },
+      "averageHits": { "base": 5 },
+      "specializations": [
+        {
+          "id": null,
+          "label": "submachine guns / shotguns",
+          "rank": { "base": 7 },
+          "attribute": "agility",
+          "rr": { "base": 1, "ampVariant": { "amp": "Smartlink", "base": 2 } },
+          "averageHits": { "base": 5, "ampVariant": { "amp": "Smartlink", "base": 6 } }
+        }
+      ]
+    },
+    {
+      "id": "close-combat",
+      "label": "Close Combat",
+      "rank": { "base": 5 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 4 },
+      "specializations": [
+        {
+          "id": "clubs",
+          "label": "clubs",
+          "rank": { "base": 7 },
+          "attribute": "agility",
+          "rr": { "base": 0, "ampVariant": { "amp": "Skillwires", "base": 1 } },
+          "averageHits": { "base": 4, "ampVariant": { "amp": "Skillwires", "base": 5 } }
+        }
+      ]
+    },
+    {
+      "id": "stealth",
+      "label": "Stealth",
+      "rank": { "base": 2 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": []
+    },
+    {
+      "id": "perception",
+      "label": "Perception",
+      "rank": { "base": 5 },
+      "attribute": "logic",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": [
+        {
+          "id": "physical",
+          "label": "physical",
+          "rank": { "base": 5 },
+          "attribute": "logic",
+          "rr": { "base": 1 },
+          "averageHits": { "base": 4 }
+        }
+      ]
+    },
+    {
+      "id": "influence",
+      "label": "Influence",
+      "rank": { "base": 3 },
+      "attribute": "charisma",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": []
+    }
+  ],
+  "spells": [],
+  "weapons": [
+    {
+      "name": "Unarmed",
+      "dv": { "base": 3, "variants": { "ork": 4, "troll": 5 } },
+      "range": "OK/–/–/–"
+    },
+    {
+      "name": "Stun baton",
+      "dv": { "base": 5 },
+      "range": "OK/–/–/–",
+      "note": "One action lost if damage is dealt."
+    },
+    {
+      "name": "Heavy pistol",
+      "dv": { "base": 5 },
+      "range": "OK/OK/Dis./–"
+    }
+  ],
+  "chooseWeapons": {
+    "count": 1,
+    "options": [
+      { "name": "Submachine gun", "dv": { "base": 5 }, "range": "Dis./OK/OK/–" },
+      { "name": "Shotgun", "dv": { "base": 8 }, "range": "Dis./OK/Dis./–" }
+    ]
+  },
+  "equipment": ["Commlink", "Armor vest (Armor 3) + optional riot shield (+1 Armor)"],
+  "woundThresholds": {
+    "physical": {
+      "base": [6, 9, 12],
+      "variants": { "ork": [7, 10, 13], "troll": [8, 11, 14] },
+      "ampVariant": {
+        "amp": "Dermal plating",
+        "base": [7, 10, 13],
+        "variants": { "ork": [8, 11, 14], "troll": [9, 12, 15] }
+      },
+      "note": "The book also gives the same bump (7/10/13, orks 8/11/14, trolls 9/12/15) for the optional riot shield (equipment, +1 Armor) on its own — the schema only has one ampVariant slot, used here for Dermal plating since it's an actual Shadow Amp. With BOTH Dermal plating and the riot shield, thresholds rise further to 8/11/14 (orks 9/12/15, trolls 10/13/16), which this field can't represent as a second tier."
+    },
+    "mental": {
+      "base": [2, 5, 8],
+      "variants": { "dwarf": [3, 6, 9] }
+    }
+  },
+  "requiredAmps": [
+    {
+      "name": "Cybereyes with target identification",
+      "kind": "cyberware",
+      "summary": "RR 1 on Ranged Weapons and Perception (physical) Tests; low-light vision."
+    }
+  ],
+  "chooseAmps": {
+    "count": 1,
+    "options": [
+      {
+        "name": "Wired reflexes",
+        "kind": "cyberware",
+        "summary": "+1 action per fight."
+      },
+      {
+        "name": "Dermal plating",
+        "kind": "cyberware",
+        "summary": "+1 Armor.",
+        "catalogId": "dermal-plating"
+      },
+      {
+        "name": "Smartlink",
+        "kind": "cyberware",
+        "summary": "RR 1 on Ranged Weapons (submachine guns or shotguns) Tests."
+      },
+      {
+        "name": "Skillwires",
+        "kind": "cyberware",
+        "summary": "RR 1 on Close Combat (clubs) Tests."
+      }
+    ]
+  }
+}

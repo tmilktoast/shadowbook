@@ -1,0 +1,186 @@
+{
+  "id": "combat-medic",
+  "label": "Combat Medic",
+  "source": { "book": "SRA2", "page": 250 },
+  "attributes": {
+    "strength": { "base": 2, "variants": { "ork": 3, "troll": 4 } },
+    "agility": { "base": 3 },
+    "willpower": { "base": 3, "variants": { "dwarf": 4 } },
+    "logic": { "base": 3 },
+    "charisma": { "base": 2, "variants": { "elf": 3 } }
+  },
+  "skills": [
+    {
+      "id": "athletics",
+      "label": "Athletics",
+      "rank": { "base": 3 },
+      "attribute": "strength",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": [
+        {
+          "id": "ranged-defense",
+          "label": "ranged defense",
+          "rank": { "base": 5 },
+          "attribute": "agility",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 4 }
+        }
+      ]
+    },
+    {
+      "id": "ranged-weapons",
+      "label": "Ranged Weapons",
+      "rank": { "base": 4 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": [
+        {
+          "id": "submachine-guns",
+          "label": "submachine guns",
+          "rank": { "base": 6 },
+          "attribute": "agility",
+          "rr": { "base": 0, "ampVariant": { "amp": "Smartlink", "base": 1 } },
+          "averageHits": { "base": 4, "ampVariant": { "amp": "Smartlink", "base": 5 } }
+        }
+      ]
+    },
+    {
+      "id": "close-combat",
+      "label": "Close Combat",
+      "rank": { "base": 4 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": []
+    },
+    {
+      "id": "stealth",
+      "label": "Stealth",
+      "rank": { "base": 5 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 4 },
+      "specializations": []
+    },
+    {
+      "id": "perception",
+      "label": "Perception",
+      "rank": { "base": 4 },
+      "attribute": "logic",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": [
+        {
+          "id": "physical",
+          "label": "physical",
+          "rank": { "base": 6 },
+          "attribute": "logic",
+          "rr": { "base": 1 },
+          "averageHits": { "base": 5 }
+        }
+      ]
+    },
+    {
+      "id": "influence",
+      "label": "Influence",
+      "rank": { "base": 3 },
+      "attribute": "charisma",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": []
+    },
+    {
+      "id": "survival",
+      "label": "Survival",
+      "rank": { "base": 6 },
+      "attribute": "logic",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 4 },
+      "specializations": [
+        {
+          "id": "first-aid",
+          "label": "first aid",
+          "rank": { "base": 8 },
+          "attribute": "logic",
+          "rr": { "base": 1 },
+          "averageHits": { "base": 6 }
+        }
+      ]
+    }
+  ],
+  "spells": [],
+  "weapons": [
+    {
+      "name": "Unarmed",
+      "dv": { "base": 2, "variants": { "ork": 3, "troll": 4 } },
+      "range": "OK/–/–/–"
+    },
+    {
+      "name": "Combat knife",
+      "dv": { "base": 3, "variants": { "ork": 4, "troll": 5 } },
+      "range": "OK/–/–/–"
+    },
+    {
+      "name": "Heavy pistol",
+      "dv": { "base": 5 },
+      "range": "OK/OK/Dis./–"
+    },
+    {
+      "name": "Submachine gun",
+      "dv": { "base": 5 },
+      "range": "Dis./OK/OK/–"
+    }
+  ],
+  "equipment": ["Commlink", "Armor vest (Armor 3)", "Stim and trauma patches"],
+  "woundThresholds": {
+    "physical": {
+      "base": [5, 8, 11],
+      "variants": { "ork": [6, 9, 12], "troll": [7, 10, 13] }
+    },
+    "mental": {
+      "base": [3, 6, 9],
+      "variants": { "dwarf": [4, 7, 10] }
+    }
+  },
+  "requiredAmps": [
+    {
+      "name": "Skillwires",
+      "kind": "cyberware",
+      "summary": "RR 1 on Survival (first aid) Tests."
+    },
+    {
+      "name": "Cybereyes",
+      "kind": "cyberware",
+      "summary": "RR 1 on Perception (physical) Tests, thermographic vision."
+    }
+  ],
+  "chooseAmps": {
+    "count": 1,
+    "options": [
+      {
+        "name": "Autonomous DocWagon Pro+ medkit",
+        "kind": "vehicle",
+        "summary": "Drone, Pilot 9, fixed.",
+        "catalogId": "docwagon-pro-autonomous-medkit"
+      },
+      {
+        "name": "Wired reflexes",
+        "kind": "cyberware",
+        "summary": "+1 action per fight."
+      },
+      {
+        "name": "Dermal plating",
+        "kind": "cyberware",
+        "summary": "+1 Armor.",
+        "catalogId": "dermal-plating"
+      },
+      {
+        "name": "Smartlink",
+        "kind": "cyberware",
+        "summary": "RR 1 on Ranged Weapons (submachine guns) Tests."
+      }
+    ]
+  }
+}

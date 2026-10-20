@@ -1,0 +1,177 @@
+{
+  "id": "corporate-employee",
+  "label": "Corporate Employee",
+  "source": { "book": "SRA2", "page": 254 },
+  "attributes": {
+    "strength": { "base": 2, "variants": { "ork": 3, "troll": 4 } },
+    "agility": { "base": 2 },
+    "willpower": { "base": 2, "variants": { "dwarf": 3 } },
+    "logic": { "base": 2 },
+    "charisma": { "base": 2, "variants": { "elf": 3 } }
+  },
+  "skills": [
+    {
+      "id": "athletics",
+      "label": "Athletics",
+      "rank": { "base": 2 },
+      "attribute": "strength",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 2, "variants": { "ork": 3, "troll": 3 } },
+      "specializations": [
+        {
+          "id": "ranged-defense",
+          "label": "ranged defense",
+          "rank": { "base": 2 },
+          "attribute": "agility",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 2 }
+        }
+      ]
+    },
+    {
+      "id": "perception",
+      "label": "Perception",
+      "rank": { "base": 2 },
+      "attribute": "logic",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 2 },
+      "specializations": []
+    },
+    {
+      "id": "influence",
+      "label": "Influence",
+      "rank": { "base": 2 },
+      "attribute": "charisma",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 2, "variants": { "elf": 3 } },
+      "specializations": []
+    },
+    {
+      "id": "piloting",
+      "label": "Piloting",
+      "rank": { "base": 4 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": [
+        {
+          "id": null,
+          "label": "choose one vehicle type",
+          "rank": { "base": 6 },
+          "attribute": "agility",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 4 }
+        }
+      ]
+    },
+    {
+      "id": "survival",
+      "label": "Survival",
+      "rank": { "base": 4 },
+      "attribute": "logic",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": [
+        {
+          "id": "first-aid",
+          "label": "first aid",
+          "rank": { "base": 6 },
+          "attribute": "logic",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 4 }
+        }
+      ]
+    },
+    {
+      "id": "electronics",
+      "label": "Electronics",
+      "note": "One of 3 alternative Skills under the book's \"Choose 1 Skill and Specialization\" heading — this Corporate Employee has only one of Electronics, Influence (negotiation), or Engineering, not all three.",
+      "rank": { "base": 4 },
+      "attribute": "logic",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": [
+        {
+          "id": "matrix-search",
+          "label": "Matrix search",
+          "rank": { "base": 6 },
+          "attribute": "logic",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 4 }
+        }
+      ]
+    },
+    {
+      "id": "influence",
+      "label": "Influence",
+      "note": "One of 3 alternative Skills under the book's \"Choose 1 Skill and Specialization\" heading — this Corporate Employee has only one of Electronics, Influence (negotiation), or Engineering, not all three.",
+      "rank": { "base": 4 },
+      "attribute": "charisma",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": [
+        {
+          "id": "negotiation",
+          "label": "negotiation",
+          "rank": { "base": 6 },
+          "attribute": "charisma",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 4 }
+        }
+      ]
+    },
+    {
+      "id": "engineering",
+      "label": "Engineering",
+      "note": "One of 3 alternative Skills under the book's \"Choose 1 Skill and Specialization\" heading — this Corporate Employee has only one of Electronics, Influence (negotiation), or Engineering, not all three.",
+      "rank": { "base": 4 },
+      "attribute": "logic",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": [
+        {
+          "id": null,
+          "label": "choose one Build & Repair",
+          "rank": { "base": 6 },
+          "attribute": "logic",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 4 }
+        }
+      ]
+    }
+  ],
+  "spells": [],
+  "weapons": [
+    {
+      "name": "Unarmed",
+      "dv": { "base": 2, "variants": { "ork": 3, "troll": 4 } },
+      "range": "OK/–/–/–"
+    },
+    {
+      "name": "Taser",
+      "dv": { "base": 5 },
+      "range": "OK/OK/–/–",
+      "note": "One action lost if damage is dealt."
+    }
+  ],
+  "equipment": ["Commlink", "Armored clothes (Armor 1)"],
+  "woundThresholds": {
+    "physical": {
+      "base": [3, 6, 9],
+      "variants": { "ork": [4, 7, 10], "troll": [5, 8, 11] }
+    },
+    "mental": {
+      "base": [2, 5, 8],
+      "variants": { "dwarf": [3, 6, 9] }
+    }
+  },
+  "requiredAmps": [
+    {
+      "name": "Datajack",
+      "kind": "cyberware",
+      "summary": "DNI, cold-sim VR.",
+      "catalogId": "datajack"
+    }
+  ],
+  "chooseAmps": { "count": 0, "options": [] }
+}

@@ -1,0 +1,115 @@
+{
+  "id": "drakk",
+  "streetname": "Drakk",
+  "portrait": null,
+  "metatype": "troll",
+  "source": { "book": "SRA2", "page": 105 },
+  "attributes": {
+    "strength": 5,
+    "agility": 3,
+    "willpower": 3,
+    "logic": 2,
+    "charisma": 2
+  },
+  "skills": {
+    "athletics": { "rating": 4, "specializations": ["ranged-defense"] },
+    "close-combat": { "rating": 5, "specializations": ["blades", "unarmed"] },
+    "influence": { "rating": 4, "specializations": ["intimidation"] },
+    "network": { "rating": 2, "specializations": [] },
+    "perception": { "rating": 3, "specializations": [] },
+    "piloting": { "rating": 2, "specializations": ["bikes"] },
+    "ranged-weapons": { "rating": 4, "specializations": [] },
+    "stealth": { "rating": 1, "specializations": [] },
+    "survival": { "rating": 4, "specializations": ["navigation"] }
+  },
+  "knowledgeSkills": [],
+  "amps": [
+    {
+      "type": "quality",
+      "name": "Two weapon combat style",
+      "description": "RR 1 on Close Combat (blades).",
+      "effects": [{ "effect": "rr-specialization", "target": "close-combat/blades" }]
+    },
+    { "catalogId": "bliss" },
+    { "catalogId": "jazz" },
+    { "catalogId": "berserker" },
+    { "catalogId": "auto-injector" },
+    { "catalogId": "synthetic-cyberarm-with-heavy-pistol" },
+    {
+      "type": "cyberware",
+      "name": "Counterfeit datajack",
+      "description": "Direct neural interface; BTL-only hot-sim VR.",
+      "effects": [
+        { "effect": "narrative", "note": "Direct neural interface; BTL-only hot-sim VR" }
+      ]
+    },
+    {
+      "type": "vehicle",
+      "name": "Combat Bike",
+      "description": "Customized to look like a Unicorn. Front-facing weapon mount for assault rifle or smaller.",
+      "vehicleType": "chopper",
+      "effects": [{ "effect": "narrative", "note": "Customized to look like a Unicorn" }]
+    },
+    {
+      "type": "contact",
+      "name": "Herwick Strauber, antiquarian",
+      "description": "RR 1 on Network (street).",
+      "effects": [{ "effect": "rr-specialization", "target": "network/street" }]
+    }
+  ],
+  "weapons": [
+    { "name": "Unarmed", "type": "Weapon", "dv": 5, "range": "OK/–/–/–" },
+    {
+      "name": "2 x Sword",
+      "subtype": "blades",
+      "type": "Weapon",
+      "dv": 7,
+      "range": "OK/–/–/–"
+    },
+    {
+      "name": "Colt Manhunter",
+      "subtype": "heavy pistol",
+      "type": "Weapon",
+      "dv": 5,
+      "range": "OK/OK/Dis./–"
+    },
+    {
+      "name": "Throwing knife",
+      "subtype": "throwing weapon",
+      "type": "Weapon",
+      "dv": 6,
+      "range": "OK/OK/Dis./–"
+    },
+    {
+      "name": "Colt M23",
+      "subtype": "assault rifle",
+      "type": "Weapon",
+      "dv": 7,
+      "range": "Dis./OK/OK/Dis."
+    }
+  ],
+  "armor": {
+    "main": { "name": "Custom-made Armor", "rating": 4 },
+    "secondary": null
+  },
+  "equipment": ["Fake SIN", "Commlink", "Role-playing Kit (dice, books, pen and paper, etc.)"],
+  "keywords": {
+    "socialStatus": "Troll",
+    "origin": "Seattle / Underground",
+    "role": "Street Samurai",
+    "extra": "Enforcer"
+  },
+  "lifestyle": "low",
+  "dispositions": [
+    "Theatrical chivalry",
+    "Brutal dreamer",
+    "Obsessed with a quest",
+    "Seeking to socialize"
+  ],
+  "cues": [
+    "Another deed they will sing tales of in taverns.",
+    "You will taste my blade, miserable felon.",
+    "Sorcerers of the Matrix, bless me with your wisdom.",
+    "Fumbling valiantly toward victory!"
+  ]
+}

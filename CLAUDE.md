@@ -264,12 +264,12 @@ files and comments rather than pasting book text verbatim.
 |---|---|
 | Die Roller | Working — generic NdX roller, SVG dice faces, localStorage history |
 | Name Generator | Working — streetnames + 7 cultures (3 are stubs) |
-| Character Database | Nav link only, no content yet |
-| NPC Generator | Nav link only, no content yet — will reuse the Name Generator's functions |
-| Character Builder | Nav link only, no content yet — `js/character/character.js` has the data model started (streetname, metatype, attributes, essence, nuyen, skills[], specializations[], keywords[], dispositions[], cues[]) |
+| Character Database | Working — four subtabs: Major Characters (full Character sheets: 12 official pregens + room for user-built PCs/major NPCs, PC/NPC tag), Minor Characters (NPC Generator output), Templates (all 25 non-critter NPC stat blocks from "Hell Is Other People," Ganger through Coyote/Smuggler, transcribed), Critters (nav only, no data model yet — explicitly deferred) |
+| NPC Generator | Working — picks Template/Metatype/Gender/Name (each explicit or random), saves a `{ name, gender, metatype, templateId }` pointer into Minor Characters via `js/character/minorCharacters.js` |
+| Character Builder | Nav link only, no content yet — `js/character/character.js` has the full data model (createCharacter()), just no UI to build one interactively |
 | Job Generator | Nav link only, no content yet |
-| Amp Catalog | Nav link only, no content yet — planned: browse/search the 172 book Amps (`catalog.js`) by section, showing rating, price, effects, page |
-| Amp Creator | Nav link only, no content yet — planned: build a custom Shadow Amp (pick type, add effects from `AMP_EFFECTS`, live rating/cost and `validateAmps()` feedback), or start from a catalog entry |
+| Amp Catalog | Working — browse/filter/sort the 172 book Amps (`catalog.js`) by section, rating, cost |
+| Amp Creator | Working — build a custom Shadow Amp (pick type, add effects from `AMP_EFFECTS`, live rating/cost and `validateAmp()` feedback), edit/delete saved ones |
 | `js/dice/sra.js` | Empty stub for Anarchy 2.0 pool/hit-counting rules, once read |
 
 ## Working style notes

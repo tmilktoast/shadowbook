@@ -1,0 +1,224 @@
+{
+  "id": "elite-security-rigger",
+  "label": "Elite Security / Police Rigger",
+  "source": { "book": "SRA2", "page": 253 },
+  "attributes": {
+    "strength": { "base": 2, "variants": { "ork": 3, "troll": 4 } },
+    "agility": { "base": 4 },
+    "willpower": { "base": 3, "variants": { "dwarf": 4 } },
+    "logic": { "base": 3 },
+    "charisma": { "base": 2, "variants": { "elf": 3 } }
+  },
+  "skills": [
+    {
+      "id": "athletics",
+      "label": "Athletics",
+      "rank": { "base": 4 },
+      "attribute": "strength",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3, "variants": { "troll": 4 } },
+      "specializations": [
+        {
+          "id": "ranged-defense",
+          "label": "ranged defense",
+          "rank": { "base": 6 },
+          "attribute": "agility",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 4 }
+        }
+      ]
+    },
+    {
+      "id": "ranged-weapons",
+      "label": "Ranged Weapons",
+      "rank": { "base": 3 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": []
+    },
+    {
+      "id": "close-combat",
+      "label": "Close Combat",
+      "rank": { "base": 3 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": [
+        {
+          "id": "defense",
+          "label": "defense",
+          "rank": { "base": 5 },
+          "attribute": "agility",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 4 }
+        }
+      ]
+    },
+    {
+      "id": "stealth",
+      "label": "Stealth",
+      "rank": { "base": 5 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 4 },
+      "specializations": [
+        {
+          "id": "physical-sneaking",
+          "label": "physical sneaking",
+          "rank": { "base": 7 },
+          "attribute": "agility",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 5 }
+        }
+      ]
+    },
+    {
+      "id": "perception",
+      "label": "Perception",
+      "rank": { "base": 6 },
+      "attribute": "logic",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 4 },
+      "specializations": [
+        {
+          "id": "physical",
+          "label": "physical",
+          "rank": { "base": 8 },
+          "attribute": "logic",
+          "rr": { "base": 0, "ampVariant": { "amp": "Lockheed Optic-X2", "base": 2 } },
+          "averageHits": { "base": 5, "ampVariant": { "amp": "Lockheed Optic-X2", "base": 7 } }
+        }
+      ]
+    },
+    {
+      "id": "piloting",
+      "label": "Piloting",
+      "rank": { "base": 6 },
+      "attribute": "agility",
+      "rr": { "base": 1 },
+      "averageHits": { "base": 5 },
+      "specializations": [
+        {
+          "id": null,
+          "label": "selected vehicle or drone",
+          "rank": { "base": 8 },
+          "attribute": "agility",
+          "rr": { "base": 1 },
+          "averageHits": { "base": 6 }
+        }
+      ]
+    },
+    {
+      "id": "engineering",
+      "label": "Engineering",
+      "rank": { "base": 6 },
+      "attribute": "logic",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 4 },
+      "specializations": [
+        {
+          "id": "remote-controlled-weapons",
+          "label": "remote-controlled weapons",
+          "rank": { "base": 8 },
+          "attribute": "logic",
+          "rr": { "base": 1 },
+          "averageHits": { "base": 6 }
+        }
+      ]
+    }
+  ],
+  "spells": [],
+  "weapons": [
+    {
+      "name": "Unarmed",
+      "dv": { "base": 2, "variants": { "ork": 3, "troll": 4 } },
+      "range": "OK/–/–/–"
+    },
+    {
+      "name": "Heavy pistol",
+      "dv": { "base": 5 },
+      "range": "OK/OK/Dis./–"
+    },
+    {
+      "name": "Assault rifle (drones)",
+      "dv": { "base": 7 },
+      "range": "Dis./OK/OK/Dis."
+    },
+    {
+      "name": "Machine gun (drones and vehicles)",
+      "dv": { "base": 9 },
+      "range": "–/OK/OK/OK"
+    },
+    {
+      "name": "Anti-vehicle missiles (Ares Venture)",
+      "dv": { "base": 16 },
+      "range": "–/–/Dis./OK"
+    }
+  ],
+  "equipment": ["Commlink", "Full body armor & helmet (Armor 4)"],
+  "woundThresholds": {
+    "physical": {
+      "base": [6, 9, 12],
+      "variants": { "ork": [7, 10, 13], "troll": [8, 11, 14] }
+    },
+    "mental": {
+      "base": [3, 6, 9],
+      "variants": { "dwarf": [4, 7, 10] }
+    }
+  },
+  "requiredAmps": [
+    {
+      "name": "Vehicle control rig",
+      "kind": "cyberware",
+      "summary": "DNI, hot-sim VR, may jump into a drone; +1 action per narration in VR."
+    },
+    {
+      "name": "Rigger Command Console",
+      "kind": "gear",
+      "summary": "Captain chair mode, 4 concurrent vehicles or drones. RR 1 on Piloting and Engineering (remote-controlled weapons)."
+    },
+    {
+      "name": "Lockheed Optic-X2",
+      "kind": "drone",
+      "summary": "Small flying drone: Pilot 6, Body 1, Handling 9, Speed 4, Armor 0; RR 2 on Perception (physical) Tests."
+    }
+  ],
+  "chooseAmps": {
+    "count": 1,
+    "options": [
+      {
+        "name": "MCT-Nissan Roto-drone",
+        "kind": "drone",
+        "summary": "2 MCT-Nissan Roto-drone (medium flying drone): Pilot 6, Body 2, Handling 7, Speed 6, Armor 2, with assault rifle.",
+        "catalogId": "mct-nissan-roto-drone"
+      },
+      {
+        "name": "GM-Nissan Doberman",
+        "kind": "drone",
+        "summary": "2 GM-Nissan Doberman (medium drone): Pilot 6, Body 2, Handling 7, Speed 3, Armor 2, with assault rifle.",
+        "catalogId": "gm-nissan-doberman"
+      },
+      {
+        "name": "MCT Gnat",
+        "kind": "drone",
+        "summary": "2 MCT Gnat (flying microdrones): Pilot 6, Body 0, Handling 10, Speed 1, Armor 0, with sensor array: RR 2 on Perception (physical) Tests."
+      },
+      {
+        "name": "Ares Citymaster",
+        "kind": "vehicle",
+        "summary": "Ares Citymaster armored transport: Pilot 6, Body 9, Handling 1, Speed 3, Armor 9, with turret-mounted machine gun."
+      },
+      {
+        "name": "Northrup Wasp",
+        "kind": "vehicle",
+        "summary": "Interception helicopter Northrup Wasp: Pilot 6, Body 5, Handling 4, Speed 6, Armor 3, with front-facing machine gun."
+      },
+      {
+        "name": "Ares Venture",
+        "kind": "vehicle",
+        "summary": "T-bird Ares Venture: Pilot 6, Body 9, Handling 3, Speed 10, Armor 4, with turret-mounted machine gun and 2 anti-vehicle missiles."
+      }
+    ]
+  }
+}

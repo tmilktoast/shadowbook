@@ -1,0 +1,207 @@
+{
+  "id": "security-decker",
+  "label": "Security / Police Decker",
+  "source": { "book": "SRA2", "page": 249 },
+  "attributes": {
+    "strength": { "base": 2, "variants": { "ork": 3, "troll": 4 } },
+    "agility": { "base": 2 },
+    "willpower": { "base": 3, "variants": { "dwarf": 4 } },
+    "logic": { "base": 3 },
+    "charisma": { "base": 2, "variants": { "elf": 3 } }
+  },
+  "skills": [
+    {
+      "id": "athletics",
+      "label": "Athletics",
+      "rank": { "base": 2 },
+      "attribute": "strength",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 2, "variants": { "ork": 3, "troll": 3 } },
+      "specializations": [
+        {
+          "id": "ranged-defense",
+          "label": "ranged defense",
+          "rank": { "base": 4 },
+          "attribute": "agility",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 3 }
+        }
+      ]
+    },
+    {
+      "id": "ranged-weapons",
+      "label": "Ranged Weapons",
+      "rank": { "base": 2 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 2 },
+      "specializations": []
+    },
+    {
+      "id": "close-combat",
+      "label": "Close Combat",
+      "rank": { "base": 2 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 2 },
+      "specializations": []
+    },
+    {
+      "id": "stealth",
+      "label": "Stealth",
+      "rank": { "base": 5 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": [
+        {
+          "id": "physical-sneaking",
+          "label": "physical sneaking",
+          "rank": { "base": 7 },
+          "attribute": "agility",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 4 }
+        }
+      ]
+    },
+    {
+      "id": "perception",
+      "label": "Perception",
+      "rank": { "base": 4 },
+      "attribute": "logic",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": [
+        {
+          "id": "matrix",
+          "label": "Matrix",
+          "rank": { "base": 6 },
+          "attribute": "logic",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 4 }
+        }
+      ]
+    },
+    {
+      "id": "electronics",
+      "label": "Electronics",
+      "rank": { "base": 5 },
+      "attribute": "logic",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 4 },
+      "specializations": [
+        {
+          "id": "matrix-protection",
+          "label": "Matrix protection",
+          "rank": { "base": 7 },
+          "attribute": "logic",
+          "rr": { "base": 0, "ampVariant": { "amp": "Monitor", "base": 2 } },
+          "averageHits": { "base": 4, "ampVariant": { "amp": "Monitor", "base": 6 } }
+        },
+        {
+          "id": "matrix-search",
+          "label": "Matrix search",
+          "rank": { "base": 7 },
+          "attribute": "logic",
+          "rr": { "base": 0, "ampVariant": { "amp": "Browse", "base": 2 } },
+          "averageHits": { "base": 4, "ampVariant": { "amp": "Browse", "base": 6 } }
+        }
+      ]
+    },
+    {
+      "id": "cracking",
+      "label": "Cracking",
+      "rank": { "base": 5 },
+      "attribute": "logic",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 4 },
+      "specializations": [
+        {
+          "id": "cybercombat",
+          "label": "cybercombat",
+          "rank": { "base": 7 },
+          "attribute": "willpower",
+          "rr": { "base": 0, "ampVariant": { "amp": "Aggressor", "base": 2 } },
+          "averageHits": {
+            "base": 4,
+            "variants": { "dwarf": 5 },
+            "ampVariant": { "amp": "Aggressor", "base": 6, "variants": { "dwarf": 7 } }
+          }
+        },
+        {
+          "id": "brute-force",
+          "label": "brute force",
+          "rank": { "base": 5 },
+          "attribute": "logic",
+          "rr": { "base": 0, "ampVariant": { "amp": "Exploit", "base": 2 } },
+          "averageHits": { "base": 4, "ampVariant": { "amp": "Exploit", "base": 6 } }
+        }
+      ]
+    }
+  ],
+  "spells": [],
+  "weapons": [
+    {
+      "name": "Unarmed",
+      "dv": { "base": 2, "variants": { "ork": 3, "troll": 4 } },
+      "range": "OK/–/–/–"
+    },
+    {
+      "name": "Stun baton (one action lost if damage is dealt)",
+      "dv": { "base": 5 },
+      "range": "OK/–/–/–"
+    },
+    {
+      "name": "Light pistol",
+      "dv": { "base": 4 },
+      "range": "OK/OK/Dis./–"
+    },
+    {
+      "name": "Cybercombat",
+      "dv": { "base": 4 },
+      "range": null
+    }
+  ],
+  "equipment": ["Commlink", "Armor vest (Armor 3)"],
+  "woundThresholds": {
+    "physical": {
+      "base": [5, 8, 11],
+      "variants": { "ork": [6, 9, 12], "troll": [7, 10, 13] }
+    },
+    "mental": {
+      "base": [3, 6, 9],
+      "variants": { "dwarf": [4, 7, 10] }
+    }
+  },
+  "requiredAmps": [
+    {
+      "name": "Cyberdeck",
+      "kind": "cyberdeck",
+      "summary": "Attack 4, Firewall 4. Matrix wound thresholds 4/7/10."
+    },
+    {
+      "name": "Datajack",
+      "kind": "cyberware",
+      "summary": "DNI, cold-sim VR.",
+      "catalogId": "datajack"
+    }
+  ],
+  "chooseAmps": {
+    "count": 1,
+    "options": [
+      { "name": "Aggressor", "kind": "cyberdeck-program", "summary": "RR 2 on Cracking (cybercombat) Tests." },
+      { "name": "Exploit", "kind": "cyberdeck-program", "summary": "RR 2 on Cracking (brute force) Tests." },
+      {
+        "name": "Monitor",
+        "kind": "cyberdeck-program",
+        "summary": "RR 2 on Electronics (Matrix protection) Tests."
+      },
+      { "name": "Browse", "kind": "cyberdeck-program", "summary": "RR 2 on Electronics (Matrix search) Tests." },
+      {
+        "name": "Cyberjack",
+        "kind": "cyberware",
+        "summary": "Replaces datajack: DNI, cold-sim VR, +1 action per narration in VR."
+      }
+    ]
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "id": "security-guard",
+  "label": "Security Guard / Rent-a-Cop",
+  "source": { "book": "SRA2", "page": 247 },
+  "attributes": {
+    "strength": { "base": 3, "variants": { "ork": 4, "troll": 5 } },
+    "agility": { "base": 2 },
+    "willpower": { "base": 2, "variants": { "dwarf": 3 } },
+    "logic": { "base": 2 },
+    "charisma": { "base": 2, "variants": { "elf": 3 } }
+  },
+  "skills": [
+    {
+      "id": "athletics",
+      "label": "Athletics",
+      "rank": { "base": 3 },
+      "attribute": "strength",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3, "variants": { "troll": 4 } },
+      "specializations": [
+        {
+          "id": "ranged-defense",
+          "label": "ranged defense",
+          "rank": { "base": 5 },
+          "attribute": "agility",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 3 }
+        }
+      ]
+    },
+    {
+      "id": "ranged-weapons",
+      "label": "Ranged Weapons",
+      "rank": { "base": 4 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": [
+        {
+          "id": "pistols",
+          "label": "pistols",
+          "rank": { "base": 4 },
+          "attribute": "agility",
+          "rr": { "base": 0, "ampVariant": { "amp": "Smartlink", "base": 1 } },
+          "averageHits": { "base": 3, "ampVariant": { "amp": "Smartlink", "base": 4 } }
+        }
+      ]
+    },
+    {
+      "id": "close-combat",
+      "label": "Close Combat",
+      "rank": { "base": 4 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": []
+    },
+    {
+      "id": "stealth",
+      "label": "Stealth",
+      "rank": { "base": 2 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 2 },
+      "specializations": []
+    },
+    {
+      "id": "perception",
+      "label": "Perception",
+      "rank": { "base": 5 },
+      "attribute": "logic",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": [
+        {
+          "id": "physical",
+          "label": "physical",
+          "rank": { "base": 7 },
+          "attribute": "logic",
+          "rr": { "base": 0, "ampVariant": { "amp": "Cybereyes", "base": 1 } },
+          "averageHits": { "base": 4, "ampVariant": { "amp": "Cybereyes", "base": 5 } }
+        }
+      ]
+    },
+    {
+      "id": "influence",
+      "label": "Influence",
+      "rank": { "base": 3 },
+      "attribute": "charisma",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": [
+        {
+          "id": "intimidation",
+          "label": "intimidation",
+          "rank": { "base": 5 },
+          "attribute": "charisma",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 3, "variants": { "elf": 4 } }
+        }
+      ]
+    }
+  ],
+  "spells": [],
+  "weapons": [
+    {
+      "name": "Unarmed",
+      "dv": { "base": 3, "variants": { "ork": 4, "troll": 5 } },
+      "range": "OK/–/–/–"
+    },
+    {
+      "name": "Stun baton",
+      "dv": { "base": 5 },
+      "range": "OK/–/–/–",
+      "note": "One action lost if damage is dealt."
+    },
+    {
+      "name": "Light pistol",
+      "dv": { "base": 4 },
+      "range": "OK/OK/Dis./–"
+    }
+  ],
+  "equipment": ["Commlink", "Armor vest (Armor 3)"],
+  "woundThresholds": {
+    "physical": {
+      "base": [6, 9, 12],
+      "variants": { "ork": [7, 10, 13], "troll": [8, 11, 14] }
+    },
+    "mental": {
+      "base": [2, 5, 8],
+      "variants": { "dwarf": [3, 6, 9] }
+    }
+  },
+  "requiredAmps": [],
+  "chooseAmps": {
+    "count": 1,
+    "options": [
+      {
+        "name": "Smartlink",
+        "kind": "cyberware",
+        "summary": "RR 1 on Ranged Weapons (pistols) Tests."
+      },
+      {
+        "name": "Cybereyes",
+        "kind": "cyberware",
+        "summary": "RR 1 on Perception (physical) Tests."
+      }
+    ]
+  }
+}

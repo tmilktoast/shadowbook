@@ -1,0 +1,92 @@
+{
+  "id": "echo",
+  "streetname": "Echo",
+  "portrait": null,
+  "metatype": "human",
+  "source": { "book": "SRA2", "page": 103 },
+  "attributes": {
+    "strength": 2,
+    "agility": 3,
+    "willpower": 3,
+    "logic": 3,
+    "charisma": 4
+  },
+  "skills": {
+    "athletics": { "rating": 3, "specializations": ["ranged-defense"] },
+    "close-combat": { "rating": 3, "specializations": ["clubs"] },
+    "electronics": { "rating": 2, "specializations": [] },
+    "influence": { "rating": 5, "specializations": ["impersonation"] },
+    "network": { "rating": 5, "specializations": [] },
+    "perception": { "rating": 5, "specializations": ["social"] },
+    "ranged-weapons": { "rating": 4, "specializations": ["pistols"] },
+    "stealth": { "rating": 5, "specializations": [] },
+    "survival": { "rating": 2, "specializations": ["composure"] }
+  },
+  "knowledgeSkills": ["Politics", "Sociology"],
+  "amps": [
+    {
+      "type": "cyberware",
+      "name": "Cross Biomedical Angel Eyes",
+      "description": "Visual interface; camera. RR 1 on Perception (physical); thermographic vision; customizable iris colors.",
+      "effects": [
+        { "effect": "rr-specialization", "target": "perception/physical" },
+        { "effect": "narrative", "note": "Thermographic vision" },
+        { "effect": "narrative", "note": "Customizable iris colors" }
+      ]
+    },
+    { "catalogId": "nanopaste-makeup" },
+    { "catalogId": "well-stocked-closet" },
+    {
+      "type": "equipment",
+      "name": "HK P60 Tactical",
+      "description": "Heavy pistol. Dismountable: RR 1 on Stealth (physical sneaking); smartgun: RR 1 on Ranged Weapons (pistols).",
+      "effects": [
+        { "effect": "rr-specialization", "target": "stealth/physical-sneaking" },
+        { "effect": "rr-specialization", "target": "ranged-weapons/pistols" }
+      ],
+      "itemCost": 2500
+    },
+    { "catalogId": "undercover-cop", "nameOverride": "Vincent Terranova, undercover cop" }
+  ],
+  "weapons": [
+    { "name": "Unarmed", "type": "Weapon", "dv": 2, "range": "OK/–/–/–" },
+    {
+      "name": "Extendable baton",
+      "subtype": "club",
+      "type": "Weapon",
+      "dv": 4,
+      "range": "OK/–/–/–"
+    },
+    {
+      "name": "HK P60 Tactical",
+      "subtype": "heavy pistol",
+      "type": "Weapon",
+      "dv": 5,
+      "range": "OK/OK/Dis./–"
+    }
+  ],
+  "armor": {
+    "main": { "name": "Kevlar Vest", "rating": 3 },
+    "secondary": { "name": "Clothes", "rating": 1 }
+  },
+  "equipment": ["Fake SIN", "Commlink", "Small Infiltration Kit", "Stealth Tags", "Bug Sweeper"],
+  "keywords": {
+    "socialStatus": "Boston bourgeoisie",
+    "origin": "Seattle",
+    "role": "Face",
+    "extra": "Former CIA Agent (UCAS)"
+  },
+  "lifestyle": "low",
+  "dispositions": [
+    "Idealist",
+    "Protector of the people",
+    "Avoids violence as much as possible",
+    "Seeks attention"
+  ],
+  "cues": [
+    "I'm sure we can come to an arrangement; tell me everything.",
+    "There's always a way. I just need to find the right person who knows it.",
+    "I know someone who knows someone.",
+    "Adaptation is the key to survive in the field."
+  ]
+}

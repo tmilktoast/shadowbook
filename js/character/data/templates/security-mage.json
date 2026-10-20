@@ -1,0 +1,196 @@
+{
+  "id": "security-mage",
+  "label": "Security / Police Mage",
+  "source": { "book": "SRA2", "page": 248 },
+  "attributes": {
+    "strength": { "base": 2, "variants": { "ork": 3, "troll": 4 } },
+    "agility": { "base": 2 },
+    "willpower": { "base": 3, "variants": { "dwarf": 4 } },
+    "logic": { "base": 3 },
+    "charisma": { "base": 2, "variants": { "elf": 3 } }
+  },
+  "skills": [
+    {
+      "id": "athletics",
+      "label": "Athletics",
+      "rank": { "base": 4 },
+      "attribute": "strength",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3, "variants": { "troll": 4 } },
+      "specializations": [
+        {
+          "id": "ranged-defense",
+          "label": "ranged defense",
+          "rank": { "base": 6 },
+          "attribute": "agility",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 4 }
+        }
+      ]
+    },
+    {
+      "id": "ranged-weapons",
+      "label": "Ranged Weapons",
+      "rank": { "base": 3 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": []
+    },
+    {
+      "id": "close-combat",
+      "label": "Close Combat",
+      "rank": { "base": 3 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": []
+    },
+    {
+      "id": "stealth",
+      "label": "Stealth",
+      "rank": { "base": 3 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": []
+    },
+    {
+      "id": "perception",
+      "label": "Perception",
+      "rank": { "base": 5 },
+      "attribute": "logic",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 4 },
+      "specializations": [
+        {
+          "id": "astral",
+          "label": "astral",
+          "rank": { "base": 7 },
+          "attribute": "logic",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 4 }
+        }
+      ]
+    },
+    {
+      "id": "sorcery",
+      "label": "Sorcery",
+      "rank": { "base": 5 },
+      "attribute": "willpower",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 4 },
+      "specializations": [
+        {
+          "id": "combat-spells",
+          "label": "combat spells",
+          "rank": { "base": 7 },
+          "attribute": "willpower",
+          "rr": { "base": 0, "ampVariant": { "amp": "Combat focus", "base": 2 } },
+          "averageHits": {
+            "base": 4,
+            "variants": { "dwarf": 5 },
+            "ampVariant": { "amp": "Combat focus", "base": 6, "variants": { "dwarf": 7 } }
+          }
+        },
+        {
+          "id": "detection-spells",
+          "label": "detection spells",
+          "rank": { "base": 7 },
+          "attribute": "willpower",
+          "rr": { "base": 0, "ampVariant": { "amp": "Detection focus", "base": 2 } },
+          "averageHits": {
+            "base": 4,
+            "variants": { "dwarf": 5 },
+            "ampVariant": { "amp": "Detection focus", "base": 6, "variants": { "dwarf": 7 } }
+          }
+        }
+      ]
+    },
+    {
+      "id": "conjuring",
+      "label": "Conjuring",
+      "rank": { "base": 5 },
+      "attribute": "logic",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 4 },
+      "specializations": [
+        {
+          "id": "spirits-of-kin",
+          "label": "spirits of kin",
+          "rank": { "base": 7 },
+          "attribute": "logic",
+          "rr": { "base": 0, "ampVariant": { "amp": "Kin focus", "base": 2 } },
+          "averageHits": { "base": 4, "ampVariant": { "amp": "Kin focus", "base": 6 } }
+        }
+      ]
+    },
+    {
+      "id": "influence",
+      "label": "Influence",
+      "rank": { "base": 3 },
+      "attribute": "charisma",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": []
+    }
+  ],
+  "spells": [
+    "Analyze Truth — Detection spell; rolls against Willpower+Charisma to tell whether a statement is truthful.",
+    "Armor — Manipulation spell; every 3 hits scored adds +1 Armor to the target.",
+    "Confusion — Illusion spell; rolled against Willpower+Logic to saddle the target with a Disadvantage.",
+    "Detect Enemies — Detection spell; reveals hostiles, needing 2 hits per range increment.",
+    "Stunbolt — Direct combat spell; deals stun (mental) damage equal to hits scored.",
+    "Lightning Bolt — Indirect combat spell; deals physical damage equal to Willpower and costs the target an action.",
+    "Combat Sense — Detection spell, threshold 5; grants Advantage on Close Combat and ranged-defense Tests.",
+    "Heal — Health spell; its threshold scales with how badly the target is wounded."
+  ],
+  "weapons": [
+    {
+      "name": "Unarmed",
+      "dv": { "base": 2, "variants": { "ork": 3, "troll": 4 } },
+      "range": "OK/–/–/–"
+    },
+    {
+      "name": "Stun baton (one action lost if damage is dealt)",
+      "dv": { "base": 5 },
+      "range": "OK/–/–/–"
+    },
+    {
+      "name": "Light pistol",
+      "dv": { "base": 4 },
+      "range": "OK/OK/Dis./–"
+    }
+  ],
+  "equipment": ["Commlink", "Armor vest (Armor 3)"],
+  "woundThresholds": {
+    "physical": {
+      "base": [5, 8, 11],
+      "variants": { "ork": [6, 9, 12], "troll": [7, 10, 13] }
+    },
+    "mental": {
+      "base": [3, 6, 9],
+      "variants": { "dwarf": [4, 7, 10] }
+    }
+  },
+  "requiredAmps": [
+    {
+      "name": "Awakened (hermetic)",
+      "kind": "quality",
+      "summary": "Astral perception & projection, Sorcery, Conjuring."
+    },
+    {
+      "name": "Sustaining focus",
+      "kind": "gear",
+      "summary": "May sustain 2 spells without penalty, and 4 with a Disadvantage."
+    }
+  ],
+  "chooseAmps": {
+    "count": 1,
+    "options": [
+      { "name": "Combat focus", "kind": "gear", "summary": "RR 2 on Sorcery (combat spells) Tests." },
+      { "name": "Detection focus", "kind": "gear", "summary": "RR 2 on Sorcery (detection spells) Tests." },
+      { "name": "Kin focus", "kind": "gear", "summary": "RR 2 on Conjuring (spirits of kin) Tests." }
+    ]
+  }
+}

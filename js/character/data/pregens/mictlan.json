@@ -1,0 +1,104 @@
+{
+  "id": "mictlan",
+  "streetname": "Mictlan",
+  "portrait": null,
+  "metatype": "elf",
+  "source": { "book": "SRA2", "page": 109 },
+  "attributes": {
+    "strength": 3,
+    "agility": 4,
+    "willpower": 2,
+    "logic": 2,
+    "charisma": 3
+  },
+  "skills": {
+    "athletics": { "rating": 5, "specializations": ["parkour"] },
+    "close-combat": { "rating": 5, "specializations": ["whips"] },
+    "influence": { "rating": 4, "specializations": ["etiquette"] },
+    "perception": { "rating": 4, "specializations": ["physical"] },
+    "network": { "rating": 4, "specializations": ["corporate"] },
+    "stealth": {
+      "rating": 5,
+      "specializations": ["physical-sneaking", "lockpicking"]
+    }
+  },
+  "knowledgeSkills": [],
+  "amps": [
+    {
+      "type": "awakened",
+      "name": "Awakened",
+      "description": "Adept, astral perception.",
+      "effects": [{ "effect": "adept" }, { "effect": "astral-perception" }]
+    },
+    {
+      "type": "cyberware",
+      "name": "Cybernetic ears",
+      "description": "Improved proprioception: RR 1 on Athletics (parkour). Improved hearing: RR 1 on Perception (physical).",
+      "effects": [
+        { "effect": "rr-specialization", "target": "athletics/parkour" },
+        { "effect": "rr-specialization", "target": "perception/physical" }
+      ]
+    },
+    {
+      "type": "adept-power",
+      "name": "Be one with the ropes",
+      "description": "RR 1 on Close Combat (whips).",
+      "effects": [{ "effect": "rr-specialization", "target": "close-combat/whips" }]
+    },
+    { "catalogId": "light-footed" },
+    { "catalogId": "reflexes-boost" },
+    {
+      "type": "equipment",
+      "name": "Weapon Focus shen biao",
+      "description": "RR 1 on Close Combat (whips). Can be used against both physical and astral targets.",
+      "effects": [
+        { "effect": "weapon-focus" },
+        { "effect": "rr-specialization", "target": "close-combat/whips" }
+      ]
+    },
+    {
+      "type": "equipment",
+      "name": "Infiltration Kit",
+      "description": "Autopicker, maglock passkey and magnetic card copier. RR 1 on Stealth (lockpicking).",
+      "effects": [{ "effect": "rr-specialization", "target": "stealth/lockpicking" }]
+    },
+    {
+      "catalogId": "corporate-executive",
+      "nameOverride": "Salvatore Sepulveda, father, senior executive at Aztechnology"
+    }
+  ],
+  "weapons": [
+    { "name": "Unarmed", "type": "Weapon", "dv": 3, "range": "OK/–/–/–" },
+    {
+      "name": "Shen biao",
+      "subtype": "whip",
+      "type": "Weapon",
+      "dv": 5,
+      "range": "OK/–/–/–"
+    }
+  ],
+  "armor": {
+    "main": { "name": "Lined Vest", "rating": 2 },
+    "secondary": null
+  },
+  "equipment": ["Fake SIN", "Commlink", "Grapple Launcher", "Binoculars"],
+  "keywords": {
+    "socialStatus": "Elf",
+    "origin": "Seattle / Downtown",
+    "role": "Adept",
+    "extra": "Aztlaner Nobility"
+  },
+  "lifestyle": "high",
+  "dispositions": [
+    "Ambiguous relationship with their family",
+    "Hungry for freedom",
+    "Predatory seduction",
+    "Everything has a price"
+  ],
+  "cues": [
+    "Please resist a bit; I like it that way.",
+    "Whether by money, blood, sweat, or spit ... every account is eventually paid in full.",
+    "There's no limit to my will, not even yours.",
+    "Each one hurts; the last one kills."
+  ]
+}

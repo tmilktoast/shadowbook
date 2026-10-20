@@ -1,0 +1,216 @@
+{
+  "id": "elite-security-adept",
+  "label": "Elite Security / Police Adept",
+  "source": { "book": "SRA2", "page": 251 },
+  "attributes": {
+    "strength": { "base": 4, "variants": { "ork": 5, "troll": 6 } },
+    "agility": { "base": 4 },
+    "willpower": { "base": 2, "variants": { "dwarf": 3 } },
+    "logic": { "base": 2 },
+    "charisma": { "base": 2, "variants": { "elf": 3 } }
+  },
+  "skills": [
+    {
+      "id": "athletics",
+      "label": "Athletics",
+      "rank": { "base": 6 },
+      "attribute": "strength",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 4, "variants": { "ork": 5, "troll": 5 } },
+      "specializations": [
+        {
+          "id": "ranged-defense",
+          "label": "ranged defense",
+          "rank": { "base": 8 },
+          "attribute": "agility",
+          "rr": { "base": 1 },
+          "averageHits": { "base": 6 }
+        },
+        {
+          "id": "running",
+          "label": "running",
+          "rank": { "base": 8 },
+          "attribute": "strength",
+          "rr": { "base": 0, "ampVariant": { "amp": "Wall running", "base": 1 } },
+          "averageHits": {
+            "base": 5,
+            "variants": { "troll": 6 },
+            "ampVariant": { "amp": "Wall running", "base": 6, "variants": { "troll": 7 } }
+          }
+        }
+      ]
+    },
+    {
+      "id": "ranged-weapons",
+      "label": "Ranged Weapons",
+      "rank": { "base": 6 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 4 },
+      "specializations": []
+    },
+    {
+      "id": "close-combat",
+      "label": "Close Combat",
+      "rank": { "base": 6 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 4 },
+      "specializations": [
+        {
+          "id": "unarmed",
+          "label": "unarmed",
+          "rank": { "base": 8 },
+          "attribute": "agility",
+          "rr": { "base": 3 },
+          "averageHits": { "base": 8 }
+        },
+        {
+          "id": "defense",
+          "label": "defense",
+          "rank": { "base": 6 },
+          "attribute": "agility",
+          "rr": { "base": 1 },
+          "averageHits": { "base": 5 }
+        }
+      ]
+    },
+    {
+      "id": "stealth",
+      "label": "Stealth",
+      "rank": { "base": 6 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 4 },
+      "specializations": [
+        {
+          "id": "physical-sneaking",
+          "label": "physical sneaking",
+          "rank": { "base": 8 },
+          "attribute": "agility",
+          "rr": { "base": 0, "ampVariant": { "amp": "Improved stealth", "base": 2 } },
+          "averageHits": { "base": 5, "ampVariant": { "amp": "Improved stealth", "base": 7 } }
+        }
+      ]
+    },
+    {
+      "id": "perception",
+      "label": "Perception",
+      "rank": { "base": 6 },
+      "attribute": "logic",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 4 },
+      "specializations": [
+        {
+          "id": "physical",
+          "label": "physical",
+          "rank": { "base": 6 },
+          "attribute": "logic",
+          "rr": { "base": 0, "ampVariant": { "amp": "Improved perception", "base": 2 } },
+          "averageHits": { "base": 4, "ampVariant": { "amp": "Improved perception", "base": 6 } }
+        }
+      ]
+    },
+    {
+      "id": "influence",
+      "label": "Influence",
+      "rank": { "base": 3 },
+      "attribute": "charisma",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": []
+    }
+  ],
+  "spells": [],
+  "weapons": [
+    {
+      "name": "Unarmed",
+      "dv": {
+        "base": 4,
+        "variants": { "ork": 5, "troll": 6 },
+        "ampVariant": { "amp": "Electricity elemental strike", "base": 6, "variants": { "ork": 7, "troll": 8 } }
+      },
+      "range": "OK/–/–/–",
+      "note": "With Electricity elemental strike equipped, one action is lost if damage is dealt."
+    },
+    {
+      "name": "Heavy pistol",
+      "dv": { "base": 5 },
+      "range": "OK/OK/Dis./–"
+    }
+  ],
+  "equipment": ["Commlink", "Full body armor & helmet (Armor 4)"],
+  "woundThresholds": {
+    "physical": {
+      "base": [8, 11, 14],
+      "variants": { "ork": [9, 12, 15], "troll": [10, 13, 16] },
+      "ampVariant": {
+        "amp": "Mystic armor",
+        "base": [9, 12, 15],
+        "variants": { "ork": [10, 13, 16], "troll": [11, 14, 17] }
+      }
+    },
+    "mental": {
+      "base": [2, 5, 8],
+      "variants": { "dwarf": [3, 6, 9] },
+      "ampVariant": {
+        "amp": "Mystic armor",
+        "base": [3, 6, 9],
+        "variants": { "dwarf": [4, 7, 10] }
+      }
+    }
+  },
+  "requiredAmps": [
+    {
+      "name": "Awakened",
+      "kind": "awakened",
+      "summary": "Adept."
+    },
+    {
+      "name": "Improved close combat",
+      "kind": "adept-power",
+      "summary": "RR 3 on Close Combat Tests (unarmed)."
+    },
+    {
+      "name": "Combat sense",
+      "kind": "adept-power",
+      "summary": "RR 1 on Athletics (ranged defense) and Close Combat (defense) Tests."
+    },
+    {
+      "name": "Improved reflexes",
+      "kind": "adept-power",
+      "summary": "+1 action per narration."
+    }
+  ],
+  "chooseAmps": {
+    "count": 1,
+    "options": [
+      {
+        "name": "Mystic armor",
+        "kind": "adept-power",
+        "summary": "+1 Armor (physical & astral).",
+        "catalogId": "mystic-armor"
+      },
+      {
+        "name": "Electricity elemental strike",
+        "kind": "adept-power",
+        "summary": "Unarmed DV +2, one action lost if damage is dealt."
+      },
+      {
+        "name": "Wall running",
+        "kind": "adept-power",
+        "summary": "Allows running on walls for a short distance. RR 1 on Athletics (running) Tests."
+      },
+      {
+        "name": "Improved stealth",
+        "kind": "adept-power",
+        "summary": "RR 2 on Stealth (physical sneaking) Tests."
+      },
+      {
+        "name": "Improved perception",
+        "kind": "adept-power",
+        "summary": "RR 2 on Perception (physical) Tests."
+      }
+    ]
+  }
+}

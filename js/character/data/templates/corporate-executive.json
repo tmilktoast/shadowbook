@@ -1,0 +1,212 @@
+{
+  "id": "corporate-executive",
+  "label": "Corporate Executive",
+  "source": { "book": "SRA2", "page": 255 },
+  "attributes": {
+    "strength": { "base": 2, "variants": { "ork": 3, "troll": 4 } },
+    "agility": { "base": 2 },
+    "willpower": { "base": 2, "variants": { "dwarf": 3 } },
+    "logic": { "base": 3 },
+    "charisma": { "base": 3, "variants": { "elf": 4 } }
+  },
+  "skills": [
+    {
+      "id": "athletics",
+      "label": "Athletics",
+      "rank": { "base": 2 },
+      "attribute": "strength",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 2, "variants": { "ork": 3, "troll": 3 } },
+      "specializations": [
+        {
+          "id": "ranged-defense",
+          "label": "ranged defense",
+          "rank": { "base": 2 },
+          "attribute": "agility",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 2 }
+        }
+      ]
+    },
+    {
+      "id": "perception",
+      "label": "Perception",
+      "rank": { "base": 3 },
+      "attribute": "logic",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": [
+        {
+          "id": "social",
+          "label": "social",
+          "rank": { "base": 5 },
+          "attribute": "logic",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 4 }
+        }
+      ]
+    },
+    {
+      "id": "influence",
+      "label": "Influence",
+      "rank": { "base": 4 },
+      "attribute": "charisma",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3, "variants": { "elf": 4 } },
+      "specializations": [
+        {
+          "id": "bluff",
+          "label": "bluff",
+          "rank": { "base": 6 },
+          "attribute": "charisma",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 4 }
+        }
+      ]
+    },
+    {
+      "id": "electronics",
+      "label": "Electronics",
+      "note": "One of 4 alternative Skills under the book's \"Choose 1 Skill and Specialization\" heading — this Corporate Executive has only one of Electronics, Influence (negotiation), Engineering, or Network (corporate), not all four. The bracketed \"senior executive\" figures (encoded here via the ampVariant mechanism under a synthetic amp name \"Senior executive\", not a real Shadow Amp) apply only if this particular NPC is specifically a senior executive — see the Encephalon entry in requiredAmps, whose RR bonus is what the book attributes this bump to.",
+      "rank": { "base": 6 },
+      "attribute": "logic",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 4 },
+      "specializations": [
+        {
+          "id": "matrix-search",
+          "label": "Matrix search",
+          "rank": { "base": 8 },
+          "attribute": "logic",
+          "rr": { "base": 1, "ampVariant": { "amp": "Senior executive", "base": 2 } },
+          "averageHits": { "base": 6, "ampVariant": { "amp": "Senior executive", "base": 7 } }
+        }
+      ]
+    },
+    {
+      "id": "influence",
+      "label": "Influence",
+      "note": "One of 4 alternative Skills under the book's \"Choose 1 Skill and Specialization\" heading — this Corporate Executive has only one of Electronics, Influence (negotiation), Engineering, or Network (corporate), not all four. The bracketed \"senior executive\" figures (encoded here via the ampVariant mechanism under a synthetic amp name \"Senior executive\", not a real Shadow Amp) apply only if this particular NPC is specifically a senior executive — see the Encephalon entry in requiredAmps, whose RR bonus is what the book attributes this bump to. The book's own text prints the senior-executive Negotiation line's attribute abbreviation as \"8+L\" (apparently copy-pasted from the Engineering option above it); kept as charisma here since Negotiation is a Charisma specialization throughout the rest of the book and the rank number itself (8) is unaffected either way.",
+      "rank": { "base": 6 },
+      "attribute": "charisma",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 4 },
+      "specializations": [
+        {
+          "id": "negotiation",
+          "label": "negotiation",
+          "rank": { "base": 8 },
+          "attribute": "charisma",
+          "rr": { "base": 1, "ampVariant": { "amp": "Senior executive", "base": 2 } },
+          "averageHits": { "base": 6, "ampVariant": { "amp": "Senior executive", "base": 7 } }
+        }
+      ]
+    },
+    {
+      "id": "engineering",
+      "label": "Engineering",
+      "note": "One of 4 alternative Skills under the book's \"Choose 1 Skill and Specialization\" heading — this Corporate Executive has only one of Electronics, Influence (negotiation), Engineering, or Network (corporate), not all four. The bracketed \"senior executive\" figures (encoded here via the ampVariant mechanism under a synthetic amp name \"Senior executive\", not a real Shadow Amp) apply only if this particular NPC is specifically a senior executive — see the Encephalon entry in requiredAmps, whose RR bonus is what the book attributes this bump to.",
+      "rank": { "base": 6 },
+      "attribute": "logic",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 4 },
+      "specializations": [
+        {
+          "id": null,
+          "label": "choose one Build & Repair",
+          "rank": { "base": 8 },
+          "attribute": "logic",
+          "rr": { "base": 1, "ampVariant": { "amp": "Senior executive", "base": 2 } },
+          "averageHits": { "base": 6, "ampVariant": { "amp": "Senior executive", "base": 7 } }
+        }
+      ]
+    },
+    {
+      "id": "network",
+      "label": "Network",
+      "note": "One of 4 alternative Skills under the book's \"Choose 1 Skill and Specialization\" heading — this Corporate Executive has only one of Electronics, Influence (negotiation), Engineering, or Network (corporate), not all four. The bracketed \"senior executive\" figures (encoded here via the ampVariant mechanism under a synthetic amp name \"Senior executive\", not a real Shadow Amp) apply only if this particular NPC is specifically a senior executive — see the Encephalon entry in requiredAmps, whose RR bonus is what the book attributes this bump to.",
+      "rank": { "base": 6 },
+      "attribute": "charisma",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 4 },
+      "specializations": [
+        {
+          "id": "corporate",
+          "label": "corporate",
+          "rank": { "base": 8 },
+          "attribute": "charisma",
+          "rr": { "base": 1, "ampVariant": { "amp": "Senior executive", "base": 2 } },
+          "averageHits": { "base": 6, "ampVariant": { "amp": "Senior executive", "base": 7 } }
+        }
+      ]
+    }
+  ],
+  "spells": [],
+  "weapons": [
+    {
+      "name": "Unarmed",
+      "dv": { "base": 2, "variants": { "ork": 3, "troll": 4 } },
+      "range": "OK/–/–/–"
+    },
+    {
+      "name": "Taser",
+      "dv": { "base": 5 },
+      "range": "OK/OK/–/–",
+      "note": "One action lost if damage is dealt."
+    }
+  ],
+  "equipment": ["Commlink", "Armored clothes (Armor 1) or Long coat (Armor 2)"],
+  "woundThresholds": {
+    "physical": {
+      "base": [3, 6, 9],
+      "variants": { "ork": [4, 7, 10], "troll": [5, 8, 11] },
+      "ampVariant": {
+        "amp": "Long coat",
+        "base": [4, 7, 10],
+        "variants": { "ork": [5, 8, 11], "troll": [6, 9, 12] }
+      }
+    },
+    "mental": {
+      "base": [2, 5, 8],
+      "variants": { "dwarf": [3, 6, 9] }
+    }
+  },
+  "requiredAmps": [
+    {
+      "name": "Datajack",
+      "kind": "cyberware",
+      "summary": "DNI, cold-sim VR.",
+      "catalogId": "datajack"
+    },
+    {
+      "name": "Encephalon",
+      "kind": "cyberware",
+      "summary": "RR 1 on specialization linked to work (senior executive only)."
+    }
+  ],
+  "chooseAmps": {
+    "count": 1,
+    "options": [
+      {
+        "name": "Browse app",
+        "kind": "gear",
+        "summary": "RR 1 on Electronics (Matrix search) Tests."
+      },
+      {
+        "name": "Marketing database",
+        "kind": "gear",
+        "summary": "RR 1 on Influence (negotiation) Tests."
+      },
+      {
+        "name": "AR technical database",
+        "kind": "gear",
+        "summary": "RR 1 on Engineering (choose one B&R) Tests."
+      },
+      {
+        "name": "Always plotting",
+        "kind": "quality",
+        "summary": "RR 1 on Network (corporate) Tests."
+      }
+    ]
+  }
+}

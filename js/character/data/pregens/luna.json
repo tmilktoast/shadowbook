@@ -1,0 +1,91 @@
+{
+  "id": "luna",
+  "streetname": "Luna",
+  "portrait": null,
+  "metatype": "ork",
+  "source": { "book": "SRA2", "page": 99 },
+  "attributes": {
+    "strength": 2,
+    "agility": 2,
+    "willpower": 4,
+    "logic": 3,
+    "charisma": 3
+  },
+  "skills": {
+    "athletics": { "rating": 2, "specializations": ["ranged-defense"] },
+    "close-combat": { "rating": 2, "specializations": ["astral-combat"] },
+    "conjuring": { "rating": 3, "specializations": ["banishing"] },
+    "influence": { "rating": 3, "specializations": ["negotiation"] },
+    "network": { "rating": 4, "specializations": ["magic"] },
+    "perception": { "rating": 4, "specializations": ["astral"] },
+    "sorcery": { "rating": 5, "specializations": ["detection-spells"] },
+    "stealth": { "rating": 2, "specializations": ["astral-sneaking"] }
+  },
+  "knowledgeSkills": [],
+  "amps": [
+    {
+      "type": "awakened",
+      "name": "Awakened",
+      "description": "Astral perception and projection, sorcery, conjuring.",
+      "effects": [
+        { "effect": "astral-projection" },
+        { "effect": "sorcery" },
+        { "effect": "conjuring" }
+      ]
+    },
+    {
+      "type": "quality",
+      "name": "Quetzalcoatl mentor spirit",
+      "description": "RR 1 on Sorcery (detection spells) Tests. Stubborn (disposition): once set on something, she won't change her mind, but push to reach her goal.",
+      "effects": [{ "effect": "rr-specialization", "target": "sorcery/detection-spells" }]
+    },
+    {
+      "type": "quality",
+      "name": "Mystic Tattoo Focus",
+      "description": "RR 2 on Perception (astral) Tests. RR 1 on Stealth (astral sneaking) Tests. RR 1 on Close Combat (astral combat) Tests. RR 1 on Conjuring (banishing) Tests.",
+      "effects": [
+        { "effect": "rr-specialization", "target": "perception/astral" },
+        { "effect": "rr-specialization", "target": "perception/astral" },
+        { "effect": "rr-specialization", "target": "stealth/astral-sneaking" },
+        { "effect": "rr-specialization", "target": "close-combat/astral-combat" },
+        { "effect": "rr-specialization", "target": "conjuring/banishing" }
+      ]
+    },
+    { "catalogId": "talismonger", "nameOverride": "Faba, owner of Good Vibes" }
+  ],
+  "spells": [
+    "Mask (indirect illusion spell, Sorcery Test success = detection threshold)",
+    "Chimera (indirect illusion spell, Sorcery Test success = detection threshold)",
+    "Detect Magic (enhancement detection spell, hits determine range)",
+    "Analyze Magic (analysis detection spell, threshold 4)",
+    "Heal (health spell)"
+  ],
+  "weapons": [
+    { "name": "Unarmed", "type": "Weapon", "dv": 2, "range": "OK/–/–/–" },
+    { "name": "Unarmed (astral only)", "type": "Weapon", "dv": 3, "range": "OK/–/–/–" }
+  ],
+  "armor": {
+    "main": { "name": "Lined Coat", "rating": 3 },
+    "secondary": null
+  },
+  "equipment": ["Fake SIN", "Commlink"],
+  "keywords": {
+    "socialStatus": "Ork",
+    "origin": "Seattle / Snohomish",
+    "role": "Occult Investigator (Shaman)",
+    "extra": "Aztlan"
+  },
+  "lifestyle": "low",
+  "dispositions": [
+    "Wary of Aztechnology",
+    "Sea Dragon Fan",
+    "Creative Artist",
+    "Stubborn"
+  ],
+  "cues": [
+    "Stay calm until the time for calm is over.",
+    "I can handle everything.",
+    "It's me, with my own two hands and two or three friends.",
+    "I am going to tattoo that thing on you!"
+  ]
+}

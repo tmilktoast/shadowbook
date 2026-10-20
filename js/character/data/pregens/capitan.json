@@ -1,0 +1,107 @@
+{
+  "id": "capitan",
+  "streetname": "Capitán",
+  "portrait": null,
+  "metatype": "dwarf",
+  "source": { "book": "SRA2", "page": 111 },
+  "attributes": {
+    "strength": 3,
+    "agility": 3,
+    "willpower": 3,
+    "logic": 2,
+    "charisma": 4
+  },
+  "skills": {
+    "athletics": { "rating": 3, "specializations": ["ranged-defense"] },
+    "close-combat": { "rating": 4, "specializations": [] },
+    "influence": { "rating": 4, "specializations": ["negotiation"] },
+    "network": { "rating": 3, "specializations": [] },
+    "perception": { "rating": 4, "specializations": [] },
+    "ranged-weapons": { "rating": 5, "specializations": [] },
+    "stealth": { "rating": 4, "specializations": ["physical-sneaking"] },
+    "survival": { "rating": 5, "specializations": [] }
+  },
+  "knowledgeSkills": [],
+  "amps": [
+    {
+      "type": "awakened",
+      "name": "Awakened",
+      "description": "Adept.",
+      "effects": [{ "effect": "adept" }]
+    },
+    {
+      "type": "quality",
+      "name": "Capybara mentor spirit",
+      "description": "RR 1 on Survival (composure); RR 1 on Stealth (physical sneaking); Social (disposition): favors the group's mutual support and protection.",
+      "effects": [
+        { "effect": "rr-specialization", "target": "survival/composure" },
+        { "effect": "rr-specialization", "target": "stealth/physical-sneaking" }
+      ]
+    },
+    { "catalogId": "vocal-control" },
+    { "catalogId": "combat-sense" },
+    {
+      "type": "equipment",
+      "name": "AK-97 assault rifle",
+      "description": "Detachable bayonet.",
+      "effects": [{ "effect": "narrative", "note": "Detachable bayonet" }],
+      "item": "assault rifle",
+      "itemCost": 2500
+    }
+  ],
+  "weapons": [
+    { "name": "Unarmed", "type": "Weapon", "dv": 3, "range": "OK/–/–/–" },
+    {
+      "name": "Colt Manhunter",
+      "subtype": "heavy pistol",
+      "type": "Weapon",
+      "dv": 5,
+      "range": "OK/OK/Dis./–"
+    },
+    {
+      "name": "AK-97",
+      "subtype": "assault rifle",
+      "type": "Weapon",
+      "dv": 7,
+      "range": "Dis./OK/OK/Dis."
+    },
+    {
+      "name": "Bayonet",
+      "subtype": "blade (as knife)",
+      "type": "Weapon",
+      "dv": 4,
+      "range": "OK/–/–/–"
+    },
+    {
+      "name": "Bayonet",
+      "subtype": "blade (mounted on AK-97)",
+      "type": "Weapon",
+      "dv": 5,
+      "range": "OK/–/–/–"
+    }
+  ],
+  "armor": {
+    "main": { "name": "Kevlar vest", "rating": 3 },
+    "secondary": null
+  },
+  "equipment": ["Fake SIN", "Commlink", "Medkit"],
+  "keywords": {
+    "socialStatus": "Dwarf",
+    "origin": "Amazonia",
+    "role": "Combat Face",
+    "extra": "Mercenary"
+  },
+  "lifestyle": "low",
+  "dispositions": [
+    "Social",
+    "Conciliatory: avoid confrontation as much as possible",
+    "Makes light of everything to relieve any tension",
+    "Hates blood magic, the Azzies, and being lumped in as one of them"
+  ],
+  "cues": [
+    "The end does not justify the means.",
+    "I am sure we can settle this like civilized people.",
+    "How do we get out of this mess? Close ranks and focus fire!",
+    "Me cago en tu puta estirpe, cabrón! (I shit on your fragging lineage, asshole!)"
+  ]
+}

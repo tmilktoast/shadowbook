@@ -1,0 +1,191 @@
+{
+  "id": "investigator",
+  "label": "Investigator",
+  "source": { "book": "SRA2", "page": 254 },
+  "attributes": {
+    "strength": { "base": 2, "variants": { "ork": 3, "troll": 4 } },
+    "agility": { "base": 2 },
+    "willpower": { "base": 3, "variants": { "dwarf": 4 } },
+    "logic": { "base": 3 },
+    "charisma": { "base": 3, "variants": { "elf": 4 } }
+  },
+  "skills": [
+    {
+      "id": "athletics",
+      "label": "Athletics",
+      "rank": { "base": 4 },
+      "attribute": "strength",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3, "variants": { "troll": 4 } },
+      "specializations": [
+        {
+          "id": "ranged-defense",
+          "label": "ranged defense",
+          "rank": { "base": 4 },
+          "attribute": "agility",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 3 }
+        }
+      ]
+    },
+    {
+      "id": "ranged-weapons",
+      "label": "Ranged Weapons",
+      "rank": { "base": 4 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": [
+        {
+          "id": "pistols",
+          "label": "pistols",
+          "rank": { "base": 4 },
+          "attribute": "agility",
+          "rr": { "base": 1 },
+          "averageHits": { "base": 4 }
+        }
+      ]
+    },
+    {
+      "id": "close-combat",
+      "label": "Close Combat",
+      "rank": { "base": 4 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": []
+    },
+    {
+      "id": "stealth",
+      "label": "Stealth",
+      "rank": { "base": 4 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": [
+        {
+          "id": "physical-sneaking",
+          "label": "physical sneaking",
+          "rank": { "base": 6 },
+          "attribute": "agility",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 4 }
+        }
+      ]
+    },
+    {
+      "id": "perception",
+      "label": "Perception",
+      "rank": { "base": 5 },
+      "attribute": "logic",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 4 },
+      "specializations": [
+        {
+          "id": "physical",
+          "label": "physical",
+          "rank": { "base": 7 },
+          "attribute": "logic",
+          "rr": { "base": 1 },
+          "averageHits": { "base": 5 }
+        }
+      ]
+    },
+    {
+      "id": "electronics",
+      "label": "Electronics",
+      "rank": { "base": 4 },
+      "attribute": "logic",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": [
+        {
+          "id": "matrix-search",
+          "label": "Matrix search",
+          "rank": { "base": 6 },
+          "attribute": "logic",
+          "rr": { "base": 1 },
+          "averageHits": { "base": 5 }
+        }
+      ]
+    },
+    {
+      "id": "influence",
+      "label": "Influence",
+      "rank": { "base": 6 },
+      "attribute": "charisma",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 4 },
+      "specializations": [
+        {
+          "id": "intimidation",
+          "label": "intimidation",
+          "rank": { "base": 8 },
+          "attribute": "charisma",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 5 }
+        }
+      ]
+    },
+    {
+      "id": "network",
+      "label": "Network",
+      "rank": { "base": 5 },
+      "attribute": "charisma",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 4 },
+      "specializations": [
+        {
+          "id": "government",
+          "label": "government",
+          "rank": { "base": 7 },
+          "attribute": "charisma",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 4, "variants": { "elf": 5 } }
+        }
+      ]
+    }
+  ],
+  "spells": [],
+  "weapons": [
+    {
+      "name": "Unarmed",
+      "dv": { "base": 2, "variants": { "ork": 3, "troll": 4 } },
+      "range": "OK/–/–/–"
+    },
+    {
+      "name": "Heavy pistol",
+      "dv": { "base": 5 },
+      "range": "OK/OK/Dis./–"
+    }
+  ],
+  "equipment": ["Commlink", "Lined coat (Armor 2)"],
+  "woundThresholds": {
+    "physical": {
+      "base": [4, 7, 10],
+      "variants": { "ork": [5, 8, 11], "troll": [6, 9, 12] }
+    },
+    "mental": {
+      "base": [3, 6, 9],
+      "variants": { "dwarf": [4, 7, 10] }
+    }
+  },
+  "requiredAmps": [
+    {
+      "name": "Cybereyes",
+      "kind": "cyberware",
+      "summary": "RR 1 on Perception (physical) Tests; low-light vision."
+    },
+    {
+      "name": "Lone Star DB",
+      "kind": "gear",
+      "summary": "RR 1 on Electronics (Matrix search) Tests."
+    },
+    {
+      "name": "Smartlink",
+      "kind": "cyberware",
+      "summary": "RR 1 on Ranged Weapons (pistols) Tests."
+    }
+  ],
+  "chooseAmps": { "count": 0, "options": [] }
+}

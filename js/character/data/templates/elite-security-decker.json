@@ -1,0 +1,199 @@
+{
+  "id": "elite-security-decker",
+  "label": "Elite Security / Police Decker",
+  "source": { "book": "SRA2", "page": 252 },
+  "attributes": {
+    "strength": { "base": 2, "variants": { "ork": 3, "troll": 4 } },
+    "agility": { "base": 3 },
+    "willpower": { "base": 3, "variants": { "dwarf": 4 } },
+    "logic": { "base": 4 },
+    "charisma": { "base": 2, "variants": { "elf": 3 } }
+  },
+  "skills": [
+    {
+      "id": "athletics",
+      "label": "Athletics",
+      "rank": { "base": 4 },
+      "attribute": "strength",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3, "variants": { "troll": 4 } },
+      "specializations": [
+        {
+          "id": "ranged-defense",
+          "label": "ranged defense",
+          "rank": { "base": 6 },
+          "attribute": "agility",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 4 }
+        }
+      ]
+    },
+    {
+      "id": "ranged-weapons",
+      "label": "Ranged Weapons",
+      "rank": { "base": 5 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 4 },
+      "specializations": []
+    },
+    {
+      "id": "close-combat",
+      "label": "Close Combat",
+      "rank": { "base": 3 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": []
+    },
+    {
+      "id": "stealth",
+      "label": "Stealth",
+      "rank": { "base": 6 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 4 },
+      "specializations": [
+        {
+          "id": "physical-sneaking",
+          "label": "physical sneaking",
+          "rank": { "base": 8 },
+          "attribute": "agility",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 5 }
+        }
+      ]
+    },
+    {
+      "id": "perception",
+      "label": "Perception",
+      "rank": { "base": 6 },
+      "attribute": "logic",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 4 },
+      "specializations": [
+        {
+          "id": "matrix",
+          "label": "Matrix",
+          "rank": { "base": 8 },
+          "attribute": "logic",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 5 }
+        }
+      ]
+    },
+    {
+      "id": "electronics",
+      "label": "Electronics",
+      "rank": { "base": 6 },
+      "attribute": "logic",
+      "rr": { "base": 1 },
+      "averageHits": { "base": 5 },
+      "specializations": [
+        {
+          "id": "matrix-protection",
+          "label": "Matrix protection",
+          "rank": { "base": 8 },
+          "attribute": "logic",
+          "rr": { "base": 1 },
+          "averageHits": { "base": 6 }
+        },
+        {
+          "id": "matrix-search",
+          "label": "Matrix search",
+          "rank": { "base": 8 },
+          "attribute": "logic",
+          "rr": { "base": 1 },
+          "averageHits": { "base": 6 }
+        }
+      ]
+    },
+    {
+      "id": "cracking",
+      "label": "Cracking",
+      "rank": { "base": 6 },
+      "attribute": "logic",
+      "rr": { "base": 1 },
+      "averageHits": { "base": 5 },
+      "specializations": [
+        {
+          "id": "cybercombat",
+          "label": "cybercombat",
+          "rank": { "base": 8 },
+          "attribute": "willpower",
+          "rr": { "base": 1, "ampVariant": { "amp": "Aggressor", "base": 3 } },
+          "averageHits": { "base": 6, "ampVariant": { "amp": "Aggressor", "base": 8 } }
+        },
+        {
+          "id": "brute-force",
+          "label": "brute force",
+          "rank": { "base": 8 },
+          "attribute": "logic",
+          "rr": { "base": 1, "ampVariant": { "amp": "Exploit", "base": 3 } },
+          "averageHits": { "base": 6, "ampVariant": { "amp": "Exploit", "base": 8 } }
+        }
+      ]
+    }
+  ],
+  "spells": [],
+  "weapons": [
+    {
+      "name": "Unarmed",
+      "dv": { "base": 2, "variants": { "ork": 3, "troll": 4 } },
+      "range": "OK/–/–/–"
+    },
+    {
+      "name": "Stun baton",
+      "dv": { "base": 5 },
+      "range": "OK/–/–/–",
+      "note": "One action lost if damage is dealt."
+    },
+    {
+      "name": "Heavy pistol",
+      "dv": { "base": 5 },
+      "range": "OK/OK/Dis./–"
+    },
+    {
+      "name": "Cybercombat",
+      "dv": { "base": 5, "ampVariant": { "amp": "Hammer", "base": 7 } },
+      "range": null
+    }
+  ],
+  "equipment": ["Commlink", "Full body armor & helmet (Armor 4)"],
+  "woundThresholds": {
+    "physical": {
+      "base": [6, 9, 12],
+      "variants": { "ork": [7, 10, 13], "troll": [8, 11, 14] }
+    },
+    "mental": {
+      "base": [3, 6, 9],
+      "variants": { "dwarf": [4, 7, 10] }
+    }
+  },
+  "requiredAmps": [
+    {
+      "name": "Cyberdeck",
+      "kind": "cyberdeck",
+      "summary": "Attack 5, Firewall 5, biofeedback filter: Armor +1."
+    },
+    {
+      "name": "Cyberjack",
+      "kind": "cyberware",
+      "summary": "DNI, hot-sim VR, +1 action per narration in VR."
+    },
+    {
+      "name": "Skillwires",
+      "kind": "cyberware",
+      "summary": "RR 1 on Electronics and Cracking Tests."
+    }
+  ],
+  "chooseAmps": {
+    "count": 2,
+    "options": [
+      { "name": "Exploit", "kind": "cyberdeck program", "summary": "RR 2 on Cracking (brute force) Tests." },
+      { "name": "Aggressor", "kind": "cyberdeck program", "summary": "RR 2 on Cracking (cybercombat) Tests." },
+      { "name": "Biofeedback", "kind": "cyberdeck program", "summary": "Inflict biofeedback damage in cybercombat." },
+      { "name": "Hammer", "kind": "cyberdeck program", "summary": "Cybercombat DV +2." }
+    ]
+  }
+}

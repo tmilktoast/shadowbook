@@ -1,0 +1,164 @@
+{
+  "id": "adept-ganger",
+  "label": "Adept Ganger",
+  "source": { "book": "SRA2", "page": 245 },
+  "attributes": {
+    "strength": { "base": 2, "variants": { "ork": 3, "troll": 4 } },
+    "agility": { "base": 3 },
+    "willpower": { "base": 2, "variants": { "dwarf": 3 } },
+    "logic": { "base": 2 },
+    "charisma": { "base": 2, "variants": { "elf": 3 } }
+  },
+  "skills": [
+    {
+      "id": "athletics",
+      "label": "Athletics",
+      "rank": { "base": 5 },
+      "attribute": "strength",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3, "variants": { "ork": 4, "troll": 4 } },
+      "specializations": [
+        {
+          "id": "ranged-defense",
+          "label": "ranged defense",
+          "rank": { "base": 5 },
+          "attribute": "agility",
+          "rr": { "base": 0, "ampVariant": { "amp": "Combat sense", "base": 1 } },
+          "averageHits": { "base": 4, "ampVariant": { "amp": "Combat sense", "base": 5 } }
+        }
+      ]
+    },
+    {
+      "id": "close-combat",
+      "label": "Close Combat",
+      "rank": { "base": 5 },
+      "attribute": "agility",
+      "rr": { "base": 0, "ampVariant": { "amp": "Improved close combat", "base": 1 } },
+      "averageHits": { "base": 4, "ampVariant": { "amp": "Improved close combat", "base": 5 } },
+      "specializations": [
+        {
+          "id": "unarmed",
+          "label": "unarmed",
+          "rank": { "base": 7 },
+          "attribute": "agility",
+          "rr": { "base": 0, "ampVariant": { "amp": "Improved close combat", "base": 1 } },
+          "averageHits": { "base": 4, "ampVariant": { "amp": "Improved close combat", "base": 5 } }
+        },
+        {
+          "id": "defense",
+          "label": "defense",
+          "rank": { "base": 5 },
+          "attribute": "agility",
+          "rr": { "base": 0, "ampVariant": { "amp": "Combat sense", "base": 1 } },
+          "averageHits": { "base": 4, "ampVariant": { "amp": "Combat sense", "base": 5 } }
+        }
+      ]
+    },
+    {
+      "id": "stealth",
+      "label": "Stealth",
+      "rank": { "base": 3 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": [
+        {
+          "id": "physical-sneaking",
+          "label": "physical sneaking",
+          "rank": { "base": 3 },
+          "attribute": "agility",
+          "rr": { "base": 0, "ampVariant": { "amp": "Improved stealth", "base": 1 } },
+          "averageHits": { "base": 3, "ampVariant": { "amp": "Improved stealth", "base": 4 } }
+        }
+      ]
+    },
+    {
+      "id": "perception",
+      "label": "Perception",
+      "rank": { "base": 3 },
+      "attribute": "logic",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": []
+    },
+    {
+      "id": "influence",
+      "label": "Influence",
+      "rank": { "base": 1 },
+      "attribute": "charisma",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 2 },
+      "specializations": [
+        {
+          "id": "intimidation",
+          "label": "intimidation",
+          "rank": { "base": 3 },
+          "attribute": "charisma",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 3 }
+        }
+      ]
+    }
+  ],
+  "spells": [],
+  "weapons": [
+    {
+      "name": "Unarmed",
+      "dv": {
+        "base": 2,
+        "variants": { "ork": 3, "troll": 4 },
+        "ampVariant": {
+          "amp": "Electricity elemental strike",
+          "base": 3,
+          "variants": { "ork": 4, "troll": 5 }
+        }
+      },
+      "range": "OK/–/–/–"
+    }
+  ],
+  "equipment": ["Commlink", "Gang leathers (Armor 1)"],
+  "woundThresholds": {
+    "physical": {
+      "base": [3, 6, 9],
+      "variants": { "ork": [4, 7, 10], "troll": [5, 8, 11] }
+    },
+    "mental": {
+      "base": [2, 5, 8],
+      "variants": { "dwarf": [3, 6, 9] }
+    }
+  },
+  "requiredAmps": [
+    {
+      "name": "Awakened",
+      "kind": "awakened",
+      "summary": "Adept."
+    }
+  ],
+  "chooseAmps": {
+    "count": 1,
+    "options": [
+      {
+        "name": "Combat sense",
+        "kind": "adept power",
+        "summary": "RR 1 on Athletics (ranged defense) and Close Combat (defense) Tests."
+      },
+      {
+        "name": "Electricity elemental strike",
+        "kind": "adept power",
+        "summary": "Unarmed DV +1; target loses an action if damage is dealt.",
+        "catalogId": "elemental-strike"
+      },
+      { "name": "Improved reflexes", "kind": "adept power", "summary": "+1 action per fight." },
+      {
+        "name": "Improved stealth",
+        "kind": "adept power",
+        "summary": "RR 1 on Stealth (physical sneaking) Tests."
+      },
+      {
+        "name": "Improved close combat",
+        "kind": "adept power",
+        "summary": "RR 1 on Close Combat (unarmed) Tests."
+      }
+    ]
+  }
+}

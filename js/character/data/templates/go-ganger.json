@@ -1,0 +1,243 @@
+{
+  "id": "go-ganger",
+  "label": "Go-Ganger / Rigger Ganger",
+  "source": { "book": "SRA2", "page": 246 },
+  "attributes": {
+    "strength": { "base": 2, "variants": { "ork": 3, "troll": 4 } },
+    "agility": { "base": 3 },
+    "willpower": { "base": 2, "variants": { "dwarf": 3 } },
+    "logic": { "base": 2 },
+    "charisma": { "base": 2, "variants": { "elf": 3 } }
+  },
+  "skills": [
+    {
+      "id": "athletics",
+      "label": "Athletics",
+      "rank": { "base": 2 },
+      "attribute": "strength",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 2, "variants": { "ork": 3, "troll": 3 } },
+      "specializations": [
+        {
+          "id": "ranged-defense",
+          "label": "ranged defense",
+          "rank": { "base": 2 },
+          "attribute": "agility",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 3 }
+        }
+      ]
+    },
+    {
+      "id": "ranged-weapons",
+      "label": "Ranged Weapons",
+      "rank": { "base": 5 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 4 },
+      "specializations": [
+        {
+          "id": "pistols",
+          "label": "pistols",
+          "rank": { "base": 7 },
+          "attribute": "agility",
+          "rr": { "base": 0, "ampVariant": { "amp": "Cybereyes", "base": 1 } },
+          "averageHits": { "base": 4, "ampVariant": { "amp": "Cybereyes", "base": 5 } }
+        }
+      ]
+    },
+    {
+      "id": "close-combat",
+      "label": "Close Combat",
+      "rank": { "base": 3 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": []
+    },
+    {
+      "id": "stealth",
+      "label": "Stealth",
+      "rank": { "base": 2 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": []
+    },
+    {
+      "id": "perception",
+      "label": "Perception",
+      "rank": { "base": 3 },
+      "attribute": "logic",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": []
+    },
+    {
+      "id": "piloting",
+      "label": "Piloting",
+      "rank": { "base": 5 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 4 },
+      "specializations": [
+        {
+          "id": "bikes",
+          "label": "bikes",
+          "rank": { "base": 7 },
+          "attribute": "agility",
+          "rr": { "base": 0, "ampVariant": { "amp": "Custom bike", "base": 1 } },
+          "averageHits": { "base": 4, "ampVariant": { "amp": "Custom bike", "base": 5 } }
+        },
+        {
+          "id": "ground-drones",
+          "label": "ground drones",
+          "rank": { "base": 7 },
+          "attribute": "agility",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 4 }
+        }
+      ]
+    },
+    {
+      "id": "influence",
+      "label": "Influence",
+      "rank": { "base": 1 },
+      "attribute": "charisma",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 2 },
+      "specializations": [
+        {
+          "id": "intimidation",
+          "label": "intimidation",
+          "rank": { "base": 3 },
+          "attribute": "charisma",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 3 }
+        }
+      ]
+    },
+    {
+      "id": "engineering",
+      "label": "Engineering",
+      "rank": { "base": 4 },
+      "attribute": "logic",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": [
+        {
+          "id": "remote-controlled-weapons",
+          "label": "remote-controlled weapons",
+          "rank": { "base": 6 },
+          "attribute": "logic",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 4 }
+        }
+      ]
+    }
+  ],
+  "spells": [],
+  "weapons": [
+    {
+      "name": "Unarmed",
+      "dv": { "base": 2, "variants": { "ork": 3, "troll": 4 } },
+      "range": "OK/–/–/–"
+    },
+    {
+      "name": "Knife",
+      "dv": { "base": 3, "variants": { "ork": 4, "troll": 5 } },
+      "range": "OK/–/–/–"
+    },
+    {
+      "name": "Machine pistol",
+      "dv": { "base": 4 },
+      "range": "OK/OK/Dis./–"
+    },
+    {
+      "name": "Submachine gun (on Doberman)",
+      "dv": { "base": 5 },
+      "range": "Dis./OK/OK/–"
+    }
+  ],
+  "equipment": ["Commlink", "Gang leathers (Armor 1)"],
+  "woundThresholds": {
+    "physical": {
+      "base": [3, 6, 9],
+      "variants": { "ork": [4, 7, 10], "troll": [5, 8, 11] },
+      "ampVariant": {
+        "amp": "Dermal plating",
+        "base": [4, 7, 10],
+        "variants": { "ork": [5, 8, 11], "troll": [6, 9, 12] }
+      }
+    },
+    "mental": {
+      "base": [2, 5, 8],
+      "variants": { "dwarf": [3, 6, 9] }
+    }
+  },
+  "requiredAmps": [],
+  "chooseAmps": {
+    "count": 1,
+    "note": "This stat block prints two alternate sub-builds (Go-Ganger and Rigger) sharing the same attributes/skills but different Shadow Amp loadouts — the schema has no native concept of alternate builds, so every option below is folded into this one list, with each `summary` prefixed to say which group it belongs to. [Either build] is a 'choose 1 Shadow Amp' pool the book prints with no header (top of the right-hand column, right after the title) — it reuses 3 of the base Ganger template's 5 options (Jazz, Zealous, Dermal plating), omitting Muscle replacement and Cyberarm, which aren't reprinted here. [Go-Ganger] is that build's 'choose 1 vehicle + 1 Shadow Amp'. [Rigger] is that build's '3 Shadow Amps' — a fixed package, not a pick-one choice within that group; taking the Rigger build means taking all 3. `count` (1) only describes the [Either build] pool's own size.",
+    "options": [
+      {
+        "name": "Jazz",
+        "kind": "drug",
+        "summary": "[Either build] +1 action per fight."
+      },
+      {
+        "name": "Zealous",
+        "kind": "quality",
+        "summary": "[Either build] Advantage when resisting intimidation or fear; high fighting spirit."
+      },
+      {
+        "name": "Dermal plating",
+        "kind": "cyberware",
+        "summary": "[Either build] +1 Armor.",
+        "catalogId": "dermal-plating"
+      },
+      {
+        "name": "Racing bike",
+        "kind": "vehicle",
+        "summary": "[Go-Ganger] Choose 1 of 3 vehicles — Pilot 6, Body 4, Handling 2, Speed 6, Armor 0; wound thresholds 4/8/12 (printed as \"Sport bike\" in the Wound Thresholds list)."
+      },
+      {
+        "name": "Chopper",
+        "kind": "vehicle",
+        "summary": "[Go-Ganger] Choose 1 of 3 vehicles — Pilot 6, Body 5, Handling 2, Speed 5, Armor 0; wound thresholds 5/10/15 (printed jointly with Sports car as \"Chopper / sport car\")."
+      },
+      {
+        "name": "Sports car",
+        "kind": "vehicle",
+        "summary": "[Go-Ganger] Choose 1 of 3 vehicles — Pilot 6, Body 5, Handling 2, Speed 5, Armor 0; wound thresholds 5/10/15 (printed jointly with Chopper as \"Chopper / sport car\")."
+      },
+      {
+        "name": "Custom bike",
+        "kind": "vehicle improvement",
+        "summary": "[Go-Ganger] The build's +1 Shadow Amp choice — RR 1 on Piloting (bikes) Tests."
+      },
+      {
+        "name": "Cybereyes",
+        "kind": "cyberware",
+        "summary": "[Go-Ganger] The build's +1 Shadow Amp choice — RR 1 on Ranged Weapons (pistols) Tests."
+      },
+      {
+        "name": "Datajack",
+        "kind": "cyberware",
+        "summary": "[Rigger] One of the build's 3 fixed Shadow Amps — DNI, cold-sim VR.",
+        "catalogId": "datajack"
+      },
+      {
+        "name": "Rigger command console",
+        "kind": "gear",
+        "summary": "[Rigger] One of the build's 3 fixed Shadow Amps — captain chair mode, 2 concurrent drones."
+      },
+      {
+        "name": "GM-Nissan Doberman",
+        "kind": "drone",
+        "summary": "[Rigger] One of the build's 3 fixed Shadow Amps — 2 medium drones, Pilot 6, Body 2, Handling 7, Speed 3, Armor 2, with submachine gun; wound thresholds 4/6/8.",
+        "catalogId": "gm-nissan-doberman"
+      }
+    ]
+  }
+}
