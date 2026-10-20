@@ -201,6 +201,40 @@ textarea {
   width: 4ch;
 }
 
+/* Advantage/Disadvantage stance slider (core book p. 65): a 3-stop range
+   input (-1/0/1) rather than a dropdown, since it's meant to read as a
+   spectrum with Normal as the resting middle, not an arbitrary list. The
+   label row below doubles as a legend and a non-color-dependent "you are
+   here" indicator (bold + accent color, not color alone) so the current
+   stance is legible without relying on the thumb's position. */
+.advantage-slider-control {
+  align-items: stretch;
+  flex-direction: column;
+}
+
+.advantage-slider-wrap {
+  width: 100%;
+  max-width: 320px;
+}
+
+.advantage-slider-wrap input[type="range"] {
+  width: 100%;
+  accent-color: var(--color-accent);
+}
+
+.advantage-slider-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  margin-top: var(--spacing-xs);
+}
+
+.advantage-slider-labels span.active {
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
 /* Amp Creator: vehicle point allocation */
 #amp-vehicle-body,
 #amp-vehicle-handling,

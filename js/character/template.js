@@ -2,7 +2,7 @@
 // non-buildable stock stat blocks for "fodder" and minor NPCs — Ganger,
 // Elite Ganger, Security Guard, and so on. These live in the Character
 // Database's Templates tab as reusable reference material, distinct from:
-//   - the full Character model (character.js), for the Major Characters
+//   - the full Character model (character.js), for the Prime Characters
 //     tab — Player Characters and any major NPC with a backstory and a
 //     real role in the campaign;
 //   - the Minor Characters tab's actual NPC instances, which don't exist

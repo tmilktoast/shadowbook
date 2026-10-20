@@ -1,6 +1,13 @@
 // Shadowrun: Anarchy 2.0 dice pool scoring. The basic Test: roll a pool of
 // d6s (Attribute + Skill, +2 if specialized); 5s and 6s are hits.
 //
+// Advantage/Disadvantage (core rulebook p. 65) shifts which faces count as
+// hits rather than adding/removing/rerolling dice, per the book's own
+// wording: "they gain an Advantage, meaning they hit on 4s, 5s and 6s...
+// they gain a Disadvantage, meaning they only hit on 6s." Applies to every
+// die in the Test (normal and Risk Dice alike) — it's a property of the
+// Test as a whole, not of individual dice.
+//
 // Risk Dice (core rulebook, "On every Test, the player may replace some of
 // their dice with Risk Dice"): the player freely picks how many of the
 // pool's dice are Risk Dice (0 up to the full pool — the book's own "How
@@ -12,17 +19,21 @@
 
 import { rollBasic } from "./roll.js";
 
-export const HIT_VALUES = [5, 6];
+export const HIT_VALUES = {
+  disadvantage: [6],
+  normal: [5, 6],
+  advantage: [4, 5, 6],
+};
 export const SPECIALIZATION_BONUS = 2;
 
-export function isHit(value) {
-  return HIT_VALUES.includes(value);
+export function isHit(value, stance = "normal") {
+  return HIT_VALUES[stance].includes(value);
 }
 
-/** Rolls a pool of d6s and counts hits (5s and 6s). */
-export function rollDicePool(pool) {
+/** Rolls a pool of d6s and counts hits, per the given stance. */
+export function rollDicePool(pool, stance = "normal") {
   const { rolls } = rollBasic({ num: pool, sides: 6 });
-  const hits = rolls.filter(isHit).length;
+  const hits = rolls.filter((value) => isHit(value, stance)).length;
   return { rolls, hits };
 }
 
@@ -40,16 +51,18 @@ export function getGlitchTier(effectiveOnes) {
  * @param {number} [options.riskDice] - how many of the pool are Risk Dice
  * @param {number} [options.rr] - Risk Reduction, cancels up to this many
  *   1s rolled on Risk Dice
+ * @param {"disadvantage"|"normal"|"advantage"} [options.stance] - shifts
+ *   which faces count as hits for every die in the Test
  */
-export function rollRiskPool({ pool, riskDice = 0, rr = 0 }) {
+export function rollRiskPool({ pool, riskDice = 0, rr = 0, stance = "normal" }) {
   const riskCount = Math.max(0, Math.min(pool, riskDice));
   const normalCount = pool - riskCount;
 
   const { rolls: normalRolls } = rollBasic({ num: normalCount, sides: 6 });
   const { rolls: riskRolls } = rollBasic({ num: riskCount, sides: 6 });
 
-  const normalHits = normalRolls.filter(isHit).length;
-  const riskHits = riskRolls.filter(isHit).length * 2; // Risk Dice hits count twice
+  const normalHits = normalRolls.filter((value) => isHit(value, stance)).length;
+  const riskHits = riskRolls.filter((value) => isHit(value, stance)).length * 2; // Risk Dice hits count twice
   const totalHits = normalHits + riskHits;
 
   const onesRolled = riskRolls.filter((v) => v === 1).length;

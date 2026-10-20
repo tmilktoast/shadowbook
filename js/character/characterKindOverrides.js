@@ -1,4 +1,4 @@
-// A user's PC/NPC pick for a Major Character (character.kind), persisted
+// A user's PC/NPC pick for a Prime Character (character.kind), persisted
 // to localStorage keyed by character id — same approach as
 // dice/history.js. The sheet itself isn't editable yet (that's a much
 // bigger project), but this one tag is, via a <select> on the card.

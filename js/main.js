@@ -128,12 +128,12 @@ const showCharacterDbSubtab = setupTabs(
 // "?view=<pcs|npcs|templates|critters>" is how a detail view's own "back
 // to list" link gets back to the right subtab specifically (plain
 // "#character-database" alone defaults to the PC subtab).
-const characterDbSubtabKeys = ["major", "minor", "templates", "critters"];
+const characterDbSubtabKeys = ["prime", "minor", "templates", "critters"];
 const linkedDbView = linkedParams.get("view");
 showCharacterDbSubtab(
   characterDbSubtabKeys.includes(linkedDbView)
     ? `character-database-${linkedDbView}`
-    : "character-database-major",
+    : "character-database-prime",
 );
 
 // --- Die Roller ---
@@ -147,18 +147,42 @@ const poolSkillDiceInput = document.getElementById("pool-skill-dice");
 const poolSpecializedCheckbox = document.getElementById("pool-specialized");
 const poolRiskDiceInput = document.getElementById("pool-risk-dice");
 const poolRRInput = document.getElementById("pool-rr");
+const poolAdvantageControl = document.getElementById("pool-advantage-control");
+const poolAdvantageSlider = document.getElementById("pool-advantage-slider");
+const poolAdvantageLabels = document.querySelectorAll(
+  "#pool-advantage-control .advantage-slider-labels span",
+);
 const riskDiceReference = document.getElementById("risk-dice-reference");
 const rollButton = document.getElementById("roll-button");
 const rollResults = document.getElementById("roll-results");
 const historyList = document.getElementById("dice-history-list");
 const historyClearButton = document.getElementById("dice-history-clear");
 
-rollModeSelect.addEventListener("change", () => {
+function updateRollModeVisibility() {
   const isPool = rollModeSelect.value === "pool";
   genericRollControls.hidden = isPool;
   poolRollControls.hidden = !isPool;
+  poolAdvantageControl.hidden = !isPool;
   riskDiceReference.hidden = !isPool;
-});
+}
+rollModeSelect.addEventListener("change", updateRollModeVisibility);
+updateRollModeVisibility();
+
+// -1/0/1 slider value -> rollRiskPool()'s stance ("disadvantage" hits only
+// on 6s, "advantage" hits on 4-6 too — core book p. 65, see sra.js).
+const ADVANTAGE_STANCES = { "-1": "disadvantage", "0": "normal", "1": "advantage" };
+
+function currentStance() {
+  return ADVANTAGE_STANCES[poolAdvantageSlider.value];
+}
+
+function updateAdvantageLabel() {
+  poolAdvantageLabels.forEach((label) => {
+    label.classList.toggle("active", label.dataset.value === poolAdvantageSlider.value);
+  });
+}
+poolAdvantageSlider.addEventListener("input", updateAdvantageLabel);
+updateAdvantageLabel();
 
 function renderHistory() {
   historyList.innerHTML = loadHistory()
@@ -218,20 +242,22 @@ function rollPool() {
 
   const riskDice = Math.max(0, Number(poolRiskDiceInput.value) || 0);
   const rr = Math.max(0, Math.min(3, Number(poolRRInput.value) || 0));
+  const stance = currentStance();
 
-  const result = rollRiskPool({ pool, riskDice, rr });
+  const result = rollRiskPool({ pool, riskDice, rr, stance });
 
   const dice = [
-    ...result.normalRolls.map((value) => [value, 6, isHit(value) ? ["hit"] : []]),
+    ...result.normalRolls.map((value) => [value, 6, isHit(value, stance) ? ["hit"] : []]),
     ...result.riskRolls.map((value) => {
       const classes = ["risk"];
-      if (isHit(value)) classes.push("hit");
+      if (isHit(value, stance)) classes.push("hit");
       return [value, 6, classes];
     }),
   ];
 
   const specNote = specialized ? ` + ${SPECIALIZATION_BONUS} (specialized)` : "";
-  const label = `${attributeDice} (Attribute) + ${skillDice} (Skill)${specNote}`;
+  const stanceNote = stance !== "normal" ? ` (${stance})` : "";
+  const label = `${attributeDice} (Attribute) + ${skillDice} (Skill)${specNote}${stanceNote}`;
   const riskNote = result.riskRolls.length ? ` (${result.riskRolls.length} risk)` : "";
   const riskRollsText = result.riskRolls.length
     ? ` + risk [${result.riskRolls.join(", ")}]`
@@ -1406,20 +1432,20 @@ function renderTemplateExpandedContent(template) {
 // width with every other section — see the .character-database-detail
 // note in style.css if that turns out too cramped for the two-column
 // sheet.
-const majorDatabaseList = document.getElementById("major-database-list");
+const primeDatabaseList = document.getElementById("prime-database-list");
 const requestedCharacterId = new URLSearchParams(location.search).get("character");
 const requestedCharacter = requestedCharacterId ? getPregen(requestedCharacterId) : null;
 
 if (requestedCharacter) {
-  majorDatabaseList.innerHTML = `
+  primeDatabaseList.innerHTML = `
     <a class="back-to-list" href="?#character-database">&larr; All Characters</a>
     ${renderCharacterCard(requestedCharacter)}
   `;
 } else {
-  majorDatabaseList.innerHTML = PREGENS.map(renderCharacterListRow).join("");
+  primeDatabaseList.innerHTML = PREGENS.map(renderCharacterListRow).join("");
 }
 
-// Unlike the Major Characters list above, Templates always show as a
+// Unlike the Prime Characters list above, Templates always show as a
 // list — a click expands that row's stat block in place (accordion-
 // style, one open at a time) instead of navigating to a detail page.
 // The Critters tab has no data yet (see index.html) — it just shows its
@@ -1495,14 +1521,14 @@ function closePortraitLightbox() {
   portraitLightboxImg.src = "";
 }
 
-majorDatabaseList.addEventListener("click", (event) => {
+primeDatabaseList.addEventListener("click", (event) => {
   const portrait = event.target.closest("img.character-portrait");
   if (portrait) openPortraitLightbox(portrait);
 });
 
 // PC/NPC isn't rendered from anywhere else on the card, so this just
 // needs to persist — no re-render necessary.
-majorDatabaseList.addEventListener("change", (event) => {
+primeDatabaseList.addEventListener("change", (event) => {
   const select = event.target.closest(".kind-select");
   if (select) setKindOverride(select.dataset.characterId, select.value);
 });

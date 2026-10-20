@@ -30,12 +30,12 @@ export function createCharacter() {
     // Narrower than `official`: specifically one of the book's own
     // ready-made pregen characters (Hercules and friends, pregens.js),
     // as opposed to a major NPC built from scratch — official or not —
-    // that just happens to share the Major Characters tab with pregens.
+    // that just happens to share the Prime Characters tab with pregens.
     // Gets its own badge on the card/list row so the two don't blur
     // together. Set by pregens.js, not per character.json file.
     pregen: false,
 
-    // "pc" or "npc" — the Major Characters tab holds both (a Player
+    // "pc" or "npc" — the Prime Characters tab holds both (a Player
     // Character, or a major NPC with a backstory and a real role in the
     // campaign). The full sheet isn't editable yet (a much bigger
     // undertaking), but this one tag is: it's a <select> on the card
