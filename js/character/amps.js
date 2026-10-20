@@ -28,14 +28,15 @@ import { SKILLS } from "./skills.js";
 import { ATTRIBUTES } from "./attributes.js";
 import { getRacialQualities } from "./metatypes.js";
 import { getLevelOfPlay } from "./levelsOfPlay.js";
+import { markAllOfficialById } from "../officialContent.js";
 
 // Drop "_"-prefixed metadata keys (like _note), same as LIFESTYLES.
 const withoutMeta = (obj) =>
   Object.fromEntries(Object.entries(obj).filter(([id]) => !id.startsWith("_")));
 
-export const AMP_TYPES = withoutMeta(typeData);
-export const AMP_EFFECTS = withoutMeta(effectData);
-export const VEHICLE_TYPES = withoutMeta(vehicleData);
+export const AMP_TYPES = markAllOfficialById(withoutMeta(typeData));
+export const AMP_EFFECTS = markAllOfficialById(withoutMeta(effectData));
+export const VEHICLE_TYPES = markAllOfficialById(withoutMeta(vehicleData));
 
 export const NUYEN_PER_AMP_RATING = 5000;
 export const MAX_RR_PER_TEST = 3; // RR from all sources is capped at 3 for one Test
@@ -119,20 +120,35 @@ function countEffect(amp, effectId) {
   return amp.effects.filter((e) => e.effect === effectId).length;
 }
 
-// A vehicle/drone Amp's stats: its base type plus stat effects.
+// A vehicle/drone Amp's stats: its base type plus stat effects. Body,
+// Handling, and Speed start from the player's own split of the type's
+// pointPool (amp.vehicleStats), falling back to the type's own example
+// split for Amps built before that existed (e.g. the catalog). Effects
+// layer paid upgrades on top — Body has no such effect; it's only set at
+// the initial split, same as the book.
 export function getVehicleStats(amp) {
   const base = VEHICLE_TYPES[amp.vehicleType];
   if (!base) return undefined;
+  const stats = amp.vehicleStats ?? base;
   const flying = countEffect(amp, "flying") > 0;
+  const speed = flying ? (base.flyingSpeed ?? stats.speed * 2) : stats.speed;
   return {
     pilot: base.pilot + countEffect(amp, "pilot"),
-    body: base.body,
-    handling: base.handling + countEffect(amp, "handling"),
-    speed:
-      (flying ? (base.flyingSpeed ?? base.speed * 2) : base.speed) +
-      countEffect(amp, "speed"),
+    body: stats.body,
+    handling: stats.handling + countEffect(amp, "handling"),
+    speed: speed + countEffect(amp, "speed"),
     armor: base.armor + countEffect(amp, "vehicle-armor"),
   };
+}
+
+// Points spent of the vehicle type's pointPool — should never exceed it.
+export function vehiclePointsSpent(vehicleStats) {
+  if (!vehicleStats) return 0;
+  return (
+    (vehicleStats.body ?? 0) +
+    (vehicleStats.handling ?? 0) +
+    (vehicleStats.speed ?? 0)
+  );
 }
 
 // A cyberdeck Amp's Firewall and Attack.
@@ -172,7 +188,7 @@ function isValidTarget(kind, target) {
 }
 
 // Checks one Amp's effects against the rules. `label` prefixes messages.
-function validateAmp(amp, problems) {
+export function validateAmp(amp, problems) {
   const type = AMP_TYPES[amp.type];
   const label = amp.name || "Unnamed Amp";
   if (!type) {
@@ -183,6 +199,21 @@ function validateAmp(amp, problems) {
   const vehicle = VEHICLE_TYPES[amp.vehicleType];
   if (amp.type === "vehicle" && !vehicle) {
     problems.push(`${label}: choose a vehicle or drone type.`);
+  }
+  if (amp.type === "vehicle" && vehicle && amp.vehicleStats) {
+    const spent = vehiclePointsSpent(amp.vehicleStats);
+    if (spent !== vehicle.pointPool) {
+      problems.push(
+        `${label}: Body + Handling + Speed must use all ${vehicle.pointPool} points (currently ${spent}).`,
+      );
+    }
+    if (
+      amp.vehicleStats.body < 0 ||
+      amp.vehicleStats.handling < 0 ||
+      amp.vehicleStats.speed < 0
+    ) {
+      problems.push(`${label}: Body, Handling, and Speed can't be negative.`);
+    }
   }
 
   for (const entry of amp.effects) {

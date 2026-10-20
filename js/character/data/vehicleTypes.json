@@ -1,8 +1,9 @@
 {
-  "_note": "Core book, Vehicle or Drone Amp (p. 60). flyingSpeed is the Speed if the Flying effect is taken (double base). maxWeapon is the largest weapon the front mount takes; null means no size limit listed, false means no mount. Jet-ski and boat come from Base Vehicle Characteristics (p. 238). Helicopters, VTOLs and T-birds are listed there without an Amp rating (not normally runner-owned), so they're omitted.",
+  "_note": "Core book, Vehicle or Drone Amp (p. 60). flyingSpeed is the Speed if the Flying effect is taken (double base). maxWeapon is the largest weapon the front mount takes; null means no size limit listed, false means no mount. Jet-ski and boat come from Base Vehicle Characteristics (p. 238). Helicopters, VTOLs and T-birds are listed there without an Amp rating (not normally runner-owned), so they're omitted. pointPool is the Body+Handling+Speed points to split at creation (12, or 10 for microdrones) - the listed body/handling/speed per type is just the book's example split, freely redistributable within that budget.",
   "microdrone": {
     "label": "Microdrone",
     "kind": "drone",
+    "pointPool": 10,
     "pilot": 6,
     "body": 0,
     "handling": 10,
@@ -15,6 +16,7 @@
   "small-drone": {
     "label": "Small drone",
     "kind": "drone",
+    "pointPool": 12,
     "pilot": 6,
     "body": 1,
     "handling": 9,
@@ -26,6 +28,7 @@
   "medium-drone": {
     "label": "Medium drone",
     "kind": "drone",
+    "pointPool": 12,
     "pilot": 6,
     "body": 2,
     "handling": 7,
@@ -37,6 +40,7 @@
   "large-drone": {
     "label": "Large drone",
     "kind": "drone",
+    "pointPool": 12,
     "pilot": 6,
     "body": 4,
     "handling": 4,
@@ -48,6 +52,7 @@
   "race-motorbike": {
     "label": "Race motorbike",
     "kind": "vehicle",
+    "pointPool": 12,
     "pilot": 6,
     "body": 4,
     "handling": 2,
@@ -58,6 +63,7 @@
   "all-terrain-motorbike": {
     "label": "All-terrain motorbike",
     "kind": "vehicle",
+    "pointPool": 12,
     "pilot": 6,
     "body": 4,
     "handling": 3,
@@ -68,6 +74,7 @@
   "chopper": {
     "label": "Chopper",
     "kind": "vehicle",
+    "pointPool": 12,
     "pilot": 6,
     "body": 5,
     "handling": 2,
@@ -78,6 +85,7 @@
   "sports-car": {
     "label": "Sports car",
     "kind": "vehicle",
+    "pointPool": 12,
     "pilot": 6,
     "body": 5,
     "handling": 2,
@@ -88,6 +96,7 @@
   "sedan": {
     "label": "Sedan",
     "kind": "vehicle",
+    "pointPool": 12,
     "pilot": 6,
     "body": 6,
     "handling": 2,
@@ -98,6 +107,7 @@
   "suv": {
     "label": "SUV/pick-up",
     "kind": "vehicle",
+    "pointPool": 12,
     "pilot": 6,
     "body": 7,
     "handling": 1,
@@ -108,6 +118,7 @@
   "van": {
     "label": "Van",
     "kind": "vehicle",
+    "pointPool": 12,
     "pilot": 6,
     "body": 8,
     "handling": 1,
@@ -118,6 +129,7 @@
   "bus": {
     "label": "Bus/trailer",
     "kind": "vehicle",
+    "pointPool": 12,
     "pilot": 6,
     "body": 10,
     "handling": 0,
@@ -128,6 +140,7 @@
   "jet-ski": {
     "label": "Jet-ski",
     "kind": "vehicle",
+    "pointPool": 12,
     "pilot": 6,
     "body": 5,
     "handling": 5,
@@ -138,6 +151,7 @@
   "rigid-inflatable-boat": {
     "label": "Rigid inflatable boat",
     "kind": "vehicle",
+    "pointPool": 12,
     "pilot": 6,
     "body": 5,
     "handling": 4,

@@ -1,0 +1,96 @@
+{
+  "streetname": "Hercules",
+  "portrait": "/portraits/hercules.jpg",
+  "metatype": "dwarf",
+  "source": { "book": "SRA2", "page": 88 },
+  "attributes": {
+    "strength": 2,
+    "agility": 3,
+    "willpower": 2,
+    "logic": 3,
+    "charisma": 4
+  },
+  "skills": {
+    "athletics": { "rating": 3, "specializations": ["ranged-defense"] },
+    "close-combat": { "rating": 1, "specializations": [] },
+    "influence": {
+      "rating": 5,
+      "specializations": ["bluff", "negotiation"]
+    },
+    "network": { "rating": 4, "specializations": [] },
+    "perception": { "rating": 4, "specializations": [] },
+    "piloting": { "rating": 2, "specializations": [] },
+    "ranged-weapons": { "rating": 5, "specializations": ["pistols"] },
+    "stealth": { "rating": 5, "specializations": [] },
+    "survival": { "rating": 2, "specializations": [] }
+  },
+  "knowledgeSkills": ["Japanese", "Pueblo Corporate Council"],
+  "amps": [
+    {
+      "type": "awakened",
+      "name": "Awakened",
+      "description": "Adept.",
+      "effects": [{ "effect": "adept" }]
+    },
+    { "catalogId": "well-stocked-closet" },
+    {
+      "type": "adept-power",
+      "name": "Vocal Control",
+      "description": "RR 1 on Influence (impersonation).",
+      "effects": [{ "effect": "rr-specialization", "target": "influence/impersonation" }]
+    },
+    { "catalogId": "danger-sense" },
+    {
+      "type": "adept-power",
+      "name": "Empathic Sense",
+      "description": "RR 2 on Perception (social).",
+      "effects": [
+        { "effect": "rr-specialization", "target": "perception/social" },
+        { "effect": "rr-specialization", "target": "perception/social" }
+      ]
+    },
+    { "catalogId": "flashing-smile" },
+    { "catalogId": "concealment" },
+    {
+      "type": "contact",
+      "name": "Elton Hutchinson, lawyer",
+      "description": "RR 1 on Network.",
+      "effects": [{ "effect": "rr-skill", "target": "network" }]
+    },
+    { "catalogId": "journalist", "nameOverride": "Alicia Francetti, journalist" }
+  ],
+  "weapons": [
+    { "name": "Unarmed", "type": "Weapon", "dv": 2, "range": "OK/–/–/–" },
+    {
+      "name": "Ares Light Fire",
+      "subtype": "light pistol",
+      "type": "Weapon",
+      "dv": 4,
+      "range": "OK/OK/Dis./–"
+    }
+  ],
+  "armor": {
+    "main": { "name": "Lined Coat", "rating": 3 },
+    "secondary": { "name": "Clothes", "rating": 1 }
+  },
+  "equipment": ["Fake SIN", "Commlink", "Medkit", "Small Infiltration Kit"],
+  "keywords": {
+    "socialStatus": "Dwarf",
+    "origin": "Seattle / Downtown",
+    "role": "Face Adept",
+    "extra": "Player"
+  },
+  "lifestyle": "low",
+  "dispositions": [
+    "Veteran sweet talker",
+    "Reckless arrogance",
+    "Lucky",
+    "Opportunistic"
+  ],
+  "cues": [
+    "Every failure brings me closer to success. It's a proven fact.",
+    "If we can't beat them, we can convince them.",
+    "I've seen worse. Once...",
+    "Nothing is lost. Nothing is created. Everything is transformed."
+  ]
+}

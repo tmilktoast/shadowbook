@@ -3,11 +3,12 @@
 // ("Low lifestyle") is generated from it.
 
 import data from "./data/lifestyles.json";
+import { markAllOfficialById } from "../officialContent.js";
 
 // Drop "_"-prefixed metadata keys (like _note) so only real lifestyles
 // are exposed, e.g. for populating a dropdown.
-export const LIFESTYLES = Object.fromEntries(
-  Object.entries(data).filter(([id]) => !id.startsWith("_")),
+export const LIFESTYLES = markAllOfficialById(
+  Object.fromEntries(Object.entries(data).filter(([id]) => !id.startsWith("_"))),
 );
 
 export function getLifestyle(id) {

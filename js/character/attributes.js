@@ -4,11 +4,12 @@
 // each adventure starts with getStartingEdge() points (4 for humans, 3
 // otherwise), more is earned in play, and none carries over.
 
-import ATTRIBUTES from "./data/attributes.json";
+import attributeData from "./data/attributes.json";
 import { getMetatype } from "./metatypes.js";
 import { getLevelOfPlay } from "./levelsOfPlay.js";
+import { markAllOfficialById } from "../officialContent.js";
 
-export { ATTRIBUTES };
+export const ATTRIBUTES = markAllOfficialById(attributeData);
 
 // Every metatype's range starts at 1; only the maximum varies.
 export const ATTRIBUTE_MIN = 1;

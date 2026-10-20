@@ -4,10 +4,12 @@
 // since several metatypes share one (elves and orks both have low-light
 // vision) — each quality is defined once, not copied per metatype.
 
-import METATYPES from "./data/metatypes.json";
-import QUALITIES from "./data/qualities.json";
+import metatypeData from "./data/metatypes.json";
+import qualityData from "./data/qualities.json";
+import { markAllOfficialById } from "../officialContent.js";
 
-export { METATYPES, QUALITIES };
+export const METATYPES = markAllOfficialById(metatypeData);
+export const QUALITIES = markAllOfficialById(qualityData);
 
 export function getMetatype(id) {
   return METATYPES[id];

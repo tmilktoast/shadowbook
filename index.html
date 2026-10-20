@@ -22,8 +22,7 @@
           <li><a href="#character-database">Character Database</a></li>
           <li><a href="#npc-generator">NPC Generator</a></li>
           <li><a href="#character-builder">Character Builder</a></li>
-          <li><a href="#amp-catalog">Amp Catalog</a></li>
-          <li><a href="#amp-creator">Amp Creator</a></li>
+          <li><a href="#shadow-amps">Shadow Amps</a></li>
           <li><a href="#job-generator">Job Generator</a></li>
         </ul>
       </nav>
@@ -33,6 +32,14 @@
           <h2 class="section-heading">Die Roller</h2>
 
           <div class="tool-controls">
+            <label for="roll-mode">Mode:</label>
+            <select id="roll-mode">
+              <option value="generic">Generic</option>
+              <option value="pool">Attribute + Skill</option>
+            </select>
+          </div>
+
+          <div id="generic-roll-controls" class="tool-controls">
             <label for="dice-count">Number of dice:</label>
             <input type="number" id="dice-count" min="1" value="1" />
 
@@ -46,7 +53,73 @@
               <option value="20">d20</option>
               <option value="100">d100</option>
             </select>
+          </div>
 
+          <div id="pool-roll-controls" class="tool-controls" hidden>
+            <label for="pool-attribute-dice">Attribute Dice:</label>
+            <input type="number" id="pool-attribute-dice" min="0" value="0" />
+
+            <label for="pool-skill-dice">Skill Dice:</label>
+            <input type="number" id="pool-skill-dice" min="0" value="0" />
+
+            <label>
+              <input type="checkbox" id="pool-specialized" />
+              With Specialization
+            </label>
+
+            <label for="pool-risk-dice">Risk Dice:</label>
+            <input type="number" id="pool-risk-dice" min="0" value="0" />
+
+            <label for="pool-rr">RR:</label>
+            <input type="number" id="pool-rr" min="0" max="3" value="0" />
+          </div>
+
+          <details id="risk-dice-reference" hidden>
+            <summary>How many Risk Dice? (reference only — not enforced)</summary>
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>RR</th>
+                  <th>Cautious</th>
+                  <th>Normal</th>
+                  <th>Risky</th>
+                  <th>Suicidal</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>0</td>
+                  <td>1</td>
+                  <td>2</td>
+                  <td>4</td>
+                  <td>6+</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>3</td>
+                  <td>5</td>
+                  <td>7</td>
+                  <td>10+</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>5</td>
+                  <td>8</td>
+                  <td>11</td>
+                  <td>13+</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>8</td>
+                  <td>12</td>
+                  <td>15</td>
+                  <td>—</td>
+                </tr>
+              </tbody>
+            </table>
+          </details>
+
+          <div class="tool-controls">
             <button id="roll-button" type="button" class="btn-primary">
               Roll
             </button>
@@ -105,7 +178,180 @@
             data-empty="Generate some names to see them here."
           ></ul>
         </section>
+
+        <section id="shadow-amps" hidden>
+          <h2 class="section-heading">Shadow Amps</h2>
+
+          <div class="subtab-nav">
+            <button type="button" class="subtab-link" data-subtab="amp-catalog">
+              Catalog
+            </button>
+            <button type="button" class="subtab-link" data-subtab="amp-creator">
+              Create Custom
+            </button>
+          </div>
+
+          <div id="amp-catalog" class="subtab-panel">
+            <div class="tool-controls">
+              <label for="amp-type-filter">Type:</label>
+              <select id="amp-type-filter"></select>
+
+              <label for="amp-sort">Sort by:</label>
+              <select id="amp-sort">
+                <option value="name">Name (A-Z)</option>
+                <option value="rating">Rating</option>
+                <option value="cost">Cost</option>
+              </select>
+            </div>
+
+            <ul
+              id="amp-catalog-list"
+              class="history-list"
+              data-empty="No Amps match that filter."
+            ></ul>
+          </div>
+
+          <div id="amp-creator" class="subtab-panel" hidden>
+            <div class="tool-controls">
+              <label for="amp-name">Name:</label>
+              <input type="text" id="amp-name" placeholder="Amp name" />
+
+              <label for="amp-type-select">Type:</label>
+              <select id="amp-type-select"></select>
+
+              <span id="amp-vehicle-type-wrap" hidden>
+                <label for="amp-vehicle-type">Vehicle:</label>
+                <select id="amp-vehicle-type"></select>
+              </span>
+
+              <span id="amp-first-quality-wrap" hidden>
+                <label>
+                  <input type="checkbox" id="amp-first-quality" />
+                  First Quality (base rating 0)
+                </label>
+              </span>
+            </div>
+
+            <div id="amp-vehicle-stats-wrap" class="tool-controls" hidden>
+              <label for="amp-vehicle-body">Body:</label>
+              <input type="number" id="amp-vehicle-body" min="0" value="0" />
+
+              <label for="amp-vehicle-handling">Handling:</label>
+              <input type="number" id="amp-vehicle-handling" min="0" value="0" />
+
+              <label for="amp-vehicle-speed">Speed:</label>
+              <input type="number" id="amp-vehicle-speed" min="0" value="0" />
+
+              <span id="amp-vehicle-points-counter"></span>
+            </div>
+
+            <div class="tool-controls">
+              <label for="amp-effect-select">Effect:</label>
+              <select id="amp-effect-select"></select>
+
+              <span id="amp-target-skill-wrap" hidden>
+                <label for="amp-target-skill">Skill:</label>
+                <select id="amp-target-skill"></select>
+              </span>
+
+              <span id="amp-target-attribute-wrap" hidden>
+                <label for="amp-target-attribute">Attribute:</label>
+                <select id="amp-target-attribute"></select>
+              </span>
+
+              <span id="amp-target-specialization-wrap" hidden>
+                <label for="amp-target-spec-skill">Skill:</label>
+                <select id="amp-target-spec-skill"></select>
+                <label for="amp-target-spec-text">Specialization:</label>
+                <input
+                  type="text"
+                  id="amp-target-spec-text"
+                  placeholder="e.g. pistols"
+                />
+              </span>
+
+              <span id="amp-negative-cost-wrap" hidden>
+                <label for="amp-negative-cost">Cost:</label>
+                <input
+                  type="number"
+                  id="amp-negative-cost"
+                  min="-5"
+                  max="-1"
+                  value="-1"
+                />
+              </span>
+
+              <button id="amp-add-effect" type="button" class="btn-primary">
+                Add Effect
+              </button>
+            </div>
+
+            <div>
+              <label for="amp-effects-list">Effects:</label>
+              <ul
+                id="amp-effects-list"
+                class="history-list"
+                data-empty="No effects added yet."
+              ></ul>
+            </div>
+
+            <div class="tool-controls">
+              <label for="amp-description">Description:</label>
+              <textarea
+                id="amp-description"
+                rows="2"
+                placeholder="What it is / does"
+              ></textarea>
+            </div>
+
+            <div id="amp-summary" class="catalog-entry"></div>
+
+            <ul id="amp-validation-list" class="validation-list"></ul>
+
+            <div class="tool-controls">
+              <button id="amp-save" type="button" class="btn-primary">
+                Save Custom Amp
+              </button>
+              <button
+                id="amp-cancel-edit"
+                type="button"
+                class="btn-secondary"
+                hidden
+              >
+                Cancel Edit
+              </button>
+            </div>
+
+            <h3 class="section-heading">Saved Custom Amps</h3>
+            <ul
+              id="custom-amps-list"
+              class="history-list"
+              data-empty="No saved custom Amps yet."
+            ></ul>
+          </div>
+        </section>
+
+        <section id="character-database" hidden>
+          <h2 class="section-heading">Character Database</h2>
+          <div
+            id="character-database-list"
+            class="history-list"
+            data-empty="No characters yet."
+          ></div>
+        </section>
       </main>
+    </div>
+
+    <div id="portrait-lightbox" class="lightbox" hidden>
+      <button
+        id="portrait-lightbox-close"
+        type="button"
+        class="lightbox-close"
+        aria-label="Close"
+      >
+        &times;
+      </button>
+      <img id="portrait-lightbox-img" src="" alt="" />
     </div>
 
     <script type="module" src="js/main.js"></script>

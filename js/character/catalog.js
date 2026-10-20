@@ -21,23 +21,29 @@ import drugs from "./data/catalog/drugs.json";
 import cyberdecks from "./data/catalog/cyberdecks.json";
 import rccs from "./data/catalog/rccs.json";
 import vehicles from "./data/catalog/vehicles.json";
+import { markAllOfficial } from "../officialContent.js";
 
 // Grouped for browsing; labels are for UI headings.
-export const CATALOG_SECTIONS = {
-  cyberware: { label: "Cyberware", entries: cyberware.entries },
-  bioware: { label: "Bioware", entries: bioware.entries },
-  adeptPowers: { label: "Adept Powers", entries: adeptPowers.entries },
-  qualities: { label: "Qualities & Mentor Spirits", entries: qualities.entries },
-  contacts: { label: "Contacts", entries: contacts.entries },
-  foci: { label: "Foci", entries: foci.entries },
-  weapons: { label: "Weapons", entries: weapons.entries },
-  armor: { label: "Armor", entries: armor.entries },
-  gear: { label: "Gear", entries: gear.entries },
-  drugs: { label: "Drugs", entries: drugs.entries },
-  cyberdecks: { label: "Cyberdecks", entries: cyberdecks.entries },
-  rccs: { label: "Rigger Command Consoles", entries: rccs.entries },
-  vehicles: { label: "Vehicles & Drones", entries: vehicles.entries },
-};
+export const CATALOG_SECTIONS = Object.fromEntries(
+  Object.entries({
+    cyberware: { label: "Cyberware", entries: cyberware.entries },
+    bioware: { label: "Bioware", entries: bioware.entries },
+    adeptPowers: { label: "Adept Powers", entries: adeptPowers.entries },
+    qualities: { label: "Qualities & Mentor Spirits", entries: qualities.entries },
+    contacts: { label: "Contacts", entries: contacts.entries },
+    foci: { label: "Foci", entries: foci.entries },
+    weapons: { label: "Weapons", entries: weapons.entries },
+    armor: { label: "Armor", entries: armor.entries },
+    gear: { label: "Gear", entries: gear.entries },
+    drugs: { label: "Drugs", entries: drugs.entries },
+    cyberdecks: { label: "Cyberdecks", entries: cyberdecks.entries },
+    rccs: { label: "Rigger Command Consoles", entries: rccs.entries },
+    vehicles: { label: "Vehicles & Drones", entries: vehicles.entries },
+  }).map(([key, section]) => [
+    key,
+    { ...section, entries: markAllOfficial(section.entries) },
+  ]),
+);
 
 export const CATALOG = Object.values(CATALOG_SECTIONS).flatMap((s) => s.entries);
 

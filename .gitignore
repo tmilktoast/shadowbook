@@ -1,5 +1,6 @@
 node_modules/
 dist/
+.DS_Store
 
 # Official Catalyst PDFs — copyrighted, kept local only (repo is public)
 reference/

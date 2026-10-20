@@ -7,10 +7,11 @@
 
 import data from "./data/skills.json";
 import { getLevelOfPlay } from "./levelsOfPlay.js";
+import { markAllOfficialById } from "../officialContent.js";
 
 // Drop "_"-prefixed metadata keys (like _note), same as LIFESTYLES.
-export const SKILLS = Object.fromEntries(
-  Object.entries(data).filter(([id]) => !id.startsWith("_")),
+export const SKILLS = markAllOfficialById(
+  Object.fromEntries(Object.entries(data).filter(([id]) => !id.startsWith("_"))),
 );
 
 export const SKILL_MAX = 8; // absolute cap; levels of play cap lower at creation

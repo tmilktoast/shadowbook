@@ -321,6 +321,33 @@
           "effect": "damage"
         }
       ]
+    },
+    {
+      "id": "concealment",
+      "name": "Concealment",
+      "type": "adept-power",
+      "rating": 1,
+      "nuyen": 5000,
+      "page": 46,
+      "source": "Shadow Amps Expanded",
+      "description": "Blend into a crowd during a scene, in exchange for one Edge point.",
+      "effects": []
+    },
+    {
+      "id": "flashing-smile",
+      "name": "Flashing Smile",
+      "type": "adept-power",
+      "rating": 3,
+      "nuyen": 15000,
+      "page": 47,
+      "source": "Shadow Amps Expanded",
+      "description": "RR 1 on Influence (bluff).",
+      "effects": [
+        {
+          "effect": "rr-specialization",
+          "target": "influence/bluff"
+        }
+      ]
     }
   ]
 }

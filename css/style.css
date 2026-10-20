@@ -1,3 +1,12 @@
+/* The browser's default [hidden] rule (display: none) has the same
+   specificity as a class selector, so any element combining `hidden`
+   with a class that sets `display` (e.g. .tool-controls's display: flex)
+   would otherwise win and stay visible. Force it explicitly so `hidden`
+   always means hidden, everywhere. */
+[hidden] {
+  display: none !important;
+}
+
 :root {
   /* Backgrounds — nothing pure white or pure black */
   --color-bg: #ece9e3; /* soft warm gray, main page background */
@@ -68,8 +77,16 @@ h3 {
 
 /* COLORS for fields */
 input,
-select {
+select,
+textarea {
   background: var(--color-bg-input);
+  font-family: inherit;
+}
+
+#amp-description {
+  width: 20rem;
+  max-width: 100%;
+  resize: vertical;
 }
 
 /* App shell: sidebar nav + main content area */
@@ -168,9 +185,35 @@ select {
   background: var(--color-accent-alt);
 }
 
+.btn-primary:disabled {
+  background: var(--color-border);
+  color: var(--color-text-muted);
+  cursor: not-allowed;
+}
+
 /* Die Roller */
-#dice-count {
-  width: 5ch;
+#dice-count,
+#pool-attribute-dice,
+#pool-skill-dice,
+#pool-risk-dice,
+#pool-rr {
+  width: 4ch;
+}
+
+/* Amp Creator: vehicle point allocation */
+#amp-vehicle-body,
+#amp-vehicle-handling,
+#amp-vehicle-speed {
+  width: 4ch;
+}
+
+#amp-vehicle-points-counter {
+  font-weight: bold;
+  color: var(--color-text-muted);
+}
+
+#amp-vehicle-points-counter.budget-bad {
+  color: var(--color-danger);
 }
 
 #roll-results {
@@ -251,6 +294,69 @@ select {
   animation: none;
 }
 
+/* A hit (5 or 6) in an Attribute + Skill pool roll */
+.die.hit .body > * {
+  stroke: var(--color-accent-alt);
+  stroke-width: 7;
+}
+
+.die.hit .pip {
+  fill: var(--color-accent-alt);
+}
+
+/* A Risk Die in an Attribute + Skill pool roll — hits still get the
+   amber .hit stroke on top, since Risk Dice hits count double too. */
+.die.risk .body > * {
+  fill: var(--color-danger);
+}
+
+.die.risk .pip,
+.die.risk text {
+  fill: var(--color-text-inverse);
+}
+
+/* Glitch summary text, by severity */
+.glitch-minor {
+  color: var(--color-accent-alt);
+}
+
+.glitch-critical,
+.glitch-disaster {
+  color: var(--color-danger);
+  font-weight: bold;
+}
+
+/* Risk dice reference table */
+#risk-dice-reference summary {
+  cursor: pointer;
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+/* Any small bordered data table (risk dice reference, character wounds...) */
+.data-table {
+  margin-top: var(--spacing-sm);
+  border-collapse: collapse;
+  font-size: var(--text-sm);
+}
+
+.data-table th,
+.data-table td {
+  border: 1px solid var(--color-border);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  text-align: center;
+}
+
+.data-table th {
+  font-family: var(--font-heading);
+  color: var(--color-accent);
+}
+
+.data-table th:first-child,
+.data-table td:first-child {
+  text-align: left;
+}
+
 /* Roll history */
 .die-roller-history {
   margin-top: var(--spacing-lg);
@@ -329,6 +435,319 @@ select {
 /* Name Generator */
 #name-results {
   margin-top: var(--spacing-md);
+}
+
+/* Shadow Amps: Catalog / Create Custom sub-tabs */
+.subtab-nav {
+  display: flex;
+  gap: var(--spacing-sm);
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: var(--spacing-md);
+}
+
+.subtab-link {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-size: var(--text-sm);
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--color-text-muted);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  margin-bottom: -1px;
+  cursor: pointer;
+}
+
+.subtab-link:hover {
+  color: var(--color-text);
+}
+
+.subtab-link.active {
+  color: var(--color-accent);
+  border-bottom-color: var(--color-accent);
+}
+
+/* Consistent vertical rhythm between a subtab panel's stacked sections
+   (controls row, list, summary card, validation, ...) instead of each
+   one needing its own margin rule. */
+.subtab-panel > * + * {
+  margin-top: var(--spacing-md);
+}
+
+.catalog-entry {
+  background: var(--color-bg-panel);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  padding: var(--spacing-sm) var(--spacing-md);
+}
+
+.catalog-entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--spacing-md);
+}
+
+.catalog-entry-name {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.catalog-entry-price {
+  color: var(--color-accent-alt);
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.catalog-entry-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  margin-top: var(--spacing-xs);
+}
+
+.source-badge {
+  display: inline-block;
+  background: var(--color-accent-alt);
+  color: var(--color-text-inverse);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.65rem;
+  letter-spacing: 0.03em;
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+
+.source-badge-custom {
+  background: var(--color-text-muted);
+}
+
+.validation-list {
+  list-style: none;
+  margin: var(--spacing-md) 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  font-size: var(--text-sm);
+}
+
+.validation-error {
+  color: var(--color-danger);
+}
+
+.validation-ok {
+  color: var(--color-accent);
+}
+
+.catalog-entry-description {
+  margin: var(--spacing-xs) 0 0;
+}
+
+/* Character Database */
+.character-card h4 {
+  font-family: var(--font-heading);
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--color-accent);
+  margin: var(--spacing-md) 0 var(--spacing-xs);
+}
+
+/* Big name + archetype bar at the top, like the printed pregen sheets.
+   Portrait sits to the left, name/subtitle/meta stack to its right. */
+.character-header {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-md);
+  border-bottom: 2px solid var(--color-accent-alt);
+  padding-bottom: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+}
+
+.character-header-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.character-portrait {
+  width: 96px;
+  height: 96px;
+  flex-shrink: 0;
+  border: 2px solid var(--color-accent-alt);
+  border-radius: 4px;
+  object-fit: cover;
+  background: var(--color-bg-input);
+}
+
+/* Only real portraits (an <img>) are clickable, not the placeholder div. */
+img.character-portrait {
+  cursor: pointer;
+}
+
+.character-portrait-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+}
+
+/* Portrait lightbox: click a portrait to see it full-size. */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 18, 14, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-lg);
+  z-index: 100;
+}
+
+.lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+  border: 2px solid var(--color-accent-alt);
+  border-radius: 4px;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: var(--spacing-lg);
+  right: var(--spacing-lg);
+  background: none;
+  border: none;
+  color: var(--color-text-inverse);
+  font-size: 2.5rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 var(--spacing-xs);
+}
+
+.character-name {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.character-subtitle {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--color-accent-alt);
+  margin-top: var(--spacing-xs);
+}
+
+/* Attributes as a row of large boxes rather than small inline text. */
+.character-attributes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-sm);
+}
+
+.attr-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  min-width: 4.5rem;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background: var(--color-bg-input);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+}
+
+.attr-box-edge {
+  border-color: var(--color-accent-alt);
+}
+
+.attr-label {
+  font-family: var(--font-heading);
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--color-text-muted);
+}
+
+.attr-value {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--color-accent);
+}
+
+.attr-box-edge .attr-value {
+  color: var(--color-accent-alt);
+}
+
+/* Specialization sub-rows, indented and muted under their parent Skill. */
+.skill-spec-row td {
+  padding-left: var(--spacing-md);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  font-style: italic;
+}
+
+.character-list {
+  margin: 0;
+  padding-left: var(--spacing-md);
+}
+
+.character-list ul {
+  margin: 0;
+  padding-left: var(--spacing-md);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+/* Two-column layout: skills/amps/wounds on the left, the sheet's
+   "narrative" fields (Keywords/Dispositions/Cues) on the right, same
+   placement as the official character sheet. */
+.character-columns {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-sm);
+}
+
+.character-sidebar {
+  border-left: 1px solid var(--color-border);
+  padding-left: var(--spacing-lg);
+}
+
+.character-sidebar h4:first-child {
+  margin-top: 0;
+}
+
+/* Character sheets need more room than the usual 700px content column
+   to make two real columns worthwhile. */
+#content > #character-database-list {
+  max-width: 950px;
+}
+
+/* Stack into one column on narrow screens */
+@media (max-width: 640px) {
+  .character-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .character-sidebar {
+    border-left: none;
+    border-top: 1px solid var(--color-border);
+    padding-left: 0;
+    padding-top: var(--spacing-md);
+  }
 }
 
 /* Stack sidebar above content on narrow screens */
