@@ -1,12 +1,14 @@
 # Shadowbook
 
 A companion toolset for **Shadowrun: Anarchy 2.0** — dice roller, name
-generator, and (planned) NPC/character database, NPC generator, character
-builder, and job generator. Built as a personal project; the user is still
-reading the Anarchy 2.0 rulebook, so treat anything rules-related as
-provisional and ground new mechanics in the actual reference PDFs rather
-than assumption or general Shadowrun knowledge (Anarchy simplifies a lot
-from mainline Shadowrun editions).
+generator, Character Database (pregens/NPCs/Templates/Critters), NPC
+generator, Shadow Amp catalog/creator, and (planned) character builder,
+job generator, Foundry VTT/Obsidian/PDF export (see "Planned features"
+below). Built as a personal project; the user is still reading the
+Anarchy 2.0 rulebook, so treat anything rules-related as provisional and
+ground new mechanics in the actual reference PDFs rather than assumption
+or general Shadowrun knowledge (Anarchy simplifies a lot from mainline
+Shadowrun editions).
 
 The project originally started as an SR6e character sheet (to learn JS and
 SR6e simultaneously) and pivoted to Anarchy 2.0. That SR6e work is fully
@@ -195,6 +197,22 @@ reference/                Rulebook + reference PDFs (gitignored) — see "Refere
   personality traits ("Idealist"), Cues are typical sayings; both are
   how Edge is earned/spent. Not paired one-to-one — keep them as two
   flat string lists, no need to over-structure.
+- **Portraits** (`portrait` field on both `character.js`'s
+  `createCharacter()` and `template.js`'s `createTemplate()`, the latter
+  shared by Templates and Critters): a path under `public/portraits/`
+  (`public/portraits/critters/` for critters), or `null` for the
+  placeholder icon. Unlike the rest of `reference/` (gitignored,
+  copyrighted, local-only), extracted portrait art is committed directly
+  into the repo now — the user's standing policy is "cut anything marked
+  `official` out later if this repo ever goes public," not "never commit
+  it." Cropped from each character's own full-body book illustration (a
+  bust crop: head/shoulders/a bit of torso, plain background, no
+  border/circle mask) or, for critters, a tight crop around the creature
+  — see `public/portraits/hercules.jpg` as the reference style. Only
+  extract art the book actually has: several critters (Devil Rat,
+  Vampire, Guard Dog, Young Dragon, Watcher, all 7 Spirits) and every
+  Template are text/stats-only pages with no illustration at all — leave
+  `portrait: null` for those rather than substituting something else.
 
 ## Name data — handle with care
 
@@ -262,15 +280,37 @@ files and comments rather than pasting book text verbatim.
 
 | Feature | Status |
 |---|---|
-| Die Roller | Working — generic NdX roller, SVG dice faces, localStorage history |
-| Name Generator | Working — streetnames + 7 cultures (3 are stubs) |
-| Character Database | Working — four subtabs: Prime Characters (full Character sheets: 12 official pregens + room for user-built PCs/major NPCs, PC/NPC tag), Minor Characters (NPC Generator output), Templates (all 25 non-critter NPC stat blocks from "Hell Is Other People," Ganger through Coyote/Smuggler, transcribed), Critters (all 18 critters from the same chapter, Barghest through Spirit of Water, transcribed — reuses Templates' exact data shape, see `js/character/critters.js`) |
+| Die Roller | Working — Generic NdX mode, plus a "Shadowrun Anarchy" pool mode (default): Attribute+Skill dice, Risk Dice, RR, and an Advantage/Disadvantage stance slider (core book p. 65 — shifts which d6 faces count as hits: Disadvantage 6 only, Normal 5-6, Advantage 4-6) |
+| Name Generator | Working — streetnames (two selectable generation methods, `js/names/streetname.js`: "Real Words" — Adjective+Noun or just a Noun, optional leetspeak; "Phonemes" — invented syllable combinations; or leave it Random) + conventional names, 7 cultures (3 are stubs) |
+| Character Database | Working — four subtabs: Prime Characters (full Character sheets: 12 official pregens, all with portraits, + room for user-built PCs/major NPCs, PC/NPC tag), Minor Characters (NPC Generator output), Templates (all 25 non-critter NPC stat blocks from "Hell Is Other People," Ganger through Coyote/Smuggler, transcribed), Critters (all 18 critters from the same chapter, Barghest through Spirit of Water, transcribed — reuses Templates' exact data shape, see `js/character/critters.js`; the 6 that have book art — Barghest, Hell Hound, Shiawase Cyber-Tiger, Basilisk, Cockatrice, Ghoul — have portraits too, see "Portraits" under Design decisions) |
 | NPC Generator | Working — picks Template/Metatype/Gender/Name (each explicit or random), saves a `{ name, gender, metatype, templateId }` pointer into Minor Characters via `js/character/minorCharacters.js` |
 | Character Builder | Nav link only, no content yet — `js/character/character.js` has the full data model (createCharacter()), just no UI to build one interactively |
 | Job Generator | Nav link only, no content yet |
 | Amp Catalog | Working — browse/filter/sort the 172 book Amps (`catalog.js`) by section, rating, cost |
 | Amp Creator | Working — build a custom Shadow Amp (pick type, add effects from `AMP_EFFECTS`, live rating/cost and `validateAmp()` feedback), edit/delete saved ones |
 | `js/dice/sra.js` | Empty stub for Anarchy 2.0 pool/hit-counting rules, once read |
+
+## Planned features (not started)
+
+Noted 2026-10-20, before a pause in active work (user is focused on
+finishing the rulebook + other projects for a while) — these are
+intended next steps, not yet designed or scoped in detail:
+
+- **Export to Foundry VTT**: Prime Characters, NPCs (Minor Characters),
+  Critters, Shadow Amps, and potentially normal equipment. Foundry has
+  no official Shadowrun Anarchy 2.0 system module as far as this project
+  knows — figure out the target format (a generic/custom Foundry system,
+  or piggybacking on an existing compatible system's actor/item schema)
+  before implementing. Likely a JSON export matching whatever Foundry's
+  import expects, built from the existing `createCharacter()`/
+  `createTemplate()` data shapes rather than a new parallel model.
+- **Export to Obsidian markdown**: same set of entities, formatted
+  against markdown templates the user has already built in their own
+  Obsidian vault (not yet shared with/seen by Claude — ask for them, or
+  for the user's vault conventions, before building this, rather than
+  inventing a template structure from scratch).
+- **PDF export for character sheets**: lower priority ("maybe"), likely
+  Prime Characters only given the phrasing. No format/library decided.
 
 ## Working style notes
 
