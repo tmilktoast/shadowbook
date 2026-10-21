@@ -1,7 +1,7 @@
 {
   "id": "drakk",
   "streetname": "Drakk",
-  "portrait": null,
+  "portrait": "/portraits/drakk.jpg",
   "metatype": "troll",
   "source": { "book": "SRA2", "page": 105 },
   "attributes": {

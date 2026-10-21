@@ -1,7 +1,7 @@
 {
   "id": "wild-jane",
   "streetname": "Wild Jane",
-  "portrait": null,
+  "portrait": "/portraits/wild-jane.jpg",
   "metatype": "ork",
   "source": { "book": "SRA2", "page": 91 },
   "attributes": {

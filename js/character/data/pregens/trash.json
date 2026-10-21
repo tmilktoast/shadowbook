@@ -1,7 +1,7 @@
 {
   "id": "trash",
   "streetname": "Trash",
-  "portrait": null,
+  "portrait": "/portraits/trash.jpg",
   "metatype": "elf",
   "source": { "book": "SRA2", "page": 93 },
   "attributes": {

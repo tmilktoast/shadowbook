@@ -1,7 +1,7 @@
 {
   "id": "white-rabbit",
   "streetname": "White_Rabbit",
-  "portrait": null,
+  "portrait": "/portraits/white-rabbit.jpg",
   "metatype": "human",
   "source": { "book": "SRA2", "page": 107 },
   "attributes": {

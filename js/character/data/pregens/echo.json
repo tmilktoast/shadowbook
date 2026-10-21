@@ -1,7 +1,7 @@
 {
   "id": "echo",
   "streetname": "Echo",
-  "portrait": null,
+  "portrait": "/portraits/echo.jpg",
   "metatype": "human",
   "source": { "book": "SRA2", "page": 103 },
   "attributes": {

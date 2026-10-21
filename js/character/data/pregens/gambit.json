@@ -1,7 +1,7 @@
 {
   "id": "gambit",
   "streetname": "Gambit",
-  "portrait": null,
+  "portrait": "/portraits/gambit.jpg",
   "metatype": "human",
   "source": { "book": "SRA2", "page": 95 },
   "attributes": {

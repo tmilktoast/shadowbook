@@ -1,7 +1,7 @@
 {
   "id": "luna",
   "streetname": "Luna",
-  "portrait": null,
+  "portrait": "/portraits/luna.jpg",
   "metatype": "ork",
   "source": { "book": "SRA2", "page": 99 },
   "attributes": {

@@ -1,7 +1,7 @@
 {
   "id": "mictlan",
   "streetname": "Mictlan",
-  "portrait": null,
+  "portrait": "/portraits/mictlan.jpg",
   "metatype": "elf",
   "source": { "book": "SRA2", "page": 109 },
   "attributes": {

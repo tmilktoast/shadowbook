@@ -1,7 +1,7 @@
 {
   "id": "charon",
   "streetname": "Charon",
-  "portrait": null,
+  "portrait": "/portraits/charon.jpg",
   "metatype": "troll",
   "source": { "book": "SRA2", "page": 97 },
   "attributes": {

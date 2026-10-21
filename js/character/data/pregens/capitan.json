@@ -1,7 +1,7 @@
 {
   "id": "capitan",
   "streetname": "Capitán",
-  "portrait": null,
+  "portrait": "/portraits/capitan.jpg",
   "metatype": "dwarf",
   "source": { "book": "SRA2", "page": 111 },
   "attributes": {
