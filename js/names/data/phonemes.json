@@ -1,0 +1,11 @@
+{
+  "_note": "Invented syllable fragments for Method 2 streetname generation (streetname.js) — combined 2-3 at a time into a pronounceable made-up handle, Shadowrun-handle flavored (punchy, synth-sounding). Not drawn from any real language, so none of the name-data sourcing/quality concerns in CLAUDE.md apply here.",
+  "syllables": [
+    "za", "ky", "dex", "jax", "vor", "kai", "ryn", "dre", "kor", "zed",
+    "nox", "vex", "rho", "shi", "tor", "mir", "lux", "fen", "bry", "quin",
+    "sol", "axi", "mal", "nyx", "pyr", "cael", "rax", "vyn", "kess", "tal",
+    "rem", "dax", "zel", "rin", "vash", "kyre", "sona", "drax", "wyn", "thal",
+    "xen", "bex", "cyn", "dro", "eli", "fyx", "gor", "hex", "ivo", "jin",
+    "krel", "lor", "mox", "nix", "orin", "pex", "quon", "rux", "syn", "tyr"
+  ]
+}

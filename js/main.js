@@ -14,7 +14,7 @@ import { rollBasic, randInt } from "./dice/roll.js";
 import { dieSvg, diceRow } from "./dice/diceSvg.js";
 import { loadHistory, addHistoryEntry, clearHistory } from "./dice/history.js";
 import { rollRiskPool, isHit, SPECIALIZATION_BONUS } from "./dice/sra.js";
-import { generateStreetname } from "./names/streetname.js";
+import { generateStreetname, STREETNAME_METHODS } from "./names/streetname.js";
 import {
   generateConventionalName,
   CULTURES,
@@ -304,6 +304,17 @@ const nameCountInput = document.getElementById("name-count");
 const nameGenerateButton = document.getElementById("name-generate-button");
 const nameResults = document.getElementById("name-results");
 const conventionalOptions = document.getElementById("conventional-options");
+const streetnameOptions = document.getElementById("streetname-options");
+const streetnameMethodSelect = document.getElementById("streetname-method");
+
+// Method options come from STREETNAME_METHODS' own `label` field, same
+// single-source-of-truth pattern as the culture select below.
+Object.entries(STREETNAME_METHODS).forEach(([key, { label }]) => {
+  const option = document.createElement("option");
+  option.value = key;
+  option.textContent = label;
+  streetnameMethodSelect.appendChild(option);
+});
 
 // Culture options come from CULTURES' own `label` field rather than being
 // retyped in the HTML, so there's one place that knows what cultures exist.
@@ -333,6 +344,7 @@ populateCultureSelect(nameCultureSelect);
 
 function updateNameTypeVisibility() {
   conventionalOptions.hidden = nameTypeSelect.value !== "conventional";
+  streetnameOptions.hidden = nameTypeSelect.value !== "streetname";
 }
 nameTypeSelect.addEventListener("change", updateNameTypeVisibility);
 updateNameTypeVisibility();
@@ -341,7 +353,9 @@ nameGenerateButton.addEventListener("click", () => {
   const count = Math.min(50, Math.max(1, Number(nameCountInput.value) || 1));
 
   const names = Array.from({ length: count }, () => {
-    if (nameTypeSelect.value === "streetname") return generateStreetname();
+    if (nameTypeSelect.value === "streetname") {
+      return generateStreetname(streetnameMethodSelect.value || undefined);
+    }
     return generateConventionalName({
       culture: nameCultureSelect.value,
       gender: nameGenderSelect.value || undefined,
