@@ -9,6 +9,12 @@
 //     as their own data model yet — a GM will eventually create them by
 //     hand or with an NPC Generator, likely starting from a Template.
 //
+// This same factory/shape is also reused as-is for Critters (same book
+// chapter, pp. 256+: animals, paracritters, infected, dragons, spirits —
+// the Character Database's Critters tab, critters.js). They're printed in
+// the same stat-block style and need the exact same fields, just with a
+// different kind of "variant" axis — see `powerLevels` below.
+//
 // Still tagged `official: true` like the rest of the book-sourced data
 // (officialContent.js), but note these specifically are just numbers —
 // Skill ranks, Attribute values, DVs, thresholds. Game stats/mechanics
@@ -40,6 +46,25 @@
 //   }
 // `variants`/`ampVariant` are omitted in data when unused rather than
 // spelled out empty — see resolveVariant() for reading them back.
+//
+// Critters have no metatype — most print one fixed stat block (no
+// `variants` on any field at all). But the book's conjured Spirits (Spirit
+// of Air/Earth/Fire/Water/Beasts/Plants/Kin) instead scale by summoning
+// strength, printed as a "Minor / Regular / Major" triple on every single
+// field. Rather than invent a second VariantValue-like shape for this,
+// `variants` is reused exactly as-is: `base` is the Minor value, and
+// `variants: { regular: ..., major: ... }` holds the other two — the same
+// mechanism a Template uses for e.g. `variants: { ork: ..., troll: ... }`,
+// just keyed by power level instead of metatype id. `resolveVariant()`
+// doesn't care either way; it's just a string key lookup. A Spirit's
+// `powerLevels` array (below) is what tells the UI to render a Minor/
+// Regular/Major picker instead of a metatype picker (or none, for a fixed
+// critter) — see getPowerLevel()-equivalent wiring in main.js.
+// One further wrinkle specific to Spirits: many are also resistant to
+// non-magical weapons, printed as a second physical-wound-threshold track
+// ("Magic weapons" vs. "Normal weapons"). That's expressed via the
+// existing `ampVariant` mechanism, naming the Spirit's own "Immunity to
+// normal weapons" power as the "amp" — again, no new shape needed.
 
 export function createTemplate() {
   return {
@@ -50,6 +75,11 @@ export function createTemplate() {
 
     id: "",
     label: "", // e.g. "Ganger", "Elite Ganger / Crime Syndicate Enforcer"
+
+    // Critters only: non-empty (e.g. ["regular", "major"]) for a Spirit
+    // that scales Minor/Regular/Major — see the big comment above. Empty
+    // for every Template and for a fixed-stat Critter.
+    powerLevels: [],
 
     attributes: {
       strength: null, // VariantValue, e.g. { base: 3, variants: { ork: 4, troll: 5 } }
@@ -100,6 +130,8 @@ export function createTemplate() {
     // short list instead of having it fixed — same shape/spirit as
     // chooseAmps below, just for `weapons` entries instead of Amps.
     // Most Templates don't have this and leave it at its default.
+    // `count` is usually a plain number, but see chooseAmps's own note on
+    // `count` below — same deal, same reason.
     chooseWeapons: { count: 0, options: [] },
 
     equipment: [], // ["Commlink", "Gang leathers (Armor 1)"]
@@ -127,6 +159,12 @@ export function createTemplate() {
     // when the book's "choose" structure doesn't fit {count, options}
     // cleanly (e.g. Go-Ganger / Rigger Ganger's two alternate sub-builds,
     // sharing one options list annotated by which build each belongs to).
+    // `count` is a plain number for every Template, but a power-scaled
+    // Spirit often prints a different count per power level (e.g. "CHOOSE
+    // 1/2/2 SHADOW AMPS") — there, `count` is a VariantValue instead
+    // (`{ base: 1, variants: { regular: 2, major: 2 } }`), resolved via
+    // resolveVariant() same as any other field. main.js's renderer
+    // handles both shapes.
     chooseAmps: { count: 0, options: [] },
   };
 }

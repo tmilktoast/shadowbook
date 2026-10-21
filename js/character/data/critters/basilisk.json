@@ -1,0 +1,126 @@
+{
+  "id": "basilisk",
+  "label": "Basilisk",
+  "source": { "book": "SRA2", "page": 259 },
+  "powerLevels": [],
+  "attributes": {
+    "strength": { "base": 4 },
+    "agility": { "base": 2 },
+    "willpower": { "base": 3 },
+    "logic": { "base": 2 },
+    "charisma": { "base": 1 }
+  },
+  "skills": [
+    {
+      "id": "athletics",
+      "label": "Athletics",
+      "rank": { "base": 5 },
+      "attribute": "strength",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 4 },
+      "specializations": [
+        {
+          "id": "ranged-defense",
+          "label": "ranged defense",
+          "rank": { "base": 5 },
+          "attribute": "agility",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 3 }
+        },
+        {
+          "id": "swimming",
+          "label": "swimming",
+          "rank": { "base": 7 },
+          "attribute": "strength",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 5 }
+        }
+      ]
+    },
+    {
+      "id": "close-combat",
+      "label": "Close Combat",
+      "rank": { "base": 5 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": [
+        {
+          "id": null,
+          "label": "bite",
+          "rank": { "base": 7 },
+          "attribute": "agility",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 4 }
+        }
+      ]
+    },
+    {
+      "id": "perception",
+      "label": "Perception",
+      "rank": { "base": 6 },
+      "attribute": "logic",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 4 },
+      "specializations": [
+        {
+          "id": "physical",
+          "label": "physical",
+          "rank": { "base": 8 },
+          "attribute": "logic",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 4 }
+        }
+      ]
+    },
+    {
+      "id": "influence",
+      "label": "Influence",
+      "rank": { "base": 4 },
+      "attribute": "charisma",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": [
+        {
+          "id": "intimidation",
+          "label": "intimidation",
+          "rank": { "base": 6 },
+          "attribute": "charisma",
+          "rr": { "base": 0, "ampVariant": { "amp": "Petrification", "base": 2 } },
+          "averageHits": { "base": 3, "ampVariant": { "amp": "Petrification", "base": 5 } },
+          "note": "The book prints this same Intimidation (to petrify) test with RR 2 and averageHits 5 specifically when used to invoke the Petrification power, vs. RR 0 / averageHits 3 for an ordinary Intimidation (intimidation) test — represented here via ampVariant keyed to the \"Petrification\" power named in requiredAmps, not a literal equippable Amp."
+        }
+      ]
+    },
+    {
+      "id": "survival",
+      "label": "Survival",
+      "rank": { "base": 5 },
+      "attribute": "willpower",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 4 },
+      "specializations": []
+    }
+  ],
+  "spells": [],
+  "weapons": [{ "name": "Bite", "dv": { "base": 6 }, "range": "OK/–/–/–" }],
+  "chooseWeapons": { "count": 0, "options": [] },
+  "equipment": [],
+  "woundThresholds": {
+    "physical": { "base": [8, 11, 14] },
+    "mental": { "base": [3, 6, 9] }
+  },
+  "requiredAmps": [
+    {
+      "name": "Petrification",
+      "kind": "power",
+      "summary": "Influence (intimidation) + Charisma vs. Survival (composure) + Willpower Test against anyone looking at the basilisk. On a failure, the target is petrified for 2 turns per net hit. RR 2 on Influence (intimidation) Tests made to petrify."
+    },
+    {
+      "name": "Thick hide",
+      "kind": "quality",
+      "summary": "Armor 4."
+    }
+  ],
+  "chooseAmps": { "count": 0, "options": [] }
+}

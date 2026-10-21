@@ -1,0 +1,195 @@
+{
+  "id": "spirit-of-fire",
+  "label": "Spirit of Fire",
+  "source": { "book": "SRA2", "page": 265 },
+  "powerLevels": ["regular", "major"],
+  "attributes": {
+    "strength": { "base": 2, "variants": { "regular": 3, "major": 4 } },
+    "agility": { "base": 4, "variants": { "regular": 5, "major": 6 } },
+    "willpower": { "base": 3, "variants": { "regular": 4, "major": 5 } },
+    "logic": { "base": 2, "variants": { "regular": 3, "major": 4 } },
+    "charisma": { "base": 2, "variants": { "regular": 3, "major": 4 } }
+  },
+  "skills": [
+    {
+      "id": "athletics",
+      "label": "Athletics",
+      "rank": { "base": 2, "variants": { "regular": 4, "major": 6 } },
+      "attribute": "strength",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 2, "variants": { "regular": 3, "major": 4 } },
+      "specializations": [
+        {
+          "id": "ranged-defense",
+          "label": "ranged defense",
+          "rank": { "base": 2, "variants": { "regular": 4, "major": 6 } },
+          "attribute": "agility",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 3, "variants": { "regular": 4, "major": 5 } }
+        }
+      ]
+    },
+    {
+      "id": "ranged-weapons",
+      "label": "Ranged Weapons",
+      "rank": { "base": 2, "variants": { "regular": 4, "major": 6 } },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3, "variants": { "regular": 4, "major": 5 } },
+      "specializations": [
+        {
+          "id": "elemental-attack",
+          "label": "elemental attack",
+          "rank": { "base": 2, "variants": { "regular": 4, "major": 6 } },
+          "attribute": "agility",
+          "rr": { "base": 0, "variants": { "regular": 1, "major": 2 } },
+          "averageHits": { "base": 3, "variants": { "regular": 5, "major": 7 } }
+        }
+      ]
+    },
+    {
+      "id": "close-combat",
+      "label": "Close Combat",
+      "rank": { "base": 2, "variants": { "regular": 4, "major": 6 } },
+      "attribute": "agility",
+      "rr": {
+        "base": 0,
+        "ampVariant": { "amp": "Engulf", "base": 0, "variants": { "regular": 1, "major": 2 } }
+      },
+      "averageHits": {
+        "base": 3,
+        "variants": { "regular": 4, "major": 5 },
+        "ampVariant": { "amp": "Engulf", "base": 3, "variants": { "regular": 5, "major": 7 } }
+      },
+      "specializations": [
+        {
+          "id": "astral-combat",
+          "label": "astral combat",
+          "rank": { "base": 2, "variants": { "regular": 4, "major": 6 } },
+          "attribute": "willpower",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 3, "variants": { "regular": 4, "major": 5 } }
+        }
+      ]
+    },
+    {
+      "id": "survival",
+      "label": "Survival",
+      "rank": { "base": 2, "variants": { "regular": 4, "major": 6 } },
+      "attribute": "logic",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 2, "variants": { "regular": 3, "major": 4 } },
+      "specializations": []
+    },
+    {
+      "id": "perception",
+      "label": "Perception",
+      "rank": { "base": 2, "variants": { "regular": 4, "major": 6 } },
+      "attribute": "logic",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 2, "variants": { "regular": 3, "major": 4 } },
+      "specializations": []
+    },
+    {
+      "id": "influence",
+      "label": "Influence",
+      "rank": { "base": 2, "variants": { "regular": 4, "major": 6 } },
+      "attribute": "charisma",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 2, "variants": { "regular": 3, "major": 4 } },
+      "specializations": [
+        {
+          "id": "intimidation",
+          "label": "intimidation",
+          "rank": { "base": 2, "variants": { "regular": 4, "major": 6 } },
+          "attribute": "charisma",
+          "rr": {
+            "base": 0,
+            "ampVariant": { "amp": "Fear", "base": 1, "variants": { "regular": 2, "major": 3 } }
+          },
+          "averageHits": {
+            "base": 2,
+            "variants": { "regular": 3, "major": 4 },
+            "ampVariant": { "amp": "Fear", "base": 3, "variants": { "regular": 5, "major": 7 } }
+          }
+        }
+      ]
+    }
+  ],
+  "spells": [],
+  "weapons": [
+    { "name": "Unarmed", "dv": { "base": 2, "variants": { "regular": 3, "major": 4 } }, "range": "OK/–/–/–" },
+    {
+      "name": "Engulf",
+      "dv": { "base": 3, "variants": { "regular": 4, "major": 6 } },
+      "range": "OK/–/–/–",
+      "note": "Sets the target on fire."
+    },
+    {
+      "name": "Fire elemental attack",
+      "dv": { "base": 4, "variants": { "regular": 5, "major": 6 } },
+      "range": "OK/OK/Dis./–",
+      "note": "Target may be set on fire if damage is dealt."
+    },
+    { "name": "Astral combat", "dv": { "base": 2, "variants": { "regular": 3, "major": 4 } }, "range": "OK/–/–/–" }
+  ],
+  "chooseWeapons": { "count": 0, "options": [] },
+  "equipment": [],
+  "woundThresholds": {
+    "physical": {
+      "base": [5, 8, 11],
+      "variants": { "regular": [7, 10, 13], "major": [9, 12, 15] },
+      "ampVariant": {
+        "amp": "Immunity to normal weapons",
+        "base": [2, 5, 8],
+        "variants": { "regular": [3, 6, 9], "major": [4, 7, 10] }
+      }
+    },
+    "mental": {
+      "base": [3, 6, 9],
+      "variants": { "regular": [4, 7, 10], "major": [5, 8, 11] }
+    }
+  },
+  "requiredAmps": [
+    {
+      "name": "Immunity to normal weapons",
+      "kind": "power",
+      "summary": "Armor 3/4/5 (minor/regular/major) against normal weapons."
+    },
+    {
+      "name": "Materialization",
+      "kind": "power",
+      "summary": "The spirit, native to the astral plane, can materialize on the physical plane, temporarily becoming dual-natured."
+    },
+    {
+      "name": "Fire elemental attack",
+      "kind": "power",
+      "summary": "RR 0/1/2 (minor/regular/major) on Ranged Weapons (elemental attack) Tests."
+    },
+    {
+      "name": "Radiation aura",
+      "kind": "power",
+      "summary": "[Nuclear toxic spirits only] Opponents hit by a fire elemental attack or aura have one less light wound box until receiving magical healing (doesn't stack)."
+    }
+  ],
+  "chooseAmps": {
+    "count": { "base": 1, "variants": { "regular": 2, "major": 2 } },
+    "options": [
+      {
+        "name": "Fire aura",
+        "kind": "power",
+        "summary": "Opponents that hit the spirit in close combat may be set on fire."
+      },
+      {
+        "name": "Engulf",
+        "kind": "power",
+        "summary": "RR 0/1/2 (minor/regular/major) on Close Combat Tests; close combat DV +1/+1/+2, target set on fire if damage is dealt."
+      },
+      {
+        "name": "Fear",
+        "kind": "power",
+        "summary": "RR 1/2/3 (minor/regular/major) on Influence (intimidation) Tests."
+      }
+    ]
+  }
+}

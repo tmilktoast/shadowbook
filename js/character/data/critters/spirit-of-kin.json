@@ -1,0 +1,191 @@
+{
+  "id": "spirit-of-kin",
+  "label": "Spirit of Kin",
+  "source": { "book": "SRA2", "page": 262 },
+  "powerLevels": ["regular", "major"],
+  "attributes": {
+    "strength": { "base": 2, "variants": { "regular": 3, "major": 4 } },
+    "agility": { "base": 2, "variants": { "regular": 3, "major": 4 } },
+    "willpower": { "base": 4, "variants": { "regular": 5, "major": 6 } },
+    "logic": { "base": 3, "variants": { "regular": 4, "major": 5 } },
+    "charisma": { "base": 2, "variants": { "regular": 3, "major": 4 } }
+  },
+  "skills": [
+    {
+      "id": "athletics",
+      "label": "Athletics",
+      "rank": { "base": 2, "variants": { "regular": 4, "major": 6 } },
+      "attribute": "strength",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 2, "variants": { "regular": 3, "major": 4 } },
+      "specializations": [
+        {
+          "id": "ranged-defense",
+          "label": "ranged defense",
+          "rank": { "base": 2, "variants": { "regular": 4, "major": 6 } },
+          "attribute": "agility",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 2, "variants": { "regular": 3, "major": 4 } }
+        }
+      ]
+    },
+    {
+      "id": "close-combat",
+      "label": "Close Combat",
+      "rank": { "base": 2, "variants": { "regular": 4, "major": 6 } },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 2, "variants": { "regular": 3, "major": 4 } },
+      "specializations": [
+        {
+          "id": "astral-combat",
+          "label": "astral combat",
+          "rank": { "base": 2, "variants": { "regular": 4, "major": 6 } },
+          "attribute": "willpower",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 3, "variants": { "regular": 4, "major": 5 } }
+        }
+      ]
+    },
+    {
+      "id": "stealth",
+      "label": "Stealth",
+      "rank": { "base": 2, "variants": { "regular": 4, "major": 6 } },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 2, "variants": { "regular": 3, "major": 4 } },
+      "specializations": []
+    },
+    {
+      "id": "survival",
+      "label": "Survival",
+      "rank": { "base": 2, "variants": { "regular": 4, "major": 6 } },
+      "attribute": "logic",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3, "variants": { "regular": 4, "major": 5 } },
+      "specializations": []
+    },
+    {
+      "id": "perception",
+      "label": "Perception",
+      "rank": { "base": 2, "variants": { "regular": 4, "major": 6 } },
+      "attribute": "logic",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3, "variants": { "regular": 4, "major": 5 } },
+      "specializations": []
+    },
+    {
+      "id": "sorcery",
+      "label": "Sorcery",
+      "rank": { "base": 2, "variants": { "regular": 4, "major": 6 } },
+      "attribute": "willpower",
+      "rr": { "base": 0, "variants": { "regular": 1, "major": 2 } },
+      "averageHits": { "base": 3, "variants": { "regular": 5, "major": 7 } },
+      "specializations": []
+    },
+    {
+      "id": "influence",
+      "label": "Influence",
+      "rank": { "base": 2, "variants": { "regular": 4, "major": 6 } },
+      "attribute": "charisma",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 2, "variants": { "regular": 3, "major": 4 } },
+      "specializations": [
+        {
+          "id": "intimidation",
+          "label": "intimidation",
+          "rank": { "base": 2, "variants": { "regular": 4, "major": 6 } },
+          "attribute": "charisma",
+          "rr": {
+            "base": 0,
+            "ampVariant": { "amp": "Fear", "base": 1, "variants": { "regular": 2, "major": 3 } }
+          },
+          "averageHits": {
+            "base": 2,
+            "variants": { "regular": 3, "major": 4 },
+            "ampVariant": { "amp": "Fear", "base": 3, "variants": { "regular": 5, "major": 7 } }
+          }
+        }
+      ]
+    }
+  ],
+  "spells": [],
+  "weapons": [
+    { "name": "Unarmed", "dv": { "base": 2, "variants": { "regular": 3, "major": 4 } }, "range": "OK/–/–/–" },
+    { "name": "Astral combat", "dv": { "base": 2, "variants": { "regular": 3, "major": 4 } }, "range": "OK/–/–/–" }
+  ],
+  "chooseWeapons": { "count": 0, "options": [] },
+  "equipment": [],
+  "woundThresholds": {
+    "physical": {
+      "base": [5, 8, 11],
+      "variants": { "regular": [7, 10, 13], "major": [9, 12, 15] },
+      "ampVariant": {
+        "amp": "Immunity to normal weapons",
+        "base": [2, 5, 8],
+        "variants": { "regular": [3, 6, 9], "major": [4, 7, 10] }
+      }
+    },
+    "mental": {
+      "base": [4, 7, 10],
+      "variants": { "regular": [5, 8, 11], "major": [6, 9, 12] }
+    }
+  },
+  "requiredAmps": [
+    {
+      "name": "Immunity to normal weapons",
+      "kind": "power",
+      "summary": "Armor 3/4/5 (minor/regular/major) against normal weapons."
+    },
+    {
+      "name": "Materialization",
+      "kind": "power",
+      "summary": "The spirit, native to the astral plane, can materialize on the physical plane, temporarily becoming dual-natured."
+    },
+    {
+      "name": "Innate spell",
+      "kind": "power",
+      "summary": "RR 0/1/2 (minor/regular/major) on Sorcery Tests; the spirit masters a spell chosen by the conjurer."
+    },
+    {
+      "name": "Pestilence",
+      "kind": "spell",
+      "summary": "[Plague toxic spirits only] Threshold = Strength + Willpower; the target has one less light wound box until receiving magical healing (doesn't stack)."
+    }
+  ],
+  "chooseAmps": {
+    "count": { "base": 1, "variants": { "regular": 2, "major": 2 } },
+    "options": [
+      {
+        "name": "Accident",
+        "kind": "power",
+        "summary": "Increases the glitch severity of the target (adds 1/1/2 extra 1s to its Risk Dice) for one action."
+      },
+      {
+        "name": "Confusion",
+        "kind": "power",
+        "summary": "Inflicts a Disadvantage on all Tests of 1/2/3 targets."
+      },
+      {
+        "name": "Fear",
+        "kind": "power",
+        "summary": "RR 1/2/3 (minor/regular/major) on Influence (intimidation) Tests."
+      },
+      {
+        "name": "Psychokinesis",
+        "kind": "power",
+        "summary": "Can move objects from a distance, with the strength and agility of a human."
+      },
+      {
+        "name": "Innate spell",
+        "kind": "power",
+        "summary": "The spirit masters a spell chosen by the conjurer (can be selected twice)."
+      },
+      {
+        "name": "Search",
+        "kind": "power",
+        "summary": "May find someone within roughly one scene on a successful Perception Test (threshold is the GM's call)."
+      }
+    ]
+  }
+}

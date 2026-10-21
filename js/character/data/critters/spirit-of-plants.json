@@ -1,0 +1,211 @@
+{
+  "id": "spirit-of-plants",
+  "label": "Spirit of Plants",
+  "source": { "book": "SRA2", "page": 263 },
+  "powerLevels": ["regular", "major"],
+  "attributes": {
+    "strength": { "base": 3, "variants": { "regular": 4, "major": 5 } },
+    "agility": { "base": 2, "variants": { "regular": 3, "major": 4 } },
+    "willpower": { "base": 4, "variants": { "regular": 5, "major": 6 } },
+    "logic": { "base": 2, "variants": { "regular": 3, "major": 4 } },
+    "charisma": { "base": 2, "variants": { "regular": 3, "major": 4 } }
+  },
+  "skills": [
+    {
+      "id": "athletics",
+      "label": "Athletics",
+      "rank": { "base": 2, "variants": { "regular": 4, "major": 6 } },
+      "attribute": "strength",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3, "variants": { "regular": 4, "major": 5 } },
+      "specializations": [
+        {
+          "id": "ranged-defense",
+          "label": "ranged defense",
+          "rank": { "base": 2, "variants": { "regular": 4, "major": 6 } },
+          "attribute": "agility",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 2, "variants": { "regular": 3, "major": 4 } }
+        }
+      ]
+    },
+    {
+      "id": "close-combat",
+      "label": "Close Combat",
+      "rank": { "base": 2, "variants": { "regular": 4, "major": 6 } },
+      "attribute": "agility",
+      "rr": {
+        "base": 0,
+        "ampVariant": { "amp": "Tangle", "base": 1, "variants": { "regular": 2, "major": 3 } }
+      },
+      "averageHits": {
+        "base": 2,
+        "variants": { "regular": 3, "major": 4 },
+        "ampVariant": { "amp": "Tangle", "base": 3, "variants": { "regular": 5, "major": 7 } }
+      },
+      "specializations": [
+        {
+          "id": "astral-combat",
+          "label": "astral combat",
+          "rank": { "base": 2, "variants": { "regular": 4, "major": 6 } },
+          "attribute": "willpower",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 3, "variants": { "regular": 4, "major": 5 } }
+        }
+      ]
+    },
+    {
+      "id": "stealth",
+      "label": "Stealth",
+      "rank": { "base": 2, "variants": { "regular": 4, "major": 6 } },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 2, "variants": { "regular": 3, "major": 4 } },
+      "specializations": [
+        {
+          "id": "physical-sneaking",
+          "label": "physical sneaking",
+          "rank": { "base": 4, "variants": { "regular": 6, "major": 8 } },
+          "attribute": "agility",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 3, "variants": { "regular": 4, "major": 5 } }
+        }
+      ]
+    },
+    {
+      "id": "survival",
+      "label": "Survival",
+      "rank": { "base": 2, "variants": { "regular": 4, "major": 6 } },
+      "attribute": "logic",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 2, "variants": { "regular": 3, "major": 4 } },
+      "specializations": []
+    },
+    {
+      "id": "perception",
+      "label": "Perception",
+      "rank": { "base": 2, "variants": { "regular": 4, "major": 6 } },
+      "attribute": "logic",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 2, "variants": { "regular": 3, "major": 4 } },
+      "specializations": [
+        {
+          "id": "physical",
+          "label": "physical",
+          "rank": { "base": 4, "variants": { "regular": 6, "major": 8 } },
+          "attribute": "logic",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 3, "variants": { "regular": 4, "major": 5 } }
+        }
+      ]
+    },
+    {
+      "id": "influence",
+      "label": "Influence",
+      "rank": { "base": 2, "variants": { "regular": 4, "major": 6 } },
+      "attribute": "charisma",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 2, "variants": { "regular": 3, "major": 4 } },
+      "specializations": [
+        {
+          "id": "intimidation",
+          "label": "intimidation",
+          "rank": { "base": 2, "variants": { "regular": 4, "major": 6 } },
+          "attribute": "charisma",
+          "rr": {
+            "base": 0,
+            "ampVariant": { "amp": "Fear", "base": 1, "variants": { "regular": 2, "major": 3 } }
+          },
+          "averageHits": {
+            "base": 2,
+            "variants": { "regular": 3, "major": 4 },
+            "ampVariant": { "amp": "Fear", "base": 3, "variants": { "regular": 5, "major": 7 } }
+          }
+        }
+      ]
+    }
+  ],
+  "spells": [],
+  "weapons": [
+    {
+      "name": "Unarmed",
+      "dv": { "base": 3, "variants": { "regular": 4, "major": 5 } },
+      "range": "OK/–/–/–",
+      "note": "With tangle (if chosen): the target is immobilized if damage is dealt."
+    },
+    {
+      "name": "Astral combat",
+      "dv": { "base": 2, "variants": { "regular": 3, "major": 4 } },
+      "range": "OK/–/–/–"
+    }
+  ],
+  "chooseWeapons": { "count": 0, "options": [] },
+  "equipment": [],
+  "woundThresholds": {
+    "physical": {
+      "base": [6, 9, 12],
+      "variants": { "regular": [8, 11, 14], "major": [10, 13, 16] },
+      "ampVariant": {
+        "amp": "Immunity to normal weapons",
+        "base": [3, 6, 9],
+        "variants": { "regular": [4, 7, 10], "major": [5, 8, 11] }
+      }
+    },
+    "mental": {
+      "base": [4, 7, 10],
+      "variants": { "regular": [5, 8, 11], "major": [6, 9, 12] }
+    }
+  },
+  "requiredAmps": [
+    {
+      "name": "Immunity to normal weapons",
+      "kind": "power",
+      "summary": "Armor 3/4/5 (minor/regular/major) against normal weapons."
+    },
+    {
+      "name": "Materialization",
+      "kind": "power",
+      "summary": "The spirit, native to the astral plane, can materialize on the physical plane, temporarily becoming dual-natured."
+    },
+    {
+      "name": "Movement",
+      "kind": "power",
+      "summary": "Can multiply or divide by 2/3/4 (minor/regular/major) the speed of a critter or vehicle up to the size of a sedan, in plant-related locations."
+    },
+    {
+      "name": "Toxic spores",
+      "kind": "power",
+      "summary": "[Rust toxic spirits only] Inflicts a Disadvantage on all Tests to all living beings at close range."
+    }
+  ],
+  "chooseAmps": {
+    "count": { "base": 1, "variants": { "regular": 2, "major": 2 } },
+    "options": [
+      {
+        "name": "Accident",
+        "kind": "power",
+        "summary": "Increases the glitch severity of the target (adds 1/1/2 extra 1s to its Risk Dice) for one action, in a plant-related location."
+      },
+      {
+        "name": "Concealment",
+        "kind": "power",
+        "summary": "RR 1/2/3 (minor/regular/major) on the target's Stealth (physical and astral sneaking) Tests."
+      },
+      {
+        "name": "Search",
+        "kind": "power",
+        "summary": "May find someone within roughly one scene on a successful Perception Test (threshold is the GM's call)."
+      },
+      {
+        "name": "Tangle",
+        "kind": "power",
+        "summary": "RR 1/2/3 (minor/regular/major) on Close Combat Tests; the target is immobilized if damage is dealt."
+      },
+      {
+        "name": "Fear",
+        "kind": "power",
+        "summary": "RR 1/2/3 (minor/regular/major) on Influence (intimidation) Tests."
+      }
+    ]
+  }
+}

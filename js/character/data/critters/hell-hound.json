@@ -1,0 +1,183 @@
+{
+  "id": "hell-hound",
+  "label": "Hell Hound",
+  "source": { "book": "SRA2", "page": 257 },
+  "powerLevels": [],
+  "attributes": {
+    "strength": { "base": 3 },
+    "agility": { "base": 3 },
+    "willpower": { "base": 2 },
+    "logic": { "base": 2 },
+    "charisma": { "base": 2 }
+  },
+  "skills": [
+    {
+      "id": "athletics",
+      "label": "Athletics",
+      "rank": { "base": 6 },
+      "attribute": "strength",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 4 },
+      "specializations": [
+        {
+          "id": "running",
+          "label": "running",
+          "rank": { "base": 8 },
+          "attribute": "strength",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 5 }
+        },
+        {
+          "id": "ranged-defense",
+          "label": "ranged defense",
+          "rank": { "base": 6 },
+          "attribute": "agility",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 4 }
+        }
+      ]
+    },
+    {
+      "id": "ranged-weapons",
+      "label": "Ranged Weapons",
+      "rank": { "base": 3 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": [
+        {
+          "id": null,
+          "label": "fiery breath",
+          "rank": { "base": 5 },
+          "attribute": "agility",
+          "rr": { "base": 1 },
+          "averageHits": { "base": 5 }
+        }
+      ]
+    },
+    {
+      "id": "close-combat",
+      "label": "Close Combat",
+      "rank": { "base": 4 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": [
+        {
+          "id": null,
+          "label": "bite",
+          "rank": { "base": 6 },
+          "attribute": "agility",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 4 }
+        }
+      ]
+    },
+    {
+      "id": "stealth",
+      "label": "Stealth",
+      "rank": { "base": 5 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 4 },
+      "specializations": []
+    },
+    {
+      "id": "perception",
+      "label": "Perception",
+      "rank": { "base": 4 },
+      "attribute": "logic",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": [
+        {
+          "id": "physical",
+          "label": "physical",
+          "rank": { "base": 6 },
+          "attribute": "logic",
+          "rr": { "base": 2 },
+          "averageHits": { "base": 6 }
+        }
+      ]
+    },
+    {
+      "id": "influence",
+      "label": "Influence",
+      "rank": { "base": 1 },
+      "attribute": "charisma",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 2 },
+      "specializations": [
+        {
+          "id": "intimidation",
+          "label": "intimidation",
+          "rank": { "base": 3 },
+          "attribute": "charisma",
+          "rr": { "base": 1 },
+          "averageHits": { "base": 4 }
+        }
+      ]
+    },
+    {
+      "id": "survival",
+      "label": "Survival",
+      "rank": { "base": 3 },
+      "attribute": "willpower",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": []
+    }
+  ],
+  "spells": [],
+  "weapons": [
+    { "name": "Bite", "dv": { "base": 4 }, "range": "OK/–/–/–" },
+    {
+      "name": "Fiery breath",
+      "dv": { "base": 5 },
+      "range": "OK/OK/–/–",
+      "note": "Sets the target on fire if damage is dealt."
+    }
+  ],
+  "chooseWeapons": { "count": 0, "options": [] },
+  "equipment": [],
+  "woundThresholds": {
+    "physical": {
+      "base": [6, 9, 12],
+      "ampVariant": { "amp": "Immunity to fire", "base": [9, 12, 15] }
+    },
+    "mental": { "base": [2, 5, 8] }
+  },
+  "requiredAmps": [
+    {
+      "name": "Dual-natured",
+      "kind": "power",
+      "summary": "Always present on both the physical and astral planes."
+    },
+    {
+      "name": "Enhanced senses",
+      "kind": "quality",
+      "summary": "RR 2 on Perception (physical) Tests."
+    },
+    {
+      "name": "Fear",
+      "kind": "power",
+      "summary": "RR 1 on Influence (intimidation) Tests."
+    },
+    {
+      "name": "Fiery breath",
+      "kind": "power",
+      "summary": "DV 5 [OK/OK/–/–]; RR 1 on Ranged Weapons (fiery breath) Tests."
+    },
+    {
+      "name": "Thick hide",
+      "kind": "quality",
+      "summary": "Armor 3."
+    },
+    {
+      "name": "Immunity to fire",
+      "kind": "quality",
+      "summary": "+3 Armor against fire."
+    }
+  ],
+  "chooseAmps": { "count": 0, "options": [] }
+}

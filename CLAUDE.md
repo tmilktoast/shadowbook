@@ -264,7 +264,7 @@ files and comments rather than pasting book text verbatim.
 |---|---|
 | Die Roller | Working — generic NdX roller, SVG dice faces, localStorage history |
 | Name Generator | Working — streetnames + 7 cultures (3 are stubs) |
-| Character Database | Working — four subtabs: Prime Characters (full Character sheets: 12 official pregens + room for user-built PCs/major NPCs, PC/NPC tag), Minor Characters (NPC Generator output), Templates (all 25 non-critter NPC stat blocks from "Hell Is Other People," Ganger through Coyote/Smuggler, transcribed), Critters (nav only, no data model yet — explicitly deferred) |
+| Character Database | Working — four subtabs: Prime Characters (full Character sheets: 12 official pregens + room for user-built PCs/major NPCs, PC/NPC tag), Minor Characters (NPC Generator output), Templates (all 25 non-critter NPC stat blocks from "Hell Is Other People," Ganger through Coyote/Smuggler, transcribed), Critters (all 18 critters from the same chapter, Barghest through Spirit of Water, transcribed — reuses Templates' exact data shape, see `js/character/critters.js`) |
 | NPC Generator | Working — picks Template/Metatype/Gender/Name (each explicit or random), saves a `{ name, gender, metatype, templateId }` pointer into Minor Characters via `js/character/minorCharacters.js` |
 | Character Builder | Nav link only, no content yet — `js/character/character.js` has the full data model (createCharacter()), just no UI to build one interactively |
 | Job Generator | Nav link only, no content yet |

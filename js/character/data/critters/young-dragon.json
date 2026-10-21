@@ -1,0 +1,211 @@
+{
+  "id": "young-dragon",
+  "label": "Young Dragon",
+  "source": { "book": "SRA2", "page": 261 },
+  "powerLevels": [],
+  "attributes": {
+    "strength": { "base": 10 },
+    "agility": { "base": 6 },
+    "willpower": { "base": 6 },
+    "logic": { "base": 6 },
+    "charisma": { "base": 6 }
+  },
+  "skills": [
+    {
+      "id": "ranged-weapons",
+      "label": "Ranged Weapons",
+      "rank": { "base": 8 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 6 },
+      "specializations": [
+        {
+          "id": null,
+          "label": "fiery breath",
+          "rank": { "base": 10 },
+          "attribute": "agility",
+          "rr": { "base": 2 },
+          "averageHits": { "base": 8 }
+        }
+      ]
+    },
+    {
+      "id": "athletics",
+      "label": "Athletics",
+      "rank": { "base": 8 },
+      "attribute": "strength",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 7 },
+      "specializations": [
+        {
+          "id": "ranged-defense",
+          "label": "ranged defense",
+          "rank": { "base": 10 },
+          "attribute": "agility",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 6 }
+        },
+        {
+          "id": null,
+          "label": "flight",
+          "rank": { "base": 10 },
+          "attribute": "strength",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 8 }
+        }
+      ]
+    },
+    {
+      "id": "close-combat",
+      "label": "Close Combat",
+      "rank": { "base": 8 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 6 },
+      "specializations": [
+        {
+          "id": null,
+          "label": "bite & claws",
+          "rank": { "base": 10 },
+          "attribute": "agility",
+          "rr": { "base": 2 },
+          "averageHits": { "base": 8 }
+        },
+        {
+          "id": "astral-combat",
+          "label": "astral combat",
+          "rank": { "base": 10 },
+          "attribute": "willpower",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 6 }
+        }
+      ]
+    },
+    {
+      "id": "stealth",
+      "label": "Stealth",
+      "rank": { "base": 4 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 4 },
+      "specializations": []
+    },
+    {
+      "id": "perception",
+      "label": "Perception",
+      "rank": { "base": 8 },
+      "attribute": "logic",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 6 },
+      "specializations": [
+        {
+          "id": "physical",
+          "label": "physical",
+          "rank": { "base": 10 },
+          "attribute": "logic",
+          "rr": { "base": 2 },
+          "averageHits": { "base": 8 }
+        },
+        {
+          "id": "astral",
+          "label": "astral",
+          "rank": { "base": 10 },
+          "attribute": "logic",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 6 }
+        }
+      ]
+    },
+    {
+      "id": "conjuring",
+      "label": "Conjuring",
+      "rank": { "base": 8 },
+      "attribute": "logic",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 6 },
+      "specializations": []
+    },
+    {
+      "id": "sorcery",
+      "label": "Sorcery",
+      "rank": { "base": 8 },
+      "attribute": "willpower",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 6 },
+      "specializations": []
+    },
+    {
+      "id": "influence",
+      "label": "Influence",
+      "rank": { "base": 6 },
+      "attribute": "charisma",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 5 },
+      "specializations": [
+        {
+          "id": "intimidation",
+          "label": "intimidation",
+          "rank": { "base": 8 },
+          "attribute": "charisma",
+          "rr": { "base": 2 },
+          "averageHits": { "base": 8 }
+        }
+      ]
+    }
+  ],
+  "spells": [],
+  "weapons": [
+    { "name": "Bite & claws", "dv": { "base": 12 }, "range": "OK/–/–/–" },
+    { "name": "Astral combat", "dv": { "base": 6 }, "range": "OK/–/–/–" },
+    {
+      "name": "Fiery breath",
+      "dv": { "base": 8 },
+      "range": "OK/OK/Dis./–",
+      "note": "Sets the target on fire if damage is dealt."
+    }
+  ],
+  "chooseWeapons": { "count": 0, "options": [] },
+  "equipment": [],
+  "woundThresholds": {
+    "physical": { "base": [16, 19, 22] },
+    "mental": { "base": [12, 15, 18] }
+  },
+  "requiredAmps": [
+    {
+      "name": "Dual-natured",
+      "kind": "power",
+      "summary": "Always present on both the physical and astral planes."
+    },
+    {
+      "name": "Mystic armor",
+      "kind": "power",
+      "summary": "+6 Armor (physical & astral)."
+    },
+    {
+      "name": "Fiery breath",
+      "kind": "power",
+      "summary": "RR 2 on Ranged Weapons (fiery breath) Tests."
+    },
+    {
+      "name": "Enhanced senses",
+      "kind": "power",
+      "summary": "Large-spectrum hearing and smell, plus low-light and thermographic vision; RR 2 on Perception (physical) Tests."
+    },
+    {
+      "name": "Dragon magic",
+      "kind": "power",
+      "summary": "Dragons know any spell useful to them; known spells are GM call."
+    },
+    {
+      "name": "Terror",
+      "kind": "power",
+      "summary": "RR 2 on Close Combat (bite & claws) and Influence (intimidation) Tests."
+    },
+    {
+      "name": "Dragonspeech",
+      "kind": "power",
+      "summary": "Dragons can speak and be understood without needing a spoken language."
+    }
+  ],
+  "chooseAmps": { "count": 0, "options": [] }
+}

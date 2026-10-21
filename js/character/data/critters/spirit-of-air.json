@@ -1,0 +1,219 @@
+{
+  "id": "spirit-of-air",
+  "label": "Spirit of Air",
+  "source": { "book": "SRA2", "page": 264 },
+  "powerLevels": ["regular", "major"],
+  "attributes": {
+    "strength": { "base": 1, "variants": { "regular": 2, "major": 3 } },
+    "agility": { "base": 5, "variants": { "regular": 6, "major": 7 } },
+    "willpower": { "base": 3, "variants": { "regular": 4, "major": 5 } },
+    "logic": { "base": 2, "variants": { "regular": 3, "major": 4 } },
+    "charisma": { "base": 2, "variants": { "regular": 3, "major": 4 } }
+  },
+  "skills": [
+    {
+      "id": "athletics",
+      "label": "Athletics",
+      "rank": { "base": 2, "variants": { "regular": 4, "major": 6 } },
+      "attribute": "strength",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 2, "variants": { "regular": 3, "major": 4 } },
+      "specializations": [
+        {
+          "id": "ranged-defense",
+          "label": "ranged defense",
+          "rank": { "base": 2, "variants": { "regular": 4, "major": 6 } },
+          "attribute": "agility",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 3, "variants": { "regular": 4, "major": 5 } }
+        }
+      ]
+    },
+    {
+      "id": "ranged-weapons",
+      "label": "Ranged Weapons",
+      "rank": { "base": 2, "variants": { "regular": 4, "major": 6 } },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3, "variants": { "regular": 4, "major": 5 } },
+      "specializations": [
+        {
+          "id": "elemental-attack",
+          "label": "elemental attack",
+          "rank": { "base": 2, "variants": { "regular": 4, "major": 6 } },
+          "attribute": "agility",
+          "rr": { "base": 0, "variants": { "regular": 1, "major": 2 } },
+          "averageHits": { "base": 3, "variants": { "regular": 5, "major": 7 } }
+        },
+        {
+          "id": "noxious-breath",
+          "label": "noxious breath",
+          "rank": { "base": 2, "variants": { "regular": 4, "major": 6 } },
+          "attribute": "agility",
+          "rr": { "base": 0, "variants": { "regular": 1, "major": 2 } },
+          "averageHits": { "base": 3, "variants": { "regular": 5, "major": 7 } }
+        }
+      ]
+    },
+    {
+      "id": "close-combat",
+      "label": "Close Combat",
+      "rank": { "base": 2, "variants": { "regular": 4, "major": 6 } },
+      "attribute": "agility",
+      "rr": {
+        "base": 0,
+        "ampVariant": { "amp": "Engulf", "base": 0, "variants": { "regular": 1, "major": 2 } }
+      },
+      "averageHits": {
+        "base": 3,
+        "variants": { "regular": 4, "major": 5 },
+        "ampVariant": { "amp": "Engulf", "base": 3, "variants": { "regular": 5, "major": 7 } }
+      },
+      "specializations": [
+        {
+          "id": "astral-combat",
+          "label": "astral combat",
+          "rank": { "base": 2, "variants": { "regular": 4, "major": 6 } },
+          "attribute": "willpower",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 3, "variants": { "regular": 4, "major": 5 } }
+        }
+      ]
+    },
+    {
+      "id": "stealth",
+      "label": "Stealth",
+      "rank": { "base": 2, "variants": { "regular": 4, "major": 6 } },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3, "variants": { "regular": 4, "major": 5 } },
+      "specializations": []
+    },
+    {
+      "id": "survival",
+      "label": "Survival",
+      "rank": { "base": 2, "variants": { "regular": 4, "major": 6 } },
+      "attribute": "logic",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 2, "variants": { "regular": 3, "major": 4 } },
+      "specializations": []
+    },
+    {
+      "id": "perception",
+      "label": "Perception",
+      "rank": { "base": 2, "variants": { "regular": 4, "major": 6 } },
+      "attribute": "logic",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 2, "variants": { "regular": 3, "major": 4 } },
+      "specializations": []
+    }
+  ],
+  "spells": [],
+  "weapons": [
+    { "name": "Unarmed", "dv": { "base": 1, "variants": { "regular": 2, "major": 3 } }, "range": "OK/–/–/–" },
+    {
+      "name": "Engulf",
+      "dv": { "base": 2, "variants": { "regular": 3, "major": 5 } },
+      "range": "OK/–/–/–",
+      "note": "Movement slowed down."
+    },
+    {
+      "name": "Cold elemental attack",
+      "dv": { "base": 4, "variants": { "regular": 5, "major": 6 } },
+      "range": "OK/OK/Dis./–",
+      "note": "Movement slowed down if damage is dealt."
+    },
+    {
+      "name": "Electricity elemental attack",
+      "dv": { "base": 4, "variants": { "regular": 5, "major": 6 } },
+      "range": "OK/OK/Dis./–",
+      "note": "One action lost if damage is dealt."
+    },
+    {
+      "name": "Noxious breath",
+      "dv": { "base": 4, "variants": { "regular": 5, "major": 6 } },
+      "range": "OK/OK/–/–",
+      "note": "Then inflicts 2 light wounds, one every (target's Strength) turns."
+    },
+    { "name": "Astral combat", "dv": { "base": 2, "variants": { "regular": 3, "major": 4 } }, "range": "OK/–/–/–" }
+  ],
+  "chooseWeapons": { "count": 0, "options": [] },
+  "equipment": [],
+  "woundThresholds": {
+    "physical": {
+      "base": [4, 7, 10],
+      "variants": { "regular": [6, 9, 12], "major": [8, 11, 14] },
+      "ampVariant": {
+        "amp": "Immunity to normal weapons",
+        "base": [1, 4, 7],
+        "variants": { "regular": [2, 5, 8], "major": [3, 6, 9] }
+      }
+    },
+    "mental": {
+      "base": [3, 6, 9],
+      "variants": { "regular": [4, 7, 10], "major": [5, 8, 11] }
+    }
+  },
+  "requiredAmps": [
+    {
+      "name": "Immunity to normal weapons",
+      "kind": "power",
+      "summary": "Armor 3/4/5 (minor/regular/major) against normal weapons."
+    },
+    {
+      "name": "Materialization",
+      "kind": "power",
+      "summary": "The spirit, native to the astral plane, can materialize on the physical plane, temporarily becoming dual-natured."
+    },
+    {
+      "name": "Movement",
+      "kind": "power",
+      "summary": "Can multiply or divide by 2/3/4 (minor/regular/major) the speed of a critter or vehicle up to the size of a sedan in air-related locations."
+    },
+    {
+      "name": "Noxious breath",
+      "kind": "power",
+      "summary": "[Noxious toxic spirits only] RR 0/1/2 (minor/regular/major) on Ranged Weapons (noxious breath) Tests."
+    }
+  ],
+  "chooseAmps": {
+    "count": { "base": 1, "variants": { "regular": 2, "major": 2 } },
+    "options": [
+      {
+        "name": "Unnatural speed",
+        "kind": "power",
+        "summary": "+1 action per fight (minor/regular) / per narration (major)."
+      },
+      {
+        "name": "Psychokinesis",
+        "kind": "power",
+        "summary": "Can move objects from a distance, with the strength and agility of a human."
+      },
+      {
+        "name": "Cold elemental attack",
+        "kind": "power",
+        "summary": "RR 0/1/2 (minor/regular/major) on Ranged Weapons (cold elemental attack) Tests."
+      },
+      {
+        "name": "Electricity elemental attack",
+        "kind": "power",
+        "summary": "RR 0/1/2 (minor/regular/major) on Ranged Weapons (electricity elemental attack) Tests."
+      },
+      {
+        "name": "Cold aura",
+        "kind": "power",
+        "summary": "Slows down movement of opponents successfully attacking the spirit in close combat."
+      },
+      {
+        "name": "Electricity aura",
+        "kind": "power",
+        "summary": "Opponents successfully attacking the spirit in close combat lose their next action."
+      },
+      {
+        "name": "Engulf",
+        "kind": "power",
+        "summary": "RR 0/1/2 (minor/regular/major) on Close Combat Tests; close combat DV +1/+1/+2, target movements slowed down if damage is dealt."
+      }
+    ]
+  }
+}

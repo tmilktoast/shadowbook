@@ -1,0 +1,187 @@
+{
+  "id": "vampire",
+  "label": "Vampire",
+  "source": { "book": "SRA2", "page": 260 },
+  "powerLevels": [],
+  "attributes": {
+    "strength": { "base": 3 },
+    "agility": { "base": 4 },
+    "willpower": { "base": 3 },
+    "logic": { "base": 3 },
+    "charisma": { "base": 3 }
+  },
+  "skills": [
+    {
+      "id": "athletics",
+      "label": "Athletics",
+      "rank": { "base": 3 },
+      "attribute": "strength",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": [
+        {
+          "id": "ranged-defense",
+          "label": "ranged defense",
+          "rank": { "base": 5 },
+          "attribute": "agility",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 4 }
+        }
+      ]
+    },
+    {
+      "id": "close-combat",
+      "label": "Close Combat",
+      "rank": { "base": 5 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 4 },
+      "specializations": [
+        {
+          "id": "unarmed",
+          "label": "unarmed",
+          "rank": { "base": 7 },
+          "attribute": "agility",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 5 }
+        }
+      ]
+    },
+    {
+      "id": "stealth",
+      "label": "Stealth",
+      "rank": { "base": 5 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 4 },
+      "specializations": [
+        {
+          "id": "physical-sneaking",
+          "label": "physical sneaking",
+          "rank": { "base": 7 },
+          "attribute": "agility",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 5 }
+        }
+      ]
+    },
+    {
+      "id": "perception",
+      "label": "Perception",
+      "rank": { "base": 6 },
+      "attribute": "logic",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 4 },
+      "specializations": [
+        {
+          "id": "physical",
+          "label": "physical",
+          "rank": { "base": 8 },
+          "attribute": "logic",
+          "rr": { "base": 1 },
+          "averageHits": { "base": 6 }
+        }
+      ]
+    },
+    {
+      "id": "sorcery",
+      "label": "Sorcery",
+      "rank": { "base": 5 },
+      "attribute": "willpower",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 4 },
+      "specializations": []
+    },
+    {
+      "id": "conjuring",
+      "label": "Conjuring",
+      "rank": { "base": 5 },
+      "attribute": ["logic", "charisma"],
+      "rr": { "base": 0 },
+      "averageHits": { "base": 4 },
+      "specializations": []
+    },
+    {
+      "id": "influence",
+      "label": "Influence",
+      "rank": { "base": 4 },
+      "attribute": "charisma",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": [
+        {
+          "id": "intimidation",
+          "label": "intimidation",
+          "rank": { "base": 6 },
+          "attribute": "charisma",
+          "rr": { "base": 2 },
+          "averageHits": { "base": 6 }
+        }
+      ]
+    }
+  ],
+  "spells": [],
+  "weapons": [
+    { "name": "Unarmed", "dv": { "base": 3 }, "range": "OK/–/–/–" },
+    { "name": "Bite", "dv": { "base": 4 }, "range": "OK/–/–/–" }
+  ],
+  "chooseWeapons": { "count": 0, "options": [] },
+  "equipment": ["Commlink", "Armor clothes (Armor 2)"],
+  "woundThresholds": {
+    "physical": { "base": [5, 8, 11] },
+    "mental": { "base": [3, 6, 9] }
+  },
+  "requiredAmps": [
+    {
+      "name": "Awakened",
+      "kind": "awakened",
+      "summary": "Choose a tradition; grants Astral perception & projection, Sorcery, and Conjuring. Known spells are GM call."
+    },
+    {
+      "name": "Dual-natured",
+      "kind": "power",
+      "summary": "Always present on both the physical and astral planes."
+    },
+    {
+      "name": "Essence loss and drain, Infection",
+      "kind": "power",
+      "summary": "Loses 1 Essence point per lunar month and suffers the usual penalties once below Essence 6. Can drain a metahuman target's Essence by draining and drinking its blood, 5 minutes per point, up to 12 points; the loss is permanent for the victim. A vampire with Essence 8 or more gets an Advantage on all magic-related Tests. A victim drained of their last Essence point dies or, at the GM's call, is turned into a vampire."
+    },
+    {
+      "name": "Enhanced senses",
+      "kind": "power",
+      "summary": "Enhanced hearing and spell perception, plus thermographic vision; RR 1 on Perception (physical) Tests."
+    },
+    {
+      "name": "Speed",
+      "kind": "power",
+      "summary": "+1 action per fight."
+    },
+    {
+      "name": "Mist form",
+      "kind": "power",
+      "summary": "Can turn to mist, or regain normal form, in one narration."
+    },
+    {
+      "name": "Regenerate",
+      "kind": "power",
+      "summary": "Heals a light wound in 3 turns and a serious wound in 10 turns."
+    },
+    {
+      "name": "Fear",
+      "kind": "power",
+      "summary": "RR 2 on Influence (intimidation) Tests."
+    },
+    {
+      "name": "Sun allergy",
+      "kind": "quality",
+      "summary": "Disadvantage on all Tests while exposed to sunlight."
+    },
+    {
+      "name": "Dietary requirement",
+      "kind": "quality",
+      "summary": "Must feed exclusively on metahuman blood."
+    }
+  ],
+  "chooseAmps": { "count": 0, "options": [] }
+}

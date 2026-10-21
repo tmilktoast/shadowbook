@@ -1,0 +1,121 @@
+{
+  "id": "guard-dog",
+  "label": "Guard Dog",
+  "source": { "book": "SRA2", "page": 261 },
+  "powerLevels": [],
+  "attributes": {
+    "strength": { "base": 2 },
+    "agility": { "base": 2 },
+    "willpower": { "base": 1 },
+    "logic": { "base": 2 },
+    "charisma": { "base": 2 }
+  },
+  "skills": [
+    {
+      "id": "athletics",
+      "label": "Athletics",
+      "rank": { "base": 5 },
+      "attribute": "strength",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": [
+        {
+          "id": "running",
+          "label": "running",
+          "rank": { "base": 7 },
+          "attribute": "strength",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 4 }
+        }
+      ]
+    },
+    {
+      "id": "close-combat",
+      "label": "Close Combat",
+      "rank": { "base": 4 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": [
+        {
+          "id": null,
+          "label": "bite",
+          "rank": { "base": 6 },
+          "attribute": "agility",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 4 }
+        }
+      ]
+    },
+    {
+      "id": "stealth",
+      "label": "Stealth",
+      "rank": { "base": 5 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": []
+    },
+    {
+      "id": "perception",
+      "label": "Perception",
+      "rank": { "base": 4 },
+      "attribute": "logic",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": [
+        {
+          "id": "physical",
+          "label": "physical",
+          "rank": { "base": 6 },
+          "attribute": "logic",
+          "rr": { "base": 2 },
+          "averageHits": { "base": 6 }
+        }
+      ]
+    },
+    {
+      "id": "influence",
+      "label": "Influence",
+      "rank": { "base": 1 },
+      "attribute": "charisma",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 2 },
+      "specializations": [
+        {
+          "id": "intimidation",
+          "label": "intimidation",
+          "rank": { "base": 3 },
+          "attribute": "charisma",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 3 }
+        }
+      ]
+    },
+    {
+      "id": "survival",
+      "label": "Survival",
+      "rank": { "base": 4 },
+      "attribute": "willpower",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": []
+    }
+  ],
+  "spells": [],
+  "weapons": [{ "name": "Bite", "dv": { "base": 3 }, "range": "OK/–/–/–" }],
+  "chooseWeapons": { "count": 0, "options": [] },
+  "equipment": [],
+  "woundThresholds": {
+    "physical": { "base": [2, 5, 8] },
+    "mental": { "base": [1, 4, 7] }
+  },
+  "requiredAmps": [
+    {
+      "name": "Enhanced senses",
+      "kind": "quality",
+      "summary": "RR 2 on Perception (physical) Tests."
+    }
+  ],
+  "chooseAmps": { "count": 0, "options": [] }
+}

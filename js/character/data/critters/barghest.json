@@ -1,0 +1,140 @@
+{
+  "id": "barghest",
+  "label": "Barghest",
+  "source": { "book": "SRA2", "page": 257 },
+  "powerLevels": [],
+  "attributes": {
+    "strength": { "base": 4 },
+    "agility": { "base": 3 },
+    "willpower": { "base": 2 },
+    "logic": { "base": 2 },
+    "charisma": { "base": 3 }
+  },
+  "skills": [
+    {
+      "id": "athletics",
+      "label": "Athletics",
+      "rank": { "base": 7 },
+      "attribute": "strength",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 5 },
+      "specializations": [
+        {
+          "id": "running",
+          "label": "running",
+          "rank": { "base": 9 },
+          "attribute": "strength",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 5 }
+        },
+        {
+          "id": "ranged-defense",
+          "label": "ranged defense",
+          "rank": { "base": 7 },
+          "attribute": "agility",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 4 }
+        }
+      ]
+    },
+    {
+      "id": "close-combat",
+      "label": "Close Combat",
+      "rank": { "base": 6 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 4 },
+      "specializations": [
+        {
+          "id": null,
+          "label": "bite",
+          "rank": { "base": 8 },
+          "attribute": "agility",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 5 }
+        }
+      ]
+    },
+    {
+      "id": "perception",
+      "label": "Perception",
+      "rank": { "base": 6 },
+      "attribute": "logic",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 4 },
+      "specializations": [
+        {
+          "id": "physical",
+          "label": "physical",
+          "rank": { "base": 8 },
+          "attribute": "logic",
+          "rr": { "base": 2 },
+          "averageHits": { "base": 6 }
+        }
+      ]
+    },
+    {
+      "id": "influence",
+      "label": "Influence",
+      "rank": { "base": 3 },
+      "attribute": "charisma",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": [
+        {
+          "id": "intimidation",
+          "label": "intimidation",
+          "rank": { "base": 5 },
+          "attribute": "charisma",
+          "rr": { "base": 2 },
+          "averageHits": { "base": 6 }
+        }
+      ]
+    },
+    {
+      "id": "survival",
+      "label": "Survival",
+      "rank": { "base": 5 },
+      "attribute": "willpower",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": []
+    }
+  ],
+  "spells": [],
+  "weapons": [{ "name": "Bite", "dv": { "base": 5 }, "range": "OK/–/–/–" }],
+  "chooseWeapons": { "count": 0, "options": [] },
+  "equipment": [],
+  "woundThresholds": {
+    "physical": { "base": [7, 10, 13] },
+    "mental": { "base": [2, 5, 8] }
+  },
+  "requiredAmps": [
+    {
+      "name": "Dual-natured",
+      "kind": "power",
+      "summary": "Always present on both the physical and astral planes."
+    },
+    {
+      "name": "Enhanced senses",
+      "kind": "power",
+      "summary": "RR 2 on Perception (physical) Tests."
+    },
+    {
+      "name": "Fear",
+      "kind": "power",
+      "summary": "RR 2 on Influence (intimidation) Tests."
+    },
+    {
+      "name": "Paralyzing howl",
+      "kind": "power",
+      "summary": "Influence (intimidation) + Charisma vs. Survival (composure) + Willpower Test against targets who hear the howl. On a failure, the target cannot act for one turn per net hit of the barghest."
+    },
+    {
+      "name": "Thick hide",
+      "kind": "quality",
+      "summary": "Armor 3."
+    }
+  ],
+  "chooseAmps": { "count": 0, "options": [] }
+}

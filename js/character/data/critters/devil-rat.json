@@ -1,0 +1,99 @@
+{
+  "id": "devil-rat",
+  "label": "Devil Rat",
+  "source": { "book": "SRA2", "page": 260 },
+  "powerLevels": [],
+  "attributes": {
+    "strength": { "base": 1 },
+    "agility": { "base": 3 },
+    "willpower": { "base": 1 },
+    "logic": { "base": 1 },
+    "charisma": { "base": 1 }
+  },
+  "skills": [
+    {
+      "id": "athletics",
+      "label": "Athletics",
+      "rank": { "base": 5 },
+      "attribute": "strength",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": [
+        {
+          "id": "ranged-defense",
+          "label": "ranged defense",
+          "rank": { "base": 5 },
+          "attribute": "agility",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 4 }
+        }
+      ]
+    },
+    {
+      "id": "close-combat",
+      "label": "Close Combat",
+      "rank": { "base": 5 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 4 },
+      "specializations": []
+    },
+    {
+      "id": "stealth",
+      "label": "Stealth",
+      "rank": { "base": 6 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 4 },
+      "specializations": [
+        {
+          "id": "physical-sneaking",
+          "label": "physical sneaking",
+          "rank": { "base": 8 },
+          "attribute": "agility",
+          "rr": { "base": 1 },
+          "averageHits": { "base": 6 }
+        }
+      ]
+    },
+    {
+      "id": "perception",
+      "label": "Perception",
+      "rank": { "base": 3 },
+      "attribute": "logic",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 2 },
+      "specializations": [
+        {
+          "id": "physical",
+          "label": "physical",
+          "rank": { "base": 5 },
+          "attribute": "logic",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 3 }
+        }
+      ]
+    }
+  ],
+  "spells": [],
+  "weapons": [{ "name": "Bite & claws", "dv": { "base": 1 }, "range": "OK/–/–/–" }],
+  "chooseWeapons": { "count": 0, "options": [] },
+  "equipment": [],
+  "woundThresholds": {
+    "physical": { "base": [1, 4, 7] },
+    "mental": { "base": [1, 4, 7] }
+  },
+  "requiredAmps": [
+    {
+      "name": "Animal control",
+      "kind": "power",
+      "summary": "Surrounding rats obey simple commands."
+    },
+    {
+      "name": "Concealment",
+      "kind": "power",
+      "summary": "RR 1 on Stealth (physical sneaking) Tests."
+    }
+  ],
+  "chooseAmps": { "count": 0, "options": [] }
+}

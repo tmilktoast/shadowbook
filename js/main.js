@@ -50,6 +50,7 @@ import { PREGENS, getPregen } from "./character/pregens.js";
 import { setKindOverride } from "./character/characterKindOverrides.js";
 import { resolveVariant } from "./character/template.js";
 import { TEMPLATES, getTemplate } from "./character/templates.js";
+import { CRITTERS, getCritter } from "./character/critters.js";
 import {
   loadMinorCharacters,
   saveMinorCharacter,
@@ -1317,6 +1318,14 @@ function renderTemplateAmpOption(option) {
   return `<li><strong>${option.name}</strong>${option.kind ? ` (${option.kind})` : ""}: ${option.summary}</li>`;
 }
 
+// chooseAmps/chooseWeapons' `count` is usually a plain number, but a
+// power-scaled Spirit (critters.js) sometimes prints a different count
+// per power level ("CHOOSE 1/2/2 SHADOW AMPS") — there it's a
+// VariantValue instead, resolved the same way as any other field.
+function resolveChooseCount(count, metatype) {
+  return typeof count === "number" ? count : resolveVariant(count, { metatype });
+}
+
 function renderTemplateBody(template, metatype) {
   const attrSummary = Object.entries(template.attributes)
     .map(
@@ -1335,13 +1344,16 @@ function renderTemplateBody(template, metatype) {
     ${template.spells.length ? `<h4>Spells</h4><ul class="template-stat-list">${template.spells.map((s) => `<li>${s}</li>`).join("")}</ul>` : ""}
   `;
 
+  const chooseWeaponsCount = resolveChooseCount(template.chooseWeapons.count, metatype);
+  const chooseAmpsCount = resolveChooseCount(template.chooseAmps.count, metatype);
+
   const rightColumn = `
     <h4>Weapons</h4>
     ${renderTemplateWeaponList(template.weapons, metatype)}
 
     ${
-      template.chooseWeapons.count
-        ? `<h4>Choose ${template.chooseWeapons.count} Weapon${template.chooseWeapons.count > 1 ? "s" : ""}</h4>${renderTemplateWeaponList(template.chooseWeapons.options, metatype)}`
+      chooseWeaponsCount
+        ? `<h4>Choose ${chooseWeaponsCount} Weapon${chooseWeaponsCount > 1 ? "s" : ""}</h4>${renderTemplateWeaponList(template.chooseWeapons.options, metatype)}`
         : ""
     }
 
@@ -1357,8 +1369,8 @@ function renderTemplateBody(template, metatype) {
     }
 
     ${
-      template.chooseAmps.count
-        ? `<h4>Choose ${template.chooseAmps.count} Shadow Amp${template.chooseAmps.count > 1 ? "s" : ""}</h4>${templateNoteLine(template.chooseAmps.note)}<ul class="template-stat-list">${template.chooseAmps.options.map(renderTemplateAmpOption).join("")}</ul>`
+      chooseAmpsCount
+        ? `<h4>Choose ${chooseAmpsCount} Shadow Amp${chooseAmpsCount > 1 ? "s" : ""}</h4>${templateNoteLine(template.chooseAmps.note)}<ul class="template-stat-list">${template.chooseAmps.options.map(renderTemplateAmpOption).join("")}</ul>`
         : ""
     }
   `;
@@ -1425,6 +1437,95 @@ function renderTemplateExpandedContent(template) {
     </div>
   `;
 }
+
+// --- Critters (Character Database) ---
+// Same card/accordion treatment as Templates (and literally the same
+// renderTemplateBody() — see template.js's doc comment on why Critters
+// reuse that shape). The only UI difference: a fixed critter gets no
+// picker at all (its body is rendered once), while a power-scaled Spirit
+// gets a Minor/Regular/Major picker in place of the Templates' metatype
+// picker — same resolveVariant() mechanism, just a different kind of key.
+function renderCritterListRow(critter) {
+  const attrSummary = Object.entries(critter.attributes)
+    .map(([id, field]) => `${attributeAbbrev(id)} ${resolveVariant(field)}`)
+    .join(" · ");
+
+  return `
+    <div class="template-row-wrap">
+      <button
+        type="button"
+        class="catalog-entry character-row template-toggle"
+        data-critter-id="${critter.id}"
+        aria-expanded="false"
+      >
+        <div class="catalog-entry-header">
+          <span class="catalog-entry-name">${critter.label}</span>
+        </div>
+        <div class="catalog-entry-meta">
+          <span>${attrSummary}</span>
+        </div>
+      </button>
+      <div class="template-expand" hidden></div>
+    </div>
+  `;
+}
+
+function renderCritterExpandedContent(critter) {
+  const sourceLine = critter.official
+    ? `<div class="catalog-entry-meta"><span>Source: <span class="source-badge">${critter.source.book}</span> ${critter.source.page}</span></div>`
+    : "";
+
+  if (!critter.powerLevels.length) {
+    return `
+      <div class="template-card">
+        ${sourceLine}
+        <div class="template-detail-body">${renderTemplateBody(critter, undefined)}</div>
+      </div>
+    `;
+  }
+
+  const levelOptions = ["minor", ...critter.powerLevels]
+    .map(
+      (level) =>
+        `<option value="${level === "minor" ? "" : level}">${titleCase(level)}</option>`,
+    )
+    .join("");
+
+  return `
+    <div class="template-card">
+      ${sourceLine}
+      <div class="tool-controls">
+        <label for="critter-power-select-${critter.id}">Power level:</label>
+        <select id="critter-power-select-${critter.id}" class="critter-power-select">${levelOptions}</select>
+      </div>
+      <div class="template-detail-body"></div>
+    </div>
+  `;
+}
+
+const critterDatabaseList = document.getElementById("critter-database-list");
+critterDatabaseList.innerHTML = CRITTERS.map(renderCritterListRow).join("");
+
+critterDatabaseList.addEventListener("click", (event) => {
+  const toggle = event.target.closest(".template-toggle");
+  if (!toggle) return;
+
+  const expand = toggleAccordion(critterDatabaseList, toggle);
+  if (!expand) return;
+
+  const critter = getCritter(toggle.dataset.critterId);
+  expand.innerHTML = renderCritterExpandedContent(critter);
+
+  const powerSelect = expand.querySelector(".critter-power-select");
+  if (powerSelect) {
+    const detailBody = expand.querySelector(".template-detail-body");
+    const updateExpanded = () => {
+      detailBody.innerHTML = renderTemplateBody(critter, powerSelect.value || undefined);
+    };
+    powerSelect.addEventListener("change", updateExpanded);
+    updateExpanded();
+  }
+});
 
 // Default view is a clickable list (like the Amp Catalog); a link's
 // "?character=<id>" query param switches this to a single full

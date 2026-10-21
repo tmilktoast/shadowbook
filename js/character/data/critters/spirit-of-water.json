@@ -1,0 +1,184 @@
+{
+  "id": "spirit-of-water",
+  "label": "Spirit of Water",
+  "source": { "book": "SRA2", "page": 265 },
+  "powerLevels": ["regular", "major"],
+  "attributes": {
+    "strength": { "base": 2, "variants": { "regular": 3, "major": 4 } },
+    "agility": { "base": 3, "variants": { "regular": 4, "major": 5 } },
+    "willpower": { "base": 2, "variants": { "regular": 3, "major": 4 } },
+    "logic": { "base": 2, "variants": { "regular": 3, "major": 4 } },
+    "charisma": { "base": 3, "variants": { "regular": 4, "major": 5 } }
+  },
+  "skills": [
+    {
+      "id": "athletics",
+      "label": "Athletics",
+      "rank": { "base": 2, "variants": { "regular": 4, "major": 6 } },
+      "attribute": "strength",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 2, "variants": { "regular": 3, "major": 4 } },
+      "specializations": [
+        {
+          "id": "ranged-defense",
+          "label": "ranged defense",
+          "rank": { "base": 2, "variants": { "regular": 4, "major": 6 } },
+          "attribute": "agility",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 3, "variants": { "regular": 4, "major": 5 } }
+        }
+      ]
+    },
+    {
+      "id": "ranged-weapons",
+      "label": "Ranged Weapons",
+      "rank": { "base": 2, "variants": { "regular": 4, "major": 6 } },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3, "variants": { "regular": 4, "major": 5 } },
+      "specializations": [
+        {
+          "id": "elemental-attack",
+          "label": "elemental attack",
+          "rank": { "base": 2, "variants": { "regular": 4, "major": 6 } },
+          "attribute": "agility",
+          "rr": { "base": 0, "variants": { "regular": 1, "major": 2 } },
+          "averageHits": { "base": 3, "variants": { "regular": 5, "major": 7 } }
+        }
+      ]
+    },
+    {
+      "id": "close-combat",
+      "label": "Close Combat",
+      "rank": { "base": 2, "variants": { "regular": 4, "major": 6 } },
+      "attribute": "agility",
+      "rr": {
+        "base": 0,
+        "ampVariant": { "amp": "Engulf", "base": 0, "variants": { "regular": 1, "major": 2 } }
+      },
+      "averageHits": {
+        "base": 3,
+        "variants": { "regular": 4, "major": 5 },
+        "ampVariant": { "amp": "Engulf", "base": 3, "variants": { "regular": 5, "major": 7 } }
+      },
+      "specializations": [
+        {
+          "id": "toxic-engulf",
+          "label": "Toxic engulf",
+          "rank": { "base": 2, "variants": { "regular": 4, "major": 6 } },
+          "attribute": "agility",
+          "rr": { "base": 1, "variants": { "regular": 2, "major": 3 } },
+          "averageHits": { "base": 4, "variants": { "regular": 6, "major": 8 } },
+          "note": "[Sludge toxic spirits only] Not a RAW Specialization — the book prints this as a second '[with toxic engulf ...]' bracket directly on Close Combat (stacking RR +1/+1/+1 and 2 more average hits atop the Engulf Amp's own bracket). Recorded as its own entry here because the schema's ampVariant supports only one Amp per field and Close Combat's is already used by Engulf; see this Amp's matching entry in requiredAmps for the flat RR+1/DV+1 rule as printed."
+        },
+        {
+          "id": "astral-combat",
+          "label": "astral combat",
+          "rank": { "base": 2, "variants": { "regular": 4, "major": 6 } },
+          "attribute": "willpower",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 2, "variants": { "regular": 3, "major": 4 } }
+        }
+      ]
+    },
+    {
+      "id": "stealth",
+      "label": "Stealth",
+      "rank": { "base": 2, "variants": { "regular": 4, "major": 6 } },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3, "variants": { "regular": 4, "major": 5 } },
+      "specializations": []
+    },
+    {
+      "id": "survival",
+      "label": "Survival",
+      "rank": { "base": 2, "variants": { "regular": 4, "major": 6 } },
+      "attribute": "logic",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 2, "variants": { "regular": 3, "major": 4 } },
+      "specializations": []
+    },
+    {
+      "id": "perception",
+      "label": "Perception",
+      "rank": { "base": 2, "variants": { "regular": 4, "major": 6 } },
+      "attribute": "logic",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 2, "variants": { "regular": 3, "major": 4 } },
+      "specializations": []
+    }
+  ],
+  "spells": [],
+  "weapons": [
+    { "name": "Unarmed", "dv": { "base": 2, "variants": { "regular": 3, "major": 4 } }, "range": "OK/–/–/–" },
+    { "name": "Engulf", "dv": { "base": 4, "variants": { "regular": 5, "major": 7 } }, "range": "OK/–/–/–" },
+    { "name": "Toxic engulf", "dv": { "base": 5, "variants": { "regular": 6, "major": 8 } }, "range": "OK/–/–/–" },
+    {
+      "name": "Water elemental attack",
+      "dv": { "base": 4, "variants": { "regular": 5, "major": 6 } },
+      "range": "OK/OK/Dis./–",
+      "note": "Target knocked down if damage is dealt."
+    },
+    { "name": "Astral combat", "dv": { "base": 3, "variants": { "regular": 4, "major": 5 } }, "range": "OK/–/–/–" }
+  ],
+  "chooseWeapons": { "count": 0, "options": [] },
+  "equipment": [],
+  "woundThresholds": {
+    "physical": {
+      "base": [5, 8, 11],
+      "variants": { "regular": [7, 10, 13], "major": [9, 12, 15] },
+      "ampVariant": {
+        "amp": "Immunity to normal weapons",
+        "base": [2, 5, 8],
+        "variants": { "regular": [3, 6, 9], "major": [4, 7, 10] }
+      }
+    },
+    "mental": {
+      "base": [2, 5, 8],
+      "variants": { "regular": [3, 6, 9], "major": [4, 7, 10] }
+    }
+  },
+  "requiredAmps": [
+    {
+      "name": "Immunity to normal weapons",
+      "kind": "power",
+      "summary": "Armor 3/4/5 (minor/regular/major) against normal weapons."
+    },
+    {
+      "name": "Materialization",
+      "kind": "power",
+      "summary": "The spirit, native to the astral plane, can materialize on the physical plane, temporarily becoming dual-natured."
+    },
+    {
+      "name": "Engulf",
+      "kind": "power",
+      "summary": "RR 0/1/2 (minor/regular/major) on Close Combat Tests; close combat DV +2/+2/+3."
+    },
+    {
+      "name": "Toxic engulf",
+      "kind": "power",
+      "summary": "[Sludge toxic spirits only] RR 1 on Close Combat Tests, engulf DV +1 (flat, stacking on the Engulf Amp at every power level)."
+    }
+  ],
+  "chooseAmps": {
+    "count": { "base": 1, "variants": { "regular": 2, "major": 2 } },
+    "options": [
+      {
+        "name": "Concealment",
+        "kind": "power",
+        "summary": "Provides RR 1/2/3 (minor/regular/major) on target's Stealth (physical and astral sneaking) Tests."
+      },
+      {
+        "name": "Water elemental attack",
+        "kind": "power",
+        "summary": "RR 0/1/2 (minor/regular/major) on Ranged Weapons (elemental attack) Tests."
+      },
+      {
+        "name": "Movement",
+        "kind": "power",
+        "summary": "Can multiply or divide by 2/3/4 (minor/regular/major) the speed of a critter or vehicle up to the size of a sedan in water-related locations."
+      }
+    ]
+  }
+}

@@ -1,0 +1,210 @@
+{
+  "id": "spirit-of-beasts",
+  "label": "Spirit of Beasts",
+  "source": { "book": "SRA2", "page": 263 },
+  "powerLevels": ["regular", "major"],
+  "attributes": {
+    "strength": { "base": 3, "variants": { "regular": 4, "major": 5 } },
+    "agility": { "base": 3, "variants": { "regular": 4, "major": 5 } },
+    "willpower": { "base": 3, "variants": { "regular": 4, "major": 5 } },
+    "logic": { "base": 2, "variants": { "regular": 3, "major": 4 } },
+    "charisma": { "base": 2, "variants": { "regular": 3, "major": 4 } }
+  },
+  "skills": [
+    {
+      "id": "athletics",
+      "label": "Athletics",
+      "rank": { "base": 2, "variants": { "regular": 4, "major": 6 } },
+      "attribute": "strength",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3, "variants": { "regular": 4, "major": 5 } },
+      "specializations": [
+        {
+          "id": "ranged-defense",
+          "label": "ranged defense",
+          "rank": { "base": 2, "variants": { "regular": 4, "major": 6 } },
+          "attribute": "agility",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 3, "variants": { "regular": 4, "major": 5 } }
+        }
+      ]
+    },
+    {
+      "id": "close-combat",
+      "label": "Close Combat",
+      "rank": { "base": 2, "variants": { "regular": 4, "major": 6 } },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3, "variants": { "regular": 4, "major": 5 } },
+      "specializations": [
+        {
+          "id": null,
+          "label": "bite & claws",
+          "rank": { "base": 4, "variants": { "regular": 6, "major": 8 } },
+          "attribute": "agility",
+          "rr": {
+            "base": 0,
+            "ampVariant": { "amp": "Fury", "base": 1, "variants": { "regular": 2, "major": 3 } }
+          },
+          "averageHits": {
+            "base": 3,
+            "variants": { "regular": 4, "major": 5 },
+            "ampVariant": { "amp": "Fury", "base": 4, "variants": { "regular": 6, "major": 8 } }
+          }
+        },
+        {
+          "id": "astral-combat",
+          "label": "astral combat",
+          "rank": { "base": 2, "variants": { "regular": 4, "major": 6 } },
+          "attribute": "willpower",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 3, "variants": { "regular": 4, "major": 5 } }
+        }
+      ]
+    },
+    {
+      "id": "stealth",
+      "label": "Stealth",
+      "rank": { "base": 2, "variants": { "regular": 4, "major": 6 } },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3, "variants": { "regular": 4, "major": 5 } },
+      "specializations": []
+    },
+    {
+      "id": "survival",
+      "label": "Survival",
+      "rank": { "base": 2, "variants": { "regular": 4, "major": 6 } },
+      "attribute": "logic",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 2, "variants": { "regular": 3, "major": 4 } },
+      "specializations": []
+    },
+    {
+      "id": "perception",
+      "label": "Perception",
+      "rank": { "base": 2, "variants": { "regular": 4, "major": 6 } },
+      "attribute": "logic",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 2, "variants": { "regular": 3, "major": 4 } },
+      "specializations": [
+        {
+          "id": "physical",
+          "label": "physical",
+          "rank": { "base": 4, "variants": { "regular": 6, "major": 8 } },
+          "attribute": "logic",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 3, "variants": { "regular": 4, "major": 5 } }
+        }
+      ]
+    },
+    {
+      "id": "influence",
+      "label": "Influence",
+      "rank": { "base": 2, "variants": { "regular": 4, "major": 6 } },
+      "attribute": "charisma",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 2, "variants": { "regular": 3, "major": 4 } },
+      "specializations": [
+        {
+          "id": "intimidation",
+          "label": "intimidation",
+          "rank": { "base": 4, "variants": { "regular": 6, "major": 8 } },
+          "attribute": "charisma",
+          "rr": {
+            "base": 0,
+            "ampVariant": { "amp": "Fear", "base": 1, "variants": { "regular": 2, "major": 3 } }
+          },
+          "averageHits": {
+            "base": 3,
+            "variants": { "regular": 4, "major": 5 },
+            "ampVariant": { "amp": "Fear", "base": 4, "variants": { "regular": 6, "major": 8 } }
+          }
+        }
+      ]
+    }
+  ],
+  "spells": [],
+  "weapons": [
+    {
+      "name": "Bite & claws",
+      "dv": { "base": 4, "variants": { "regular": 6, "major": 8 } },
+      "range": "OK/–/–/–",
+      "note": "With venom (if chosen): causes Disadvantage on all the target's Tests until healed. With corrosive spit [Abominations toxic spirits only]: reduces target Armor by 1/2/3 (minor/regular/major, stackable)."
+    },
+    {
+      "name": "Astral combat",
+      "dv": { "base": 2, "variants": { "regular": 3, "major": 4 } },
+      "range": "OK/–/–/–"
+    }
+  ],
+  "chooseWeapons": { "count": 0, "options": [] },
+  "equipment": [],
+  "woundThresholds": {
+    "physical": {
+      "base": [6, 9, 12],
+      "variants": { "regular": [8, 11, 14], "major": [10, 13, 16] },
+      "ampVariant": {
+        "amp": "Immunity to normal weapons",
+        "base": [3, 6, 9],
+        "variants": { "regular": [4, 7, 10], "major": [5, 8, 11] }
+      }
+    },
+    "mental": {
+      "base": [3, 6, 9],
+      "variants": { "regular": [4, 7, 10], "major": [5, 8, 11] }
+    }
+  },
+  "requiredAmps": [
+    {
+      "name": "Immunity to normal weapons",
+      "kind": "power",
+      "summary": "Armor 3/4/5 (minor/regular/major) against normal weapons."
+    },
+    {
+      "name": "Materialization",
+      "kind": "power",
+      "summary": "The spirit, native to the astral plane, can materialize on the physical plane, temporarily becoming dual-natured."
+    },
+    {
+      "name": "Sharp claws",
+      "kind": "power",
+      "summary": "Claws DV +1/+2/+3 (minor/regular/major)."
+    },
+    {
+      "name": "Corrosive spit",
+      "kind": "power",
+      "summary": "[Abominations toxic spirits only] Successful close combat attacks lower target Armor by 1/2/3 (minor/regular/major, stackable) on top of regular damage."
+    }
+  ],
+  "chooseAmps": {
+    "count": { "base": 1, "variants": { "regular": 2, "major": 2 } },
+    "options": [
+      {
+        "name": "Fury",
+        "kind": "power",
+        "summary": "RR 1/2/3 (minor/regular/major) on Close Combat (bite & claws) Tests."
+      },
+      {
+        "name": "Fear",
+        "kind": "power",
+        "summary": "RR 1/2/3 (minor/regular/major) on Influence (intimidation) Tests."
+      },
+      {
+        "name": "Animal control",
+        "kind": "power",
+        "summary": "Surrounding mundane critters obey simple commands. Limited to a swarm of very small critters (rats or smaller), three dozens of small critters (cats or smaller), or six large critters."
+      },
+      {
+        "name": "Search",
+        "kind": "power",
+        "summary": "May find someone within roughly one scene on a successful Perception Test (threshold is the GM's call)."
+      },
+      {
+        "name": "Venom",
+        "kind": "power",
+        "summary": "Successful close combat attacks cause Disadvantage on all the target's Tests."
+      }
+    ]
+  }
+}

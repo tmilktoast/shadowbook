@@ -1,0 +1,132 @@
+{
+  "id": "shiawase-cyber-tiger",
+  "label": "Shiawase Cyber-Tiger",
+  "source": { "book": "SRA2", "page": 257 },
+  "powerLevels": [],
+  "attributes": {
+    "strength": { "base": 5 },
+    "agility": { "base": 4 },
+    "willpower": { "base": 2 },
+    "logic": { "base": 1 },
+    "charisma": { "base": 2 }
+  },
+  "skills": [
+    {
+      "id": "athletics",
+      "label": "Athletics",
+      "rank": { "base": 6 },
+      "attribute": "strength",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 5 },
+      "specializations": [
+        {
+          "id": "ranged-defense",
+          "label": "ranged defense",
+          "rank": { "base": 6 },
+          "attribute": "agility",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 4 }
+        }
+      ]
+    },
+    {
+      "id": "close-combat",
+      "label": "Close Combat",
+      "rank": { "base": 6 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 4 },
+      "specializations": [
+        {
+          "id": null,
+          "label": "bite & claws",
+          "rank": { "base": 8 },
+          "attribute": "agility",
+          "rr": { "base": 1 },
+          "averageHits": { "base": 6 }
+        }
+      ]
+    },
+    {
+      "id": "stealth",
+      "label": "Stealth",
+      "rank": { "base": 5 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 4 },
+      "specializations": [
+        {
+          "id": "physical-sneaking",
+          "label": "physical sneaking",
+          "rank": { "base": 7 },
+          "attribute": "agility",
+          "rr": { "base": 2 },
+          "averageHits": { "base": 7 }
+        }
+      ]
+    },
+    {
+      "id": "perception",
+      "label": "Perception",
+      "rank": { "base": 5 },
+      "attribute": "logic",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": [
+        {
+          "id": "physical",
+          "label": "physical",
+          "rank": { "base": 7 },
+          "attribute": "logic",
+          "rr": { "base": 1 },
+          "averageHits": { "base": 5 }
+        }
+      ]
+    },
+    {
+      "id": "survival",
+      "label": "Survival",
+      "rank": { "base": 6 },
+      "attribute": "willpower",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 4 },
+      "specializations": []
+    }
+  ],
+  "spells": [],
+  "weapons": [{ "name": "Bite & claws", "dv": { "base": 7 }, "range": "OK/–/–/–" }],
+  "chooseWeapons": { "count": 0, "options": [] },
+  "equipment": [],
+  "woundThresholds": {
+    "physical": { "base": [9, 12, 15] },
+    "mental": { "base": [2, 5, 8] }
+  },
+  "requiredAmps": [
+    {
+      "name": "Enhanced senses",
+      "kind": "quality",
+      "summary": "RR 1 on Perception (physical) Tests."
+    },
+    {
+      "name": "Reaction enhancer",
+      "kind": "cyberware",
+      "summary": "+1 action per narration."
+    },
+    {
+      "name": "Orthoskin with ruthenium coating",
+      "kind": "cyberware",
+      "summary": "Armor 4; RR 2 on Stealth (physical sneaking) Tests."
+    },
+    {
+      "name": "Titanium bone lacing",
+      "kind": "cyberware",
+      "summary": "Bite & claws DV +1; +1 serious wound box."
+    },
+    {
+      "name": "Muscle toner",
+      "kind": "bioware",
+      "summary": "RR 1 on Close Combat Tests (bite & claws)."
+    }
+  ],
+  "chooseAmps": { "count": 0, "options": [] }
+}

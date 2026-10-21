@@ -1,0 +1,74 @@
+{
+  "id": "watcher",
+  "label": "Watcher",
+  "source": { "book": "SRA2", "page": 262 },
+  "powerLevels": [],
+  "attributes": {
+    "strength": { "base": 1 },
+    "agility": { "base": 1 },
+    "willpower": { "base": 1 },
+    "logic": { "base": 1 },
+    "charisma": { "base": 1 }
+  },
+  "skills": [
+    {
+      "id": "close-combat",
+      "label": "Close Combat",
+      "rank": { "base": 1 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 2 },
+      "specializations": [
+        {
+          "id": "astral-combat",
+          "label": "astral combat",
+          "rank": { "base": 3 },
+          "attribute": "willpower",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 2 }
+        }
+      ]
+    },
+    {
+      "id": "perception",
+      "label": "Perception",
+      "rank": { "base": 2 },
+      "attribute": "logic",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 2 },
+      "specializations": [
+        {
+          "id": "astral",
+          "label": "astral",
+          "rank": { "base": 4 },
+          "attribute": "logic",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 3 }
+        }
+      ]
+    }
+  ],
+  "spells": [],
+  "weapons": [
+    { "name": "Astral combat", "dv": { "base": 1 }, "range": "OK/–/–/–" }
+  ],
+  "chooseWeapons": { "count": 0, "options": [] },
+  "equipment": [],
+  "woundThresholds": {
+    "physical": { "base": [1, 4, 7] },
+    "mental": { "base": [1, 4, 7] }
+  },
+  "requiredAmps": [
+    {
+      "name": "Astral form",
+      "kind": "power",
+      "summary": "Exists only on the astral plane, but can manifest on the physical plane."
+    },
+    {
+      "name": "Search",
+      "kind": "power",
+      "summary": "May find someone within roughly one scene on a successful Perception Test (threshold is the GM's call)."
+    }
+  ],
+  "chooseAmps": { "count": 0, "options": [] }
+}

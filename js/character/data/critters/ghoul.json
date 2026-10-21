@@ -1,0 +1,146 @@
+{
+  "id": "ghoul",
+  "label": "Ghoul",
+  "source": { "book": "SRA2", "page": 259 },
+  "powerLevels": [],
+  "attributes": {
+    "strength": { "base": 4, "variants": { "ork": 5, "troll": 6 } },
+    "agility": { "base": 2 },
+    "willpower": { "base": 2, "variants": { "dwarf": 3 } },
+    "logic": { "base": 1 },
+    "charisma": { "base": 1, "variants": { "elf": 2 } }
+  },
+  "skills": [
+    {
+      "id": "athletics",
+      "label": "Athletics",
+      "rank": { "base": 3 },
+      "attribute": "strength",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3, "variants": { "ork": 4, "troll": 4 } },
+      "specializations": [
+        {
+          "id": "ranged-defense",
+          "label": "ranged defense",
+          "rank": { "base": 3 },
+          "attribute": "agility",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 3 }
+        }
+      ]
+    },
+    {
+      "id": "close-combat",
+      "label": "Close Combat",
+      "rank": { "base": 5 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": [
+        {
+          "id": "unarmed",
+          "label": "unarmed",
+          "rank": { "base": 7, "ampVariant": { "amp": "Feral ghoul", "base": 6 } },
+          "attribute": "agility",
+          "rr": { "base": 0, "ampVariant": { "amp": "Feral ghoul", "base": 1 } },
+          "averageHits": { "base": 4, "ampVariant": { "amp": "Feral ghoul", "base": 5 } },
+          "note": "The book prints two numbers for this line: 4 (7+A, RR 0) normally, and \"if feral ghouls 5 (6+A, RR 1)\". \"Feral ghoul\" is used here as an ampVariant toggle name — not a literal equippable Amp — to carry that book-printed civilized/feral split, matching the Ghoul quality's own \"(feral ghouls only)\" RR 1 bonus in requiredAmps."
+        }
+      ]
+    },
+    {
+      "id": "stealth",
+      "label": "Stealth",
+      "rank": { "base": 5 },
+      "attribute": "agility",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": []
+    },
+    {
+      "id": "perception",
+      "label": "Perception",
+      "rank": { "base": 4 },
+      "attribute": "logic",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 3 },
+      "specializations": [
+        {
+          "id": null,
+          "label": "hearing, smell",
+          "rank": { "base": 4 },
+          "attribute": "logic",
+          "rr": { "base": 1 },
+          "averageHits": { "base": 4 }
+        }
+      ]
+    },
+    {
+      "id": "influence",
+      "label": "Influence",
+      "rank": { "base": 2 },
+      "attribute": "charisma",
+      "rr": { "base": 0 },
+      "averageHits": { "base": 2 },
+      "specializations": [
+        {
+          "id": "intimidation",
+          "label": "intimidation",
+          "rank": { "base": 4 },
+          "attribute": "charisma",
+          "rr": { "base": 0 },
+          "averageHits": { "base": 3 }
+        }
+      ]
+    }
+  ],
+  "spells": [],
+  "weapons": [
+    {
+      "name": "Claws",
+      "dv": { "base": 4, "variants": { "ork": 5, "troll": 6 } },
+      "range": "OK/–/–/–"
+    }
+  ],
+  "chooseWeapons": { "count": 0, "options": [] },
+  "equipment": ["Commlink (except feral ghouls)", "Lined coat (Armor 2)"],
+  "woundThresholds": {
+    "physical": {
+      "base": [6, 9, 12],
+      "variants": { "ork": [7, 10, 13], "troll": [8, 11, 14] }
+    },
+    "mental": {
+      "base": [2, 5, 8],
+      "variants": { "dwarf": [3, 6, 9] }
+    },
+    "note": "The book also prints a fighting-spirit line here that this shape has no dedicated field for: low fighting spirit for a civilized ghoul, high fighting spirit for a feral ghoul — the same civilized/feral split used by the \"Feral ghoul\" ampVariant toggle on the Unarmed specialization and by the Ghoul quality in requiredAmps."
+  },
+  "requiredAmps": [
+    {
+      "name": "Blind",
+      "kind": "quality",
+      "summary": "Unaffected by the visual environment; RR 1 on Perception (hearing, smell) Tests."
+    },
+    {
+      "name": "Dual-natured",
+      "kind": "power",
+      "summary": "Always present on both the physical and astral planes."
+    },
+    {
+      "name": "Dietary requirement",
+      "kind": "quality",
+      "summary": "Feeds exclusively on metahuman flesh."
+    },
+    {
+      "name": "Infection",
+      "kind": "quality",
+      "summary": "Wounds inflicted on others can cause HMHVV infection, at the GM's discretion."
+    },
+    {
+      "name": "Ghoul",
+      "kind": "quality",
+      "summary": "+1 light wound threshold; feral ghouls additionally get RR 1 on Close Combat (unarmed) Tests."
+    }
+  ],
+  "chooseAmps": { "count": 0, "options": [] }
+}
