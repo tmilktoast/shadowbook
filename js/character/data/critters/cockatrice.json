@@ -1,6 +1,7 @@
 {
   "id": "cockatrice",
   "label": "Cockatrice",
+  "portrait": "/portraits/critters/cockatrice.jpg",
   "source": { "book": "SRA2", "page": 259 },
   "powerLevels": [],
   "attributes": {

@@ -1050,9 +1050,12 @@ function renderWoundTable(character) {
   `;
 }
 
-function renderPortrait(character) {
+// `name` is passed explicitly (rather than assumed from a `streetname`
+// field) so this works for both Prime Characters and Critters, which
+// name themselves differently (`streetname` vs. `label`).
+function renderPortrait(character, name) {
   if (character.portrait) {
-    return `<img class="character-portrait" src="${character.portrait}" alt="${character.streetname} portrait" />`;
+    return `<img class="character-portrait" src="${character.portrait}" alt="${name} portrait" />`;
   }
   return `
     <div class="character-portrait character-portrait-placeholder">
@@ -1186,7 +1189,7 @@ function renderCharacterCard(character) {
         </div>
 
         <div class="character-sidebar">
-          ${renderPortrait(character)}
+          ${renderPortrait(character, character.streetname)}
 
           <h4>Keywords</h4>
           <ul class="character-tagged-list">${keywords.map((k) => `<li>${k}</li>`).join("")}</ul>
@@ -1458,11 +1461,16 @@ function renderCritterListRow(critter) {
         data-critter-id="${critter.id}"
         aria-expanded="false"
       >
-        <div class="catalog-entry-header">
-          <span class="catalog-entry-name">${critter.label}</span>
-        </div>
-        <div class="catalog-entry-meta">
-          <span>${attrSummary}</span>
+        <div class="character-row-main">
+          ${renderPortraitThumb(critter)}
+          <div>
+            <div class="catalog-entry-header">
+              <span class="catalog-entry-name">${critter.label}</span>
+            </div>
+            <div class="catalog-entry-meta">
+              <span>${attrSummary}</span>
+            </div>
+          </div>
         </div>
       </button>
       <div class="template-expand" hidden></div>
@@ -1474,11 +1482,15 @@ function renderCritterExpandedContent(critter) {
   const sourceLine = critter.official
     ? `<div class="catalog-entry-meta"><span>Source: <span class="source-badge">${critter.source.book}</span> ${critter.source.page}</span></div>`
     : "";
+  const portrait = critter.portrait
+    ? `<div class="template-portrait">${renderPortrait(critter, critter.label)}</div>`
+    : "";
 
   if (!critter.powerLevels.length) {
     return `
       <div class="template-card">
         ${sourceLine}
+        ${portrait}
         <div class="template-detail-body">${renderTemplateBody(critter, undefined)}</div>
       </div>
     `;
@@ -1494,6 +1506,7 @@ function renderCritterExpandedContent(critter) {
   return `
     <div class="template-card">
       ${sourceLine}
+      ${portrait}
       <div class="tool-controls">
         <label for="critter-power-select-${critter.id}">Power level:</label>
         <select id="critter-power-select-${critter.id}" class="critter-power-select">${levelOptions}</select>
@@ -1507,6 +1520,12 @@ const critterDatabaseList = document.getElementById("critter-database-list");
 critterDatabaseList.innerHTML = CRITTERS.map(renderCritterListRow).join("");
 
 critterDatabaseList.addEventListener("click", (event) => {
+  const portrait = event.target.closest("img.character-portrait");
+  if (portrait) {
+    openPortraitLightbox(portrait);
+    return;
+  }
+
   const toggle = event.target.closest(".template-toggle");
   if (!toggle) return;
 

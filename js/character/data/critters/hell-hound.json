@@ -1,6 +1,7 @@
 {
   "id": "hell-hound",
   "label": "Hell Hound",
+  "portrait": "/portraits/critters/hell-hound.jpg",
   "source": { "book": "SRA2", "page": 257 },
   "powerLevels": [],
   "attributes": {

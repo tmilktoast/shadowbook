@@ -1,6 +1,7 @@
 {
   "id": "barghest",
   "label": "Barghest",
+  "portrait": "/portraits/critters/barghest.jpg",
   "source": { "book": "SRA2", "page": 257 },
   "powerLevels": [],
   "attributes": {

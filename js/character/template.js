@@ -76,6 +76,12 @@ export function createTemplate() {
     id: "",
     label: "", // e.g. "Ganger", "Elite Ganger / Crime Syndicate Enforcer"
 
+    // Critters only (none of the book's 25 Templates have art) — same
+    // convention as character.js's own `portrait`: a path/URL, or null for
+    // the placeholder icon. Book art, so only ever set for official
+    // critters with explicit authorization, same as the pregens.
+    portrait: null,
+
     // Critters only: non-empty (e.g. ["regular", "major"]) for a Spirit
     // that scales Minor/Regular/Major — see the big comment above. Empty
     // for every Template and for a fixed-stat Critter.

@@ -678,6 +678,19 @@ img.character-portrait {
   color: var(--color-text-muted);
 }
 
+/* Critters reuse the same .character-portrait img, but their art is
+   mostly landscape full-body creature shots (not a human bust), so the
+   circular 140x140 crop that suits the Prime Character sheet would
+   mangle them — show it as a plain rounded-rectangle thumbnail instead,
+   sized to the compact Template card it sits in. */
+.template-portrait .character-portrait {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  border-radius: 6px;
+  margin: 0 0 var(--spacing-sm);
+}
+
 /* Portrait lightbox: click a portrait to see it full-size. */
 .lightbox {
   position: fixed;

@@ -1,6 +1,7 @@
 {
   "id": "shiawase-cyber-tiger",
   "label": "Shiawase Cyber-Tiger",
+  "portrait": "/portraits/critters/shiawase-cyber-tiger.jpg",
   "source": { "book": "SRA2", "page": 257 },
   "powerLevels": [],
   "attributes": {
