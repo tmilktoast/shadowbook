@@ -30,14 +30,21 @@ No test suite, no linter configured yet.
 
 The goal is to run this as a TrueNAS SCALE app. `Dockerfile` is a
 multi-stage build (node → `vite build` → `nginxinc/nginx-unprivileged`
-serving `dist/` on port 8080, config in `nginx.conf`).
+serving `dist/` on port 8080, config in `nginx.conf`, plus a
+`HEALTHCHECK` so TrueNAS/`docker ps` show real container health).
 `.github/workflows/docker.yml` pushes the image to
-`ghcr.io/<owner>/<repo>` on pushes to main; `deploy/truenas-compose.yaml`
-is the "Install via YAML" snippet for TrueNAS. A server-side database is
-planned (for the Character Database, so data is shared across devices
-instead of per-browser localStorage) — that will mean adding a backend
-service alongside the static nginx container, with its data on a TrueNAS
-dataset.
+`ghcr.io/<owner>/<repo>` (confirmed public, pullable with no registry
+login) on pushes to main. Two install paths, same image either way:
+`deploy/truenas-custom-app.md` walks the Custom App wizard field by
+field (current as of TrueNAS SCALE 25.10 — labels shift release to
+release, values don't); `deploy/truenas-compose.yaml` is the "Install
+via YAML" snippet for older versions/a quicker path. No persistent
+storage or env vars needed yet — it's a static site. A server-side
+database is planned (for the Character Database, so data is shared
+across devices instead of per-browser localStorage) — that will mean
+adding a backend service alongside the static nginx container, with
+its data on a TrueNAS dataset, and will need both deploy docs revisited
+once it exists (storage/volumes wiring they currently skip).
 
 ## Structure
 
