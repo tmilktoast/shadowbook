@@ -79,6 +79,9 @@ js/names/
   conventionalName.js    "Normie" name generator, culture-based
   data/streetnames.json
   data/cultures/*.json   One file per culture (see "Name data" below)
+js/jobs/
+  operationTypes.js      OPERATION_TYPES (Job Generator data), getOperationType()
+  data/operationTypes.json
 js/data.js               Empty placeholder, not yet used
 reference/                Rulebook + reference PDFs (gitignored) — see "Reference material" below
 ```
@@ -204,6 +207,17 @@ reference/                Rulebook + reference PDFs (gitignored) — see "Refere
   personality traits ("Idealist"), Cues are typical sayings; both are
   how Edge is earned/spent. Not paired one-to-one — keep them as two
   flat string lists, no need to over-structure.
+- **Typical Operations** (core book p. 113, `js/jobs/operationTypes.js`/
+  `data/operationTypes.json`): first data piece for the Job Generator —
+  11 job categories (Extraction, Investigation, Infiltration, Theft,
+  Sabotage, Wetwork, Smash-and-Grab, Smuggling, Courier, Protection,
+  Deception), each with a paraphrased one-line description, same
+  JSON + `markAllOfficialById` pattern as `lifestyles.js`. Deliberately
+  left out the book's own flavor examples (the Manadyne/MCT/TerraFirst!
+  vignettes, copyrighted prose) and the two "Atypical Mission Types"
+  (Personal Quests, Reactive Situations) — the user pointed specifically
+  at "Typical Operations," so those weren't pulled in yet. No UI/
+  generator logic built on top of this yet, just the data model.
 - **Portraits** (`portrait` field on both `character.js`'s
   `createCharacter()` and `template.js`'s `createTemplate()`, the latter
   shared by Templates and Critters): a path under `public/portraits/`
@@ -268,11 +282,19 @@ these are copyrighted. For the same reason, paraphrase rules into data
 files and comments rather than pasting book text verbatim.
 
 - `sranarchy-20.pdf` — **the Anarchy 2.0 core rulebook, the authority on
-  rules.** Text-extractable with `pdftotext` (use it without `-layout`;
-  the two-column layout scrambles otherwise). Key spots (book page
-  numbers): Keywords/Dispositions/Cues p. 51, Lifestyle p. 164 ("A Place
-  to Rest"), official pregens from p. 88 — **the best source for real
-  example data** (attribute spreads, Keywords format, Shadow Amps, gear).
+  rules.** Text-extractable with `pdftotext`, but which mode depends on
+  the page: pregen character-sheet pages (grid/sidebar layout) extract
+  correctly *without* `-layout`. Two-column prose pages (most of the
+  book, e.g. p. 112-114's Mission Types) are the opposite — plain mode
+  scrambled heading/body pairing badly (confirmed p. 113: Infiltration's
+  worked example came out printed after the Sabotage heading), while
+  `-layout` preserved correct reading order. **When pulling prose text,
+  try both and sanity-check that each heading's body/example actually
+  matches it** before trusting the extraction. Key spots (book page
+  numbers): Keywords/Dispositions/Cues p. 51, Mission Types/Typical
+  Operations pp. 112-114, Lifestyle p. 164 ("A Place to Rest"), official
+  pregens from p. 88 — **the best source for real example data**
+  (attribute spreads, Keywords format, Shadow Amps, gear).
 - `1203_..._charsheet_editable_web_v1.pdf` — official blank character
   sheet (field layout, the Risk Rating dice-pool table).
 - `1205_..._conversion_sr6_to_sra_web_v1.pdf` — official SR6→Anarchy 2.0
@@ -292,7 +314,7 @@ files and comments rather than pasting book text verbatim.
 | Character Database | Working — four subtabs: Prime Characters (full Character sheets: 12 official pregens, all with portraits, + room for user-built PCs/major NPCs, PC/NPC tag), Minor Characters (NPC Generator output), Templates (all 25 non-critter NPC stat blocks from "Hell Is Other People," Ganger through Coyote/Smuggler, transcribed), Critters (all 18 critters from the same chapter, Barghest through Spirit of Water, transcribed — reuses Templates' exact data shape, see `js/character/critters.js`; the 6 that have book art — Barghest, Hell Hound, Shiawase Cyber-Tiger, Basilisk, Cockatrice, Ghoul — have portraits too, see "Portraits" under Design decisions) |
 | NPC Generator | Working — picks Template/Metatype/Gender/Name (each explicit or random), saves a `{ name, gender, metatype, templateId }` pointer into Minor Characters via `js/character/minorCharacters.js` |
 | Character Builder | Nav link only, no content yet — `js/character/character.js` has the full data model (createCharacter()), just no UI to build one interactively |
-| Job Generator | Nav link only, no content yet |
+| Job Generator | Nav link only, no UI yet — `js/jobs/operationTypes.js` has the first data piece (11 Typical Operations job categories, core book p. 113). Rest of the Campaign & Mission Tips chapter (Atypical Mission Types, campaign creation guide) not yet pulled in |
 | Amp Catalog | Working — browse/filter/sort the 172 book Amps (`catalog.js`) by section, rating, cost |
 | Amp Creator | Working — build a custom Shadow Amp (pick type, add effects from `AMP_EFFECTS`, live rating/cost and `validateAmp()` feedback), edit/delete saved ones |
 | `js/dice/sra.js` | Empty stub for Anarchy 2.0 pool/hit-counting rules, once read |
