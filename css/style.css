@@ -193,6 +193,26 @@ textarea {
 }
 
 /* Dice Roller */
+/* Spaced as a column here rather than on .tool-controls itself, since
+   other tools stack that class with their own margins. */
+#dice-roller {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+#dice-roller .section-heading {
+  margin: 0;
+}
+
+#dice-roller .tool-controls {
+  gap: var(--spacing-md);
+}
+
+#roll-results:empty {
+  display: none;
+}
+
 #dice-count,
 #pool-attribute-dice,
 #pool-skill-dice,
@@ -252,7 +272,6 @@ textarea {
 }
 
 #roll-results {
-  margin-top: var(--spacing-md);
   font-size: 1.1rem;
 }
 
@@ -393,10 +412,6 @@ textarea {
 }
 
 /* Roll history */
-.dice-roller-history {
-  margin-top: var(--spacing-lg);
-}
-
 .history-header {
   display: flex;
   align-items: center;
