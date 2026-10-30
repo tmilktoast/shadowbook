@@ -1,13 +1,13 @@
 /* Shadowbook — Shadowrun Anarchy 2.0 companion tools
 
 Planned features:
-1. Die roller
+1. Dice roller
 2. NPC / contact database
 3. Random NPC generator
 4. Player character builder
 5. Random job generator
 
-Starting with the die roller.
+Starting with the dice roller.
 */
 
 import { rollBasic, randInt } from "./dice/roll.js";
@@ -103,7 +103,7 @@ showTool(
     ? "character-database"
     : hasLinkedSection
       ? linkedSectionId
-      : "die-roller",
+      : "dice-roller",
 );
 
 const ampSubtabLinks = document.querySelectorAll("#shadow-amps .subtab-link");
@@ -137,7 +137,7 @@ showCharacterDbSubtab(
     : "character-database-prime",
 );
 
-// --- Die Roller ---
+// --- Dice Roller ---
 const rollModeSelect = document.getElementById("roll-mode");
 const genericRollControls = document.getElementById("generic-roll-controls");
 const poolRollControls = document.getElementById("pool-roll-controls");

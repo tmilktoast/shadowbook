@@ -1,4 +1,4 @@
-// Inline SVG dice faces for the Die Roller. Drawn in code (no image
+// Inline SVG dice faces for the Dice Roller. Drawn in code (no image
 // assets) so any die size works and colors come from CSS (see the .die
 // rules in style.css). Adapted from AlienTools' dice/diceSvg.js, with the
 // Alien-RPG-specific face markings (facehuggers, hit/panic glows) removed.

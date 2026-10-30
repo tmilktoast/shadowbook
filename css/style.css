@@ -162,7 +162,7 @@ textarea {
   margin-right: auto;
 }
 
-/* Shared across tool panels (Die Roller, Name Generator, ...) */
+/* Shared across tool panels (Dice Roller, Name Generator, ...) */
 .tool-controls {
   display: flex;
   align-items: center;
@@ -192,7 +192,7 @@ textarea {
   cursor: not-allowed;
 }
 
-/* Die Roller */
+/* Dice Roller */
 #dice-count,
 #pool-attribute-dice,
 #pool-skill-dice,
@@ -393,7 +393,7 @@ textarea {
 }
 
 /* Roll history */
-.die-roller-history {
+.dice-roller-history {
   margin-top: var(--spacing-lg);
 }
 

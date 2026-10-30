@@ -99,7 +99,7 @@ reference/                Rulebook + reference PDFs (gitignored) — see "Refere
 - **Reusable primitives over duplication**: `randInt()` in `dice/roll.js`
   is reused by both dice rolling and name generation. `.btn-primary`,
   `.btn-secondary`, `.tool-controls`, `.history-list`/`.history-item` CSS
-  classes are shared across Die Roller and Name Generator rather than each
+  classes are shared across Dice Roller and Name Generator rather than each
   tool growing its own near-duplicate styles. Follow this pattern for new
   tools — check for an existing reusable piece before adding a new one.
 - **Inline SVG instead of image assets** for both dice faces
@@ -309,7 +309,7 @@ files and comments rather than pasting book text verbatim.
 
 | Feature | Status |
 |---|---|
-| Die Roller | Working — Generic NdX mode, plus a "Shadowrun Anarchy" pool mode (default): Attribute+Skill dice, Risk Dice, RR, and an Advantage/Disadvantage stance slider (core book p. 65 — shifts which d6 faces count as hits: Disadvantage 6 only, Normal 5-6, Advantage 4-6) |
+| Dice Roller | Working — Generic NdX mode, plus a "Shadowrun Anarchy" pool mode (default): Attribute+Skill dice, Risk Dice, RR, and an Advantage/Disadvantage stance slider (core book p. 65 — shifts which d6 faces count as hits: Disadvantage 6 only, Normal 5-6, Advantage 4-6) |
 | Name Generator | Working — streetnames (two selectable generation methods, `js/names/streetname.js`: "Real Words" — Adjective+Noun or just a Noun, optional leetspeak; "Phonemes" — invented syllable combinations; or leave it Random) + conventional names, 7 cultures (3 are stubs) |
 | Character Database | Working — four subtabs: Prime Characters (full Character sheets: 12 official pregens, all with portraits, + room for user-built PCs/major NPCs, PC/NPC tag), Minor Characters (NPC Generator output), Templates (all 25 non-critter NPC stat blocks from "Hell Is Other People," Ganger through Coyote/Smuggler, transcribed), Critters (all 18 critters from the same chapter, Barghest through Spirit of Water, transcribed — reuses Templates' exact data shape, see `js/character/critters.js`; the 6 that have book art — Barghest, Hell Hound, Shiawase Cyber-Tiger, Basilisk, Cockatrice, Ghoul — have portraits too, see "Portraits" under Design decisions) |
 | NPC Generator | Working — picks Template/Metatype/Gender/Name (each explicit or random), saves a `{ name, gender, metatype, templateId }` pointer into Minor Characters via `js/character/minorCharacters.js` |
