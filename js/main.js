@@ -247,27 +247,25 @@ function rollPool() {
 
   const result = rollRiskPool({ pool, riskDice, rr, stance });
 
+  // Only the faces that matter: hits for the current stance, plus 1s on
+  // Risk Dice (glitches, which count whatever the stance).
   const dice = [
-    ...result.normalRolls.map((value) => [value, 6, isHit(value, stance) ? ["hit"] : []]),
-    ...result.riskRolls.map((value) => {
-      const classes = ["risk"];
-      if (isHit(value, stance)) classes.push("hit");
-      return [value, 6, classes];
-    }),
+    ...result.normalRolls
+      .filter((value) => isHit(value, stance))
+      .map((value) => [value, 6, ["hit"]]),
+    ...result.riskRolls
+      .filter((value) => isHit(value, stance) || value === 1)
+      .map((value) => [value, 6, isHit(value, stance) ? ["risk", "hit"] : ["risk"]]),
   ];
 
   const specNote = specialized ? ` + ${SPECIALIZATION_BONUS} (specialized)` : "";
   const stanceNote = stance !== "normal" ? ` (${stance})` : "";
   const label = `${attributeDice} (Attribute) + ${skillDice} (Skill)${specNote}${stanceNote}`;
   const riskNote = result.riskRolls.length ? ` (${result.riskRolls.length} risk)` : "";
-  const riskRollsText = result.riskRolls.length
-    ? ` + risk [${result.riskRolls.join(", ")}]`
-    : "";
 
   rollResults.innerHTML = `
     ${diceRow(dice.map(([value, s, classes]) => dieSvg(value, s, classes)))}
     <div>${label}: ${pool} dice${riskNote}</div>
-    <div>Rolls: [${result.normalRolls.join(", ")}]${riskRollsText}</div>
     <div class="accent">${result.totalHits} hit${result.totalHits === 1 ? "" : "s"}</div>
     ${
       result.riskRolls.length
