@@ -338,6 +338,12 @@ intended next steps, not yet designed or scoped in detail:
   Obsidian vault (not yet shared with/seen by Claude — ask for them, or
   for the user's vault conventions, before building this, rather than
   inventing a template structure from scratch).
+- **Export jobs to Obsidian and Foundry VTT** (noted 2026-10-30): the
+  Job Generator should offer both as export targets, once it generates
+  jobs. Tracking players' jobs stays out of this app on purpose — the
+  user does that in Obsidian and Foundry, so don't add a job
+  log/campaign tracker here. Same open questions as the two exports
+  above (Foundry target format, the user's Obsidian templates).
 - **PDF export for character sheets**: lower priority ("maybe"), likely
   Prime Characters only given the phrasing. No format/library decided.
 
