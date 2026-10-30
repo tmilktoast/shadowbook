@@ -247,15 +247,17 @@ function rollPool() {
 
   const result = rollRiskPool({ pool, riskDice, rr, stance });
 
-  // Only the faces that matter: hits for the current stance, plus 1s on
-  // Risk Dice (glitches, which count whatever the stance).
+  // Every die is drawn, but only the faces that matter show (hits for the
+  // current stance, plus 1s on Risk Dice, which glitch whatever the
+  // stance); the rest are blank (a null value, see dieSvg()).
   const dice = [
-    ...result.normalRolls
-      .filter((value) => isHit(value, stance))
-      .map((value) => [value, 6, ["hit"]]),
-    ...result.riskRolls
-      .filter((value) => isHit(value, stance) || value === 1)
-      .map((value) => [value, 6, isHit(value, stance) ? ["risk", "hit"] : ["risk"]]),
+    ...result.normalRolls.map((value) =>
+      isHit(value, stance) ? [value, 6, ["hit"]] : [null, 6, []],
+    ),
+    ...result.riskRolls.map((value) => {
+      if (isHit(value, stance)) return [value, 6, ["risk", "hit"]];
+      return [value === 1 ? 1 : null, 6, ["risk"]];
+    }),
   ];
 
   const specNote = specialized ? ` + ${SPECIALIZATION_BONUS} (specialized)` : "";

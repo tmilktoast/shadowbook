@@ -64,7 +64,7 @@ function labelText(value, sides) {
 
 /**
  * SVG markup for one die showing `value`.
- * @param {number} value - the face rolled
+ * @param {number|null} value - the face rolled; null draws a blank d6
  * @param {number} sides - die size; 6 draws pips, others draw a numbered shape
  * @param {string[]} [classes] - extra CSS classes, e.g. 'mini' for a small
  *   history-list version of the same die
@@ -72,7 +72,7 @@ function labelText(value, sides) {
 export function dieSvg(value, sides, classes = []) {
   let body;
   if (sides === 6) {
-    const pips = PIPS[value]
+    const pips = (PIPS[value] ?? [])
       .map(([cx, cy]) => `<circle class="pip" cx="${cx}" cy="${cy}" r="9" />`)
       .join("");
     body = `<g class="body">${D6_SHAPE}</g>${pips}`;
@@ -80,7 +80,7 @@ export function dieSvg(value, sides, classes = []) {
     body = `<g class="body">${SHAPES[sides] ?? DEFAULT_SHAPE}</g>${labelText(value, sides)}`;
   }
   const cls = ["die", ...classes].join(" ");
-  return `<svg class="${cls}" viewBox="0 0 100 100" role="img" aria-label="d${sides}: ${value}">${body}</svg>`;
+  return `<svg class="${cls}" viewBox="0 0 100 100" role="img" aria-label="d${sides}: ${value ?? "blank"}">${body}</svg>`;
 }
 
 /** Wraps a list of dieSvg() strings in a row, with an optional label above it. */
