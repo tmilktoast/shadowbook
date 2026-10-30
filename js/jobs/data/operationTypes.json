@@ -1,0 +1,47 @@
+{
+  "_note": "Core book, Typical Operations (p. 113) — the main categories of job shadowrunners get hired for. Descriptions are paraphrased, not quoted, and the book's own flavor examples (the Manadyne/MCT/TerraFirst! vignettes) are skipped for the same reason. Order follows the book's own listing. Most real missions mix several of these rather than being a pure single type.",
+  "extraction": {
+    "label": "Extraction",
+    "description": "Move a VIP out of their current situation, willing or not. Often plays out like a kidnapping when the target doesn't know they're being pulled out."
+  },
+  "investigation": {
+    "label": "Investigation",
+    "description": "Chase down physical, digital, or astral leads — find someone, pin a crime on them, vet a contact, recover something missing, or dig up dirt. Often feeds into a different job rather than being the whole point."
+  },
+  "infiltration": {
+    "label": "Infiltration",
+    "description": "Talk, bribe, or sneak your way into a secured location to gather intel or plant surveillance, rather than kicking in the front door."
+  },
+  "theft": {
+    "label": "Theft",
+    "description": "Take something the client can't buy, borrow, or beg for. The classic shadowrunner job."
+  },
+  "sabotage": {
+    "label": "Sabotage",
+    "description": "Cripple a target's facilities, gear, or reputation to blunt their ability to operate."
+  },
+  "wetwork": {
+    "label": "Wetwork",
+    "description": "Assassinate a target — a person, a rival operative, or a dangerous critter."
+  },
+  "smash-and-grab": {
+    "label": "Smash-and-Grab",
+    "description": "Hit a location hard and fast to grab a specific item or loot valuables, then get out before anyone can respond."
+  },
+  "smuggling": {
+    "label": "Smuggling",
+    "description": "Move illegal or sensitive cargo — goods, data, or people — across a border or through secured territory."
+  },
+  "courier": {
+    "label": "Courier",
+    "description": "Pick up a package or data and deliver it somewhere else without losing it, or getting caught holding it, along the way."
+  },
+  "protection": {
+    "label": "Protection",
+    "description": "Guard a person or location against an incoming threat, physical, digital, or magical."
+  },
+  "deception": {
+    "label": "Deception",
+    "description": "Plant false evidence, spread rumors, or otherwise run a smear campaign to shape what people believe about a target."
+  }
+}
